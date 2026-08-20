@@ -62,11 +62,17 @@ nav:
   - Functionality:
       - General:
           - Overview: tools/overview.md
+          - Worklist: tools/worklist.md
           - Characters: tools/characters.md
+          - Alarms: tools/alarms.md
+      - Universe:
+          - Universe Map: tools/universe-map.md
+          - Jump Planner: tools/jump-planner.md
       - Assets:
           - Assets: tools/assets.md
           - Item Browser: tools/item-browser.md
           - Inventory Levels: tools/inventory-levels.md
+          - Structure Browser: tools/structure-browser.md
       - Industry:
           - Industry Jobs: tools/industry-jobs.md
           - Production Calculator: tools/production-calculator.md
@@ -76,6 +82,9 @@ nav:
           - Market Overview: tools/market-overview.md
           - Sales Tracker: tools/sales-tracker.md
           - Order Tracker: tools/order-tracker.md
+          - Standing Buy Orders: tools/standing-buy-orders.md
+          - Sale Posting: tools/sale-posting.md
+          - LP Market Values: tools/lp-market-values.md
           - Trade Opportunities: tools/trade-opportunities.md
           - Contracts: tools/contracts.md
       - Finance:
@@ -85,10 +94,12 @@ nav:
       - Corp / Interactions:
           - Corp Activity: tools/corp-activity.md
           - Killmails: tools/killmails.md
+          - Players & NPCs: tools/entities.md
       - Communication:
           - Eve Mail: tools/eve-mail.md
           - Notifications: tools/notifications.md
       - Tools:
           - ESI Explorer: tools/esi-explorer.md
+          - Game & Chat Logs: tools/logs.md
           - Error Log: tools/error-log.md
   - FAQ & Troubleshooting: faq-and-troubleshooting.md
