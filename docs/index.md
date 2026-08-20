@@ -29,13 +29,21 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 ### General
 
 - **[Overview](tools/overview.md)** — the landing dashboard: at-a-glance alerts, recent notifications and killmails, and a customizable grid of summary panels.
+- **[Worklist](tools/worklist.md)** — one always-current list of what to do next across all your characters, rebuilt on each refresh from up to nine sources (industry jobs, purchases, logistics, corp projects, skills and more).
 - **[Characters](tools/characters.md)** — an in-app character sheet (skills, attributes, and info) for your authorized characters, handy when you'd rather not log the character into the game.
+- **[Alarms](tools/alarms.md)** — conditions you define that the app checks on a timer and tells you about once, when they first become true.
+
+### Universe
+
+- **[Universe Map](tools/universe-map.md)** — one continuous map from the whole cluster down to a single system, with overlays for security, sovereignty, kills, industry and intel — plus a detailed page for every system.
+- **[Jump Planner](tools/jump-planner.md)** — plan capital jump routes with draggable waypoints and midpoints, showing distance and fuel for every leg.
 
 ### Assets
 
 - **[Assets](tools/assets.md)** — search and browse all of your personal and corp assets across stations, structures, and containers.
 - **[Item Browser](tools/item-browser.md)** — look up any item with its description, attributes, and blueprint/industry info, plus live market orders and price history for your configured markets.
 - **[Inventory Levels](tools/inventory-levels.md)** — track a defined list of items (on hand, in build, on order) against target levels, similar to jEveAssets stockpiles.
+- **[Structure Browser](tools/structure-browser.md)** — browse player-owned structures from ESI's public list, and link them to your Indy Parks.
 
 ### Industry
 
@@ -50,6 +58,9 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 - **[Market Overview](tools/market-overview.md)** — a regional market dashboard: order and sales summaries, breakdowns by group and type, and a daily-sales chart.
 - **[Sales Tracker](tools/sales-tracker.md)** — review your completed sales and the profit on each, with a toggle for how profit is calculated.
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
+- **[Standing Buy Orders](tools/standing-buy-orders.md)** — declare the buy orders you keep standing and see whether they're actually up (missing, outbid, run down, or near expiry).
+- **[Sale Posting](tools/sale-posting.md)** — build shareable sale postings from your stock and render them to Plain, Slack, Discord, Markdown, HTML or BBCode.
+- **[LP Market Values](tools/lp-market-values.md)** — what your loyalty points are worth, corp by corp, priced against the market.
 - **[Trade Opportunities](tools/trade-opportunities.md)** — compare two markets to surface profitable hauls between them, with cargo/ISK limits, group exclusions, and profit per unit and per m³.
 - **[Contracts](tools/contracts.md)** — browse your personal and corp contracts and their items, with valuations.
 
@@ -63,6 +74,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 
 - **[Corp Activity](tools/corp-activity.md)** — corp-wide activity: ratting/industry/mining tax, donations, kills, projects, and Top 10 leaderboards, over 24h or monthly.
 - **[Killmails](tools/killmails.md)** — your and your corp's recent kills and losses, with values and details.
+- **[Players & NPCs](tools/entities.md)** — a searchable browser for pilots, corps and alliances (with kills, losses and member counts) plus NPC agents, corps and factions.
 
 ### Communication
 
@@ -72,6 +84,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 ### Tools
 
 - **[ESI Explorer](tools/esi-explorer.md)** — a power-user browser for the raw ESI data the app has synced into its local database: filter, sort, and page through the underlying tables.
+- **[Game & Chat Logs](tools/logs.md)** — search your local EVE game and chat logs; intel-channel messages become sightings on the Universe Map.
 - **[Error Log](tools/error-log.md)** — a viewer for the app's own internal error log, filterable by date range — handy for troubleshooting and bug reports.
 
 ## Help
