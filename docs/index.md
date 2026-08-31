@@ -60,6 +60,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
 - **[Standing Buy Orders](tools/standing-buy-orders.md)** — declare the buy orders you keep standing and see whether they're actually up (missing, outbid, run down, or near expiry).
 - **[Sale Posting](tools/sale-posting.md)** — build shareable sale postings from your stock and render them to Plain, Slack, Discord, Markdown, HTML or BBCode.
+- **[EVE Mail Store](tools/stores.md)** — run a store that takes and manages orders over EVE mail: buyers send commands (PRICES, ORDER, STATUS, CANCEL) and the app replies and books each order.
 - **[LP Market Values](tools/lp-market-values.md)** — what your loyalty points are worth, corp by corp, priced against the market.
 - **[Trade Opportunities](tools/trade-opportunities.md)** — compare two markets to surface profitable hauls between them, with cargo/ISK limits, group exclusions, and profit per unit and per m³.
 - **[Contracts](tools/contracts.md)** — browse your personal and corp contracts and their items, with valuations.
@@ -83,6 +84,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 
 ### Tools
 
+- **[Scheduler](tools/scheduler.md)** — run reports on a timetable: post a corp Top 10, monthly summary, sale posting or charts to Slack, or raise an alert — on an interval or a calendar, in EVE time.
 - **[ESI Explorer](tools/esi-explorer.md)** — a power-user browser for the raw ESI data the app has synced into its local database: filter, sort, and page through the underlying tables.
 - **[Game & Chat Logs](tools/logs.md)** — search your local EVE game and chat logs; intel-channel messages become sightings on the Universe Map.
 - **[Error Log](tools/error-log.md)** — a viewer for the app's own internal error log, filterable by date range — handy for troubleshooting and bug reports.

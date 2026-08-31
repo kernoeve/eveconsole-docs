@@ -6,7 +6,7 @@ Open it from the left sidebar under **General**.
 
 ## What it shows
 
-The tool has three tabs: **Worklist** (the task list), **Station Needs** (the same work rolled up by location), and **Config** (which sources are on and how they behave — see [Setting it up](#setting-it-up)).
+The tool has several tabs: **Worklist** (the task list), **Station Needs** (the same work rolled up by location), **Bottlenecks** (what's holding work up), **Final Products** (a record of what the work has produced), and **Config** (which sources are on and how they behave — see [Setting it up](#setting-it-up)).
 
 ### Worklist tab
 
@@ -19,6 +19,14 @@ The tool has three tabs: **Worklist** (the task list), **Station Needs** (the sa
 ### Station Needs tab
 
 The same outstanding work aggregated **by station/structure**, so you can see everything that needs buying or moving at a given location in one place — useful when planning a shopping or hauling run.
+
+### Bottlenecks tab
+
+What's holding the rest of the work up. Each sub-tab answers a single question — **Slots**, **Item Contention**, **BPO / Formula**, and **Hauling** — and a **Summary** ranks the *actions* themselves by how much work each one is blocking (for example "raise level 200 to 570", or "buy 1 of 4 owned (+25% output)"). Every "how much does this hold up" figure is measured by walking the actually-blocked tasks, not the recipe tree, so it reflects work you're really doing rather than everything a recipe could theoretically need.
+
+### Final Products tab
+
+A record of **what the work has produced**: every job — finished or still running — whose output is something your operation sells. A job's value is taken as of the day it completed, and can be read either as **market value** or as a **fixed percentage over build cost** (a shop selling at a set margin never sees the market price). Profit is shown as *potential* profit throughout, because nothing on this tab has actually been sold yet.
 
 ## The nine sources
 

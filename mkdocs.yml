@@ -84,6 +84,7 @@ nav:
           - Order Tracker: tools/order-tracker.md
           - Standing Buy Orders: tools/standing-buy-orders.md
           - Sale Posting: tools/sale-posting.md
+          - EVE Mail Store: tools/stores.md
           - LP Market Values: tools/lp-market-values.md
           - Trade Opportunities: tools/trade-opportunities.md
           - Contracts: tools/contracts.md
@@ -99,6 +100,7 @@ nav:
           - Eve Mail: tools/eve-mail.md
           - Notifications: tools/notifications.md
       - Tools:
+          - Scheduler: tools/scheduler.md
           - ESI Explorer: tools/esi-explorer.md
           - Game & Chat Logs: tools/logs.md
           - Error Log: tools/error-log.md
