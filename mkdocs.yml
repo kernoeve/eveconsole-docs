@@ -48,6 +48,15 @@ markdown_extensions:
 plugins:
   - search
 
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/H6NaAjJMar
+      name: EVE Console on Discord
+    - icon: fontawesome/brands/github
+      link: https://github.com/kernoeve/EveConsole
+      name: EVE Console on GitHub
+
 # Non-page markdown that should not be built (kept in docs/images for the README)
 exclude_docs: |
   images/README.md
