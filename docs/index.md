@@ -92,6 +92,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 ## Help
 
 - **[FAQ & Troubleshooting](faq-and-troubleshooting.md)**
+- **[Discord](https://discord.gg/H6NaAjJMar)** — join the community for help, questions, and release news.
 
 ---
 
