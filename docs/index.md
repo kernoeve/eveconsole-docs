@@ -21,6 +21,11 @@ Before most tools are useful, configure a few things:
 - **[Configuring Markets](configuring-markets.md)** — define which market(s) prices come from, and how per-item prices are calculated (including lowball/highball handling and build-cost-based pricing).
 - **[Industry Parks](industry-parks.md)** — define the structures used for industry/build-cost calculations, including per-category structures and per-item exceptions.
 - **[AI Agent (Eden)](ai-agent-eden.md)** — optional conversational assistant with access to your local data, plus optional text-to-speech and voice input.
+- **[Storage & PostgreSQL](storage-postgresql.md)** — stay on the default local SQLite file, or move to a PostgreSQL server so several clients can share one set of data.
+- **[Background Processing](background-processing.md)** — run the ESI polling, imports and alarms without a desktop window — headless, on another machine, or in a container.
+- **[Themes](themes.md)** — pick from the light, dark and tinted themes; the whole interface repaints live.
+
+On Linux? See **[Running on Linux](running-on-linux.md)** for downloads, the one dependency, and headless service setups.
 
 ## Functionality
 

@@ -2,21 +2,30 @@
 
 ## Requirements
 
-- Windows 10 or 11.
+- **Windows** 10 or 11, **or** a modern 64-bit **Linux** desktop.
 - An EVE Online account (you'll authorize characters via EVE's official Single Sign-On).
 
-> Linux builds are planned for the 1.0 release. Today the app is built and tested on Windows (`net9.0-windows`).
+Everything the app needs is bundled, including the .NET runtime. On Linux the one external dependency is your distribution's **`vlc`** package, used for alarm sounds and the AI agent's speech — see **[Running on Linux](running-on-linux.md)** for details, headless setups, and file locations.
 
 ## Download & install
 
-Grab the latest build from the project's [Releases page](https://github.com/kernoeve/EveConsole/releases/latest). The links below always point at the **newest** release, so they don't go stale:
+Grab the latest build from the project's [Releases page](https://github.com/kernoeve/EveConsole/releases/latest). The links below always point at the **newest** release, so they don't go stale.
+
+### Windows
 
 - **[Installer — `EveConsole-win-Setup.exe`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-win-Setup.exe)** — installs EVE Console (adds Start-menu and uninstall entries), then launch it.
 - **[Portable — `EveConsole-win-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-win-Portable.zip)** — no install; extract it anywhere and run `EveConsole.exe`.
 
 Both are the same app and **both keep themselves up to date automatically** (see below), so which you choose is a matter of preference — the installer if you'd like it integrated into Windows, the portable ZIP if you'd rather keep everything in a single folder you can move or delete.
 
-Your data is stored locally at `%LOCALAPPDATA%\EveConsole\EveConsole.db`. Nothing is uploaded anywhere — the app talks only to CCP's ESI API to refresh your data.
+### Linux
+
+- **[AppImage — `EveConsole.AppImage`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole.AppImage)** — a single self-contained file. Mark it executable (`chmod +x EveConsole.AppImage`) and run it. Like the Windows builds, the AppImage **keeps itself up to date automatically**.
+- **[Tarball — `EveConsole-linux-x64.tar.gz`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-linux-x64.tar.gz)** — extract anywhere and run `./EveConsole`. The tarball does not self-update; grab a newer tarball to upgrade.
+
+See **[Running on Linux](running-on-linux.md)** for the `vlc` dependency, running headless as a systemd service, and where data lives.
+
+Your data is stored locally — on **Windows** at `%LOCALAPPDATA%\EveConsole\EveConsole.db`, on **Linux** at `~/.local/share/EveConsole/EveConsole.db`. By default nothing leaves your machine; the app talks only to CCP's ESI API to refresh your data. If you'd rather keep the data on a shared server, you can point it at your own **[PostgreSQL](storage-postgresql.md)** instead.
 
 ## Staying up to date
 
@@ -31,7 +40,7 @@ You can manage this under **Settings** (the **⚙** gear button, top-right) → 
 
 !!! note
 
-    Automatic updates apply to the released builds (installer **and** portable ZIP). Only a build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update it by pulling and rebuilding.
+    Automatic updates apply to the self-managing released builds — the Windows installer and portable ZIP, and the Linux **AppImage**. The Linux **tarball** and any build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update those by downloading a newer build (or pulling and rebuilding).
 
 ## Building from source
 
