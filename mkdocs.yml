@@ -64,10 +64,14 @@ exclude_docs: |
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Running on Linux: running-on-linux.md
   - Setup:
       - Configuring Markets: configuring-markets.md
       - Industry Parks: industry-parks.md
       - AI Agent (Eden): ai-agent-eden.md
+      - Storage & PostgreSQL: storage-postgresql.md
+      - Background Processing: background-processing.md
+      - Themes: themes.md
   - Functionality:
       - General:
           - Overview: tools/overview.md
