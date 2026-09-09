@@ -24,6 +24,7 @@ Each row is one industry job. Columns:
 | Build Cost | Estimated cost to build the produced items, from your cached build costs. |
 | Market Value | Value of the output at your configured market prices (blueprint copies from invention/copying are valued from contract prices). |
 | Facility | Station or structure the job runs in. |
+| Note | A note about the job's facility — e.g. flagging where it provides no relevant rig bonus. Blank when there's nothing to flag. |
 | Installer | Character who installed the job. |
 | Owner | Owning character or corporation. |
 | Created | Job start date/time (UTC). |

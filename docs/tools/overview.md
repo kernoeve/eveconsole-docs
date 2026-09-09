@@ -26,7 +26,10 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 - **Sale Listing (Build)** and **Sale Listing (Market)** — the Sale Listing grids embedded as sections.
 - **Income (Pie)** and **Expenses (Pie)** — wallet-journal totals for the period, categorized and drawn as pie charts with a total above each.
 - **Income & Expense** — the Income & Expense tool embedded as a section (it keeps its own period selector).
+- **Orders** — your open outgoing orders from the [Order Tracker](order-tracker.md).
 - **Standing Projects** — a corp standing-projects grid.
+- **Standing Buy Orders** — the [Standing Buy Orders](standing-buy-orders.md) grid embedded as a section.
+- **Worklist (All)**, **Worklist (Buy)**, **Worklist (Haul)**, **Worklist (Jobs)** and **Worklist (Station Needs)** — five slices of the [Worklist](worklist.md) embedded as sections: everything, just purchases, just hauling, just industry jobs, and the per-station needs, respectively.
 
 !!! note
     The default layout is a 2×3 grid: Sale Listing (Build), Income & Expense and Personal Killmails across the top row; Alerts, Notifications and News across the bottom.
