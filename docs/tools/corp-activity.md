@@ -9,13 +9,14 @@ Open it from the left sidebar under **Corp / Interactions**.
 A toolbar with a **Corporation** picker, a live status line, and a **Refresh** button sit above a set of tabs:
 
 - **Activity (24H)** — a summary bar (players active, income, expenses over the last 24 hours), three side-by-side leaderboards (Ratting, Industry, Mining by value), and a "Recent Kills & Losses" killmail list.
-- **Monthly Activity** — a per-month table (Total Income, Total Expense, Ratting Tax, Industry Tax, Project Payouts, Units Mined, Kills, Losses, Players Active) plus monthly ISK and count charts.
+- **Monthly Activity** — a per-month table (Total Income, Total Expense, Ratting Tax, Industry Tax, Project Payouts, Units Mined, Kills, Losses, ISK Efficiency, Players Active) plus monthly ISK and count charts (the kills/losses chart plots ISK efficiency on its own 0–100% axis).
 - **Income** and **Expense** — each has a **Summary** sub-tab (income/expense grouped by wallet reference Type, with Count and Amount) and a **Detail** sub-tab (the individual journal rows).
 - **Ratting Taxes**, **Industry Taxes**, **Donations** — each has a **Summary** sub-tab (a ranked list of payers/donors by amount) and a **Detail** sub-tab (journal rows). Ratting, industry and donations also drive daily charts.
 - **Mining** — a mining ledger with **Summary** (date, character, ore type, quantity, reprocessed value) and **Detail** sub-tabs.
 - **Killmails** — corp kills and losses: a **Summary** sub-tab ranking characters by Kills/Losses, a daily kills/losses chart, and a **Detail** sub-tab listing individual killmails.
 - **Projects** — corp projects across **Active**, **History**, and **Standing Projects** sub-tabs, with a detail panel showing project info, configuration, and a ranked contributor list (contributed / percent / payout).
 - **Top 10 Lists** — leaderboards for a chosen month/year: Ratting Tax, Mining (units mined), Kills, Project Contributors, and Industry Tax. Each entry shows rank, character, amount, and share of the category total.
+- **Monthly Summary** — a formatted corp summary for a chosen month/year, with a clipboard-format selector, **Export to Clipboard**, and **Post to Slack**. It's the same summary the [Scheduler](scheduler.md) can post on a timetable.
 
 Most ISK figures are abbreviated (K / M / B); killmail rows use a zKillboard-style layout with ship render, system/security, victim, and final-blow columns.
 

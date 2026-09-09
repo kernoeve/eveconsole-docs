@@ -6,7 +6,7 @@ Open it from the left sidebar under **General**.
 
 ## What it shows
 
-The tool has several tabs: **Worklist** (the task list), **Station Needs** (the same work rolled up by location), **Bottlenecks** (what's holding work up), **Final Products** (a record of what the work has produced), and **Config** (which sources are on and how they behave — see [Setting it up](#setting-it-up)).
+The tool has several tabs: **Worklist** (the task list), **Station Needs** (the same work rolled up by location), **Item Needs** (rolled up by item — what still has to be made), **Bottlenecks** (what's holding work up), **Final Products** (a record of what the work has produced), and **Config** (which sources are on and how they behave — see [Setting it up](#setting-it-up)).
 
 ### Worklist tab
 
@@ -19,6 +19,10 @@ The tool has several tabs: **Worklist** (the task list), **Station Needs** (the 
 ### Station Needs tab
 
 The same outstanding work aggregated **by station/structure**, so you can see everything that needs buying or moving at a given location in one place — useful when planning a shopping or hauling run.
+
+### Item Needs tab
+
+The outstanding work aggregated **by item** — what still has to be *made*, with the tasks waiting on each item beneath it. Where Station Needs answers "what does this place want," Item Needs answers "what do I still have to produce," so it counts production rather than just what a station holds.
 
 ### Bottlenecks tab
 

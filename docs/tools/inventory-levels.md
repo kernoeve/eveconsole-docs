@@ -20,11 +20,11 @@ Item rows show these columns:
 - **AVAIL** — total available across all counted sources.
 - **DIFF** — AVAIL minus TGT TOTAL, coloured green when at/over target and red when short.
 - **%** — the difference as a percentage of the target.
-- **ASSETS**, **IND JOBS**, **BUY ORDERS** — the availability broken down by source (assets on hand, products of active industry jobs, and quantities on market buy orders).
+- **ASSETS**, **IND JOBS**, **BUY ORDERS**, **CONTRACTS** — the availability broken down by source (assets on hand, products of active industry jobs, quantities on market buy orders, and quantities on contracts you're buying).
 - **MKT PRICE**, **BUILD PRICE** — per-unit market and build prices for the type.
 - **VOLUME (m³)** — per-unit volume.
 
-The toolbar carries **+ Add Group**, **+ Collection**, and **Refresh** buttons, plus a status line.
+The toolbar carries **+ Add Group**, **+ Collection**, **Import Collection** (reads a collection from a file — always as a new collection, never merged into an existing one), and **Refresh** buttons, plus a status line.
 
 ## Using it
 
@@ -32,7 +32,7 @@ The toolbar carries **+ Add Group**, **+ Collection**, and **Refresh** buttons, 
 
 1. Click **+ Add Group** and configure it in the dialog:
    - **Scope** — where availability is counted: Station, System, Region, or Everywhere. For the first three you also pick a location; Everywhere counts across all of your holdings.
-   - **Sources to include** — Assets, Industry Jobs (products), Market Buy Orders, and Contracts Buying (marked coming soon). Assets is on by default.
+   - **Sources to include** — Assets, Industry Jobs (products), Market Buy Orders, and Contracts Buying. Assets is on by default.
    - **Multiplier** — multiplies every item's target in the group (useful for "I want N sets of this").
    - Optionally assign the group to a collection.
 2. Use **+ Collection** to create a named folder, then assign groups to it. Collections can be renamed, deleted, and expanded/collapsed as a whole.
@@ -56,7 +56,6 @@ Items already present in the group are skipped.
 
 ## Notes
 
-- Availability is only as current as your synced data. Counting assets, industry-job products, and market buy orders requires the relevant characters/corporations to be authorized and synced via ESI.
+- Availability is only as current as your synced data. Counting assets, industry-job products, market buy orders, and contracts requires the relevant characters/corporations to be authorized and synced via ESI.
 - **MKT PRICE** and **BUILD PRICE** come from your market configuration (see [Configuring Markets](../configuring-markets.md)); they are blank when no price is available.
-- The **Contracts Buying** source is not yet functional (shown as "coming soon").
 - Related tools: the [Item Browser](item-browser.md) (opened from the item context menu) and [Assets](assets.md).
