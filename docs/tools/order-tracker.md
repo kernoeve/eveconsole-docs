@@ -2,7 +2,7 @@
 
 Track your **outgoing orders** — items you've committed to deliver to a buyer — from the moment they're placed to the contract that closes them. For each order it shows the agreed price and the profit against build cost, and, while the order is still open, how far fulfilment has got: what's on the shelf, what's in build, and what's still short.
 
-Orders arrive two ways: you **enter them by hand**, or the **[EVE Mail Store](stores.md)** books them for you when a buyer mails one in.
+Orders arrive two ways: you **enter them by hand**, or a **[store](../stores/index.md)** books them for you when a buyer orders — by [EVE mail](../stores/eve-mail.md) or on your [web storefront](../stores/web-site.md).
 
 Open it from the left sidebar under **Market / Trade**.
 
@@ -18,7 +18,7 @@ One row per order line, newest first. A multi-item order appears as several rows
 - **Buyer** — who the order is for; opens in the [entity browser](entities.md).
 - **Order #** — the order's reference. Rows repeating the same code are lines of one multi-item order, not duplicates.
 - **Labels** — colour-coded tags for grouping (a customer, a corp programme, a shipment). Read-only here; add or remove them by right-click or in the edit window.
-- **Store** — the EVE Mail Store that booked the order. **Blank means you entered it by hand.**
+- **Store** — the [store](../stores/index.md) that booked the order (by EVE mail or web). **Blank means you entered it by hand.**
 - **Contract To** — who the delivering contract is made out to. Blank means the buyer; a name appears only when someone asked for it to go elsewhere.
 
 **Fulfilment** (shown while the order is open)

@@ -65,7 +65,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
 - **[Standing Buy Orders](tools/standing-buy-orders.md)** — declare the buy orders you keep standing and see whether they're actually up (missing, outbid, run down, or near expiry).
 - **[Sale Posting](tools/sale-posting.md)** — build shareable sale postings from your stock and render them to Plain, Slack, Discord, Markdown, HTML or BBCode.
-- **[EVE Mail Store](tools/stores.md)** — run a store that takes and manages orders over EVE mail: buyers send commands (PRICES, ORDER, STATUS, CANCEL) and the app replies and books each order.
+- **[Stores](stores/index.md)** — sell to other players from EVE Console through two shop fronts: an [EVE Mail Store](stores/eve-mail.md) (buyers mail commands) and a [Web Storefront](stores/web-site.md) (buyers order on a site you host).
 - **[LP Market Values](tools/lp-market-values.md)** — what your loyalty points are worth, corp by corp, priced against the market.
 - **[Trade Opportunities](tools/trade-opportunities.md)** — compare two markets to surface profitable hauls between them, with cargo/ISK limits, group exclusions, and profit per unit and per m³.
 - **[Contracts](tools/contracts.md)** — browse your personal and corp contracts and their items, with valuations.

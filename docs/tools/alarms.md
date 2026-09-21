@@ -14,6 +14,8 @@ The alarms you have defined. Each alarm is a condition the app evaluates repeate
 - **Let it run** — the app checks the condition on a timer in the background.
 - **Get notified once** when the condition becomes true. The app tells you a single time rather than re-notifying on every check while the condition remains true.
 
+Conditions span many kinds of events across your data — for example a skill finishing, an industry job completing, a market threshold being crossed, or a **[store](../stores/index.md) order** arriving.
+
 ## Notes
 
 !!! note
