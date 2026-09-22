@@ -97,6 +97,7 @@ nav:
       - Market / Trade:
           - Market Levels: tools/market-levels.md
           - Market Overview: tools/market-overview.md
+          - Item Valuation: tools/item-valuation.md
           - Sales Tracker: tools/sales-tracker.md
           - Order Tracker: tools/order-tracker.md
           - Standing Buy Orders: tools/standing-buy-orders.md

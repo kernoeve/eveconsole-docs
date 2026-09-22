@@ -61,6 +61,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 
 - **[Market Levels](tools/market-levels.md)** — monitor sell-order inventory for a chosen list of items in a specific market, so you can spot stock and restock gaps.
 - **[Market Overview](tools/market-overview.md)** — a regional market dashboard: order and sales summaries, breakdowns by group and type, and a daily-sales chart.
+- **[Item Valuation](tools/item-valuation.md)** — paste a list of items and value it against your own market data — market, build and reprocessed side by side, with buyback percentages and multi-station comparison.
 - **[Sales Tracker](tools/sales-tracker.md)** — review your completed sales and the profit on each, with a toggle for how profit is calculated.
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
 - **[Standing Buy Orders](tools/standing-buy-orders.md)** — declare the buy orders you keep standing and see whether they're actually up (missing, outbid, run down, or near expiry).
