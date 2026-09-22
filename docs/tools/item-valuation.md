@@ -20,7 +20,7 @@ These sit above the results, because changing any of them re-prices the same lis
 
 - **Station** — any station or structure the app holds orders for (from whichever [market source](../configuring-markets.md) fetched them). **Sell** orders are read at the station itself; **buy** orders count when placed at the station, anywhere in its system within range, or region-wide. (NPC floor buy orders and out-of-range buys are ignored.)
 - **Prices** — the basis: **Sell** (the lowest sell order), **Buy** (the highest buy order), or **Split** (halfway between).
-- **Value** — the items **as pasted**, or their **reprocessed output** (the materials, batch by batch at your refining yields, plus anything that couldn't be reprocessed).
+- **Value** — the items **as pasted**, or their **reprocessed output** (the materials, batch by batch at the app's standard refining yields, plus anything that couldn't be reprocessed).
 - **Price %** — the share of the price to value at: `100` is the price itself, `90` a buyback paying nine-tenths.
 
 ## Reading the result — Values tab
@@ -49,5 +49,5 @@ The station you chose above leads; **Add** more to price the same list at each. 
 ## Notes
 
 - Prices come entirely from the app's **own order books** — the [market sources](../configuring-markets.md) you've configured — so a value is only as complete and as fresh as what the app has fetched for that station (watch the coverage and age in each heading). Nothing is sent to or fetched from an external appraisal site.
-- **Build** values use your build-cost data (see [Configuring Markets](../configuring-markets.md) and [Industry Parks](../industry-parks.md)); **Reprocessed** values use your refining yields.
+- **Build** values use your build-cost data (see [Configuring Markets](../configuring-markets.md) and [Industry Parks](../industry-parks.md)); **Reprocessed** values use the app's standard refining yields (the same ones the [Item Browser](item-browser.md) shows).
 - Use **Price %** for a buyback program — paste a customer's list, set the percentage you pay, and read the total.
