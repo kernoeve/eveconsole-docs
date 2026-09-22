@@ -17,6 +17,10 @@ When several clients share a PostgreSQL database, exactly **one** of them takes 
 
 When a worker stops, it releases its lease on the way out, so the next client picks the work up on its next tick rather than waiting for the server to notice a dropped connection.
 
+## Watching the background work
+
+To see what the background work is actually doing — recent ESI calls, what's due next, and how a long sweep is progressing — use the **[Background Processes](tools/background-processes.md)** tool, or click any of the per-process labels in the status bar. It reflects whichever client is doing the work.
+
 ## Running headless
 
 The worker runs with no UI when started with `--headless`. It's the same worker in every case, so the mode never means two different things.

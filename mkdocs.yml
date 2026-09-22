@@ -47,6 +47,10 @@ markdown_extensions:
 
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        # EVE Mail Store moved into the new Stores section
+        'tools/stores.md': 'stores/eve-mail.md'
 
 extra:
   social:
@@ -93,11 +97,11 @@ nav:
       - Market / Trade:
           - Market Levels: tools/market-levels.md
           - Market Overview: tools/market-overview.md
+          - Item Valuation: tools/item-valuation.md
           - Sales Tracker: tools/sales-tracker.md
           - Order Tracker: tools/order-tracker.md
           - Standing Buy Orders: tools/standing-buy-orders.md
           - Sale Posting: tools/sale-posting.md
-          - EVE Mail Store: tools/stores.md
           - LP Market Values: tools/lp-market-values.md
           - Trade Opportunities: tools/trade-opportunities.md
           - Contracts: tools/contracts.md
@@ -115,6 +119,11 @@ nav:
       - Tools:
           - Scheduler: tools/scheduler.md
           - ESI Explorer: tools/esi-explorer.md
+          - Background Processes: tools/background-processes.md
           - Game & Chat Logs: tools/logs.md
           - Error Log: tools/error-log.md
+  - Stores:
+      - Overview: stores/index.md
+      - Web Storefront: stores/web-site.md
+      - EVE Mail Store: stores/eve-mail.md
   - FAQ & Troubleshooting: faq-and-troubleshooting.md

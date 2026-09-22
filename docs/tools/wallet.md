@@ -29,4 +29,5 @@ Both grids are server-side paged with First/Prev/Next/Last controls, so filters 
 
 - Data comes from stored ESI wallet balances, journal, and transactions. Corporation data requires valid corp tokens with wallet scopes; the master-wallet / division names come from the corporation's division configuration.
 - The **All Characters & Personal Corps** owner and the division fallbacks depend on which corporations are marked personal — see [Getting Started](../getting-started.md).
+- The **Overview** income/expense charts leave out ISK moved **between your own wallets** (transfers among your tracked characters and personal corporations) — it's money changing pockets, not income or expense. The Journal and Market Transactions grids still show every entry.
 - For a categorized cross-owner summary see [Income & Expense](income-expense.md); for total worth including assets and orders see [Net Worth](net-worth.md).

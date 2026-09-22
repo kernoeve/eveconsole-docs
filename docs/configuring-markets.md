@@ -46,8 +46,8 @@ of the title bar, then open the **Market** tab.
   discards the extreme *N* % of the book: sell price becomes the *N*-th-percentile
   cheapest order, buy price the *(100−N)*-th-percentile highest. Default 5 %.
 - **Default pricing** — separately from the sources, you pick which source (and
-  whether **Buy**, **Sell**, or **Midpoint**) drives **asset valuation** and which
-  drives **manufacturing cost**.
+  whether **Buy**, **Sell**, or **Split** — the midpoint of buy and sell) drives
+  **asset valuation** and which drives **manufacturing cost**.
 - **Missing-price markup** — a build-cost floor for items the market can't price:
   `price = build cost × (1 + markup%)`.
 
@@ -91,7 +91,7 @@ of the title bar, then open the **Market** tab.
 The **Default Pricing** panel (below the source list) decides how the rest of the
 app turns sources into the single price it needs:
 
-- **Asset Value** — the source and price type (**Midpoint** / **Buy** / **Sell**)
+- **Asset Value** — the source and price type (**Split** / **Buy** / **Sell**)
   used for Net Worth and asset valuation.
 - **Manufacturing Cost** — the source and price type used when pricing build
   inputs (defaults to **Sell**, i.e. what you'd pay to buy materials).
