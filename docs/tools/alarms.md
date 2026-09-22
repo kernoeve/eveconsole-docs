@@ -11,6 +11,7 @@ Each alarm is a **condition** the app evaluates repeatedly in the background, pl
 - **It fires once per thing.** An alarm only announces something it hasn't announced before, so a condition that simply stays true doesn't repeat. (A price alarm that has already told you an item is cheap won't nag every check — it fires again only when a *new* matching listing appears.)
 - **Continuous or one shot.** A *Continuous* alarm stays armed until you disable it; a *One shot* alarm disables itself after firing once.
 - **Cooldown (sec).** An optional minimum gap between firings, on top of the "not announced before" rule.
+- **Active hours.** Optional **Active From** / **Active Thru** wall-clock times restrict when the alarm is even evaluated (for example `18:00`–`02:00`, which wraps past midnight). Leave them blank for "always". Outside its hours the condition isn't checked at all.
 - **Enabled.** Each alarm has its own on/off switch.
 
 ### What happens when it fires

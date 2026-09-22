@@ -11,14 +11,15 @@ The window is split into three columns, with a toolbar across the top.
 - **Toolbar** — a **Character** selector (defaults to *All Characters*), a status line ("Loading…", message count, or an error), and a **+ Compose** button.
 - **Folders** (left column) — five fixed folders always present: **All Mail**, **Inbox**, **Sent**, **Corp**, and **Alliance**. When a single character is selected, that character's custom mailing-list / label folders are appended below the fixed ones.
 - **Mail list** (middle column) — one row per message showing the sender portrait, sender name (or `#id` if the name is unknown), the timestamp (`yyyy-MM-dd HH:mm`, UTC), and the subject. Unread messages are shown brighter; read messages are dimmed.
-- **Reading pane** (right column) — for the selected message: the 48×48 sender portrait, subject, **From**, **To**, and **Date**, and the full message body below. If nothing is selected it reads "Select a message to read it."
+- **Reading pane** (right column) — for the selected message: the 48×48 sender portrait, subject, **From**, **To**, and **Date**, **Reply** and **Forward** buttons, and the full message body below. The body is rendered with EVE's own formatting and colours, and any **links in it are clickable**. If nothing is selected it reads "Select a message to read it."
 
 ## Using it
 
 1. Pick a character from the **Character** selector, or leave it on *All Characters* to pool mail from every authorized character.
 2. Choose a folder on the left to filter (All Mail, Inbox, Sent, Corp, Alliance, or a custom label).
 3. Click a message in the middle list to open it in the reading pane. Opening an unread message marks it read (both in EVE Console and in-game).
-4. Click **+ Compose** to write a new mail.
+4. Click **+ Compose** to write a new mail, or **Reply** / **Forward** on the open message to answer or pass it on (the recipients, subject and quoted body are filled in for you).
+5. Click a **link** in a message body to open it — an external link (a website) asks you to confirm first, with an option to stop asking.
 
 The list auto-refreshes about once a minute, and again right after you send a message.
 

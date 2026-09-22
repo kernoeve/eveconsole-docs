@@ -24,4 +24,5 @@ Categories are derived from wallet-journal reference types. The category lists a
 ## Notes
 
 - This tool reads the wallet journal only, so it reflects realized ISK flows (bounties, market transactions, fees, taxes, contract payments, etc.), not asset or order valuation. For total worth including assets and orders see [Net Worth](net-worth.md); for the full journal and per-owner transactions see [Wallet](wallet.md).
+- **ISK moved between your own wallets is left out.** Transfers between your tracked characters and personal corporations aren't income or expense — they're money changing pockets — so they're excluded from these totals, the [Wallet](wallet.md) charts, and the [Overview](overview.md) income/expense pies. The status line notes when this is in effect.
 - Only characters with a stored refresh token and corporations marked as personal are included. See [Getting Started](../getting-started.md) for the personal-corp designation.

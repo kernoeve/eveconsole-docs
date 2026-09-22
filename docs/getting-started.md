@@ -152,6 +152,13 @@ dot flags personal corps in the list).
     you've added for visibility but don't own — are treated as separate entities and
     are kept out of your personal totals.
 
+## Sizing the interface
+
+If the app is too small or too large on your display, set a **UI scale** between
+**50 % and 200 %** (in 25 % steps). It's at the right-hand end of the **status bar**,
+and also under **Settings ▸ Other**. The scale applies to every window, dialog and
+popup at once, and is remembered per machine.
+
 ## How data stays fresh
 
 While EVE Console is running it performs background ESI pulls on a schedule. Most

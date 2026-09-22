@@ -112,7 +112,8 @@ an external provider; local models are free to run.
     - **Local Whisper** — runs on this machine, no API key; Windows only, and a model
       file must be downloaded first.
 
-    Then choose a **Microphone Device** (click **↺** to refresh the list) and a
+    Then choose a **Microphone Device** (click **↺** to refresh the list) — leave it
+    on **System default** to follow whatever Windows/your OS is set to — and a
     **Global Push-to-Talk Key** — hold it to record even when EVE has focus. F13–F20
     are rarely captured by games and make good PTT keys. The mic button in the panel
     works regardless of this setting.

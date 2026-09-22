@@ -17,6 +17,15 @@ When several clients share a PostgreSQL database, exactly **one** of them takes 
 
 When a worker stops, it releases its lease on the way out, so the next client picks the work up on its next tick rather than waiting for the server to notice a dropped connection.
 
+## Watching the background work
+
+You don't have to run headless to see what the background work is doing. The **Background Processes** view (a tool tab, opened from the left sidebar or by clicking a status-bar label) shows each kind of work live, on its own tab:
+
+- **ESI Activity Log** and **ESI Call Schedule** — recent calls and what's due next, by character/corporation and by market refresh.
+- **Price History**, **Contract Items**, **LP Store**, **Killmails**, **Intel**, **Alarms**, and **Order Fulfilment** — per-area progress: what's been refreshed, what's queued, and whether a sweep is running.
+
+Along the bottom, the **status bar** carries a live progress label for each background process rather than one generic "polling" line; click a label to jump straight to its tab.
+
 ## Running headless
 
 The worker runs with no UI when started with `--headless`. It's the same worker in every case, so the mode never means two different things.

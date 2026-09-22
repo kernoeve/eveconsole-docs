@@ -23,6 +23,7 @@ Each table is shown in full (shared tables show all their contents, not just one
     - Click **Apply** (or press **Enter** in a value box) to run the filters; **Clear** removes them and reloads.
 4. **Load more rows** — rows load in pages of 5,000. Scroll near the bottom of the grid, or click **Load More**, to fetch the next page.
 5. **Copy** — select one or more rows and press **Ctrl+C** to copy them (with a header row) as tab-separated text, ready to paste into a spreadsheet.
+6. **Export CSV** — the **Export CSV** button (in the status bar) writes the table to a file you choose. It exports **every row matching the current filters and sort order** — not just the pages loaded into the grid — with a live row counter and a **Cancel** button while it runs. The output is standard CSV (RFC 4180, UTF-8).
 
 ## Notes
 
