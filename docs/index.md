@@ -92,6 +92,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 
 - **[Scheduler](tools/scheduler.md)** — run reports on a timetable: post a corp Top 10, monthly summary, sale posting or charts to Slack, or raise an alert — on an interval or a calendar, in EVE time.
 - **[ESI Explorer](tools/esi-explorer.md)** — a power-user browser for the raw ESI data the app has synced into its local database: filter, sort, and page through the underlying tables.
+- **[Background Processes](tools/background-processes.md)** — a live monitor of the app's polling and syncing: recent ESI calls, what's due next, and how each sweep is progressing.
 - **[Game & Chat Logs](tools/logs.md)** — search your local EVE game and chat logs; intel-channel messages become sightings on the Universe Map.
 - **[Error Log](tools/error-log.md)** — a viewer for the app's own internal error log, filterable by date range — handy for troubleshooting and bug reports.
 

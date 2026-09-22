@@ -19,12 +19,7 @@ When a worker stops, it releases its lease on the way out, so the next client pi
 
 ## Watching the background work
 
-You don't have to run headless to see what the background work is doing. The **Background Processes** view (a tool tab, opened from the left sidebar or by clicking a status-bar label) shows each kind of work live, on its own tab:
-
-- **ESI Activity Log** and **ESI Call Schedule** — recent calls and what's due next, by character/corporation and by market refresh.
-- **Price History**, **Contract Items**, **LP Store**, **Killmails**, **Intel**, **Alarms**, and **Order Fulfilment** — per-area progress: what's been refreshed, what's queued, and whether a sweep is running.
-
-Along the bottom, the **status bar** carries a live progress label for each background process rather than one generic "polling" line; click a label to jump straight to its tab.
+To see what the background work is actually doing — recent ESI calls, what's due next, and how a long sweep is progressing — use the **[Background Processes](tools/background-processes.md)** tool, or click any of the per-process labels in the status bar. It reflects whichever client is doing the work.
 
 ## Running headless
 

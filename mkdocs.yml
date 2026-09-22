@@ -119,6 +119,7 @@ nav:
       - Tools:
           - Scheduler: tools/scheduler.md
           - ESI Explorer: tools/esi-explorer.md
+          - Background Processes: tools/background-processes.md
           - Game & Chat Logs: tools/logs.md
           - Error Log: tools/error-log.md
   - Stores:
