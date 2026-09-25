@@ -40,6 +40,7 @@ Click an item name (or double-click a grid row) anywhere in the results to open 
 ## Notes
 
 - **Include final BPC cost** adds the final product's blueprint copy (its contract price) as an input cost. It is always applied for faction / BPC-only items whose blueprint can't be bought as a BPO; the toggle only matters for standard BPO items.
+- **Build or buy components** — by default the calculator builds every component it can and buys only items that can't be costed. To buy a component instead when its market value is at or below a share of its build cost, turn on **Purchase a component instead of building when its market value is ≤ N % of build value** in **Settings ▸ Industry** and click **Save** (see [Build costs](../configuring-markets.md#build-costs)).
 - Accurate costs require a configured market for prices ([Configuring Markets](../configuring-markets.md)) and an industry park for the build parameters ([Indy Parks](../industry-parks.md)).
 - Item icons are fetched from the EVE image server, so they may take a moment to appear.
 - To scan across many items for the best things to build, use [Industry Opportunities](industry-opportunities.md); to track jobs you've started, use [Industry Jobs](industry-jobs.md).

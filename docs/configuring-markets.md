@@ -20,11 +20,11 @@ of the title bar, then open the **Market** tab.
 
 !!! tip "Recommended setup"
 
-    EVE Console sets up **The Forge** (Jita's region) as a Region source for you by
-    default, and already uses it for **asset valuation** — the recommended choice, so
-    you normally don't need to change it. It's worth keeping The Forge around for that
-    reason even if you trade elsewhere. (A second region, **Domain** — Amarr's — is
-    seeded as a starter source too.)
+    A fresh install of EVE Console already has two Region sources: **The Forge**
+    (Jita's region) and **Domain** (Amarr's). Both have the high/low filter on at 1 %.
+    **Asset Value** and **Manufacturing Cost** both default to **The Forge / Sell**,
+    which is the recommended choice, so you normally don't need to change them. Keep
+    The Forge even if you trade elsewhere, because asset valuation uses it.
 
     If there's a market you regularly use **outside Jita** — another region, or your
     home player structure — add it as its own source as well. Several tools compare two
@@ -44,7 +44,8 @@ of the title bar, then open the **Market** tab.
 - **High/low percentile filter** — thinly-traded items (capitals, supers, titans)
   often carry a few garbage orders far from real value. Enabled per source, it
   discards the extreme *N* % of the book: sell price becomes the *N*-th-percentile
-  cheapest order, buy price the *(100−N)*-th-percentile highest. Default 5 %.
+  cheapest order, buy price the *(100−N)*-th-percentile highest. Sources you add
+  yourself start at 5 %; the two seeded sources use 1 %.
 - **Default pricing** — separately from the sources, you pick which source (and
   whether **Buy**, **Sell**, or **Split** — the midpoint of buy and sell) drives
   **asset valuation** and which drives **manufacturing cost**.
@@ -54,13 +55,22 @@ of the title bar, then open the **Market** tab.
 > NPC-seeded sell orders (which never expire) are excluded from pricing so that
 > anonymous NPC orders don't drag prices toward seed value.
 
+!!! note "Fuzzwork sources from older versions"
+
+    Earlier versions also offered a **Fuzzwork** method, which read pre-computed
+    percentile prices from fuzzwork.co.uk. You can no longer pick it for a new source,
+    but an existing Fuzzwork source still refreshes. It stores one price per item and no
+    individual orders, so the Item Browser's **Market Orders** tab needs a Region or
+    Player Structure source instead.
+
 ## Adding a price source
 
 1. Open **Settings ▸ Market**. Existing sources are listed on the left under
    **Price Sources**; click **Add** to create a new source, then fill in its
    details on the right.
-2. In the edit panel on the right, pick a **Method**. A short note explains each
-   one, and the fields below adapt to your choice.
+2. In the edit panel on the right, pick a **Method**: **Region** or **Player
+   Structure**. A short note explains each one, and the fields below adapt to your
+   choice.
 3. Set a **Location Name** — a friendly label such as *Jita 4-4* that appears in
    the source list and the Default Pricing dropdowns.
 4. Point the source at a location, depending on the method:
@@ -92,22 +102,56 @@ The **Default Pricing** panel (below the source list) decides how the rest of th
 app turns sources into the single price it needs:
 
 - **Asset Value** — the source and price type (**Split** / **Buy** / **Sell**)
-  used for Net Worth and asset valuation.
+  used for Net Worth and asset valuation. Defaults to **The Forge / Sell**.
 - **Manufacturing Cost** — the source and price type used when pricing build
-  inputs (defaults to **Sell**, i.e. what you'd pay to buy materials).
+  inputs. Defaults to **The Forge / Sell**, which is what you'd pay to buy the
+  materials.
 - **Missing Price Markup** (default 15 %) — applied when the market has no sell
   orders for an item: `price = build cost × (1 + markup%)`. If there are no buy
   orders, buy falls back to sell.
-- **Filter lowball buy orders below N % of build cost** (default on, 25 %) —
-  drops absurd buy orders from the *buy* price calculation. Those orders still show
-  in the market UI; they're just ignored when computing a price.
+- **Filter lowball buy orders below N % of build cost** (on by default, 10 % on a
+  fresh install) — drops absurd buy orders from the *buy* price calculation. It
+  applies to Region and Player Structure sources only. Those orders still show in
+  the market UI; they're just ignored when computing a price.
 
-Click **Save Defaults** after changing anything here. Use **Recalculate** next to
-**Build Costs** to rebuild stored build costs after you've changed sources or
-industry setup.
+Click **Save Defaults** after changing anything here.
+
+## Build costs
+
+EVE Console stores a build cost for every manufacturable item, worked out from your
+[industry park](industry-parks.md) and the **Manufacturing Cost** source above. Build
+costs are recalculated **automatically after every market refresh**.
+
+To force an update, for example after changing pricing or your industry park, open
+**Settings ▸ Industry** and click **Recalculate Build Costs** under **Build Costs**. The
+line beside the button reports progress.
+
+The same tab has a **Production Calculator** option: **Purchase a component instead of
+building when its market value is ≤ N % of build value** (off by default, 100 %). When
+it's off, the calculators build every component they can, and buy only the items that
+genuinely can't be costed. When it's on, a component whose market value is at or below
+that share of its build cost is bought instead of built. It's off by default because
+component markets move a lot, and a few cheap units don't guarantee the quantity you
+need at that price. Click **Save** at the bottom of the tab after changing it.
+
+## Price history
+
+The **Settings ▸ Price History** tab lists the **Price History Regions**. A background
+job refreshes the last 30 days of market history for every traded item in these
+regions, once every 24 hours per item, so the opportunity tools and the Item Browser's
+**Price History** tab can read it from the database. **The Forge** and **Domain** are
+set up on a fresh install.
+
+- To add a region, pick it from the dropdown and click **Add Region**. To stop
+  collecting a region, click **Remove** on its row.
+- The job paces itself against ESI's error limit, so a large region such as The
+  Forge fills in gradually over several sessions.
+- Watch progress on the **Price History** tab of
+  [Background Processes](tools/background-processes.md).
 
 ## Related
 
 - [Industry Parks](industry-parks.md) — build costs feed the missing-price markup and
   lowball filter above.
+- [Production Calculator](tools/production-calculator.md)
 - [Browse all tools](index.md)
