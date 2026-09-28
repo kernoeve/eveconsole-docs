@@ -10,7 +10,7 @@ The screen is split into an input panel on the left and a tabbed results area on
 
 ### Input panel
 
-- **Indy Park** — the industry park whose blueprint ME/TE, skills and structure bonuses are used for the calculation. Your default park is selected automatically.
+- **Indy Park** — the industry park whose blueprint ME/TE, skills and structure bonuses are used for the calculation. Your default park is selected automatically. The list updates as soon as you add, rename or delete a park in [Indy Parks](../industry-parks.md); the park you chose stays chosen, and if it's deleted the default park takes its place.
 - **Add Item** — a search box that only offers items you can actually build (types that are the output of a manufacturing or reaction blueprint); raw materials and blueprints are excluded.
 - **Quantity** and **ME Level** — for the item being added (ME defaults to 10).
 - **Production Queue** — the list of items to build, each showing its icon, name, quantity and ME badge, with a remove button.
@@ -42,5 +42,6 @@ Click an item name (or double-click a grid row) anywhere in the results to open 
 - **Include final BPC cost** adds the final product's blueprint copy (its contract price) as an input cost. It is always applied for faction / BPC-only items whose blueprint can't be bought as a BPO; the toggle only matters for standard BPO items.
 - **Build or buy components** — by default the calculator builds every component it can and buys only items that can't be costed. To buy a component instead when its market value is at or below a share of its build cost, turn on **Purchase a component instead of building when its market value is ≤ N % of build value** in **Settings ▸ Industry** and click **Save** (see [Build costs](../configuring-markets.md#build-costs)).
 - Accurate costs require a configured market for prices ([Configuring Markets](../configuring-markets.md)) and an industry park for the build parameters ([Indy Parks](../industry-parks.md)).
+- A category the park leaves unassigned is costed at the park's [default facility](../industry-parks.md#the-default-facility), with that system's cost index, the facility's tax and its role bonus (but no rig bonus). Versions before 0.9.15 costed such jobs with no facility at all, so **Job Costs** for them may now be higher.
 - Item icons are fetched from the EVE image server, so they may take a moment to appear.
 - To scan across many items for the best things to build, use [Industry Opportunities](industry-opportunities.md); to track jobs you've started, use [Industry Jobs](industry-jobs.md).

@@ -18,15 +18,16 @@ Open **Indy Parks** from the left sidebar under the **Industry** group.
   tax %**, up to **three rig slots**, and any number of **service modules**. The
   available rigs adapt to the structure type — engineering complexes
   (Raitaru/Azbel/Sotiyo) offer manufacturing rigs sized to the hull; refineries
-  (Athanor/Tatara) offer reaction and reprocessing rigs; NPC Stations take no rigs
-  or service modules.
+  (Athanor/Tatara) offer reaction and reprocessing rigs; NPC Stations take no rigs,
+  and their service modules are the station's own (see [NPC stations](#npc-stations)).
 - **Actual facility** — the real in-game station or structure a park structure
   describes. Linking one lets EVE Console check the industry jobs running there
   against your rigs, and keeps the park's fitting in step with the real structure.
 - **Default facility** — each park has exactly one structure ticked **Default**:
-  its catch-all. Any item that no production assignment covers is planned there,
-  with **no rig bonus**, so a calculation still completes instead of failing. This
-  is separate from the park-level **★ Set Default**.
+  its catch-all. Any category left unassigned, and any item that no production
+  assignment covers, is planned there — with that system's cost index, the
+  structure's tax and its hull's role bonus, but **no rig bonus**. This is separate
+  from the park-level **★ Set Default**.
 - **Production assignments** — map each production **category** (Large Ships,
   Capital Components, Ammo and Charges, the various reaction and reprocessing
   categories, etc.) to the structure that handles it.
@@ -45,7 +46,8 @@ and the build-cost floor in [market pricing](configuring-markets.md).
 ## Building a park
 
 1. In **Indy Parks**, click **+ New Park**. It appears in the list on the left;
-   select it to edit. Rename it in the **Park Name** box at the top.
+   select it to edit. Rename it in the **Park Name** box at the top. The first park
+   you add (or import) becomes the default park automatically.
 2. Add your structures. There are two ways, and you can mix them:
     - **A whole system at once** — see [Adding every structure in a
       system](#adding-every-structure-in-a-system) below. This is the quickest way
@@ -53,7 +55,8 @@ and the build-cost floor in [market pricing](configuring-markets.md).
     - **One at a time** — click **+ Add Structure** and fill in the card, as
       described in [Adding a structure by hand](#adding-a-structure-by-hand).
 3. Under **Production Assignments**, set each category's dropdown to the structure
-   that produces it. Leave a category on *— not assigned —* if you don't build it.
+   that produces it. A category left on *— not assigned —* is planned at the park's
+   [default facility](#the-default-facility).
    Click **Auto-assign from rigs** to fill the empty categories for you (see
    [Auto-assigning from rigs](#auto-assigning-from-rigs)).
 4. (Optional) Under **Item Exceptions**, type an item name into the search box,
@@ -62,6 +65,20 @@ and the build-cost floor in [market pricing](configuring-markets.md).
 5. Check which structure is ticked **Default**. It's the catch-all for anything
    left unassigned.
 6. To make this the park used everywhere, click **★ Set Default**.
+
+The park lists in the [Production Calculator](tools/production-calculator.md) and the
+[Worklist](tools/worklist.md) update as soon as you add, rename, delete or import a park.
+
+### Deleting a park
+
+Deleting a park asks for confirmation first (**Removal Confirmation**) and says what
+goes with it: its structures with their rigs and service modules, its category
+assignments and its item exceptions. It can't be undone.
+
+- If the park was the default, the default passes to the first remaining park by
+  name, and the confirmation says which.
+- If the Worklist had the deleted park chosen, it goes back to **&lt;Default&gt;**;
+  the Production Calculator switches to the default park.
 
 <!--
   SCREENSHOT SLOTS (add files to docs/images/, then uncomment):
@@ -99,27 +116,30 @@ After a bulk add, set each structure's **Tax Percentage**; it isn't read from th
 
 ## Adding a structure by hand
 
-Click **+ Add Structure**. The new card starts as *New Structure*, a **Raitaru** in
-**Null Sec**. Fill in:
+Click **+ Add Structure**. The new card starts as *New Structure*, a **Raitaru**.
+Fill in:
 
 - **Name** — a label such as *Main Raitaru*.
 - **Type** — the structure hull; this determines which rigs are available.
-- **Solar system** and **Security** — these drive the security/system-cost
-  modifiers.
+- **Solar system** — type at least two letters and pick the system from the list
+  (wormhole systems are included). This sets the system cost index.
+- **Security** — set for you from the system's own security (High Sec, Low Sec,
+  Null Sec or Wormhole) and locked; its tooltip says so. Rig bonuses scale with
+  security. Only a card with no known system lets you choose it by hand.
 - **Tax Percentage** — the facility's job tax.
 - **Rigs** — pick up to three from the per-type dropdowns (leave a slot on
   *— empty —* if unused).
 - **Service modules** — see [Service modules](#service-modules).
 
-Remove a structure with the **✕** button on its card.
+Remove a structure with the **✕** button on its card. It asks for confirmation
+first (**Removal Confirmation**) and says what goes: the card's rigs and service
+modules are deleted, and any category or item exception that sent work to it is left
+unassigned. The structure in game isn't affected.
 
-!!! warning "Set the security class yourself"
-
-    A structure added by hand is **not** given a security class from its solar system.
-    It starts as **Null Sec** whatever system you type. Rig bonuses scale with security,
-    so a high-sec or low-sec structure left on Null Sec gets the wrong bonus. Pick the
-    right **Security** on every card you add by hand. **+ Add Missing In System** sets
-    it for you.
+!!! note "Stored system and security are kept right"
+    When a park loads, a stored system name or security class that disagrees with the
+    system (or with the linked facility) is corrected, since rig strength is planned
+    from the stored class.
 
 ## Linking the actual facility
 
@@ -135,6 +155,11 @@ Once it's linked, the facility's name replaces the hint. Click the name to open 
 NPC station opens in [Players & NPCs](tools/entities.md), a player structure in the
 [Structure Browser](tools/structure-browser.md). Click **Unlink** to remove the link.
 
+A linked facility decides the card's **Name**, **Type** (its hull, when the app knows
+it), **Solar system** and **Security**, and all four lock while the link stands; their
+tooltips say why. Unlink it to change them. If linking changes the hull, rigs that no
+longer fit it are removed.
+
 Linking also brings the card's fitting into line with the real structure, and the
 line at the bottom of the card says which side is in charge:
 
@@ -148,7 +173,8 @@ line at the bottom of the card says which side is in charge:
 ## Service modules
 
 The **SERVICE MODULES** section lists the service modules fitted to a structure. Every
-Upwell hull offers the same list; NPC Stations take none.
+Upwell hull offers the same list. NPC stations work differently; see
+[NPC stations](#npc-stations).
 
 - To add one, pick it from *— add a service module —* and click **Add**. Adding a
   module that's already listed does nothing.
@@ -157,11 +183,33 @@ Upwell hull offers the same list; NPC Stations take none.
 
 When the fitting comes **from assets**, the list follows the game and can't be edited.
 
+## NPC stations
+
+A card whose **Type** is **NPC Station** takes no rigs, and its service modules and
+tax are locked:
+
+- **Service modules** stand for the station's own services. Link the station and
+  they're filled in from what it offers, as the Upwell modules that do the same job:
+
+    | Station service | Service module |
+    |---|---|
+    | Factory | Manufacturing Plant |
+    | Laboratory | Research Lab and Invention Lab |
+    | Reprocessing | Reprocessing Facility |
+    | Market | Market Hub |
+    | Cloning | Cloning Center |
+
+- **Tax Percentage** is the game's fixed **0.25%** facility tax.
+
+Industry jobs at NPC stations are never flagged as running without rigs.
+
 ## The default facility
 
-Tick **Default** on a structure's card to make it the park's catch-all. Items that no
-production assignment or item exception covers are planned at this structure with no
-rig bonus, so the calculation still completes.
+Tick **Default** on a structure's card to make it the park's catch-all. Categories
+left *— not assigned —*, and items that no production assignment or item exception
+covers, are planned at this structure: with its system's cost index, its facility tax
+and its hull's role bonus, but no rig bonus. An assignment or exception that points
+at a structure no longer in the park falls through to it too.
 
 - A park has exactly one default facility. Ticking **Default** on one structure clears
   it from the others, and you can't untick the current one without ticking another.
@@ -192,7 +240,8 @@ one back — handy for backing up a setup or sharing a corp-standard park with a
 mates. Imported parks arrive as new entries and never overwrite an existing one.
 
 The file doesn't carry each structure's tax or which one is ticked **Default**, so
-check **Tax Percentage** and **Default** after an import.
+check **Tax Percentage** and **Default** after an import. A park imported into an
+empty list becomes the default park.
 
 ## Related
 

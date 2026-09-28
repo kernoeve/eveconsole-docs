@@ -24,17 +24,37 @@ Below the header are detail tabs:
 - **Attributes** — fixed type stats (Volume, Mass, Capacity, Portion Size, Base Price where applicable) followed by the item's published dogma attributes, grouped by attribute category and shown with units.
 - **Requirements** — the skills required to use or build this item, with the required level (in Roman numerals). Skill names are clickable and navigate to that skill.
 - **Required For** — only shown when the loaded item is itself a skill. A I–V level selector lets you pick a skill level; the tab lists the ships, modules, and other items that require this skill at that level, grouped by category. Levels that actually have items are highlighted on the selector.
-- **Industry** — for a regular item: a **Produced By** section (blueprints that manufacture it, with their input materials) and a **Used In Manufacturing** section (blueprints that consume it). For a blueprint or reaction formula: an activity selector (Manufacturing, Reaction, Invention, Copying, ME Research, TE Research) showing the outcome/products, required skills, and input materials for the selected activity. All names are clickable to navigate.
+- **Industry** — for a regular item, up to four sections:
+    - **Produced By** — the blueprints and reaction formulas that make it, with their input materials.
+    - **Produced By Reprocessing** — what yields this item when reprocessed, per batch, at the best rate each source can reach (90.6% for ore, ice and moon ore, 55% for everything else). A **Show** dropdown picks **All**, **Ore** (the whole Asteroid category: ore, ice and moon ore) or **Non Ore** (modules, ships, salvage and the like); your choice stays as you move between items.
+    - **Reprocesses To** — what one batch of this item returns when reprocessed, at the best rate it can be refined at.
+    - **Used In Manufacturing** — the blueprints and reaction formulas that consume it.
+
+    For a blueprint or reaction formula: an activity selector (Manufacturing, Reaction, Invention, Copying, ME Research, TE Research) showing the outcome/products, required skills, and input materials for the selected activity. All names are clickable to navigate.
+- **Assets** — every stack of the item the app knows of. See [Assets tab](#assets-tab) below.
+- **LP Store** — only shown when a loyalty-point store offers the item. One row per offer: Corporation, Qty, LP Cost, ISK Cost, Your LP, LP Est. Value, Required Items and AK. For whole-store comparisons, use [LP Market Values](lp-market-values.md).
 - **Market Orders** — live buy and sell orders for the item from a selected market source. Sell orders show Qty, Price, Location, and Expires; buy orders additionally show Range and Min Qty. Sell orders are sorted cheapest-first, buy orders highest-first.
 - **Price History** — only shown when at least one price-history region is configured. Pick a region and a period (All Time, 30, 90, or 365 days). A **Chart** sub-tab plots average / high / low price and trade volume; a **Grid** sub-tab lists Date, Volume, Avg Price, High, Low, and Orders per day.
 - **Derived History** — a chart of the item's recorded daily **Market**, **Build**, and **Contract** value snapshots, filterable by period. These snapshots are captured automatically as prices refresh.
+
+### Assets tab
+
+The **Assets** tab lists every stack of the item that your synced assets hold — the same data as the [Assets](assets.md) tool, filtered to this one item.
+
+- **Group by** — **Location** (the default), **Owner** or **None**. Grouped rows fold under a collapsible header naming the location or owner, with the stacks, units and value it adds up to. Clicking a column header sorts within each group.
+- **Scope** — **Characters and personal corps** (the default) or **All owners**.
+
+Columns: **Location**, **Owner**, **Qty**, **Container**, **Flag**, **Value**, **System**, **Sec** and **Region**. **Location**, **Owner** and **System** are links to their pages. The product of a running industry job is included, with the flag **Industry Job**.
+
+A summary line above the grid gives the total units, stacks and locations, what they're worth, and how many are still in industry jobs.
 
 ## Using it
 
 - **Find an item** — browse the tree, or type in the search box and click a result.
 - **Follow links** — clickable (underlined) item, skill, blueprint, and material names navigate to that type. Use the Back / Forward buttons to retrace your path.
 - **Read stats and requirements** — use the Description, Attributes, and Requirements tabs. For a skill, the Required For tab reverses the lookup to show what needs it.
-- **Trace production** — the Industry tab shows both directions of the blueprint graph and, for blueprints, the per-activity materials and skills.
+- **Trace production** — the Industry tab shows both directions of the blueprint graph, including reactions and reprocessing, and, for blueprints, the per-activity materials and skills.
+- **Find your stock** — the Assets tab shows where every stack of the item is and who holds it.
 - **Check the market** — on the Market Orders tab, choose a source from the **Source** dropdown to load orders. On Price History, choose region and period.
 
 ## Notes

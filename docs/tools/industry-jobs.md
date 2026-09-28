@@ -24,7 +24,7 @@ Each row is one industry job. Columns:
 | Build Cost | Estimated cost to build the produced items, from your cached build costs. |
 | Market Value | Value of the output at your configured market prices (blueprint copies from invention/copying are valued from contract prices). |
 | Facility | Station or structure the job runs in. |
-| Note | A note about the job's facility — e.g. flagging where it provides no relevant rig bonus. Blank when there's nothing to flag. |
+| Note | A note about the job's facility — e.g. flagging where it provides no relevant rig bonus. Blank when there's nothing to flag, and always blank for jobs at NPC stations, which take no rigs. |
 | Installer | Character who installed the job. |
 | Owner | Owning character or corporation. |
 | Created | Job start date/time (UTC). |
@@ -32,9 +32,11 @@ Each row is one industry job. Columns:
 
 Columns are sortable and resizable. Jobs are ordered active/paused first, then ready, then the rest by end date.
 
+**Product**, **Facility**, **Installer** and **Owner** are links: click one to open its page — the item in the [Item Browser](item-browser.md), a station or character in [Players & NPCs](entities.md), a player structure in the [Structure Browser](structure-browser.md).
+
 ### Detail panel
 
-Selecting a row fills the top panel with that job's Owner Type, Owner, Installer, Start Date, End Date, Completed By, Activity, Status, Runs, Items and Success Chance, plus the facility (with location), and the blueprint (with its ME/TE) and product icons, the time left, and the job cost.
+Selecting a row fills the top panel with that job's Owner Type, Owner, Installer, Start Date, End Date, Completed By, Activity, Status, Runs, Items and Success Chance, plus the facility (with location), and the blueprint (with its ME/TE) and product icons, the time left, and the job cost. The names in the panel are links too, as in the grid.
 
 ## Using it
 
@@ -53,4 +55,5 @@ Set your filters and click **Apply**; click **Clear** to reset them. The window 
 - Jobs come from the industry-job data synced for your authorized characters and corporations — sign in those tokens from [Getting Started](../getting-started.md) first, or the grid will be empty.
 - **Build Cost** and **Market Value** depend on a configured market ([Configuring Markets](../configuring-markets.md)) and an industry park ([Indy Parks](../industry-parks.md)); without them those columns may be blank.
 - Facility, installer and product names that aren't in local data are resolved from ESI on first load, so a name may appear as a numeric ID momentarily.
+- A job at a player structure that lacks a rig for its work is flagged in the **Note** column and raises an [Overview](overview.md) alert. Jobs at NPC stations are never flagged: a station takes no rigs, so running a job there is simply your choice.
 - Use the [Production Calculator](production-calculator.md) to plan new builds, and the [Industry Opportunities](industry-opportunities.md) scanner to find what to build next.

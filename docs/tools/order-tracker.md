@@ -24,10 +24,14 @@ One row per order line, newest first. A multi-item order appears as several rows
 **Fulfilment** (shown while the order is open)
 
 - **Stock** — a ✓ when the order is being filled from existing shelf stock.
-- **On hand** — units on hand against units ordered, e.g. `19/50`.
+- **On hand** — units on hand against the units still to come, e.g. `19/50`.
 - **Indy Job** — units currently in build, e.g. `120 in build`.
-- **Short** — what's still unaccounted for once shelf stock and running jobs are counted (`Units − on hand − in build`, never below zero). Shown in red while there's a shortfall, blank once there isn't.
-- **Contract** — the contract that fulfils the order; opens in the [Contracts](contracts.md) tool. Matched automatically (see below), blank until a match is found.
+- **Short** — what's still unaccounted for once shelf stock and running jobs are counted (`units still to come − on hand − in build`, never below zero). Shown in red while there's a shortfall, blank once there isn't.
+- **Contract** — the contract carrying the order; opens in the [Contracts](contracts.md) tool. Matched automatically (see below), blank until a match is found. Hover it to see every contract on the order, with the units each carries and where it stands.
+- **On contract** — units on contracts made out and waiting for the buyer to accept.
+- **Delivered** — units the buyer has accepted, against units ordered, e.g. `1/2`.
+
+**On hand**, **Indy Job** and **Short** count only the units still to come — not units already on a contract — and are blank once the order is settled.
 
 **Price & status**
 
@@ -46,14 +50,19 @@ The status line shows how many orders are currently listed.
 For open orders, the tracker works out how each one is being met and keeps it current on its own (it reloads about once a minute; there's also a **Refresh** button):
 
 - **On hand / in build / short** come from your stockpile and your industry jobs.
-- **Contract** is matched automatically from your synced ESI contracts by their item list. When a contract can't be matched — usually because its items differ from the order — you can paste its id into the edit window, or clear it to remove the link.
-- **Completed** is set automatically: to today when you mark an order completed or cancelled, or to the date the linked contract was accepted. You can override it in the edit window if the real date differs.
+- **Contract** is matched automatically from your synced ESI contracts. A contract matches when the ordered item, summed over all of the contract's lines, covers what's still to come; extra items (fitted rigs and the like) and packaged versus assembled don't matter.
+- **An order can go out over several contracts**, and **one contract can carry several orders** (say, two hulls for two orders of one). Exact fits are matched first, so a contract cut for one order isn't taken by another.
+- **Completed** is set automatically: to today when you mark an order completed or cancelled, or, once accepted contracts carry every unit, to the date of the last acceptance. You can override it in the edit window if the real date differs.
+- **A declined contract** for the whole order cancels it; a declined contract for part of it leaves the order open, with those units wanted again.
+- A linked contract is let go only when it lapses — cancelled, deleted, failed, reversed, or expired without being accepted.
+
+When a contract can't be matched — usually because it was made out before the order was entered — add its id in the edit window. The box takes several contract ids, separated by commas. Attaching a contract by hand takes it off any other pending order that held all of it; removing an id lets that contract go.
 
 ## Using it
 
 Add and maintain orders from the header:
 
-- **Add Order** — opens a dialog: search and pick an **item type**, set **units** and **total purchase price**, pick a **buyer** (a character/corporation, or free text for someone the search can't reach), and optionally an **estimated date**, **completed date**, **contract id**, **labels**, and the **Priority** flag. Finish with a **status**.
+- **Add Order** — opens a dialog: search and pick an **item type**, set **units** and **total purchase price**, pick a **buyer** (a character/corporation, or free text for someone the search can't reach), and optionally an **estimated date**, **completed date**, **contract ids**, **labels**, and the **Priority** flag. Finish with a **status**.
 - **Edit** — change the selected order (also opens on double-click).
 - **Delete** — remove the selected order.
 - **Refresh** — reload now, to pick up fulfilment changes.

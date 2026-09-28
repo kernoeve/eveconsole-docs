@@ -19,8 +19,8 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 - **Activity Summary** — a two-column metric table.
     - *In Period* (bound to the Period dropdown): Market Sales (count + ISK), Market Purchases (count + ISK), Completed Jobs, Player Ship Kills, Ships Lost.
     - *Current State* (a live snapshot, not period-bound): Outstanding Sell Orders (count + value), Outstanding Buy Orders (count + value), Outstanding Contracts, Active Indy Jobs.
-- **Alerts** — actionable warnings. Skill-queue alerts (empty, paused, or ending within your configured threshold) show the character's portrait and jump to that character's Skills tab when clicked. Asset-safety alerts are dismissible. Inactive standing-project alerts jump to the Standing Projects view. An **industry jobs ready to deliver** alert (*"You have N industry jobs ready to deliver"*) flags finished jobs whose output is still waiting and holding a slot. Which alerts appear is controlled in **Settings ▸ Alerts**.
-- **Notifications** — recent in-game notifications within the period, one row per notification, shown in-game style: icon, a one-line summary and an age, with the full detail in a tooltip. Unread notifications are marked with a dot.
+- **Alerts** — actionable warnings. Skill-queue alerts (empty, paused, or ending within your configured threshold) show the character's portrait and jump to that character's Skills tab when clicked; a character whose **Skill queue** box is cleared in **Settings ▸ Characters** raises none. Asset-safety alerts are dismissible. Inactive standing-project alerts jump to the Standing Projects view. An **industry jobs ready to deliver** alert (*"You have N industry jobs ready to deliver"*) flags finished jobs whose output is still waiting and holding a slot. A running-jobs alert flags jobs at a player structure not rigged for them; jobs at NPC stations are never counted. Which alerts appear is controlled in **Settings ▸ Alerts**.
+- **Notifications** — recent in-game notifications within the period, one card per notification: an icon, the title, its age and a dot while unread, then one to three lines of what matters for that type — a bill's amount and due date, a standings change, an attack's shield, armor and hull, fuel left, a corporation application, a moon extraction, a project, and so on.
 - **Eve Online News** — the official EVE Online news feed. Each item can be expanded in place (More/Less) and opened in your browser.
 - **Personal Killmails** — kills and losses for your authorized characters over the period, with kill/loss counts and ISK totals plus a zKillboard-style list.
 - **Sale Listing (Build)** and **Sale Listing (Market)** — the Sale Listing grids embedded as sections.
@@ -38,7 +38,7 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 
 - **Change the period** with the dropdown to re-scope the period-based metrics, killmails and pie charts.
 - **Act on alerts** by clicking them — skill-queue rows open the relevant character's Skills tab, the standing-projects row opens Standing Projects, and asset-safety rows can be dismissed with their dismiss control.
-- **Read a notification's full text** by hovering it for the tooltip.
+- **Read a notification in full** by clicking its card: the [Notifications](notifications.md) tool opens with that notification selected and its details shown.
 - **Customize the layout** with the **⚙ Customize Layout** button:
     1. Set the grid size with the **Rows** and **Columns** steppers (1–25 each).
     2. Drag a section from the **Sections** palette on the left onto the grid to place it.

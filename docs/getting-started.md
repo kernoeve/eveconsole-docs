@@ -56,6 +56,15 @@ dotnet run
 
 A `dotnet run` build doesn't self-update — `git pull` and rebuild to get newer changes.
 
+!!! tip "Keep a development build away from your real data"
+
+    Start the app with `--profile <name>` (for example `dotnet run -- --profile dev`)
+    to run a completely separate copy — its own config, database and caches — under
+    `%LOCALAPPDATA%\EveConsole\Profiles\<name>` (`~/.local/share/EveConsole/Profiles/<name>`
+    on Linux), or give a folder path instead of a name. It starts empty, like a fresh
+    install, and runs alongside your normal copy. The window title shows the profile
+    name, and **Settings ▸ Database** says which folder is in use.
+
 ### Building a self-updating package
 
 If you want a **packaged, self-updating build from your own checkout** — the same
@@ -151,6 +160,23 @@ dot flags personal corps in the list).
     assets are treated as part of your own. Alliance or employer corporations — ones
     you've added for visibility but don't own — are treated as separate entities and
     are kept out of your personal totals.
+
+## Characters tab
+
+**Settings ▸ Characters**, right after **ESI Tokens**, lists every authorised
+character automatically and says what each is used for:
+
+- **Slots used for** — **Mfg** (manufacturing), **Rxn** (reactions) and **Sci**
+  (science: copying, research, invention). All three start ticked; clear the ones a
+  character shouldn't be given, which is how you keep an alt out of that work. Jobs
+  go to the least capable character who can run them, keeping your high-skill
+  characters free for the work only they can do.
+- **Free / total** — the character's free and total job slots.
+- **Skill queue** — ticked means the skill queue should be kept running. Clear it for
+  an alt whose queue is empty on purpose, and it raises no [Overview](tools/overview.md)
+  alert or [Worklist](tools/worklist.md) item.
+
+Changes save as you make them.
 
 ## Sizing the interface
 

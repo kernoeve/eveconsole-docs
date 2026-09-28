@@ -58,5 +58,6 @@ A Slack post is assembled from sections. Each carries **its own parameters**, be
 ## Notes
 
 - **Chart sections need a Slack channel.** An incoming webhook can't carry a file, so a task aimed at a webhook skips the two chart sections, and the run reports how many were skipped rather than claiming success.
+- **Long posts go out in parts.** A message over about 3,500 characters is sent as several messages, in order. Each section is kept whole in one message; only a table longer than a whole message is split, between rows, with its header repeated at the top of the next message. If a part is refused, the run says which parts arrived.
 - The reports the Scheduler posts use the **same definitions** the on-screen tabs use, so a scheduled post can't drift from what the corresponding screen shows. Headings — Top 10 and monthly summary alike — can be overridden in the **Corp Top 10 / Summary** settings, and Top 10 headings carry the month they cover.
 - To post a report manually instead of on a schedule, use the relevant tool's own "Post to Slack" action (e.g. on [Corp Activity](corp-activity.md)).

@@ -42,6 +42,10 @@ A service runs as **LocalSystem** and has no user session, so it reads its datab
 
 A Windows service can't draw anything on screen. If you want a visible sign that the worker is running in your own session, start the app with `--tray` for a **notification-area icon and nothing else**. There's a checkbox for it under **Settings ▸ Polling**.
 
+### A separate profile
+
+`--profile <name>` runs a completely separate copy of the app — its own config, database and caches — under `%LOCALAPPDATA%\EveConsole\Profiles\<name>` (or a folder path you give instead of a name). It can be combined with the other switches and runs alongside your normal copy; see the [FAQ](faq-and-troubleshooting.md#can-i-run-a-second-separate-copy).
+
 ## Supplying the connection string to a service
 
 A background service has no login session, so it can't read the connection password saved through the desktop app (that lives in a per-user secure store). For headless/service use, supply the connection string through the environment instead:
