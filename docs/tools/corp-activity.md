@@ -40,5 +40,6 @@ The players-active figure in the **Activity (24H)** header is counted the same w
 
 - This is a corporation-scoped tool: it needs valid corp tokens with the relevant wallet, industry, mining, killmail, and projects scopes. Empty tabs usually mean the required scope or data has not been fetched yet.
 - Value figures (e.g. mining reprocessed value) depend on a configured market — see [Configuring Markets](../configuring-markets.md).
+- Moon mining comes from your refineries' mining ledgers, which ESI serves for about the last 90 days, one row per miner, ore and day. EVE Console keeps every day it has fetched, so mining history builds up past those 90 days for as long as the app keeps polling. Versions before 0.9.15 kept only each miner's latest day per ore, so **Units Mined**, the **Mining** tab and the **Top 10** mining list read low; the first poll after upgrading restores the last ~90 days in full.
 - Top 10 leaderboards honour an exclude list, so specific characters can be kept out of the rankings.
 - The corporation list is populated from your authorized corp tokens; see [Getting Started](../getting-started.md).
