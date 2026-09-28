@@ -8,8 +8,9 @@ Open it from the left sidebar under **Communication**.
 
 A filter bar sits above a paged grid, with a details pane below.
 
-- **Grid columns** — **Date** (local time), **Type** (a human-readable label for the notification type), **Character** (every character the notification arrived under), **Sender**, **Sender Type** (Character / Corporation), and **Read** (Read / Unread).
-- **Details pane** (below the grid) — for the selected notification: an icon (sender portrait, corp/alliance logo, or structure-type icon, with a glyph fallback), the type label, and **Date**, **Read**, **Char**, and **Sender** fields, followed by the formatted notification body. If the body can't be formatted it falls back to the raw text.
+- **Grid columns** — **Date** (local time), **Type** (the game's own name for the notification type, e.g. *Corporation bill*), **Character** (every character the notification arrived under), **Sender**, **Sender Type** (Character / Corporation), and **Read** (Read / Unread).
+- **Details pane** (below the grid) — for the selected notification: a compact header with the sender's icon (portrait, corp/alliance logo, or a structure's own icon), the type, **Sender**, **Date**, **Read** and **Character**, followed by the notification body.
+- **Body** — laid out for each type, with every field named for what it means in that type. IDs are shown as names, with icons and links (characters, corporations, alliances, factions, agents, items, systems, stations and structures). Lists appear as tables — ore volumes with a total, fuel, implants, standings and so on — and standings changes are shown signed and coloured, with the resulting standing. Tick **Show the original text** to see the raw notification text; a notification with nothing more to show says *No further details.*
 - **Unread count** — the filter bar shows an "*N* unread" tally for the current filters (this ignores the *Unread only* toggle).
 
 The same notification is often delivered to several of your characters; the grid collapses those into one row per notification and lists all recipient characters in the **Character** column. A row counts as unread if any recipient still has it unread.
@@ -19,15 +20,15 @@ The same notification is often delivered to several of your characters; the grid
 Filtering, sorting, and paging all run against the whole notifications table, not just the current page.
 
 - **Character** — limit to one character, or *All characters*.
-- **Type** — filter to a single notification type, or *All types*.
+- **Type** — filter to a single notification type, or *All types*. Types are listed by the game's own names.
 - **Sender** — *All senders*, *Corporation*, or *Character*.
 - **From** / **Thru** — date range (calendar pickers). **From** defaults to 30 days ago; **Thru** is open-ended unless set. Dates are treated as UTC.
-- **Sort** — *Date: newest first* (default), *Date: oldest first*, or *Type (A → Z)*.
+- **Sort** — *Date: newest first* (default), *Date: oldest first*, or *Type (A → Z)*, which sorts by the type names shown.
 - **Unread only** — show only notifications with an unread recipient.
 - **Clear** — reset every filter to its default (character = all, type = all, sender = all, From = 30 days ago, Thru = none, unread-only off).
 - **Pager** (bottom) — **First / Prev / Next / Last** buttons with a page indicator.
 
-Select any row to load its formatted details in the pane below.
+Select any row to load its details in the pane below. Clicking a notification card on the [Overview](overview.md) opens this tool on that notification.
 
 ## Notes
 
