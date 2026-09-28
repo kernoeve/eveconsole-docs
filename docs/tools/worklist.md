@@ -43,7 +43,7 @@ Each source can be switched on or off independently (see [Setting it up](#settin
 - **Standing buy orders** — see [Standing Buy Orders](standing-buy-orders.md).
 - **Inventory levels** — restock shortfalls, from [Inventory Levels](inventory-levels.md).
 - **Corp projects** — deliveries toward corp standing projects.
-- **Skill queues** — characters whose skill queue needs attention.
+- **Skill queues** — characters whose skill queue needs attention. A character whose **Skill queue** box is cleared in **Settings ▸ Characters** is left out.
 - **Asset safety** — assets in asset safety that need handling.
 
 !!! note
@@ -57,7 +57,7 @@ Because the Worklist is assembled from other tools' data, a little configuration
 2. **Feed the sources that need data:**
     - Configure your stockpile targets in [Inventory Levels](inventory-levels.md) so *inventory levels* shortfalls appear.
     - Declare your recurring buy orders in [Standing Buy Orders](standing-buy-orders.md) so *standing buy orders* tasks appear.
-    - Keep your [Indy Parks](../industry-parks.md) and [Production Calculator](production-calculator.md) plans current so *material purchases*, *industry jobs* and *invention and copying* reflect what you're actually building.
+    - Keep your [Indy Parks](../industry-parks.md) and [Production Calculator](production-calculator.md) plans current so *material purchases*, *industry jobs* and *invention and copying* reflect what you're actually building. **Plan against park** on the Config tab picks the park; **&lt;Default&gt;** follows your default park. The list picks up park changes at once, and a chosen park that's deleted goes back to **&lt;Default&gt;**.
     - Corp *projects* and *asset safety* are driven by ESI data the app already syncs.
 3. **Set your markets** ([Configuring Markets](../configuring-markets.md)) so the Value column and any price-based decisions are meaningful.
 4. **Refresh** to rebuild the list, then use the **Station Needs** tab to plan runs.
