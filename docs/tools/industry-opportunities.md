@@ -17,9 +17,9 @@ Each row is one item where building it and selling it turns a profit at your cho
 | Margin | Profit as a percentage of build cost. |
 | Build Time | Time to build one unit. |
 | Slot Days | Build Time expressed in days (the time one manufacturing slot is tied up). |
-| Profit / Slot Day | Profit per unit ÷ Slot Days — the default sort, best first. |
+| Profit / Slot Day | Profit per unit ÷ Slot Days. |
 | Units Sold 30d | Units traded in the pricing region over the last 30 days. |
-| ISK Sold 30d | ISK traded in the pricing region over the last 30 days. |
+| ISK Sold 30d | ISK traded in the pricing region over the last 30 days — the default sort, highest first. |
 
 ## Using it
 
@@ -29,10 +29,12 @@ Set the controls along the top, then click **Calculate**:
 - **Price at** — the market pricing config to value output against (these are your configured market sources).
 - **Min 30d ISK Vol** / **Min 30d Unit Vol** — optional thresholds to hide thin, illiquid items. Leave blank for no filter.
 - **Skip faction** — excludes faction items (ME0 BPCs that are often not worth building). On by default.
-- **Skip Non BPO traceable Items** — keeps only items whose blueprint is a buyable BPO, or is invented from one (e.g. T2 from a T1 BPO). Excludes faction/limited-run BPC items with no obtainable BPO, and "Limited Time" event items whose blueprint can no longer be bought. On by default.
+- **Skip Non BPO traceable Items** — keeps only items whose blueprint is a buyable BPO, or is invented from one (e.g. T2 from a T1 BPO). Excludes faction/limited-run BPC items with no obtainable BPO, storyline, officer and deadspace items, and "Limited Time" event items whose blueprint can no longer be bought. On by default.
 - **Exclude Groups** — add market groups (and everything nested under them) to leave out of the scan; remove a chip with its ✕. Exclusions are saved between sessions.
 
-Results default to highest **Profit / Slot Day** first; click any column header to re-sort. Double-click a row to open that item in the Item Browser. The footer summarises the result count and the pricing market, and notes how many rows were priced from 30-day history.
+Results default to highest **ISK Sold 30d** first; click any column header to re-sort. Double-click a row to open that item in the Item Browser. The footer summarises the result count and the pricing market, and notes how many rows were priced from 30-day history.
+
+**Price at**, **Mode**, the volume filters, both skip boxes and the sort are remembered on this machine, so they're as you left them when you come back to the tab or restart the app.
 
 ## Notes
 
