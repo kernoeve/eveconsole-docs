@@ -9,7 +9,7 @@ Open it from the left sidebar under **Corp / Interactions**.
 A toolbar with a **Corporation** picker, a live status line, and a **Refresh** button sit above a set of tabs:
 
 - **Activity (24H)** — a summary bar (players active, income, expenses over the last 24 hours), three side-by-side leaderboards (Ratting, Industry, Mining by value), and a "Recent Kills & Losses" killmail list.
-- **Monthly Activity** — a per-month table (Total Income, Total Expense, Ratting Tax, Industry Tax, Project Payouts, Units Mined, Kills, Losses, ISK Efficiency, Players Active) plus monthly ISK and count charts (the kills/losses chart plots ISK efficiency on its own 0–100% axis).
+- **Monthly Activity** — a per-month table (Total Income, Total Expense, Ratting Tax, Industry Tax, Project Payouts, Units Mined, Kills, Losses, ISK Efficiency, Players Active) plus monthly ISK and count charts (the kills/losses chart plots ISK efficiency on its own 0–100% axis). See [Players Active](#players-active) for who is counted.
 - **Income** and **Expense** — each has a **Summary** sub-tab (income/expense grouped by wallet reference Type, with Count and Amount) and a **Detail** sub-tab (the individual journal rows).
 - **Ratting Taxes**, **Industry Taxes**, **Donations** — each has a **Summary** sub-tab (a ranked list of payers/donors by amount) and a **Detail** sub-tab (journal rows). Ratting, industry and donations also drive daily charts.
 - **Mining** — a mining ledger with **Summary** (date, character, ore type, quantity, reprocessed value) and **Detail** sub-tabs.
@@ -20,12 +20,19 @@ A toolbar with a **Corporation** picker, a live status line, and a **Refresh** b
 
 Most ISK figures are abbreviated (K / M / B); killmail rows use a zKillboard-style layout with ship render, system/security, victim, and final-blow columns.
 
+### Players Active
+
+**Players Active** counts corporation **members** only: characters seen acting while they were in the corp. That means a login seen by member tracking, a kill or loss, moon mining, a contract issued from the corp, a corp industry job, a project or medal, or the corp's tax on their ratting and mission income. Former members count for the months they were in the corp. Customers, users of the corp's structures, NPCs and other corporations never count; other wallet and contract counterparties count only if they're current members who had joined by that month.
+
+The players-active figure in the **Activity (24H)** header is counted the same way. Both can be lower than versions before 0.9.15 showed, which also counted outsiders.
+
 ## Using it
 
 - **Corporation** — pick the corp to inspect; the first available corp is selected automatically. Changing corp reloads every tab.
 - **Refresh** — forces a full reload. The dashboard also auto-refreshes: a light refresh every 60 seconds and a full refresh (including per-tab detail rows) every 5 minutes.
 - **Per-tab period selectors** — the tax, donation, mining, kills, income, and expense tabs each have their own period dropdown (7 days to 1 year; most default to 30 days). The daily chart on the main view defaults to 90 days.
 - **Top 10 period** — choose Month and Year; the lists reload for that window. **Export to Clipboard** and **Export (No ISK)** copy the leaderboards out.
+- **Post to Slack** — a post over about 3,500 characters goes out as several messages, in order. A section (a heading and its table) is kept whole in one message; only a table longer than a whole message is split, between rows, with its header repeated at the top of the next message.
 - **Standing Projects** — add, clone, edit, delete, and refresh standing project definitions; rows flag near-complete or inactive projects, and a deliver-item row can be opened in the item browser.
 - Clicking a killmail row can open it in the [Killmails](killmails.md) browser.
 
