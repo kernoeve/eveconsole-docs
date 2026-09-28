@@ -11,8 +11,10 @@ From 0.9.13 EVE Console's interface is themeable. The whole app is drawn from a 
 
 Two places, and each follows the other:
 
-- **Title bar** — click the theme name shown on the title bar to cycle/pick.
+- **Title bar** — click the theme name shown on the title bar and pick from the menu that opens.
 - **Settings ▸ Other** — pick from the list.
+
+Tooltips follow the theme too, and the light themes are kept a step dimmer than pure white, so they don't glare.
 
 Your choice is saved on this machine (it's a local UI preference, not stored in the shared database), so each client can look however you like even when several share one PostgreSQL server.
 
