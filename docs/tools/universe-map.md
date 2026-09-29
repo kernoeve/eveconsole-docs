@@ -2,7 +2,7 @@
 
 A single continuous map of New Eden, from the whole cluster down to an individual system, with overlays for sovereignty, security, kills, jumps, industry and intel. Double-clicking a system opens its own detailed page.
 
-Open it from the left sidebar under **Universe**.
+Open it from the left sidebar under **Structures / Navigation**.
 
 ## What it shows
 
@@ -26,8 +26,10 @@ The map is one continuous view — there are no separate drill-down levels. Scro
 - System nodes render as small boxes coloured by the active overlay, with the docking bar above and service indicators below.
 - At the region scale, region boxes and docking-class badges are shown instead.
 
-!!! note
-    Kill counts on the map come from killmails this app has stored (see [Killmails](killmails.md)), not from all of New Eden.
+!!! note "Where the numbers come from"
+    The **Ship kills** and **Pod kills** overlays are counted from the killmails this app has stored. With the default [zKillboard](../zkillboard.md) scope, **My characters & corp only**, that means only kills involving you and your corporations. Choose **Capture all kills** to see kills across all of New Eden.
+
+    **Ship jumps**, **NPC kills**, sovereignty, industry indices, faction warfare and incursions come from the map statistics under **Settings ▸ Map Data**. Those overlays are empty until the first backfill has finished — by default it fetches 7 days. See [Logs & Map Data](../logs-and-map-data.md#map-data).
 
 ## System view
 
@@ -45,7 +47,7 @@ Tabs:
 
 ## Intel from chat logs
 
-If you monitor intel channels (see [Game & Chat Logs](logs.md)), their messages are parsed into *sightings* — who was seen, where, and in what hull. Sightings appear on the map's intel overlays and on each system's **Intel** tab, with pilot / corp / alliance portraits and the original chat line kept alongside.
+If you monitor intel channels (see [Logs & Map Data](../logs-and-map-data.md#chat-logs)), their messages are parsed into *sightings* — who was seen, where, and in what hull. Sightings appear on the map's intel overlays and on each system's **Intel** tab, with pilot / corp / alliance portraits and the original chat line kept alongside.
 
 !!! note
     Duplicate messages are recognised across characters and machines, so importing a second computer's logs doesn't double-count sightings.
@@ -60,5 +62,5 @@ If you monitor intel channels (see [Game & Chat Logs](logs.md)), their messages 
 ## Notes
 
 - The map and overlays reflect only data the app has synced — killmails, sovereignty, industry indices, and so on.
-- Map statistics are collected hourly and thinned to daily as they age, with history backfilled from EVE Ref's archives for spans ESI does not serve.
+- Map statistics are collected hourly and thinned to daily as they age, with history backfilled from EVE Ref's archives for spans ESI does not serve. How much is fetched and kept is set under **Settings ▸ Map Data** — see [Logs & Map Data](../logs-and-map-data.md#map-data).
 - To plan a capital route across the map, use the [Jump Planner](jump-planner.md).

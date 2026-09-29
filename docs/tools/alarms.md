@@ -42,7 +42,7 @@ Fires when an item is listed at or below a price you name — **on the market, i
 
 ### Intel report
 
-Fires when someone reports a pilot in a system you're watching. Give it a **list of systems**, or **one system and a jump range** to cover everything around it. It reads the intel channels already being parsed under **Settings ▸ Chat Logs** (see [Game & Chat Logs](logs.md)).
+Fires when someone reports a pilot in a system you're watching. Give it a **list of systems**, or **one system and a jump range** to cover everything around it. It reads the intel channels already being parsed under **Settings ▸ Chat Logs** (see [Logs & Map Data](../logs-and-map-data.md#chat-logs)).
 
 ### Database query
 

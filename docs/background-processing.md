@@ -1,6 +1,6 @@
 # Background processing
 
-Everything EVE Console does on a timer — ESI polling, market pricing, contracts, zKillboard, alarms, the [Scheduler](tools/scheduler.md), data retention and backups — is the *background work*. From 0.9.13 that work can run **without a desktop window**, so it keeps going after you close the app, or on a machine that never opens one.
+Everything EVE Console does on a timer — ESI polling, market pricing, contracts, [zKillboard](zkillboard.md), [map statistics](logs-and-map-data.md#map-data), alarms, the [Scheduler](tools/scheduler.md), data retention and backups — is the *background work*. From 0.9.13 that work can run **without a desktop window**, so it keeps going after you close the app, or on a machine that never opens one.
 
 !!! info "This needs PostgreSQL"
 
@@ -14,6 +14,7 @@ When several clients share a PostgreSQL database, exactly **one** of them takes 
 - A **headless worker** waits if a desktop client already holds the lease, and takes over the moment that client exits.
 - The title bar shows **which client is doing the background work**, so you can always tell.
 - The worker pushes its **call logs, polling status and alarms** out to the other clients, and each client can **mute** those independently.
+- **Game and chat logs** are the exception: every client reads its own log folders, so each machine's EVE logs are imported by the client running on it. See [Logs & Map Data](logs-and-map-data.md).
 
 When a worker stops, it releases its lease on the way out, so the next client picks the work up on its next tick rather than waiting for the server to notice a dropped connection.
 
