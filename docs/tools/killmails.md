@@ -28,5 +28,6 @@ Losses appear alongside kills in the same list. Ship, portrait, corp, and allian
 ## Notes
 
 - Killmails are corp-scoped and require valid corp tokens with killmail scopes; the corporation list is populated from your authorized corporations (see [Getting Started](../getting-started.md)).
+- ESI only returns kills where you were the victim or got the final blow. The rest — kills you took part in without the final blow — come from [zKillboard](../zkillboard.md), which is on by default.
 - Item estimated values come from stored pricing, which depends on a configured market — see [Configuring Markets](../configuring-markets.md).
 - A recent 24-hour view of corp kills and losses also appears in [Corp Activity](corp-activity.md), which can hand a killmail off to this browser.

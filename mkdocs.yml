@@ -75,6 +75,8 @@ nav:
       - AI Agent (Eden): ai-agent-eden.md
       - Storage & PostgreSQL: storage-postgresql.md
       - Background Processing: background-processing.md
+      - Logs & Map Data: logs-and-map-data.md
+      - zKillboard: zkillboard.md
       - Themes: themes.md
   - Functionality:
       - General:
