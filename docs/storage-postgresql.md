@@ -61,6 +61,45 @@ Backups and restores work on both engines, from **Settings ▸ Database**:
 
 You can enable scheduled backups, choose an interval, set how many to keep, and take a manual backup on demand. The storage breakdown (what's taking up space) works the same way on both engines.
 
+## Data retention
+
+**Settings ▸ Data Retention** sets how long EVE Console keeps data it can afford to forget. Each kind of data has its own rule: tick **Purge … older than**, set the number of days, and the rule runs once a day. **Purge Now** runs it straight away, and each rule shows when it last ran.
+
+Only **Agent Activity** is on by default. Every other rule is off until you turn it on.
+
+| Rule | Removes | Default | Shortest |
+| --- | --- | --- | --- |
+| **Error Log** | entries in the [Error Log](tools/error-log.md) | 30 days | 7 days |
+| **Kill Mails ▸ Characters / Corps** | kills and losses of your own characters and corporations | 365 days | 30 days |
+| **Kill Mails ▸ Others** | everyone else's kills | 7 days | 7 days |
+| **Price History** | daily market history, and the price snapshots built from it | 90 days | 30 days |
+| **Game Log** | parsed game-log events | 365 days | 30 days |
+| **Chat Messages** | stored chat messages (intel sightings already parsed are kept) | 90 days | 30 days |
+| **Agent Activity** | the record of past [AI Agent](ai-agent-eden.md) exchanges, which the usage and cost figures are built from | 90 days | 7 days |
+
+### Kill mails
+
+Kill mails are usually the largest thing in the database, so these two rules are the ones that free the most space. A purge removes the kill and everything attached to it: attackers, items, references and zKillboard flags.
+
+- **Characters / Corps** — a kill counts as yours when one of your characters, or any corporation you have added, is the victim or among the attackers. That includes every corporation you have added, not only the ones marked personal, and it doesn't matter whether its token still works.
+- **Others** — everything else: the [zKillboard](zkillboard.md) feed and fights you only watched. On a database that captures all kills, this is nearly all of them.
+
+The two windows let you keep your own history for a year while keeping only a week of everyone else's.
+
+!!! warning "Purged kills are gone"
+
+    To get deleted kills back you have to fetch them again from ESI or zKillboard, and ESI only serves recent ones.
+
+If you had the older single kill-mail rule turned on, both rules start from its setting and window.
+
+### Game and chat logs
+
+Purging game-log events or chat messages leaves the `.log` files on disk alone. As long as those files exist, you can load the data again with **Import Past Logs** or **Import Past Chat** — see [Logs & Map Data](logs-and-map-data.md).
+
+!!! note "The file doesn't shrink by itself"
+
+    Purging removes rows, but SQLite reuses the freed space rather than giving it back, so the file only gets smaller after **Settings ▸ Database ▸ Shrink Database**. The **Storage Breakdown** on the same tab shows where the space went.
+
 ## Notes for the SQL-minded
 
 Moving from SQLite to PostgreSQL meant reconciling roughly sixty places where the two dialects disagree — `LIKE` is case-sensitive on PostgreSQL, booleans aren't integers, `COUNT` returns `bigint`, dates aren't strings, and `REAL` is 32-bit (which had been quietly truncating large ISK figures on the way in). This is all handled inside the app; it's noted here only so that, if you inspect the database directly, you know the schema is written to satisfy PostgreSQL's stricter type checking.

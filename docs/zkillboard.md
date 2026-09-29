@@ -25,6 +25,8 @@ Choose which kills are captured:
 
     With **Capture all kills**, every kill in New Eden is stored, not just your own. The database grows much faster than with **My characters & corp only**.
 
+    To keep it in check, turn on the **Others** kill-mail rule under **Settings ▸ Data Retention**. It trims everyone else's kills after a window you choose — 7 days by default — while your own are kept on a separate, longer window. See [Data retention](storage-postgresql.md#kill-mails).
+
 ### Live Poll Interval
 
 **Check zKillboard for new kills every (s)** sets how often **My characters & corp only** asks zKillboard for new kills. The default is **300** seconds; the range is 60–3600. It isn't used with **Capture all kills**.
