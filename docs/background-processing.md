@@ -1,6 +1,6 @@
 # Background processing
 
-Everything EVE Console does on a timer — ESI polling, market pricing, contracts, [zKillboard](zkillboard.md), [map statistics](logs-and-map-data.md#map-data), alarms, the [Scheduler](tools/scheduler.md), data retention and backups — is the *background work*. From 0.9.13 that work can run **without a desktop window**, so it keeps going after you close the app, or on a machine that never opens one.
+Everything EVE Console does on a timer — ESI polling, market pricing, contracts, [zKillboard](zkillboard.md), [map statistics](logs-and-map-data.md#map-data), alarms, the [Scheduler](tools/scheduler.md), [data retention](storage-postgresql.md#data-retention) and backups — is the *background work*. From 0.9.13 that work can run **without a desktop window**, so it keeps going after you close the app, or on a machine that never opens one.
 
 !!! info "This needs PostgreSQL"
 
