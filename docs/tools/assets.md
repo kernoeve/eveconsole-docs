@@ -6,7 +6,9 @@ Open it from the left sidebar under **Assets**.
 
 ## What it shows
 
-The window has a filter bar at the top, a set of tabs in the middle, and a status bar at the bottom.
+The window has a **Scope** picker and a filter bar at the top, a set of tabs in the middle, and a status bar at the bottom.
+
+**Scope** sets whose assets are searched: **Characters and personal corps** (the default — your own characters and the corporations marked personal) or **Everything** (every asset the app holds, other corporations included). The filters search within the scope, and your choice is remembered.
 
 ### Detailed View
 
@@ -44,5 +46,6 @@ Three aggregation tabs that group the (filtered) assets and sum them up:
 ## Notes
 
 - Assets come from synced ESI data, so you must have authorized characters and/or corporations with the relevant asset scopes. Items only appear after an asset sync has run.
+- This tool shows the assets as ESI last reported them, read once an hour with the default timers. Tools that count stock — [Inventory Levels](inventory-levels.md#how-on-hand-stock-is-counted), the [Worklist](worklist.md#how-stock-is-counted) and the [Order Tracker](order-tracker.md) — also count jobs delivered and contracts made, deleted or accepted since then, so for up to an hour their figures can differ from what you see here.
 - **Valuation** depends on the asset-value price source configured in your market settings (see [Configuring Markets](../configuring-markets.md)). Blueprint copies are valued at 0; blueprint originals use the NPC base price; other items use the configured market price, falling back to build cost plus a markup when no market price is available. If no asset-value source is set, market-derived values will be missing.
 - Location, system, and region names resolve from the SDE and from synced structure names. Unresolved locations show a placeholder such as `<Unresolved - Please Refresh>` until the next sync.
