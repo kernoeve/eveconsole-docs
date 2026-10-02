@@ -54,7 +54,7 @@ A part's **Post to Discord** button appears once a webhook is set for it and you
 
 - **Discord's own formatting.** The text is what the **Discord** export format gives for the same content, so tables line up in code blocks and headings are bold.
 - **Nobody is pinged.** Every post tells Discord to ignore mentions, so `@everyone`, `@here`, a role or a pilot's name in corp data never notifies anyone.
-- **Long posts go out in parts.** Discord takes up to 2,000 characters per message. A longer post is sent as several messages, in order. A heading stays with its table, and a code block is never cut open: a table longer than one message is split between rows, with its header repeated at the top of the next message.
+- **Long posts go out in parts.** Discord takes up to 2,000 characters per message, so EVE Console sends anything over 1,900 as several messages, in order. A heading stays with its table, and a code block is never cut open: a table longer than one message is split between rows, with its header repeated at the top of the next message.
 - **Charts are attached.** A scheduled task aimed at a Discord webhook uploads its chart sections as images, one message each, under the chart's title.
 
 ## Posting twice
