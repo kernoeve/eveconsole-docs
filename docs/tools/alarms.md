@@ -112,7 +112,7 @@ It needs that client's game log folder to be read — see [Game Logs](../logs-an
 
 ### Planetary Industry
 
-Fires for the colonies of characters that do planetary industry:
+Fires for the colonies of characters that do planetary industry — the same colonies the [Planetary Industry](planetary-industry.md) tool shows:
 
 - **Extractors stopping** — an extractor program has ended or is about to (exact).
 - **Storage filling** — storage or a launchpad is full or filling.
