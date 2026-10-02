@@ -77,7 +77,9 @@ nav:
       - Background Processing: background-processing.md
       - Logs & Map Data: logs-and-map-data.md
       - zKillboard: zkillboard.md
+      - Posting to Discord: discord.md
       - Themes: themes.md
+      - Languages: languages.md
   - Functionality:
       - General:
           - Overview: tools/overview.md
@@ -86,15 +88,20 @@ nav:
           - Alarms: tools/alarms.md
       - Universe:
           - Universe Map: tools/universe-map.md
-          - Jump Planner: tools/jump-planner.md
+          - Route Planner: tools/route-planner.md
+          - Jump Planner & Jump Range: tools/jump-planner.md
+          - Jump Bridges: tools/jump-bridges.md
       - Assets:
           - Assets: tools/assets.md
           - Item Browser: tools/item-browser.md
           - Inventory Levels: tools/inventory-levels.md
           - Structure Browser: tools/structure-browser.md
+      - Ships:
+          - Fitting: tools/fitting.md
       - Industry:
           - Industry Jobs: tools/industry-jobs.md
           - Production Calculator: tools/production-calculator.md
+          - Planetary Industry: tools/planetary-industry.md
           - Industry Opportunities: tools/industry-opportunities.md
       - Market / Trade:
           - Market Levels: tools/market-levels.md

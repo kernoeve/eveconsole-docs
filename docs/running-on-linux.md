@@ -59,6 +59,8 @@ sudo dnf install google-noto-sans-cjk-fonts
 sudo pacman -S noto-fonts-cjk
 ```
 
+Package names can differ between releases; search your package manager for "noto cjk" if one of these isn't found.
+
 ## Running headless as a service
 
 On Linux the [background worker](background-processing.md) can run with no window as a **systemd user unit**, so ESI polling, imports, alarms, the scheduler and backups keep going after you close the desktop client — or on a machine that never opens one at all.

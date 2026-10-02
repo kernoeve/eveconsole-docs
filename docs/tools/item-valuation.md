@@ -12,6 +12,8 @@ Paste into the box on the left. It understands most things you can copy in EVE:
 - a **contract** item list, a **fit**, or a **multibuy** list,
 - or plain lines like `Tritanium 22222`, `Pyerite x 3000`, `Warrior II 5`, or just an item name.
 
+Item names are recognised in any of the game's [languages](../languages.md), so a list copied from a client running in German, Chinese or any other language values just the same.
+
 **Pasting values the list on its own** — so does pressing **Enter**, or the **Appraise** button. Once valued, the list folds away to give the results room; **Edit list** brings it back to change it. Anything that couldn't be matched to an item is listed in a warning beneath the results.
 
 ## Options

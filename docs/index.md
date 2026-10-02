@@ -42,7 +42,9 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 ### Universe
 
 - **[Universe Map](tools/universe-map.md)** — one continuous map from the whole cluster down to a single system, with overlays for security, sovereignty, kills, industry and intel — plus a detailed page for every system.
-- **[Jump Planner](tools/jump-planner.md)** — plan capital jump routes with draggable waypoints and midpoints, showing distance and fuel for every leg.
+- **[Route Planner](tools/route-planner.md)** — plan a route on the map with an avoid list and Thera/Turnur shortcuts, and set it as your in-game destination.
+- **[Jump Planner & Jump Range](tools/jump-planner.md)** — map tabs for planning capital jump routes, with distance and fuel for every leg, and for showing what is in jump range.
+- **[Jump Bridges](tools/jump-bridges.md)** — the jump bridges the map routes through, read from ESI or added by hand, with their zones.
 
 ### Assets
 
@@ -51,12 +53,17 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 - **[Inventory Levels](tools/inventory-levels.md)** — track a defined list of items (on hand, in build, on order) against target levels, similar to jEveAssets stockpiles.
 - **[Structure Browser](tools/structure-browser.md)** — browse player-owned structures from ESI's public list, and link them to your Indy Parks.
 
+### Ships
+
+- **[Fitting](tools/fitting.md)** — open your saved fits and your characters' in-game fittings, and build or edit fits with their numbers worked out for a chosen pilot.
+
 ### Industry
 
 - **[Industry Jobs](tools/industry-jobs.md)** — monitor your active and finished industry jobs (manufacturing, research, reactions) across characters and corp.
 - **[Indy Parks](industry-parks.md)** — define the structures you build in (type, rigs, system, tax) so build-cost and production calculations use your real bonuses.
 - **[Production Calculator](tools/production-calculator.md)** — plan production runs: full build cost, materials needed, and a multi-level breakdown, with ME levels and an optional final blueprint-copy cost.
 - **[Industry Opportunities](tools/industry-opportunities.md)** — scan items for build-and-sell profit, ranked by margin and profit per slot-day using your build costs and market prices.
+- **[Planetary Industry](tools/planetary-industry.md)** — your colonies at a glance: extractor timers, storage and production forecasts, with alerts and Worklist tasks for the chores.
 
 ### Market / Trade
 
