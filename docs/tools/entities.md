@@ -40,7 +40,7 @@ For a pilot, corporation or alliance, the header shows zKillboard's own figures,
 
 - **Ships**, **Points** and **ISK** — **Destroyed** and **Lost**, each with its **Rank**, and the efficiency (**Eff.**) between them.
 - **All time**, **90 days** or **7 days** — switches the period. The overall rank for the period is shown beside it.
-- **Dangerous** against **Snuggly**, **Gang** against **Solo**, the average gang size, and solo kills and losses. zKillboard only gives these for all time.
+- **Dangerous** against **Snuggly**, **Gang** against **Solo**, the average gang size, and solo kills and losses. These follow the period too. zKillboard publishes them for all time only, so for 90 and 7 days they are worked out the way zKillboard's own page works them out.
 - **zKillboard** — opens the entity's page on zKillboard.
 
 The figures are fetched when you pick the entity, and kept for ten minutes.

@@ -27,6 +27,12 @@ Choose which kills are captured:
 
     To keep it in check, turn on the **Others** kill-mail rule under **Settings ▸ Data Retention**. It trims everyone else's kills after a window you choose — 7 days by default — while your own are kept on a separate, longer window. See [Data retention](storage-postgresql.md#kill-mails).
 
+!!! note "zKillboard's rate limit"
+
+    zKillboard's real-time feed (R2Z2) allows 15 requests a second from one internet address, and refuses that address for up to an hour when it's exceeded. Every R2Z2 request EVE Console makes — the live feed and the daily dumps — keeps to at most four a second, so up to three copies of EVE Console behind one internet connection stay under the limit together.
+
+    If zKillboard does refuse, EVE Console stops asking for as long as it was told to (or five minutes, doubling up to an hour while refusals continue). The live capture and backfill status lines say they are paused, and until when.
+
 ### Live Poll Interval
 
 **Check zKillboard for new kills every (s)** sets how often **My characters & corp only** asks zKillboard for new kills. The default is **300** seconds; the range is 60–3600. It isn't used with **Capture all kills**.
