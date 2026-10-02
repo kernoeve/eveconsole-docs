@@ -11,7 +11,7 @@ The window is split into a left navigation pane and a right detail pane.
 ### Left pane — tree and search
 
 - A **market-group tree** of every published type, expandable by category.
-- A **search box**: type at least two characters to switch from the tree to a live results list. Results show the item name and its group path, and are ranked so that names starting with your text come first.
+- A **search box**: type at least two characters to switch from the tree to a live results list. Results show the item name and its group path, and are ranked so that names starting with your text come first. In a language other than English, the search finds both the name shown and the English one, so a name pasted from an English site still works.
 - **Back / Forward** buttons that walk your navigation history (up to 100 items). Clicking any linked item elsewhere in the window pushes onto this history.
 
 ### Right pane — item header and detail tabs
@@ -20,8 +20,14 @@ The header shows the item icon, name, group path, and a stat strip with **Volume
 
 Below the header are detail tabs:
 
-- **Description** — the type's in-game description (HTML stripped).
-- **Attributes** — fixed type stats (Volume, Mass, Capacity, Portion Size, Base Price where applicable) followed by the item's published dogma attributes, grouped by attribute category and shown with units.
+- **Description** — the type's in-game description (HTML stripped), in the interface language where the game has one.
+- **Attributes** — fixed type stats (Volume, Mass, Capacity, Portion Size, Base Price where applicable) followed by the item's published dogma attributes, grouped by attribute category. Values are shown the way the game client shows them:
+    - with the unit's own name — `41 MW`, `130 tf`, `365 m/sec`;
+    - milliseconds as seconds;
+    - resonances and multipliers as the percentage they mean — a resonance of 0.6 is a **40 %** resistance, a rate-of-fire multiplier of 0.895 a **10.5 %** bonus;
+    - an attribute that points at a group, type or attribute as its name, such as *Missile Launcher Light* or *Perception*;
+    - codes as words: yes / no, small to extra large, and expiry dates as dates;
+    - slot and level counts as the plain number, since the attribute's name already says what it is.
 - **Requirements** — the skills required to use or build this item, with the required level (in Roman numerals). Skill names are clickable and navigate to that skill.
 - **Required For** — only shown when the loaded item is itself a skill. A I–V level selector lets you pick a skill level; the tab lists the ships, modules, and other items that require this skill at that level, grouped by category. Levels that actually have items are highlighted on the selector.
 - **Industry** — for a regular item, up to four sections:

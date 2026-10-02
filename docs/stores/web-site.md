@@ -50,16 +50,22 @@ None of the Cloudflare token / account / worker fields are needed for a hand-bui
 1. Open **[developers.eveonline.com](https://developers.eveonline.com/applications/create)** and create an application: any name and description, **Authentication only (no scopes)**, and the **callback address shown in the app** (copy it from the Web site tab).
 2. Copy the application's **Client ID** and **Secret Key** into the two boxes on the Web site tab.
 
-A site **deployed from the app receives these keys the moment you save them**, and the line under the boxes tells you whether the live site is holding *these* keys (green) or not (red). A hand-built site needs the same values as its `EVE_CLIENT_ID` and `EVE_CLIENT_SECRET` secrets.
+They save as you enter them, and a site **deployed from the app receives them straight away**. The line under the boxes tells you whether the live site is holding *these* keys (green) or not (red). A hand-built site needs the same values as its `EVE_CLIENT_ID` and `EVE_CLIENT_SECRET` secrets.
 
 !!! warning
     Keep your EVE **Secret Key** private — treat it like a password. It's write-only in the app and lives only on the site.
 
 ## Appearance
 
-- **Theme** — tick which of the app's themes buyers may choose from; they pick one on the site with a header selector. **The store's theme is its own and has nothing to do with the theme your desktop is showing.**
+- **Theme** — tick which of the app's themes buyers may choose from; they pick one on the site with a header selector. **The store's theme is its own and has nothing to do with the theme your desktop is showing.** On the site the themes are named in the store's language.
 - **About this store** — a blurb shown above the price list. Plain text is kept as written; a small set of **HTML** is welcome (`<b> <i> <u> <a href> <br> <p> <h2> <ul> <ol> <li> <hr> <img src> <table> <blockquote> <code>` and the mail markup's `<font color>`). Anything else — scripts, event handlers, unknown tags — is dropped, and open tags are closed.
 - **Banner** — an optional image across the top of the price list, full page width and up to 300 px tall; about **1100 × 250** fits best. A large file is scaled down and sent as WebP.
+
+## Language
+
+The site speaks the store's **Language** (**Config ▸ General**; see [Stores](index.md#the-stores-language)): its pages and messages, the item and group names, and numbers and ISK written that language's way. A change reaches the site at the next sync.
+
+This needs site version **0.1.13** or later. An older site shows English with item names in the store's language — press **Deploy or update site** to bring it up to date. A hand-built site updates from its releases.
 
 ## Going live
 
