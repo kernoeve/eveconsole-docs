@@ -24,12 +24,13 @@ Before most tools are useful, configure a few things:
 - **[Storage & PostgreSQL](storage-postgresql.md)** — stay on the default local SQLite file, or move to a PostgreSQL server so several clients can share one set of data.
 - **[Background Processing](background-processing.md)** — run the ESI polling, imports and alarms without a desktop window — headless, on another machine, or in a container.
 - **[Themes](themes.md)** — pick from the light, dark and tinted themes; the whole interface repaints live.
+- **[Languages](languages.md)** — use EVE Console in any of the game's eight languages, with item and system names as the game client shows them.
 
 On Linux? See **[Running on Linux](running-on-linux.md)** for downloads, the one dependency, and headless service setups.
 
 ## Functionality
 
-EVE Console is organized into tools you open from the left sidebar, grouped by theme. Each tool below links to its own page with details on what it does and how to use it.
+EVE Console is organized into tools you open from the left sidebar, grouped by theme. Each opens as a tab; you can show two side by side or drag one out into a window of its own (see [Tabs, split view and separate windows](getting-started.md#tabs-split-view-and-separate-windows)). Each tool below links to its own page with details on what it does and how to use it.
 
 ### General
 
@@ -90,7 +91,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped by t
 
 ### Tools
 
-- **[Scheduler](tools/scheduler.md)** — run reports on a timetable: post a corp Top 10, monthly summary, sale posting or charts to Slack, or raise an alert — on an interval or a calendar, in EVE time.
+- **[Scheduler](tools/scheduler.md)** — run reports on a timetable: post a corp Top 10, monthly summary, sale posting or charts to Slack or [Discord](discord.md), or raise an alert — on an interval or a calendar, in EVE time.
 - **[ESI Explorer](tools/esi-explorer.md)** — a power-user browser for the raw ESI data the app has synced into its local database: filter, sort, and page through the underlying tables.
 - **[Background Processes](tools/background-processes.md)** — a live monitor of the app's polling and syncing: recent ESI calls, what's due next, and how each sweep is progressing.
 - **[Game & Chat Logs](tools/logs.md)** — search your local EVE game and chat logs; intel-channel messages become sightings on the Universe Map.

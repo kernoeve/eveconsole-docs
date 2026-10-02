@@ -42,9 +42,22 @@ sudo pacman -S vlc
 Your data and configuration live under your home directory:
 
 - Database (SQLite): `~/.local/share/EveConsole/EveConsole.db`
-- Configuration: the same `EveConsole` directory.
+- Configuration (`config.json`), backups and profiles: the same `EveConsole` directory.
 
-This is per-user, so the account that runs the app is the account whose data you see — worth remembering when you set up a service.
+This is per-user, so the account that runs the app is the account whose data you see — worth remembering when you set up a service. The data never shares a folder with the AppImage or the tarball, so replacing either leaves it alone.
+
+## Chinese, Japanese and Korean
+
+EVE Console can be shown in [eight languages](languages.md). For Chinese, Japanese and Korean it uses your system's **Noto Sans CJK** fonts, which most desktops already have. If that text shows as empty boxes, install them:
+
+```bash
+# Debian / Ubuntu
+sudo apt install fonts-noto-cjk
+# Fedora
+sudo dnf install google-noto-sans-cjk-fonts
+# Arch
+sudo pacman -S noto-fonts-cjk
+```
 
 ## Running headless as a service
 
@@ -87,6 +100,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now eveconsole-worker
 journalctl -u eveconsole-worker -f
 ```
+
+A worker on an older version than the database stops at start and logs whether a release that can open it is out; see [Version safety](background-processing.md#version-safety).
 
 The worker handles **`SIGTERM`** itself and releases its work lease on the way out, so another client (or a restart) can pick the work up cleanly — let it stop gracefully rather than killing it. See [Background processing](background-processing.md) for how the lease and the client/worker hand-off work.
 
