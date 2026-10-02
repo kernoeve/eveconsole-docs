@@ -1,6 +1,6 @@
 # Worklist
 
-The Worklist is a single, always-current list of **what to do next** across all of your authorized characters and personal corporations. It is rebuilt from scratch on every refresh by pulling from up to nine independent sources — industry jobs, logistics, invention and copying, material purchases, standing buy orders, inventory levels, corp projects, skill queues and asset safety — and turning each into a concrete task.
+The Worklist is a single, always-current list of **what to do next** across all of your authorized characters and personal corporations. It is rebuilt from scratch on every refresh by pulling from up to eleven independent sources — industry jobs, logistics, invention and copying, material purchases, refining, standing buy orders, inventory levels, corp projects, skill queues, asset safety and planetary industry — and turning each into a concrete task.
 
 Open it from the left sidebar under **General**.
 
@@ -11,10 +11,10 @@ The tool has several tabs: **Worklist** (the task list), **Station Needs** (the 
 ### Worklist tab
 
 - A **Refresh** button and a "Refreshed *hh:mm*" timestamp — the list is regenerated each time.
-- A **summary strip** of counts: a large **ready now** total, and a breakdown by task type (for example **buy**, **haul**, **manufacturing** and **reactions**).
+- A **summary strip** of counts: a large **ready now** total, and a breakdown by task type (for example **buy**, **haul**, **manufacturing**, **reactions** and **PI**).
 - Two toggles: **Show blocked / waiting** (tasks that can't be done yet — e.g. waiting on an upstream job — with their own count) and **Show snoozed** (tasks you've set aside).
 - A row of **filters**: **State**, **Type**, a **Search task** box, **Character**, **Source**, **Destination**, and a **Search note** box.
-- The **task list**, grouped by task type (Buy, Haul, Manufacturing, Reactions, …). Each row shows the task itself — the item and quantity, the station/structure it applies to, and the responsible character — plus a **Value** and a **Volume** column, and a per-row info control for more detail.
+- The **task list**, grouped by task type (Buy, Haul, Manufacturing, Reactions, PI, …). Each row shows the task itself — the item and quantity, the station/structure it applies to, and the responsible character — plus a **Value** and a **Volume** column, and a per-row info control for more detail.
 
 ### Station Needs tab
 
@@ -32,19 +32,48 @@ What's holding the rest of the work up. Each sub-tab answers a single question �
 
 A record of **what the work has produced**: every job — finished or still running — whose output is something your operation sells. A job's value is taken as of the day it completed, and can be read either as **market value** or as a **fixed percentage over build cost** (a shop selling at a set margin never sees the market price). Profit is shown as *potential* profit throughout, because nothing on this tab has actually been sold yet.
 
-## The nine sources
+## The sources
 
-Each source can be switched on or off independently (see [Setting it up](#setting-it-up)):
+Each source can be switched on or off independently on **Config ▸ Sources** (see [Setting it up](#setting-it-up)). A source that is off is skipped entirely.
 
-- **Industry jobs** — jobs to start or collect.
+- **Industry Jobs** — jobs to start or collect.
 - **Logistics** — items that need hauling between locations.
-- **Invention and copying** — invention and blueprint-copy jobs.
-- **Material purchases** — inputs to buy for planned builds.
-- **Standing buy orders** — see [Standing Buy Orders](standing-buy-orders.md).
-- **Inventory levels** — restock shortfalls, from [Inventory Levels](inventory-levels.md).
-- **Corp projects** — deliveries toward corp standing projects.
-- **Skill queues** — characters whose skill queue needs attention. A character whose **Skill queue** box is cleared in **Settings ▸ Characters** is left out.
-- **Asset safety** — assets in asset safety that need handling.
+- **Invention & Copying** — invention and blueprint-copy jobs.
+- **Material Purchases** — inputs to buy for planned builds.
+- **Refining** — ore, ice and gas to reprocess or decompress.
+- **Standing Buy Orders** — see [Standing Buy Orders](standing-buy-orders.md).
+- **Inventory Levels** — restock shortfalls, from [Inventory Levels](inventory-levels.md).
+- **Standing Projects** — deliveries toward corp standing projects.
+- **Skill Queues** — characters whose skill queue needs attention. A character whose **Skill queue** box is cleared in **Settings ▸ Characters** is left out.
+- **Asset Safety** — assets in asset safety that need handling.
+- **Planetary Industry** — work on your planetary colonies (see [Planetary Industry tasks](#planetary-industry-tasks)).
+
+The same tab also has **Customer orders**: plan the pending orders from the [Order Tracker](order-tracker.md), netted against what is already built or in production. It isn't a source of its own — it adds demand that the industry and material-purchase sources plan for.
+
+### Planetary Industry tasks
+
+Built from the same figures as the [Planetary Industry](planetary-industry.md) tool, for characters whose **PI** box is ticked in **Settings ▸ Characters**:
+
+- **Restart extractors on *planet*** — ready once the extractors have stopped; while they're still running inside the lead time, it waits, with the time left.
+- **Take output off *planet*** — when storage is full, fills within the lead time, or is half full of output or more. Several colonies of one character in one system become one stop (**Take output off 3 planets in *system***), with a list of what to pick up.
+- **Bring input to *planet*** — a factory planet whose input has run out or runs out within the lead time. The list is enough input for a set number of days of running.
+- **Set up a colony** — a character with a free colony slot.
+- **Upgrade the command center on *planet*** — when **Command Center Upgrades** allows a higher level.
+- **Open *planet* in the game** — a colony whose data is too old to trust, when no other task will take you there anyway.
+
+Storage and input times are estimates; a task built from old colony data says so. The lead times, the age limit and the days of input are set in **Settings ▸ Industry** and shared with the Overview's PI alerts. Turning those alerts off on **Settings ▸ Alerts** doesn't hide the tasks — use the **Planetary Industry** source switch for that.
+
+## How stock is counted
+
+With the default timers, assets are read from ESI once an hour, but industry jobs and contracts every five minutes. So that a task never relies on an out-of-date hangar, the Worklist corrects the last asset snapshot for what has happened since:
+
+- **Jobs delivered** since the snapshot — their output is counted where it was delivered.
+- **Contracts made** since the snapshot — the goods they offer are no longer on hand.
+- **Contracts deleted** since the snapshot — the goods are back.
+- **Item exchange contracts accepted** since the snapshot — the acceptor gains what was offered and loses what was asked for; the issuer gains what was asked for.
+- **Courier contracts delivered** since the snapshot — the goods are counted at the destination, as the issuer's.
+
+Each correction is measured against the asset snapshot of the character or corporation whose hangar the goods left or reached, and a count never goes below zero. The same corrections apply in [Inventory Levels](inventory-levels.md), the [Order Tracker](order-tracker.md) and sale postings. The [Assets](assets.md) tool shows the snapshot itself.
 
 !!! note
     Five of the Worklist's sections are also available as panels on the [Overview](overview.md) dashboard, so the most important work shows up there without opening the tool.
@@ -53,12 +82,12 @@ Each source can be switched on or off independently (see [Setting it up](#settin
 
 Because the Worklist is assembled from other tools' data, a little configuration makes it far more useful.
 
-1. **Open the Config tab** and turn on the sources you want to see. Each of the nine sources above is independently switchable, so you can start with just industry jobs and material purchases and add more as you go.
+1. **Open Config ▸ Sources** and turn on the sources you want to see. Each source is independently switchable, so you can start with just industry jobs and material purchases and add more as you go.
 2. **Feed the sources that need data:**
     - Configure your stockpile targets in [Inventory Levels](inventory-levels.md) so *inventory levels* shortfalls appear.
     - Declare your recurring buy orders in [Standing Buy Orders](standing-buy-orders.md) so *standing buy orders* tasks appear.
     - Keep your [Indy Parks](../industry-parks.md) and [Production Calculator](production-calculator.md) plans current so *material purchases*, *industry jobs* and *invention and copying* reflect what you're actually building. **Plan against park** on the Config tab picks the park; **&lt;Default&gt;** follows your default park. The list picks up park changes at once, and a chosen park that's deleted goes back to **&lt;Default&gt;**.
-    - Corp *projects* and *asset safety* are driven by ESI data the app already syncs.
+    - Corp *projects*, *asset safety* and *planetary industry* are driven by ESI data the app already syncs.
 3. **Set your markets** ([Configuring Markets](../configuring-markets.md)) so the Value column and any price-based decisions are meaningful.
 4. **Refresh** to rebuild the list, then use the **Station Needs** tab to plan runs.
 

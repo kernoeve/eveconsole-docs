@@ -56,4 +56,5 @@ Set your filters and click **Apply**; click **Clear** to reset them. The window 
 - **Build Cost** and **Market Value** depend on a configured market ([Configuring Markets](../configuring-markets.md)) and an industry park ([Indy Parks](../industry-parks.md)); without them those columns may be blank.
 - Facility, installer and product names that aren't in local data are resolved from ESI on first load, so a name may appear as a numeric ID momentarily.
 - A job at a player structure that lacks a rig for its work is flagged in the **Note** column and raises an [Overview](overview.md) alert. Jobs at NPC stations are never flagged: a station takes no rigs, so running a job there is simply your choice.
+- A job's output counts as stock in the [Worklist](worklist.md#how-stock-is-counted) and [Inventory Levels](inventory-levels.md#how-on-hand-stock-is-counted) as soon as the job is delivered, before the next asset poll shows it.
 - Use the [Production Calculator](production-calculator.md) to plan new builds, and the [Industry Opportunities](industry-opportunities.md) scanner to find what to build next.

@@ -1,10 +1,20 @@
 # Characters
 
-An in-app character sheet for your authorized characters: skills and training queue, attributes, clones, medals, titles and standings.
+All of your authorized characters at a glance, and a character sheet for each: skills and training queue, attributes, clones, medals, titles and standings.
 
 Open it from the left sidebar under **General**.
 
 ## What it shows
+
+The tool has two tabs: **Summary** and **Detail**.
+
+### Summary tab
+
+One row per character under the **All characters** heading, with a **Refresh** button. Columns: **Character**, **Corp**, **Alliance**, **Status**, **Location**, **Ship**, **Pod value**, **Home station**, **Skill queue** (entries in the queue and how long until the last one finishes), **Total SP**, **ISK**, **Assets**, and free job slots of total for **Mfg** (manufacturing), **Rxn** (reactions) and **Sci** (copying, research and invention). The slot columns are coloured by how much room each character has left.
+
+Double-click a row to open that character on the **Detail** tab.
+
+### Detail tab
 
 At the top is a **character selector** dropdown and a **Refresh** button. Below it, an info bar shows the selected character's portrait, name, corporation (`[TICKER] Corp Name`), Total SP, Unallocated SP, security status and the time the data was last updated. A status line and progress indicator sit along the bottom.
 
