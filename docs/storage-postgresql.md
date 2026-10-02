@@ -38,7 +38,7 @@ Open **Settings** (the **⚙** gear, top-right) ▸ **Database**.
 4. If the server answers and you still have a SQLite database to bring over, a copy offer appears:
     - **Bring your existing data across** — the destination is empty; your current data is copied in.
     - **Replace what is on the server** — the destination already holds tables; the panel turns red, because the copy **erases first**. Read the message before you confirm.
-5. Save the choice and **restart** EVE Console. The engine choice takes effect on restart — the title bar then shows which database is open.
+5. Click **Save and Restart**. Unlike the rest of Settings, which saves as you go, the engine choice waits for this button, because it takes effect only on a restart. The title bar then shows which database is open.
 
 !!! warning "The copy is one-off, and the confirmation matters"
 

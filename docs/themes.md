@@ -12,7 +12,7 @@ From 0.9.13 EVE Console's interface is themeable. The whole app is drawn from a 
 Two places, and each follows the other:
 
 - **Title bar** — click the theme name shown on the title bar and pick from the menu that opens.
-- **Settings ▸ Other** — pick from the list.
+- **Settings ▸ Other** — pick a **Theme** under **Appearance**, beside the **UI scale** and the [language](languages.md).
 
 Tooltips follow the theme too, and the light themes are kept a step dimmer than pure white, so they don't glare.
 

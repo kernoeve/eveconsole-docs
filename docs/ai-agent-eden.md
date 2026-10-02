@@ -46,7 +46,8 @@ Agent settings are split between tabs on purpose:
 - The **Agent**, **Voice (TTS)** and **Speech Input (STT)** tabs are **this
   machine's own** (models, API keys, voices, microphone).
 
-Click **Save Agent Settings** at the bottom when done; it saves every tab at once.
+Everything on these tabs saves as you change it — text once you pause typing or
+leave the box. The line at the bottom confirms each save.
 
 !!! tip "Defaults keep up with the app"
     Texts you can reword — the router's rule and the announcements below — are stored
@@ -91,9 +92,9 @@ Click **Save Agent Settings** at the bottom when done; it saves every tab at onc
       but writing it costs more, so it costs more if they are closer together. The
       [AI Usage & Cost](#ai-usage-cost) tool shows cache reads and writes per
       message. Applies to every Claude model in the list.
-    - **Test This Model** — asks it for one sentence, as set on the tab, before you
-      save. It shows how long it took and what it said, or why it failed. Free on a
-      local server; a few tokens on a paid service.
+    - **Test This Model** — asks it for one sentence, as set on the tab. It shows
+      how long it took and what it said, or why it failed. Free on a local server; a
+      few tokens on a paid service.
 3. **Roles** — which model does what (see [Roles](#roles) below).
 4. **When a model changes** — what is said when a role falls over to its fallback
    and when its own model comes back (see [Fallbacks](#fallbacks)).
@@ -227,8 +228,8 @@ For each voice:
       **ElevenLabs API key**, then choose a **Voice** by name from your account and
       a **Model** from ElevenLabs' list (**↺** asks again, e.g. after adding a voice
       there).
-- **Test This Voice** — speaks with this voice as set, before saving, on its own
-  rather than through the list. It shows how long it took in green, or the reason it
+- **Test This Voice** — speaks with this voice as set, on its own rather than
+  through the list. It shows how long it took in green, or the reason it
   couldn't speak (the server's own words) in red.
 
 All voices are brought to the same loudness, so a change of voice doesn't jump in

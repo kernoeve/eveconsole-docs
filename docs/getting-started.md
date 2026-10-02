@@ -25,7 +25,28 @@ Both are the same app and **both keep themselves up to date automatically** (see
 
 See **[Running on Linux](running-on-linux.md)** for the `vlc` dependency, running headless as a systemd service, and where data lives.
 
-Your data is stored locally — on **Windows** at `%LOCALAPPDATA%\EveConsole\EveConsole.db`, on **Linux** at `~/.local/share/EveConsole/EveConsole.db`. By default nothing leaves your machine; the app talks only to CCP's ESI API to refresh your data. If you'd rather keep the data on a shared server, you can point it at your own **[PostgreSQL](storage-postgresql.md)** instead.
+Your data is stored locally — on **Windows** at `%LOCALAPPDATA%\EVE Console Data\EveConsole.db`, on **Linux** at `~/.local/share/EveConsole/EveConsole.db`. By default nothing leaves your machine; the app talks only to CCP's ESI API to refresh your data. If you'd rather keep the data on a shared server, you can point it at your own **[PostgreSQL](storage-postgresql.md)** instead.
+
+### Where your data lives on Windows
+
+The installer puts the program in `%LOCALAPPDATA%\EveConsole` and treats that folder as its own: installing again over it, or uninstalling, replaces or deletes it. So EVE Console keeps your settings, database, backups and profiles **beside** it, in `%LOCALAPPDATA%\EVE Console Data`.
+
+Older versions kept everything in the install folder. The first time an installed copy starts on the new version, it moves your data across before it opens anything:
+
+- Everything that isn't part of the program goes — `config.json`, the database, backups, profiles, downloaded voice models and caches.
+- Settings that pointed inside the old folder, such as a profile's own database, are updated to the new one. A database you moved somewhere else yourself stays exactly where it is.
+- A note, **Your EVE Console data has moved.txt**, is left in the old folder saying where the data went.
+- It's all or nothing. If a file is in use — usually because another copy of EVE Console is running — nothing moves, the app uses the old folder for that run, the reason goes in the [Error Log](tools/error-log.md), and the next start tries again.
+
+The portable ZIP and builds from source never move anything: they use whichever folder holds your data. On **Linux** nothing changes, because the data never shared a folder with the AppImage.
+
+!!! warning "Coming from an older version? Update from inside the app"
+
+    Until the move has happened, your data is still in the install folder, and running the installer (`EveConsole-win-Setup.exe`) over an older install deletes that folder with everything in it. Take the update the app offers (or **Settings ▸ Updates ▸ Update Now**), let it restart once, and only then reinstall if you need to.
+
+!!! tip "Reinstalling is safe once the data has moved"
+
+    After the new version has started once, running the installer again or uninstalling leaves your data alone. To remove everything after uninstalling, delete `%LOCALAPPDATA%\EVE Console Data` yourself.
 
 ## Staying up to date
 
@@ -41,6 +62,17 @@ You can manage this under **Settings** (the **⚙** gear button, top-right) → 
 !!! note
 
     Automatic updates apply to the self-managing released builds — the Windows installer and portable ZIP, and the Linux **AppImage**. The Linux **tarball** and any build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update those by downloading a newer build (or pulling and rebuilding).
+
+An update restarts EVE Console with the same command-line options it was started with, so a `--profile` copy comes back in its profile.
+
+### When this copy is older than the database
+
+A new version upgrades the database the first time it opens it. That usually matters when several clients share one [PostgreSQL](storage-postgresql.md) database: the first to update upgrades it for all of them. A copy still on the older version can't safely open an upgraded database, so instead of starting it shows **This build is older than the database** and checks for an update there and then:
+
+- If a release that can open the database is out, it says which version and offers **Update and restart**. The update downloads with a progress line, installs, and restarts EVE Console on the same database.
+- Otherwise it says why not — this copy wasn't set up by the installer (the tarball or a source build), the check failed, or the version the database needs hasn't been released yet (the database was opened by a development build). **Releases page** opens the download page.
+
+**Close** leaves the app without changing anything. A copy started with `--tray` shows the same dialog; a [headless worker](background-processing.md#version-safety) writes to its log whether an update exists, and stops.
 
 ## Building from source
 
@@ -60,7 +92,7 @@ A `dotnet run` build doesn't self-update — `git pull` and rebuild to get newer
 
     Start the app with `--profile <name>` (for example `dotnet run -- --profile dev`)
     to run a completely separate copy — its own config, database and caches — under
-    `%LOCALAPPDATA%\EveConsole\Profiles\<name>` (`~/.local/share/EveConsole/Profiles/<name>`
+    `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` (`~/.local/share/EveConsole/Profiles/<name>`
     on Linux), or give a folder path instead of a name. It starts empty, like a fresh
     install, and runs alongside your normal copy. The window title shows the profile
     name, and **Settings ▸ Database** says which folder is in use.
@@ -109,11 +141,12 @@ The first time you launch EVE Console, it starts downloading the EVE game data i
 needs (the Static Data Export and Hoboleaks data) **in the background**. A short
 **Welcome** dialog explains this — item lookups, market pricing, and industry tools
 fill in over a few minutes as the download completes, and you can watch progress on
-the **SDE** tab in Settings.
+the **SDE** tab in Settings. Once it finishes, restart EVE Console: some tools load
+their reference data when they first open, and a restart makes sure they all see it.
 
 Click **Get Started** on that dialog and the **Settings** window opens automatically
 on the **ESI Tokens** tab. That's where you authorize your characters and
-corporations — click **Add Character** to log in your first character through EVE's
+corporations — click **Add** under **Characters** to log in your first character through EVE's
 Single Sign-On, as described next.
 
 You can reopen ESI Tokens any time from **Settings** (the **⚙** gear button,
@@ -175,8 +208,33 @@ character automatically and says what each is used for:
 - **Skill queue** — ticked means the skill queue should be kept running. Clear it for
   an alt whose queue is empty on purpose, and it raises no [Overview](tools/overview.md)
   alert or [Worklist](tools/worklist.md) item.
+- **PI** — ticked (the default) means the character does Planetary Industry. Clear
+  it, and the character is left out of the PI tool, gets no PI alerts or Worklist
+  tasks, and its colonies aren't read.
 
 Changes save as you make them.
+
+## Settings save as you go
+
+There are no Save buttons to remember in **Settings**. A tick, a pick from a list, a
+number or a change to a list saves at once. Text saves when you pause typing, when
+you leave the box, and when you close the window. On several tabs a short status
+line confirms each save. A value that can't be right — a market **Location ID** that
+isn't a number, say — is shown as an error and not saved.
+
+The buttons that remain do something beyond saving: **Test Connection**, **Test
+This Model**, **Refresh This**, **Recalculate Build Costs** and the like. The one
+exception is **Settings ▸ Database**, where switching between SQLite and PostgreSQL
+still takes **Save and Restart**, because it only takes effect on a restart (see
+[Storage & PostgreSQL](storage-postgresql.md)).
+
+## Language
+
+EVE Console is available in English, German, Spanish, French, Japanese, Korean,
+Russian and Simplified Chinese. Pick one under **Settings ▸ Other ▸ Language**; it
+takes effect from the next start, and **Restart now** switches straight away.
+**System default** follows your computer's language. See **[Languages](languages.md)**
+for what is translated and what stays in English.
 
 ## Sizing the interface
 
@@ -184,6 +242,48 @@ If the app is too small or too large on your display, set a **UI scale** between
 **50 % and 200 %** (in 25 % steps). It's at the right-hand end of the **status bar**,
 and also under **Settings ▸ Other**. The scale applies to every window, dialog and
 popup at once, and is remembered per machine.
+
+## Tabs, split view and separate windows
+
+Each tool you open from the navigation on the left opens as a tab. You can arrange
+the tabs to see several tools at once.
+
+### Two tools side by side
+
+1. Drag a tab by its title.
+2. Drop it on the right half of the window, where **Drop here to see two tools side
+   by side** appears.
+
+The window splits into two halves, each with its own row of tabs. Drag tabs along a
+row to reorder them, or across to the other half. The half you last clicked is the
+one new tools open in; the other half's selected tab is shown dimmed. When the last
+tab leaves either half, the window goes back to one.
+
+### A tool in its own window
+
+Drag a tab out of the main window and let go, or drag it down into the tool's own
+area until **Release to open in its own window** appears — the way to do it when the
+window is maximised. The tool opens in a window of its own, with its own row of
+tabs. You can drag more tabs into it, and split it in two the same way.
+
+To put a tool back, drag its tab onto the main window. A window left with no
+tabs closes; closing a window closes the tools in it. Every tool except the
+**Overview** can leave the main window.
+
+### Closing tabs
+
+Right-click a tab for **Close**, **Close other tabs** and **Close all tabs**. In a
+split window there are also **Close other tabs on this side** and **Close all tabs
+on this side**. The Overview always stays open.
+
+### More room for tools
+
+- Click the **☰** button at the left of the title bar to hide or show the navigation.
+- Click a navigation heading to fold its section away. A folded section still marks
+  when one of its tools is open.
+
+Both are remembered on this computer. The tabs and windows themselves aren't: each
+start opens on the Overview.
 
 ## How data stays fresh
 
