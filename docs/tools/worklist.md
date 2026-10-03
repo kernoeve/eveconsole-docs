@@ -15,6 +15,7 @@ The tool has several tabs: **Worklist** (the task list), **Station Needs** (the 
 - Two toggles: **Show blocked / waiting** (tasks that can't be done yet — e.g. waiting on an upstream job — with their own count) and **Show snoozed** (tasks you've set aside).
 - A row of **filters**: **State**, **Type**, a **Search task** box, **Character**, **Source**, **Destination**, and a **Search note** box.
 - The **task list**, grouped by task type (Buy, Haul, Manufacturing, Reactions, PI, …). Each row shows the task itself — the item and quantity, the station/structure it applies to, and the responsible character — plus a **Value** and a **Volume** column, and a per-row info control for more detail.
+- An **icon** on each row: the item's own, or for a task with no item, a picture of what it's about — the ore for a refining task, the character's portrait for a skill queue or **Set up a colony** task, the planet for a task on one colony, and the station for an asset safety task.
 
 ### Station Needs tab
 
@@ -45,7 +46,7 @@ Each source can be switched on or off independently on **Config ▸ Sources** (s
 - **Inventory Levels** — restock shortfalls, from [Inventory Levels](inventory-levels.md).
 - **Standing Projects** — deliveries toward corp standing projects.
 - **Skill Queues** — characters whose skill queue needs attention. A character whose **Skill queue** box is cleared in **Settings ▸ Characters** is left out.
-- **Asset Safety** — assets in asset safety that need handling.
+- **Asset Safety** — asset safety wraps waiting for you to choose where they go (see [Asset safety tasks](#asset-safety-tasks)).
 - **Planetary Industry** — work on your planetary colonies (see [Planetary Industry tasks](#planetary-industry-tasks)).
 
 The same tab also has **Customer orders**: plan the pending orders from the [Order Tracker](order-tracker.md), netted against what is already built or in production. It isn't a source of its own — it adds demand that the industry and material-purchase sources plan for.
@@ -62,6 +63,21 @@ Built from the same figures as the [Planetary Industry](planetary-industry.md) t
 - **Open *planet* in the game** — a colony whose data is too old to trust, when no other task will take you there anyway.
 
 Storage and input times are estimates; a task built from old colony data says so. The lead times, the age limit and the days of input are set in **Settings ▸ Industry** and shared with the Overview's PI alerts. Turning those alerts off on **Settings ▸ Alerts** doesn't hide the tasks — use the **Planetary Industry** source switch for that.
+
+### Asset safety tasks
+
+When an Upwell structure is destroyed or abandoned, what you had inside goes into **asset safety** as a wrap. For the first five days nothing can be done; then you may choose a station to deliver it to, until a deadline. After that the game delivers it itself, at a higher fee.
+
+The Worklist lists the wraps still waiting for that choice — one task per owner and deadline, with the deadline in the title:
+
+*Station* — **choose a destination for 1 asset safety wrap by 12 Oct 23:28**
+
+- Wraps with different deadlines are separate tasks.
+- Before the five days are up, the task waits, with the date it can be delivered from.
+- A wrap past its deadline raises no task: there is nothing left to choose.
+- A wrap already delivered to a station isn't listed.
+
+Each wrap is matched to its owner's own asset safety notification for its deadline. A corporation's wraps are matched to the notifications its characters received for it. Choosing a destination in the game takes the wrap out of asset safety, so its task drops off at the next asset update.
 
 ## How stock is counted
 

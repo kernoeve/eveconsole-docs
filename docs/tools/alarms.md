@@ -108,7 +108,7 @@ Narrow it with:
 
 A scramble or an attack fires **once per fight**: lines with no more than two minutes between them are one fight. A new alarm of this kind checks every **5** seconds, so an event is seen within seconds.
 
-It needs that client's game log folder to be read — see [Game Logs](../logs-and-map-data.md#game-logs). Game logs are read in every client language.
+It needs that client's game log folder to be read — see [Game Logs](../logs-and-map-data.md#game-logs). Decloaking, warp scrambles and attacks are recognised in all eight client languages, so the client can run in any of them.
 
 ### Planetary Industry
 

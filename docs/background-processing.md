@@ -22,6 +22,8 @@ When a worker stops, it releases its lease on the way out, so the next client pi
 
 To see what the background work is actually doing — recent ESI calls, what's due next, and how a long sweep is progressing — use the **[Background Processes](tools/background-processes.md)** tool, or click any of the per-process labels in the status bar. It reflects whichever client is doing the work.
 
+Background work also slows itself when ESI's error allowance runs low, so it leaves room in the allowance your connection shares with other programs. While it does, **▲ ESI slowed** shows in the title bar; see [ESI limits](tools/background-processes.md#esi-limits).
+
 ## Running headless
 
 The worker runs with no UI when started with `--headless`. It's the same worker in every case, so the mode never means two different things.

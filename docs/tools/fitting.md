@@ -1,6 +1,6 @@
 # Fitting
 
-A ship fitting tool built on the game's own rules: open a fit from the game or start a new one, change modules, charges, drones and implants, and see CPU, powergrid, damage, tank, capacitor, speed and value worked out as you go.
+A ship fitting tool built on the game's own rules: open a fit from the game or one of your own ships, or start a new one, change modules, charges, drones and implants, and see CPU, powergrid, damage, tank, capacitor, speed and value worked out as you go.
 
 Open it from the left sidebar under **Ships**.
 
@@ -24,6 +24,7 @@ Each of these opens the fit in a new tab:
 - **Hull** — type a ship's name or its class (for example *Rifter* or *frigate*) and pick one.
 - **Paste EFT…** — paste a fit in EFT format, the text the game's fitting window copies and fitting sites share. The first line names the hull, like `[Rifter, My fit]`. Item names in any of the game client's languages are understood. Lines that aren't recognised are named in the status line.
 - **Open fit…** — pick a fit saved in EVE Console, or one of your characters' saved fittings in the game (see [Opening a saved fit](#opening-a-saved-fit)).
+- **Existing ships…** — pick one of your own assembled ships, with what is fitted to it (see [Opening one of your ships](#opening-one-of-your-ships)).
 
 ### The fit
 
@@ -113,6 +114,22 @@ Each fit has its own tab; a dot on the tab means it has changed since it was ope
 
 Use the owner pick list to show one character's fittings, or EVE Console's, and the search box to find a fit by its name or its hull's. Select a fit to see its contents, then click **Load Fit**. **Delete** removes the selected fit — only fits saved in EVE Console can be deleted here.
 
+### Opening one of your ships
+
+**Existing ships…** lists every assembled ship your characters and [personal corporations](../getting-started.md#personal-corporations) own, wherever it is. Packaged hulls and capsules aren't listed — a packaged ship has nothing fitted.
+
+Each row shows the ship's name (**Ship**), **Hull**, **Owner** and **System**, with its **Hull value**, **Fit value** and **Total value**. The most valuable ships come first; click a column header to sort another way.
+
+1. Type in the filter box to narrow the list. It matches part of a ship's name, hull, system or owner, and every word you type must match.
+2. Select a ship and click **Open as a new fit**, or double-click it.
+
+The ship opens in a new tab as a new fit, saved nowhere yet: use **Save As…** to keep it in EVE Console or in a character's fittings. When a character owns the ship and no character is picked as **PILOT** yet, the fit is worked out with that character's skills.
+
+The fit holds the modules, rigs and subsystems in their slots, the charge loaded in each, and the drone and fighter bays. The cargo hold and other holds are left out.
+
+!!! note "As the last asset update saw it"
+    The list is read from your stored assets, which ESI refreshes about once an hour. A module swapped in the game since then isn't shown until the next asset update. Ship names aren't in the asset list: they are asked of the game when the list opens and kept until the app closes. A ship whose name can't be read is listed by its hull, and the note under the list says so.
+
 ### Saving
 
 - **Save** writes over the fit this one was opened from or last saved as, without asking: back to EVE Console, or back to the character's fittings in the game.
@@ -135,6 +152,6 @@ Fits saved in EVE Console keep everything: module states, launched drones and sq
 - **The game can't change a fitting.** Replacing one saves the new fitting first, then deletes the old one. If the old one can't be deleted, the status line says so and you can delete it in the game.
 - **In-game fittings hold less than a fit here.** The game keeps no loaded charges, so one load per module is saved in the cargo, and is loaded again when the fit is opened. Implants and boosters aren't saved to the game (the status line names what was left out). The game keeps no tactical destroyer mode, so a fit from the game starts in the first mode; EFT text carries it.
 - **Corporation fittings aren't listed.** ESI has no way to read or write them.
-- **Value** uses the asset-value market and price type from **Settings ▸ Market** (see [Configuring Markets](../configuring-markets.md)). With none set, the VALUE section says so.
+- **Value** uses the asset-value market and price type from **Settings ▸ Market** (see [Configuring Markets](../configuring-markets.md)). With none set, the VALUE section says so. The **Existing ships…** values are on the same basis, and an item with no market price there counts as nothing.
 - A character pilot uses the skills last synced from ESI. The tool doesn't warn about modules the pilot can't use; pick **All 0** or a character to see the numbers with their skills.
 - **Add Items From Fit** in [Inventory Levels](inventory-levels.md) reads your characters' in-game fittings, not fits saved in EVE Console.

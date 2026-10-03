@@ -32,6 +32,9 @@ One row per colony, the ones needing action soonest first:
 | **Planet**, **Type** | The planet, with its type's icon, and the planet type (Barren, Gas, …). |
 | **System**, **Region** | The solar system with its security, and its region. |
 | **Kind** | **Extractor** (sends its own output off), **Factory** (needs input brought in) or **Empty**. |
+| **Imports** | What the colony needs brought in from off the planet: anything used on it that nothing on it makes. Hover to see how many units of each a day. |
+| **Exports** | What goes off the planet: anything made on it that nothing on it uses. Hover to see how many units of each a day. |
+| **Waiting (m³)**, **Waiting (ISK)** | The exports in storage, launchpads and the command center now, waiting to be picked up, at market prices. Estimated. Hover for each item, and the visit the estimate starts from. |
 | **CC** | Command center level against the highest your **Command Center Upgrades** skill allows. |
 | **Extractors end** | When the first extractor program ends, or **Stopped**. Exact. |
 | **Storage full** | When storage or a launchpad first fills, or **Full**. Estimated. |
@@ -42,6 +45,8 @@ One row per colony, the ones needing action soonest first:
 | **Profit** | Profit per day: output, less inputs and import and export charges, at market prices. |
 
 **Action** means something has already happened — extractors stopped, storage full, input run out. **Attention** means something comes due within the lead times (see [Settings](#settings)), output will be destroyed or raw material will overflow, or the data is old.
+
+**Exports** are the end of each chain, not everything the colony makes: what one factory makes for the next is left out. Raw material the factories can't keep up with is listed, because it has to be hauled too. **Waiting** counts exports only — input sitting on a launchpad, and a part-made product waiting for the next factory, aren't included. The summary line adds the total waiting across all colonies, for example *4,210 m³ of exports waiting, worth 1.20B ISK*.
 
 Double-click a colony, or select it and click **Open colony**, to see it on the **Colony** tab.
 
