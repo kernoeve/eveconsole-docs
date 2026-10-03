@@ -34,7 +34,9 @@ Set the controls along the top, then click **Calculate**:
 
 Results default to highest **ISK Sold 30d** first; click any column header to re-sort. Double-click a row to open that item in the Item Browser. The footer summarises the result count and the pricing market, and notes how many rows were priced from 30-day history.
 
-**Price at**, **Mode**, the volume filters, both skip boxes and the sort are remembered on this machine, so they're as you left them when you come back to the tab or restart the app.
+To find one item in the results, type all or part of its name in the **Item name** box under the excluded groups. The list narrows as you type, with no need to calculate again; case and accents don't matter. Beside the box, **Showing *12* of *840*** says how many rows the filter leaves. The filter only narrows what the grid shows — the footer still describes the whole calculation.
+
+**Price at**, **Mode**, the volume filters, both skip boxes and the sort are remembered on this machine, so they're as you left them when you come back to the tab or restart the app. The **Item name** filter isn't remembered: it starts empty each time, so no rows seem to be missing.
 
 ## Notes
 

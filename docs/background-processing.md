@@ -22,6 +22,8 @@ When a worker stops, it releases its lease on the way out, so the next client pi
 
 To see what the background work is actually doing — recent ESI calls, what's due next, and how a long sweep is progressing — use the **[Background Processes](tools/background-processes.md)** tool, or click any of the per-process labels in the status bar. It reflects whichever client is doing the work.
 
+Background work also slows itself when ESI's error allowance runs low, so it leaves room in the allowance your connection shares with other programs. While it does, **▲ ESI slowed** shows in the title bar; see [ESI limits](tools/background-processes.md#esi-limits).
+
 ## Running headless
 
 The worker runs with no UI when started with `--headless`. It's the same worker in every case, so the mode never means two different things.
@@ -45,7 +47,7 @@ A Windows service can't draw anything on screen. If you want a visible sign that
 
 ### A separate profile
 
-`--profile <name>` runs a completely separate copy of the app — its own config, database and caches — under `%LOCALAPPDATA%\EveConsole\Profiles\<name>` (or a folder path you give instead of a name). It can be combined with the other switches and runs alongside your normal copy; see the [FAQ](faq-and-troubleshooting.md#can-i-run-a-second-separate-copy).
+`--profile <name>` runs a completely separate copy of the app — its own config, database and caches — under `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` on Windows or `~/.local/share/EveConsole/Profiles/<name>` on Linux (or a folder path you give instead of a name). It can be combined with the other switches and runs alongside your normal copy; see the [FAQ](faq-and-troubleshooting.md#can-i-run-a-second-separate-copy).
 
 ## Supplying the connection string to a service
 
@@ -59,4 +61,8 @@ On Linux this goes in the unit's environment file; on Windows it's a machine or 
 
 ## Version safety
 
-A worker checks its build against the database schema and **exits deliberately** if they don't match — the schema belongs to a different build, and running the wrong one against it could corrupt data. On Linux the shipped unit restarts `on-failure` but not on this exit, so a clear one-line failure doesn't turn into a restart loop. Keep the worker and your desktop clients on the **same version**.
+A worker checks its build against the database schema and **exits deliberately** if they don't match — the schema belongs to a different build, and running the wrong one against it could corrupt data. When the database is ahead of the worker, the log line also says whether a release that can open it is out. On Linux the shipped unit restarts `on-failure` but not on this exit, so a clear one-line failure doesn't turn into a restart loop. Keep the worker and your desktop clients on the **same version**.
+
+A desktop client, or one started with `--tray`, that finds the database ahead of it doesn't just stop: it offers to update itself there and then. See [When this copy is older than the database](getting-started.md#when-this-copy-is-older-than-the-database).
+
+The other way round — this client is newer, but another client still holds the background work on the older version — stops with **This build does not match the database**. Only the client doing the background work may upgrade the schema, so update that client, or close it and start the newer one first so it takes the work over.

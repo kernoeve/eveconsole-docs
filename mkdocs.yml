@@ -71,42 +71,55 @@ nav:
   - Running on Linux: running-on-linux.md
   - Setup:
       - Configuring Markets: configuring-markets.md
-      - Industry Parks: industry-parks.md
       - AI Agent (Eden): ai-agent-eden.md
       - Storage & PostgreSQL: storage-postgresql.md
       - Background Processing: background-processing.md
       - Logs & Map Data: logs-and-map-data.md
       - zKillboard: zkillboard.md
+      - Posting to Slack: slack.md
+      - Posting to Discord: discord.md
       - Themes: themes.md
+      - Languages: languages.md
+  # Grouped and ordered as the app's sidebar is (MainWindowViewModel's NavGroups), plus the
+  # two tools that open from the title bar instead.
   - Functionality:
       - General:
           - Overview: tools/overview.md
           - Worklist: tools/worklist.md
           - Characters: tools/characters.md
-          - Alarms: tools/alarms.md
-      - Universe:
-          - Universe Map: tools/universe-map.md
-          - Jump Planner: tools/jump-planner.md
       - Assets:
           - Assets: tools/assets.md
           - Item Browser: tools/item-browser.md
           - Inventory Levels: tools/inventory-levels.md
+      - Ships:
+          - Fitting: tools/fitting.md
+      - Structures / Navigation:
           - Structure Browser: tools/structure-browser.md
+          - Universe Map: tools/universe-map.md
+          - Route Planner: tools/route-planner.md
+          - Jump Planner & Jump Range: tools/jump-planner.md
+          - Jump Bridges: tools/jump-bridges.md
       - Industry:
           - Industry Jobs: tools/industry-jobs.md
+          - Indy Parks: industry-parks.md
           - Production Calculator: tools/production-calculator.md
+          - Planetary Industry: tools/planetary-industry.md
           - Industry Opportunities: tools/industry-opportunities.md
       - Market / Trade:
-          - Market Levels: tools/market-levels.md
           - Market Overview: tools/market-overview.md
           - Item Valuation: tools/item-valuation.md
-          - Sales Tracker: tools/sales-tracker.md
-          - Order Tracker: tools/order-tracker.md
-          - Standing Buy Orders: tools/standing-buy-orders.md
-          - Sale Posting: tools/sale-posting.md
           - LP Market Values: tools/lp-market-values.md
-          - Trade Opportunities: tools/trade-opportunities.md
+          - Market Levels: tools/market-levels.md
           - Contracts: tools/contracts.md
+          - Trade Opportunities: tools/trade-opportunities.md
+          - Standing Buy Orders: tools/standing-buy-orders.md
+          - Order Tracker: tools/order-tracker.md
+          - Sales Tracker: tools/sales-tracker.md
+          - Sale Posting: tools/sale-posting.md
+          - Stores:
+              - Overview: stores/index.md
+              - Web Storefront: stores/web-site.md
+              - EVE Mail Store: stores/eve-mail.md
       - Finance:
           - Net Worth: tools/net-worth.md
           - Income & Expense: tools/income-expense.md
@@ -118,14 +131,12 @@ nav:
       - Communication:
           - Eve Mail: tools/eve-mail.md
           - Notifications: tools/notifications.md
-      - Tools:
-          - Scheduler: tools/scheduler.md
-          - ESI Explorer: tools/esi-explorer.md
+      - Data / Logs:
           - Background Processes: tools/background-processes.md
-          - Game & Chat Logs: tools/logs.md
+          - ESI Explorer: tools/esi-explorer.md
           - Error Log: tools/error-log.md
-  - Stores:
-      - Overview: stores/index.md
-      - Web Storefront: stores/web-site.md
-      - EVE Mail Store: stores/eve-mail.md
+          - Game & Chat Logs: tools/logs.md
+      - Title Bar:
+          - Alarms: tools/alarms.md
+          - Scheduler: tools/scheduler.md
   - FAQ & Troubleshooting: faq-and-troubleshooting.md

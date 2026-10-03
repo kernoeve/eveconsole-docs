@@ -84,7 +84,8 @@ of the title bar, then open the **Market** tab.
       select one from the dropdown (structure lookups fail without it).
 5. Leave **Filter High/Low Orders** on (default) unless you have a reason not to,
    and adjust **Filter %** if needed (0.1–25, default 5).
-6. Make sure **Enabled** is ticked, then click **Save**.
+6. Make sure **Enabled** is ticked. The source saves as you edit it; there's no
+   Save button.
 7. Click **Refresh This** to pull prices now (or **Refresh All** at the bottom to
    refresh every source). The **Last refresh** and **Status** lines report the
    result.
@@ -114,7 +115,7 @@ app turns sources into the single price it needs:
   applies to Region and Player Structure sources only. Those orders still show in
   the market UI; they're just ignored when computing a price.
 
-Click **Save Defaults** after changing anything here.
+These save as you change them, and a short line beside them confirms it.
 
 ## Build costs
 
@@ -132,7 +133,7 @@ it's off, the calculators build every component they can, and buy only the items
 genuinely can't be costed. When it's on, a component whose market value is at or below
 that share of its build cost is bought instead of built. It's off by default because
 component markets move a lot, and a few cheap units don't guarantee the quantity you
-need at that price. Click **Save** at the bottom of the tab after changing it.
+need at that price. The option saves as you change it.
 
 ## Price history
 

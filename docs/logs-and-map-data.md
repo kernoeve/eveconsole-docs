@@ -4,15 +4,19 @@ EVE Console can read the log files your EVE client writes, and it collects hourl
 
 - **Game Logs** — combat, mining, bounties, jumps and undocking from EVE's game logs.
 - **Chat Logs** — messages from chat channels you choose, including intel channels.
-- **Map Data** — jumps, kills, sovereignty, industry indices, faction warfare and incursions for the [Universe Map](tools/universe-map.md).
+- **Map Data** — jumps, kills, sovereignty, industry indices, faction warfare and incursions for the [Universe Map](tools/universe-map.md), and Thera and Turnur connections from EVE-Scout.
 
 What the logs hold is browsed in the **Game Log** and **Chat Log** viewers — see [Game & Chat Logs](tools/logs.md).
 
 ## Game Logs
 
-Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it.
+Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the wake-up call.
 
 Logs are opened read-only. Nothing is ever written back, and nothing is sent to the game client.
+
+!!! note "Client languages"
+
+    The game writes its log in the client's language. Combat (damage and misses, dealt and taken), warp scrambles and disruptions, decloaking, stopping the ship, jumps and undocking are recognised in all eight client languages: English, German, Spanish, French, Japanese, Korean, Russian and Chinese. Other lines, such as mining and bounties, are recognised from an English client only; with **Keep lines that no rule recognised** on, the rest are still stored.
 
 !!! note "It captures from now on"
 
@@ -20,16 +24,15 @@ Logs are opened read-only. Nothing is ever written back, and nothing is sent to 
 
 ### Log Folders
 
-Leave the **Log Folders** list empty and EVE Console finds the local folder by itself: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`.
+This computer's own game log folder is **always read** when EVE Console can find it: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`. You don't need to add it.
 
-**Currently reading** shows the folder(s) actually in use. Each one is marked ✓ when it can be reached and ✗ when it can't. If it says no game log folder was found, add yours by hand.
+The **Log Folders** list is for folders **in addition** to that one — most often the logs of EVE clients on **other computers**. Add a network path such as `\\PC2\eve-logs`. Nothing needs to be installed on the other machines.
 
 - **Add** — type a folder into the box and click **Add**.
 - **Remove** — removes the selected folder.
-- **Detect** — adds the local folder EVE Console found on its own.
 - **Open** — opens the selected folder in your file manager.
 
-To read the logs of EVE clients on **other computers**, add a network path such as `\\PC2\eve-logs`. Nothing needs to be installed on the other machines.
+**Currently reading** shows every folder actually in use. This computer's own folder is marked **(this computer)**. Each one is marked ✓ when it can be reached and ✗ when it can't. If it says no game log folder was found, add yours by hand.
 
 !!! tip "Steam and Proton on Linux"
 
@@ -61,22 +64,43 @@ Chat log import is **off by default**. Unlike game logs, chat logs hold what oth
 To set it up:
 
 1. Tick **Import chat logs**.
-2. Check the **Log Folders** list. It works the same way as for game logs: leave it empty to use the local `Chatlogs` folder, or add network paths for other computers.
-3. Under **Channels to Store**, click **Discover Channels**. This reads file names only, and can take a moment — the folder often holds tens of thousands of files.
+2. Check the **Log Folders** list. It works the same way as for game logs: this computer's own `Chatlogs` folder is always read, and the folders you add — such as network paths for other computers — are read as well.
+3. Under **Channels to Store**, click **Discover Channels**. This reads file names only, from every folder being read, and can take a moment — the folder often holds tens of thousands of files.
 4. Tick the channels to store in the **CHANNEL** column. Only ticked channels are read at all; files for other channels are never opened. **Untick All** clears the selection.
 5. Tick **INTEL** for channels that carry intel reports.
+6. Optionally, fill in **REGIONS** for each intel channel — see [Intel channels](#intel-channels).
 
 ### Intel channels
 
-Messages in channels ticked as **INTEL** are parsed into *sightings*: the system, how many were reported, and any pilots named. A "clr" message clears what was standing in that system.
+Messages in channels ticked as **INTEL** are parsed into *sightings*: the system, how many were reported, the pilots named, what they fly, and anything else said about the system. A "clr" message clears what was standing in that system.
 
 Sightings feed:
 
-- the Intel overlays on the [Universe Map](tools/universe-map.md#intel-from-chat-logs);
+- the live marks and Intel overlays on the [Universe Map](tools/universe-map.md#intel-from-chat-logs);
 - each system's **Intel** tab;
 - the **Intel report** alarm in [Alarms](tools/alarms.md#intel-report).
 
+Reports of only your own pilots, or of pilots at positive standing, aren't counted as sightings.
+
 **Parse Stored History** parses the messages already stored for your intel channels. Use it after ticking an intel channel, so the overlays aren't empty until someone posts fresh intel. It works on stored messages only — to load older messages from the log files, run an import first.
+
+#### Regions
+
+Intel channels often shorten null-sec system names — "QZ-X" for QZ-X77. Which system a short name means is decided by the regions the channel reports on.
+
+- Leave **REGIONS** empty and they are learned from the systems the channel has reported over the last year. The box then shows what was learned ("Learned: …").
+- Type regions, comma-separated, to set them yourself for that channel. Names can be in English or in the interface language. A name that isn't a region is pointed out under the box.
+
+The box saves as you type, and the next intel pass reads it.
+
+#### What the parser reads
+
+- **Systems** — full names, and shortened null-sec names narrowed down by the channel's regions. When that still leaves several, the one the channel has named far more often wins; otherwise none is taken. A zero typed for an O is read as an O, and system names in other client languages are understood. A system right after words such as "left", "from" or "not" isn't taken as where the hostiles are.
+- **Ships** — hull names in every client language, common slang ("kiki", "vaga", "inty", "dictors"), plurals and ship classes, and "navy" for a Navy Issue hull.
+- **Counts** — numbers tied to ships or people: "3 lokis", "Sabre x2", "+5", "14 man", "=8", "4 total", "3 camping". A bare number is never a count, since pilot names often end in one.
+- **What's going on** — a spike, gate camp, bubbles, wormhole, the ESS, a cyno, a skyhook, combat probes or a hotdrop risk, and which gate ("on the QZ-X77 gate"). A report that only says one of these still counts.
+- **Pilots** — names pasted from the game. A one-word name typed differently from the character's own counts only if that character has been on a killmail in the system, so ordinary chatter isn't taken for pilots.
+- **Clears** — "clr" and its common typos.
 
 ### Import Past Chat
 
@@ -100,6 +124,14 @@ The first backfill runs by itself the first time the app starts. Map Data overla
 
 After that, each start fills in any hours missing from the last three days. If the app was closed for longer, click **Backfill now** to fill the rest.
 
+### Thera and Turnur
+
+**Read Thera/Turnur connections and storms from EVE-Scout** is **on by default**. EVE Console reads the wormhole connections from Thera and Turnur from [EVE-Scout](https://www.eve-scout.com/) every five minutes, and the metaliminal storms it lists every hour. They are shown on the [Universe Map](tools/universe-map.md#other-marks) and on each system's page, and the [Route Planner](tools/route-planner.md) can route through the wormholes.
+
+The line under the box says how many connections were read, and when. If EVE-Scout can't be reached, the last list is kept until the next read.
+
+Unticking it stops the reading and **deletes** what is stored: holes close within hours and storms move, so an old list would mislead.
+
 ### History and coverage
 
 - **History** — the backfill's status and a progress bar.
@@ -110,4 +142,4 @@ After that, each start fills in any hours missing from the last three days. If t
 
 !!! note "Several clients on one database"
 
-    Map statistics are collected by the client doing the background work. When several clients share a [PostgreSQL](storage-postgresql.md) database, that is the one holding the lease — see [Background processing](background-processing.md). Game and chat logs are different: each client reads its own log folders.
+    Map statistics and EVE-Scout's connections are collected by the client doing the background work. When several clients share a [PostgreSQL](storage-postgresql.md) database, that is the one holding the lease — see [Background processing](background-processing.md). Game and chat logs are different: each client reads its own log folders.
