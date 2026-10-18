@@ -32,6 +32,10 @@ The worker runs with no UI when started with `--headless`. It's the same worker 
 
 Run it as a **systemd user unit** from the tarball or AppImage. The full walkthrough — the unit file, the environment file for the connection string, the `vlc` dependency and the AppImage's extract-and-run caveat — is in **[Running on Linux](running-on-linux.md)**.
 
+### Docker
+
+To self-host the worker in a container, use the Docker image and compose file in the source tree. The compose file runs the worker beside its PostgreSQL server, and takes the connection string from the environment. See **[Running on Linux ▸ Running in Docker](running-on-linux.md#running-in-docker)**.
+
 ### Windows — a service
 
 On Windows the worker installs as a **Windows service**, managed from **Settings ▸ Polling**:
