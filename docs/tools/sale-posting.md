@@ -18,7 +18,7 @@ The posting itself is a tree:
 - Each posting contains **Sections** (e.g. "Carriers (Command)", "Dreadnoughts (Navy)", "Force Auxiliaries", "Jump Freighters"). A section can override the posting's inventory scope, sale price basis and packaged-only setting for its own items (e.g. "Build ×112% — all items").
 - Each section contains **Items**.
 
-Every posting and section row carries **+ Section** / **+ Item**, **Edit** and **Delete** controls, so you build the tree in place.
+Every posting and section row carries **+ Section** / **+ Item**, **Edit** and **Delete** controls, so you build the tree in place. A posting row also carries **+ Places**, to list whatever chosen places hold (see [Listing what places hold](#listing-what-places-hold)).
 
 ### Posting settings
 
@@ -46,6 +46,26 @@ Columns per row:
 - **Profit** and **Profit %** — relative to the reference chosen in **Profit based on**.
 - **Ready (est.)** — an estimate of when the item will be available.
 
+### Listing what places hold
+
+Instead of picking items one by one, a posting can list **whatever chosen places hold**: a station or structure, a hangar, a corporation division or a container. The list follows the place. Restock a box and the posting is restocked; empty it and its items drop off, with nothing to add or remove by hand.
+
+1. On a posting row, press **+ Places**. The **Places to list items from** window opens.
+2. On the left is every station and structure where your characters or corporations have something. Open one to step down: the owner there (*personal* or *corporation*), then the **Hangar**, a corporation **Division** or **Deliveries**, then the containers inside, at any depth. Type in the filter box to find a station, an owner, a division or a container.
+3. Pick a step at any depth and press **Add →**. It joins **Places this posting lists** on the right. Use **▲** and **▼** to order them and **Remove** to drop one.
+4. Press **Save**.
+
+Each place becomes a row in the grid under its posting, showing the whole way to it (for example *Jita IV - Moon 4 - Caldari Navy Assembly Plant › Example Pilot (personal) › Hangar › Blue box*), with **Remove** beside it. Its items show on the **Posting** tab, not in the grid.
+
+When the posting is rendered, each place is a section of its own, after the listed sections:
+
+- **Heading** — the last step of the place's path. Type a different one in the place row's **Name Override** cell.
+- **Items** — whatever the place holds at that moment, priced by the posting's **Sale price basis**. **In Stock** is what the place holds; nothing is **In Build** for it. An empty place lists nothing, heading and all.
+- **Only include packaged items** applies, as for listed items.
+- **An item in two places** is counted once, in the first of them.
+
+Only what can be handed over is listed. Containers themselves, offices, anything in asset safety or impound, and anything inside a ship (fitted modules or cargo) are left out. Ships are never offered as places.
+
 ### Posting tab
 
 Pick a posting from the list on the left. Its post blocks are rendered as shareable text in the chosen **Format**: **Plain**, **Slack**, **Discord**, **Markdown**, **HTML** or **BBCode**. Each block has a **Copy** button, and **Refresh** renders it again.
@@ -69,6 +89,8 @@ Both buttons post in their own service's format, whatever the **Format** box sho
 - Pricing needs a configured market ([Configuring Markets](../configuring-markets.md)); build costs also need an industry park ([Indy Parks](../industry-parks.md)).
 - Contract pricing is used for items that have no market pricing, such as BPCs.
 - In-stock, in-build and reserved figures are computed from your assets and jobs; the **Ovr** columns let you override them when the computed value isn't what you want to advertise.
-- A [store](../stores/index.md) that prices from a posting also takes its stock rules from it. An order placed through the store counts as in stock only from what that posting's scope and packaged-only setting count — see [Stock follows the store's rules](../stores/index.md#stock-follows-the-stores-rules).
+- A [store](../stores/index.md) lists postings as its **Sell** or **Buy** [listings](../stores/index.md#listings). A store that sells from a posting also takes its stock rules from it. An order placed through the store counts as in stock only from what that posting's scope, packaged-only setting and places count — see [Stock follows the store's rules](../stores/index.md#stock-follows-the-stores-rules).
+- On a store's **Buy** listing, the posting's **Sale Price** is what the store pays, and only prices are shown — see [Buy Listings](../stores/buy-listings.md).
+- A posting's places travel with it when it is exported and imported. They name stations, owners and containers by id, so they mean the same only in a database with the same pilots.
 - To post a posting on a timetable, add a **Sale Posting** section to a [Scheduler](scheduler.md) task.
 - To follow up on what actually sells, see [Sales Tracker](sales-tracker.md).

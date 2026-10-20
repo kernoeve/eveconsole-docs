@@ -23,9 +23,23 @@ Each tab lists contracts in a grid with a detail panel alongside.
 
 Filter the stored contracts with the header combos:
 
-- **Owner** — all owners, or a specific tracked character or corporation.
+- **Owner** — all owners, or a specific tracked character or corporation. Characters and corporations you add or remove appear or go at once, and the owner you picked stays picked.
 - **Assignee** / **Acceptor** — narrow to a specific party.
 - **Refresh** — reload from your local data.
+
+When a contract's items haven't been stored, the detail panel offers **Pull items from ESI** and says what ESI answered. Couriers don't offer it: ESI never lists what is in a courier.
+
+### Courier cargo
+
+ESI never lists what is in a courier contract, so for a courier made by one of your characters or corporations, the detail panel has **Cargo — entered by hand** instead:
+
+- **Paste or type** the items in the box — items copied in game, or one a line such as `Tritanium 1000` — then press **Add** to add them (an item already there has its quantities summed), or **Replace all** to put them in place of everything entered so far.
+- **Edit a quantity** in place; **0** takes the line off, as does **✕**.
+- A line beneath sums what has been entered against the contract's own volume.
+
+Cargo can also be ticked off a hauling trip on the [Worklist](worklist.md). Everything saves as you go. Anything the box can't recognise is named, and the rest is saved.
+
+For planning, entered cargo counts as on its way to the destination while the courier is out, and as there once it is delivered, until the next asset update shows it. It is never added to your assets, and goods still in transit are not counted as on the shelf for [Order Tracker](order-tracker.md) stock.
 
 ### Public tab
 
