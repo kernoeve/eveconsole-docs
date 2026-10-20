@@ -10,6 +10,13 @@ default (you can rename it). It has read access to your local database and a set
 > **Settings** (the **⚙** gear button, top-right) ▸ **AI Agent**, across the
 > **Agent**, **Personalisation**, **Voice (TTS)** and **Speech Input (STT)** tabs.
 
+<details class="tip" open>
+<summary>Video walkthrough — AI Agent Setup (9 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/pYgrxuE0Emk" title="EVE Console: AI Agent Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## What it can do
 
 - **Answer questions about your data.** It discovers your local database's shape and

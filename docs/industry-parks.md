@@ -7,6 +7,13 @@ instead of generic values.
 
 Open **Indy Parks** from the left sidebar under the **Industry** group.
 
+<details class="tip" open>
+<summary>Video walkthrough — Indy Park Setup (7 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/q-i8qI3RvDU" title="EVE Console: Indy Park Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## Key concepts
 
 - **Park** — a named collection of structures plus the rules mapping production

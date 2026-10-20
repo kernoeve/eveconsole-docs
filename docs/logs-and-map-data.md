@@ -8,6 +8,13 @@ EVE Console can read the log files your EVE client writes, and it collects hourl
 
 What the logs hold is browsed in the **Game Log** and **Chat Log** viewers — see [Game & Chat Logs](tools/logs.md).
 
+<details class="tip" open>
+<summary>Video walkthrough — Logs &amp; Map Data (4 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/1tvSPtSG57w" title="EVE Console: Logs and Map Data" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## Game Logs
 
 Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the wake-up call.

@@ -6,6 +6,13 @@ EVE Console keeps everything it knows in a database. By default that's a single 
 
     Existing installations keep opening the same SQLite file they always have. You switch engines deliberately, in Settings, and the app offers to copy your existing data across before anything changes.
 
+<details class="tip" open>
+<summary>Video walkthrough — Database Setup: backups, retention and PostgreSQL (9 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/YP62Ys5Hb9w" title="EVE Console: Database Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## SQLite vs. PostgreSQL
 
 | | **SQLite** (default) | **PostgreSQL** |

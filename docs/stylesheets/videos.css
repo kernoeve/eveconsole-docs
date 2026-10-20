@@ -1,0 +1,18 @@
+/* Embedded YouTube walkthroughs: full width of the content column, 16:9, no fixed height. */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0.6em 0 0.2em;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

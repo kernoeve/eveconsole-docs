@@ -15,6 +15,10 @@ EVE Console can be shown in the same eight languages as the EVE client:
 
 Every screen, dialog, alert and message is translated, and so are the names of items, ships, systems, stations, corporations and factions — they come from the game's own data, so they match what you see in the client.
 
+!!! tip "Video walkthrough"
+
+    The UI Setup video shows choosing a language, along with theme and UI scale — [watch it on YouTube](https://www.youtube.com/watch?v=5JAsNgvPvnc).
+
 ## Choosing a language
 
 1. Open **Settings** (the **⚙** gear button, top-right) ▸ **Other**.

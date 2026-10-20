@@ -2,6 +2,10 @@
 
 From 0.9.13 EVE Console's interface is themeable. The whole app is drawn from a palette rather than fixed colours, so a theme change repaints everything at once — including charts, the [Universe Map](tools/universe-map.md), the [Jump Planner](tools/jump-planner.md) and the ship fitting canvas — live, with no restart.
 
+!!! tip "Video walkthrough"
+
+    The UI Setup video shows switching theme, UI scale and language — [watch it on YouTube](https://www.youtube.com/watch?v=5JAsNgvPvnc).
+
 ## The themes on offer
 
 - **Dark** *(default)* and **Light** — the two base looks.

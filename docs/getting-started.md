@@ -1,5 +1,12 @@
 # Getting Started
 
+<details class="tip" open>
+<summary>Video walkthrough — Install &amp; Add Your Characters (8 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/V0JKUHDyLNE" title="EVE Console: Install &amp; Add Your Characters" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## Requirements
 
 - **Windows** 10 or 11, **or** a modern 64-bit **Linux** desktop.
@@ -227,6 +234,13 @@ This Model**, **Refresh This**, **Recalculate Build Costs** and the like. The on
 exception is **Settings ▸ Database**, where switching between SQLite and PostgreSQL
 still takes **Save and Restart**, because it only takes effect on a restart (see
 [Storage & PostgreSQL](storage-postgresql.md)).
+
+<details class="tip" open>
+<summary>Video walkthrough — UI Setup: theme, scale, language and tabs (5 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/5JAsNgvPvnc" title="EVE Console: UI Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
 
 ## Language
 

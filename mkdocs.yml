@@ -36,6 +36,9 @@ theme:
     - content.code.copy
     - content.action.edit
 
+extra_css:
+  - stylesheets/videos.css
+
 markdown_extensions:
   - admonition
   - attr_list
