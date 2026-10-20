@@ -38,6 +38,8 @@ Columns are sortable and resizable. Jobs are ordered active/paused first, then r
 
 Selecting a row fills the top panel with that job's Owner Type, Owner, Installer, Start Date, End Date, Completed By, Activity, Status, Runs, Items and Success Chance, plus the facility (with location), and the blueprint (with its ME/TE) and product icons, the time left, and the job cost. The names in the panel are links too, as in the grid.
 
+The blueprint's picture shows what the job was started with: a copy's picture for a job started with a blueprint copy (and every invention job), an original's otherwise. A reaction's formula is drawn on its green ground, as in the game. A finished job whose copy was used up has nothing left to say it was a copy, so it shows an original.
+
 ## Using it
 
 The filter bar drives what the grid shows:
