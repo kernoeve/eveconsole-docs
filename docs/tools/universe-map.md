@@ -49,6 +49,7 @@ While the Universe Map is on screen, it reads who is where every 5 seconds and m
 - **Red round mark** — hostiles placed in that system in the last 5 minutes, by an intel report or a killmail. Hover for each pilot's portrait, corporation and alliance, what they fly, how long ago, and whether intel or a killmail put them there.
 - **Red "!"** — intel said something about the system (a spike, bubbles, a gate camp) but counted nobody. Hover to read what was said.
 - **Blue square mark** — your characters online there. Hover for their ship and whether they are docked or in space.
+- **Fuchsia ★** — officer NPCs seen in that system since the last downtime (11:00 EVE time), with a count when there is more than one. An officer's own death leaves no killmail, but every pilot it kills does, with the officer among the attackers; officers despawn at downtime, so the star points to where one may still be. Whether somebody has killed it since can't be seen. Hover for each officer's portrait, its latest kill in EVE time and how long ago, the ship it killed, and how many killmails it has been on there since downtime. It reads the killmails the app has stored, so with [zKillboard](../zkillboard.md) on it sees far more than your own kills.
 
 Zoomed out, each region carries the total of its systems.
 

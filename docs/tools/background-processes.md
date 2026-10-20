@@ -8,7 +8,7 @@ Open it from the left sidebar under **Data / Logs**, or by clicking any of the b
 
 One tab per kind of background work:
 
-- **ESI Activity Log** — recent ESI calls the app has made.
+- **ESI Activity Log** — recent ESI calls the app has made, filtered by **Entity** and by endpoint. The **Entity** filter lists your own characters and corporations; calls made for a region or a system, such as market history, still show in the log but don't crowd the filter.
 - **ESI limits** — how close the app is to ESI's limits, and what it is doing to stay under them (see [ESI limits](#esi-limits)).
 - **ESI Call Schedule** — what's due next, split into **Character / Corporation** polling and **Market Refresh**, so you can see when each endpoint will next run.
 - **Price History** — per-region sweep progress: how many items are refreshed versus queued, and whether a sweep is currently running.

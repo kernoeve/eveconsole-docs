@@ -15,6 +15,13 @@ default (you can rename it). It has read access to your local database and a set
 - **Answer questions about your data.** It discovers your local database's shape and
   runs read-only queries itself, so it can pull together things no single screen
   shows — assets, industry jobs, market prices, character info, and more.
+- **Know where your pilots are.** Before it says anything about where a character
+  is or what they fly, it checks: which of your characters are online right now,
+  their system and region, the station or structure they're docked in (or that
+  they're in space), and their ship. Asked about one character, or about everyone,
+  it also gives offline characters' last known places. It checks rather than going
+  by earlier messages or alarms, which go out of date within minutes; the panel
+  shows **Checking where the pilots are…** while it does.
 - **Reach ESI when the database doesn't have it.** For live details the app hasn't
   synced, it can make a read-only ESI call.
 - **Act in the app for you.** Open any tool, navigate to an item or entity, open the
@@ -131,7 +138,9 @@ When **Questions about your data** names a different model from the conversation
 - Before each message, the conversation model is asked in one word whether the
   message needs your data. If it does, the data model answers it instead, with the
   database and ESI. The conversation model gets a prompt about half the size and no
-  access to your data.
+  access to your data, with one exception: it can still check where your pilots
+  are, who is online and what they fly, so it never answers that from stale
+  messages.
 - **Send a message to this model when…** holds the rule the conversation model
   decides by. Reword it if messages go the wrong way; **Reset to the default** puts
   the app's wording back.
