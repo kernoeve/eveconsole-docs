@@ -29,7 +29,7 @@ Before most tools are useful, configure a few things:
 - **[Themes](themes.md)** — pick from the light, dark and tinted themes; the whole interface repaints live.
 - **[Languages](languages.md)** — use EVE Console in any of the game's eight languages, with item and system names as the game client shows them.
 
-On Linux? See **[Running on Linux](running-on-linux.md)** for downloads, the one dependency, and headless service setups.
+On Linux? See **[Running on Linux](running-on-linux.md)** for downloads, the one dependency, and headless setups — a systemd service, or the background worker in Docker.
 
 ## Functionality
 
@@ -54,7 +54,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 ### Structures / Navigation
 
 - **[Structure Browser](tools/structure-browser.md)** — browse player-owned structures from ESI's public list, and link them to your Indy Parks.
-- **[Universe Map](tools/universe-map.md)** — one continuous map from the whole cluster down to a single system, with overlays for security, sovereignty, kills, industry and intel — plus a detailed page for every system.
+- **[Universe Map](tools/universe-map.md)** — one continuous map from the whole cluster down to a single system, with overlays for security, sovereignty, kills, industry and intel, live marks for hostiles, your pilots and officer spawns — plus a detailed page for every system.
 - **[Route Planner](tools/route-planner.md)** — plan a route on the map with an avoid list and Thera/Turnur shortcuts, and set it as your in-game destination.
 - **[Jump Planner & Jump Range](tools/jump-planner.md)** — map tabs for planning capital jump routes, with distance and fuel for every leg, and for showing what is in jump range.
 - **[Jump Bridges](tools/jump-bridges.md)** — the jump bridges the map routes through, read from ESI or added by hand, with their zones.
@@ -79,7 +79,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
 - **[Sales Tracker](tools/sales-tracker.md)** — review your completed sales and the profit on each, with a toggle for how profit is calculated.
 - **[Sale Posting](tools/sale-posting.md)** — build shareable sale postings from your stock and render them to Plain, Slack, Discord, Markdown, HTML or BBCode.
-- **[Stores](stores/index.md)** — sell to other players from EVE Console through two shop fronts: an [EVE Mail Store](stores/eve-mail.md) (buyers mail commands) and a [Web Storefront](stores/web-site.md) (buyers order on a site you host).
+- **[Stores](stores/index.md)** — sell to other players from EVE Console, and buy from them through [Buy listings](stores/buy-listings.md), with two shop fronts: an [EVE Mail Store](stores/eve-mail.md) (players mail commands) and a [Web Storefront](stores/web-site.md) (players order on a site you host).
 
 ### Finance
 

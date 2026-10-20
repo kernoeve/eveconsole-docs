@@ -13,7 +13,7 @@ Each snapshot is split into eight series (also shown as KPI tiles):
 - **Net Worth (Total)** — the sum of everything below.
 - **Assets** — every item you own, priced from your configured market. Blueprint copies count as 0; blueprint originals use the SDE base price; items with no market price fall back to an estimated build cost plus a markup.
 - **Wallet** — the sum of all wallet division balances (characters have one; corporations up to seven).
-- **Industry Jobs** — the value tied up in active, paused or ready industry jobs (source blueprint value plus the value of the product being produced).
+- **Industry Jobs** — the value tied up in active, paused or ready industry jobs (source blueprint value plus the value of the product being produced — every unit each run makes, so a fuel block job counts all its blocks).
 - **Sell Orders** — remaining quantity of your active sell orders times their listed price.
 - **Buy Escrow** — ISK currently locked in active buy orders.
 - **Contract Collateral** — collateral on your outstanding/in-progress courier contracts.
@@ -23,7 +23,7 @@ The KPI strip is labelled with the snapshot date (e.g. "As of 2026-07-12"). If t
 
 ## Using it
 
-- **Owner** — pick **Personal** (your characters plus your personal corporations, combined) or a specific non-personal corporation from the dropdown.
+- **Owner** — pick **Personal** (your characters plus your personal corporations, combined) or a specific non-personal corporation from the dropdown. The list updates as soon as you add or remove a corporation, and keeps your choice.
 - **Timeframe** — Last 90 Days, Last 365 Days, Year to Date, Prior Year, or Custom Range. Choosing **Custom Range** reveals **From**/**To** boxes that accept `yyyy-MM-dd` dates.
 - **Auto Range** — lets the value axis start above zero to zoom in on changes (ignored while Log Scale is on).
 - **Log Scale** — switches the value axis to a base-10 log scale, useful when component values differ by orders of magnitude.

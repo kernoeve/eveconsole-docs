@@ -126,6 +126,15 @@ Each colony's event fires once. Restarting the extractors, or opening the colony
 
 Fires on what happens to a [store's](../stores/index.md) orders: a **new order placed** — with the store, buyer, item, price, and whether it's in stock or must be built — an order **newly fillable from stock** or **newly in build**, a **contract issued** for it, the **contract accepted** (the order complete), or the order **canceled**. Tick the kinds you want. Orders you add by hand in the [Order Tracker](order-tracker.md) aren't reported. It runs the moment the store books or updates an order.
 
+An offer to sell to one of the store's [Buy listings](../stores/buy-listings.md) is reported as an offer, in words of its own, never as an order to fill. The same tick boxes cover offers:
+
+| Tick box | For an offer |
+| --- | --- |
+| **New order placed** | A **new offer** — the alert reads *New offer: (item) from (seller)*, and says the store and the price. |
+| **Contract issued** | The seller **sent their contract** — for the whole offer or part of it. When it asks more than you quoted, it says so, so you check it before accepting. |
+| **Contract accepted — order complete** | Goods **received** (*N of M received*), and the offer **complete**. |
+| **Order canceled** | The offer **canceled**. |
+
 ## Using it
 
 1. **New Alarm** — choose a condition type and fill in its settings.

@@ -20,7 +20,7 @@ Item rows show these columns:
 - **AVAIL** — total available across all counted sources.
 - **DIFF** — AVAIL minus TGT TOTAL, coloured green when at/over target and red when short.
 - **%** — the difference as a percentage of the target.
-- **ASSETS**, **IND JOBS**, **BUY ORDERS**, **CONTRACTS** — the availability broken down by source (assets on hand, products of active industry jobs, quantities on market buy orders, and quantities on contracts you're buying). **ASSETS** is kept current between asset polls — see [How on-hand stock is counted](#how-on-hand-stock-is-counted).
+- **ASSETS**, **IND JOBS**, **BUY ORDERS**, **CONTRACTS BUYING**, **SELL ORDERS**, **CONTRACTS SELLING** — the availability broken down by source: assets on hand, products of active industry jobs, quantities on your market buy orders, quantities on contracts you're buying through, units still listed on your own sell orders, and items on your own outstanding contracts that hand them over. A source the group doesn't count adds nothing to **AVAIL**. **ASSETS** is kept current between asset polls — see [How on-hand stock is counted](#how-on-hand-stock-is-counted).
 - **MKT PRICE**, **BUILD PRICE** — per-unit market and build prices for the type.
 - **VOLUME (m³)** — per-unit volume.
 
@@ -32,7 +32,7 @@ The toolbar carries **+ Add Group**, **+ Collection**, **Import Collection** (re
 
 1. Click **+ Add Group** and configure it in the dialog:
    - **Scope** — where availability is counted: Station, System, Region, or Everywhere. For the first three you also pick a location; Everywhere counts across all of your holdings.
-   - **Sources to include** — Assets, Industry Jobs (products), Market Buy Orders, and Contracts Buying. Assets is on by default.
+   - **Sources to include** — Assets, Industry Jobs (products), Market Buy Orders, Contracts Buying, Market Sell Orders, and Contracts Selling. Assets is on by default. See [Counting stock you're selling](#counting-stock-youre-selling) for the last two.
    - **Only count packaged items (skip assembled / fitted hulls)** — leave out assembled ships and other assembled items, so a hull you're flying doesn't count as stock. Blueprints are never filtered by this.
    - **Multiplier** — multiplies every item's target in the group (useful for "I want N sets of this").
    - Optionally assign the group to a collection.
@@ -55,6 +55,15 @@ Items already present in the group are skipped.
 - Click a column header to sort items within their groups.
 - Right-click an item and choose **Open in Item Browser** to inspect it, or **Delete Item** to remove it. Groups and collections have their own Edit / Rename / Delete controls on their rows.
 
+## Counting stock you're selling
+
+Goods you list for sale leave your hangar, so by default they stop counting and the level asks for more. For a group you sell from, that's usually not what you want. Two sources in the group dialog count them as still yours:
+
+- **Market Sell Orders** — units still listed on your open sell orders count as on hand until they sell. Shown in **SELL ORDERS**.
+- **Contracts Selling** — items on your own outstanding item exchange and auction contracts count as on hand until a buyer accepts. They're counted where the contract starts. Shown in **CONTRACTS SELLING**.
+
+Both are off by default. Tick them for a group whose stock you sell from, so listing it doesn't raise a restock.
+
 ## How on-hand stock is counted
 
 Assets are read from ESI once an hour with the default timers, while industry jobs and contracts are read every five minutes. Between asset polls, **ASSETS** is corrected for what has already happened in the game:
@@ -62,12 +71,14 @@ Assets are read from ESI once an hour with the default timers, while industry jo
 - output of **jobs delivered** since the poll is added at the facility the job ran in;
 - goods on a **contract made** since the poll are taken off, and put back if the contract is **deleted**;
 - an **item exchange accepted** since the poll moves goods both ways — what was offered to the acceptor, what was asked for to the issuer;
-- goods on a **courier contract delivered** since the poll are counted at the destination.
+- goods on a **courier contract delivered** since the poll are counted at the destination;
+- goods ticked off as **hauled** on the [Worklist](worklist.md#ticking-hauls-off) are counted where they were put down;
+- **courier cargo entered by hand** (in the [Contracts](contracts.md) tool, or ticked off as contracted on the Worklist) counts at the destination while the courier is out.
 
 Each correction follows the group's scope and owners, and the **Only count packaged items** setting; a count never drops below zero. Blueprints are counted in runs: copies from delivered copy and invention jobs are added, but blueprints moved by contracts are left to the asset poll. The [Worklist](worklist.md#how-stock-is-counted), [Order Tracker](order-tracker.md) and [Sale Posting](sale-posting.md) count stock the same way.
 
 ## Notes
 
-- Availability is only as current as your synced data. Counting assets, industry-job products, market buy orders, and contracts requires the relevant characters/corporations to be authorized and synced via ESI.
+- Availability is only as current as your synced data. Counting assets, industry-job products, market orders, and contracts requires the relevant characters/corporations to be authorized and synced via ESI.
 - **MKT PRICE** and **BUILD PRICE** come from your market configuration (see [Configuring Markets](../configuring-markets.md)); they are blank when no price is available.
 - Related tools: the [Item Browser](item-browser.md) (opened from the item context menu) and [Assets](assets.md).

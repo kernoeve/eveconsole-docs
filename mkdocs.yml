@@ -123,6 +123,7 @@ nav:
               - Overview: stores/index.md
               - Web Storefront: stores/web-site.md
               - EVE Mail Store: stores/eve-mail.md
+              - Buy Listings: stores/buy-listings.md
       - Finance:
           - Net Worth: tools/net-worth.md
           - Income & Expense: tools/income-expense.md

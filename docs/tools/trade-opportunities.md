@@ -14,6 +14,7 @@ A results grid, one row per item type worth hauling, sorted by total profit by d
 | **Sell Price** | Cheapest sell-order price at the source station (your buy cost per unit). |
 | **Dest Price** | The destination price you sell into — the best buy-order price, or the cheapest destination sell price, depending on mode. |
 | **Profit / Unit** | Dest price minus source sell price. |
+| **Margin** | Profit per unit as a share of the source sell price — what a unit costs you — like the **Margin** in [Industry Opportunities](industry-opportunities.md). |
 | **Profit / m³** | Profit per unit divided by packaged volume — the ranking metric for the underlying scan. Abbreviated like the other ISK figures (for example *12.35B*). |
 | **Qty** | Units to buy, capped by available orders, cargo space, your ISK budget and the destination's sales (see **Max Buy** below). |
 | **Volume (m³)** | Total packaged volume for that quantity. |
