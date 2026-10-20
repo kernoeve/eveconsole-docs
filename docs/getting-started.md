@@ -63,11 +63,22 @@ You can manage this under **Settings** (the **⚙** gear button, top-right) → 
 
     Automatic updates apply to the self-managing released builds — the Windows installer and portable ZIP, and the Linux **AppImage**. The Linux **tarball** and any build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update those by downloading a newer build (or pulling and rebuilding).
 
+The title bar shows the version you're running, and beside it whether a newer one is out (**v… available**) or you're **up to date**. A released copy that doesn't update itself, such as the Linux tarball or the [Docker](running-on-linux.md#running-in-docker) image, says **portable**. **dev build** means a copy that wasn't built by the project's release pipeline: one you built from source, or a test build.
+
 An update restarts EVE Console with the same command-line options it was started with, so a `--profile` copy comes back in its profile.
+
+### Upgrading the database
+
+A new version upgrades the database the first time it opens it, and the upgrade can't be undone: earlier versions can no longer open the database afterwards. So when you start a new version on a database an older one last used, EVE Console asks first, before it changes anything. **Upgrade the database?** says which version last used the database, which version this is, and which database it means (the file, or the PostgreSQL server and database). A SQLite file from before EVE Console recorded its version in the file reads as last used by *an earlier version*, so you're asked once about it too.
+
+- **Yes** upgrades it and starts as usual.
+- **No** closes EVE Console and leaves the database exactly as it was — the moment to take a backup, or to go back to the version you came from.
+
+A brand-new, empty database is set up without asking. You aren't asked when another client is already doing the [background work](background-processing.md) on the database, because only that client may upgrade it. A [headless worker](background-processing.md#version-safety) has nobody to ask, so it upgrades and says so in its log.
 
 ### When this copy is older than the database
 
-A new version upgrades the database the first time it opens it. That usually matters when several clients share one [PostgreSQL](storage-postgresql.md) database: the first to update upgrades it for all of them. A copy still on the older version can't safely open an upgraded database, so instead of starting it shows **This build is older than the database** and checks for an update there and then:
+A copy older than the database can't safely open it. That usually happens when several clients share one [PostgreSQL](storage-postgresql.md) database and the first to update upgrades it for all of them, but it applies to a SQLite file too, for example after going back to an earlier version. Instead of starting, the older copy shows **This build is older than the database** and checks for an update there and then:
 
 - If a release that can open the database is out, it says which version and offers **Update and restart**. The update downloads with a progress line, installs, and restarts EVE Console on the same database.
 - Otherwise it says why not — this copy wasn't set up by the installer (the tarball or a source build), the check failed, or the version the database needs hasn't been released yet (the database was opened by a development build). **Releases page** opens the download page.
@@ -77,7 +88,7 @@ A new version upgrades the database the first time it opens it. That usually mat
 ## Building from source
 
 If you'd rather build it yourself (or want to contribute), you'll also need the
-[.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0):
+[.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0):
 
 ```powershell
 git clone https://github.com/kernoeve/EveConsole.git
@@ -144,6 +155,11 @@ fill in over a few minutes as the download completes, and you can watch progress
 the **SDE** tab in Settings. Once it finishes, restart EVE Console: some tools load
 their reference data when they first open, and a restart makes sure they all see it.
 
+The import keeps every file and every field of the SDE, including the ones no tool
+reads yet; a stage near the end, **Everything else in the SDE**, stores those. When an
+update needs more from the SDE than your database holds, the import runs again by
+itself on that version's first start.
+
 Click **Get Started** on that dialog and the **Settings** window opens automatically
 on the **ESI Tokens** tab. That's where you authorize your characters and
 corporations — click **Add** under **Characters** to log in your first character through EVE's
@@ -170,6 +186,13 @@ list, each with **Add**, **Update**, and **Remove** buttons.
 **Update** re-runs the SSO flow for the selected character — use it to add or change
 scopes, or to refresh an expired token. **Remove** deletes that character's token
 and data.
+
+Adding or removing a character or corporation updates the character and corporation
+pickers across the app straight away — in Fitting, Wallet, Notifications, Net Worth,
+the Sales Tracker, the Worklist, Stores, Contracts and elsewhere — with no restart.
+Each picker keeps what you had chosen; one whose choice was removed goes back to its
+default. On a shared [PostgreSQL](storage-postgresql.md) database, every other client
+picks the change up too.
 
 ### Adding a corporation
 

@@ -28,6 +28,8 @@ CREATE DATABASE eveconsole OWNER myuser;
 
 The server can be on the same machine, on your LAN, or anywhere you can reach it over the network.
 
+If you have Docker, the compose file in the source tree sets up both at once: a PostgreSQL server with the `eveconsole` database, and a [background worker](background-processing.md) beside it. See [Running in Docker](running-on-linux.md#running-in-docker).
+
 ## Switching to PostgreSQL
 
 Open **Settings** (the **⚙** gear, top-right) ▸ **Database**.

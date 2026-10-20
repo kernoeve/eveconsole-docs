@@ -26,11 +26,15 @@ Background work also slows itself when ESI's error allowance runs low, so it lea
 
 ## Running headless
 
-The worker runs with no UI when started with `--headless`. It's the same worker in every case, so the mode never means two different things.
+The worker runs with no UI when started with `--headless`. It's the same worker in every case — `--headless` and the Windows service alike — so the mode never means two different things. It needs no display or desktop session at all, so it runs on a server with no desktop or in a container.
 
 ### Linux — systemd
 
 Run it as a **systemd user unit** from the tarball or AppImage. The full walkthrough — the unit file, the environment file for the connection string, the `vlc` dependency and the AppImage's extract-and-run caveat — is in **[Running on Linux](running-on-linux.md)**.
+
+### Docker
+
+To self-host the worker in a container, use the Docker image and compose file in the source tree (`packaging/docker`). The compose file runs the worker beside its PostgreSQL server, and takes the connection string from the environment. Your desktop clients then connect to that server and leave the background work to the worker. See **[Running on Linux ▸ Running in Docker](running-on-linux.md#running-in-docker)**.
 
 ### Windows — a service
 
@@ -57,11 +61,22 @@ A background service has no login session, so it can't read the connection passw
 EVECONSOLE_DB_CONNECTION=Host=…;Database=…;Username=…;Password=…
 ```
 
-On Linux this goes in the unit's environment file; on Windows it's a machine or service environment variable. See [Running on Linux](running-on-linux.md) for the Linux specifics.
+On Linux this goes in the unit's environment file; on Windows it's a machine or service environment variable; in Docker the compose file sets it. See [Running on Linux](running-on-linux.md) for the Linux specifics.
+
+A worker in a container has no settings window either, so it can be told where EVE's game and chat logs are the same way. Each takes one or more folders, separated by `;`:
+
+```
+EVECONSOLE_GAMELOG_DIRS=/eve/Gamelogs
+EVECONSOLE_CHATLOG_DIRS=/eve/Chatlogs
+```
+
+When set, they replace the folders saved in this machine's settings rather than adding to them. Without them the worker uses the saved folders; a fresh container has none, so it reads no logs, and each desktop client goes on reading its own. See [Logs & Map Data](logs-and-map-data.md).
 
 ## Version safety
 
 A worker checks its build against the database schema and **exits deliberately** if they don't match — the schema belongs to a different build, and running the wrong one against it could corrupt data. When the database is ahead of the worker, the log line also says whether a release that can open it is out. On Linux the shipped unit restarts `on-failure` but not on this exit, so a clear one-line failure doesn't turn into a restart loop. Keep the worker and your desktop clients on the **same version**.
+
+A worker that is newer than the database upgrades it without asking, since a service is updated unattended and has nobody to ask, and writes that it did so to its log. A desktop client asks first; see [Upgrading the database](getting-started.md#upgrading-the-database). So update the worker only when your desktop clients are ready to follow.
 
 A desktop client, or one started with `--tray`, that finds the database ahead of it doesn't just stop: it offers to update itself there and then. See [When this copy is older than the database](getting-started.md#when-this-copy-is-older-than-the-database).
 

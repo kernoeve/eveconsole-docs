@@ -25,6 +25,15 @@ If the old folder still holds your data, the move couldn't finish — usually be
 another copy of EVE Console was running. The [Error Log](tools/error-log.md) says why,
 and the next start tries again. Close every copy, then start EVE Console once.
 
+## "Upgrade the database?" at start
+
+You've started a newer version on a database an older one last used. The upgrade
+can't be undone — earlier versions can't open the database afterwards — so EVE
+Console asks before it changes anything. **Yes** upgrades it and starts; **No**
+closes the app and leaves the database as it was, so you can take a backup first or
+go back to your earlier version. See [Upgrading the
+database](getting-started.md#upgrading-the-database).
+
 ## "This build is older than the database"
 
 Another copy of EVE Console, on a newer version, has already upgraded this database,
@@ -33,6 +42,22 @@ and this older copy can't safely open it. The dialog checks for an update: click
 and source builds can't update themselves, or the version isn't released yet — use
 **Releases page** to download a newer build. See [When this copy is older than the
 database](getting-started.md#when-this-copy-is-older-than-the-database).
+
+## The SDE import says "Waiting for the database"
+
+On SQLite only one thing can write to the database at a time. If background polling
+holds the write lock for longer than SQLite will wait (30 seconds), an SDE or
+Hoboleaks import pauses and shows **Waiting for the database: something else is
+writing to it. Trying this write again (attempt N)…**. It waits a few seconds and makes
+that one write again, as often as it takes, until it goes through or you cancel the
+import, then carries on where it was. Nothing is
+lost or written twice, and the import doesn't start over. When it finishes, its
+warnings say how many times it had to wait, and the [Error Log](tools/error-log.md)
+names what held the lock.
+
+You don't need to do anything. If the waits go on for a long time, check the Error
+Log for what is holding the database. On [PostgreSQL](storage-postgresql.md) imports
+never wait like this.
 
 ## Can I run a second, separate copy?
 

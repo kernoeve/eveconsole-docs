@@ -107,9 +107,45 @@ A worker on an older version than the database stops at start and logs whether a
 
 The worker handles **`SIGTERM`** itself and releases its work lease on the way out, so another client (or a restart) can pick the work up cleanly — let it stop gracefully rather than killing it. See [Background processing](background-processing.md) for how the lease and the client/worker hand-off work.
 
+## Running in Docker
+
+If you'd rather self-host the worker in a container, the source tree ships a Docker setup in [`packaging/docker`](https://github.com/kernoeve/EveConsole/tree/main/packaging/docker): a `Dockerfile` that builds an image from the release tarball, and a `docker-compose.yml` that runs that image beside the **PostgreSQL** server it needs (`postgres:17`). The worker runs on a headless platform, so it needs no display, no keyring and no `vlc` in the container. The image runs as an unprivileged user, keeps its files in `/data`, and carries `pg_dump` 17 for the built-in backups.
+
+```bash
+git clone https://github.com/kernoeve/EveConsole.git
+cd EveConsole/packaging/docker
+cp .env.example .env        # set POSTGRES_PASSWORD, and EVECONSOLE_VERSION to your clients' version
+docker compose up -d --build
+docker compose logs -f worker
+```
+
+On its first start the worker creates the tables in the empty database. The log opens with the same four lines as any headless start: the version, the database, whether this worker holds the lease, and which logs it reads.
+
+`.env` holds four settings:
+
+| Setting | What it is |
+| --- | --- |
+| `POSTGRES_PASSWORD` | The database password, for the server and the worker. Desktop clients sign in as user `eveconsole` with it. Required. |
+| `POSTGRES_PORT` | The port desktop clients connect to on this machine. `5432` by default. |
+| `EVECONSOLE_VERSION` | The release to run, without the leading `v` — for example `0.9.17`. `latest` (the default) takes the newest release each time the image is rebuilt. |
+| `TZ` | The time zone of the worker's log timestamps. `UTC` by default. |
+
+`.env` holds the database password: keep it out of version control and readable by you alone.
+
+What to know:
+
+- **Build the image at the version your desktop clients run.** Set `EVECONSOLE_VERSION` in `.env`. A worker newer than your clients upgrades the database, and the clients then refuse to open it until they're updated too. See [Version safety](background-processing.md#version-safety). To upgrade, change the version and run `docker compose up -d --build` again. The version must be 0.9.17 or later: before that, `--headless` on Linux needed a display, and couldn't start in a container.
+- **Point your desktop clients at the same server.** In each one, open **Settings ▸ Database**, choose **PostgreSQL**, and enter this machine's address, the port from `.env`, database `eveconsole`, user `eveconsole` and your password. See [Storage & PostgreSQL](storage-postgresql.md#switching-to-postgresql).
+- **Bringing an existing SQLite database across?** Copy it before the worker's first start, while the server is still empty. Start only the database with `docker compose up -d db`, copy your data across from the desktop client (**Bring your existing data across** in **Settings ▸ Database**), and then start everything with `docker compose up -d --build`. Once the worker has started, the server already holds tables, and a copy would have to erase them first.
+- **Add characters and corporations from a desktop client.** Signing in to EVE needs a browser, and the container has none. Once a character is added, the worker polls it.
+- **The database port is published** so clients on other machines can reach it. The database holds your characters' refresh tokens, so keep that port on your own network. If the only client is on the same machine, change the mapping to `127.0.0.1:5432:5432`.
+- **Data lives in two volumes:** `db` for PostgreSQL, and `data` for the worker's own files (config, the SDE cache, pictures and its `pg_dump` backups).
+- **Game and chat logs** are imported only if you mount them. Uncomment the log volumes and the matching `EVECONSOLE_GAMELOG_DIRS` / `EVECONSOLE_CHATLOG_DIRS` lines. Leave them out on a host with no EVE client; desktop clients keep importing their own logs.
+- **`docker compose stop` is a clean stop.** The worker handles `SIGTERM`, releases its lease and exits, so a desktop client takes over the work on its next tick.
+
 ## Building from source on Linux
 
-The same steps as anywhere — clone, restore, run — using the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0):
+The same steps as anywhere — clone, restore, run — using the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0):
 
 ```bash
 git clone https://github.com/kernoeve/EveConsole.git
