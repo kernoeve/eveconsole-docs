@@ -79,7 +79,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 - **[Order Tracker](tools/order-tracker.md)** — track your active and historical market orders and how they're filling.
 - **[Sales Tracker](tools/sales-tracker.md)** — review your completed sales and the profit on each, with a toggle for how profit is calculated.
 - **[Sale Posting](tools/sale-posting.md)** — build shareable sale postings from your stock and render them to Plain, Slack, Discord, Markdown, HTML or BBCode.
-- **[Stores](stores/index.md)** — sell to other players from EVE Console through two shop fronts: an [EVE Mail Store](stores/eve-mail.md) (buyers mail commands) and a [Web Storefront](stores/web-site.md) (buyers order on a site you host).
+- **[Stores](stores/index.md)** — sell to other players from EVE Console, and buy from them through [Buy listings](stores/buy-listings.md), with two shop fronts: an [EVE Mail Store](stores/eve-mail.md) (players mail commands) and a [Web Storefront](stores/web-site.md) (players order on a site you host).
 
 ### Finance
 
