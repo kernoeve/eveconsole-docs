@@ -9,7 +9,7 @@ Open it from the left sidebar under **Market / Trade**.
 The filter bar sits above both tabs and governs both:
 
 - **From** / **Thru** — date range (`yyyy-MM-dd`). Defaults to the last year; leave **Thru** blank for "up to now."
-- **Owner** — *All*, *All Characters and Personal Corps* (the default), or a specific tracked character or corporation.
+- **Owner** — *All*, *All Characters and Personal Corps* (the default), or a specific tracked character or corporation. Characters and corporations you add or remove appear or go at once; the owner you picked stays picked unless it is the one removed.
 - **Sale Type** — *All types*, *Market*, or *Contract*.
 - **Profit based on** — the cost basis the profit figures measure against, everywhere on the screen:
     - **Build** — profit versus the item's build cost (the default).
