@@ -52,7 +52,19 @@ Double-click a colony, or select it and click **Open colony**, to see it on the 
 
 ### Colony tab
 
-One colony in detail. Under the planet's name: the character, system, planet type and kind, and how old the data is.
+One colony in detail. Beside the planet type's picture and the planet's name: the character, system, planet type and kind, and how old the data is.
+
+To the right is a **map of the colony** as it's laid out in the game, north up, as of the last time it was opened. Each structure sits where it stands, with the links between them. The ring round each structure says how it's doing:
+
+| Ring | Meaning |
+| --- | --- |
+| Gold | The command center. |
+| Blue | An extractor. |
+| Green | A factory that's running. |
+| Orange | A factory that's idle. |
+| Red | An extractor that has stopped, or storage that's full. |
+
+A structure set down far from the rest — often the command center — is drawn at the edge of the map in its true direction, with its link dashed. Hover a structure for more.
 
 - **Potential and forecast** — what the colony could make over its period against what it will (see below).
 - **Command center** — its level of the highest allowed, with the CPU and powergrid that gives.
