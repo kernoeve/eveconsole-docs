@@ -4,6 +4,13 @@ EVE Console merges kills from **zKillboard** into its own killmail data. It's on
 
 The settings are in **Settings** — click the **⚙** gear button in the top-right of the title bar, then open the **Kill Mails** tab.
 
+<details class="tip" open>
+<summary>Video walkthrough — Killmail Setup (5 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/-Gs84_gxL7o" title="EVE Console: Killmail Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 ## Why zKillboard
 
 ESI only returns a killmail when you were the **victim** or got the **final blow**. If you took part in a kill without the final blow — routine in fleet fights — ESI never shows it to you.

@@ -18,6 +18,13 @@ orders for an item.
 All of this lives in **Settings** — click the **⚙** gear button in the top-right
 of the title bar, then open the **Market** tab.
 
+<details class="tip" open>
+<summary>Video walkthrough — Market Setup (5 min)</summary>
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/YcJfSoMjOwo" title="EVE Console: Market Setup" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</details>
+
 !!! tip "Recommended setup"
 
     A fresh install of EVE Console already has two Region sources: **The Forge**
