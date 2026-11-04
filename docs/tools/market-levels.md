@@ -51,7 +51,7 @@ Items already present in the group are skipped automatically.
 - Edit an item's **Target** inline; it saves immediately. The group **multiplier** scales every item's target total at once.
 - Click any column header to sort items within each group; click again to reverse.
 - Use **+ Collection** to create a folder, then set a group's collection via its **Edit** dialog. Collection rows have **Expand all** / **Collapse all** buttons.
-- Right-click an item for **Open in Item Browser** or **Delete Item** (Delete key also works on a selected item).
+- Right-click an item for **Open in Item Browser**, **Add to Standing Buy Orders…** (see [Standing Buy Orders](standing-buy-orders.md)) or **Delete Item** (Delete key also works on a selected item).
 
 !!! tip
     The per-item price deltas make this useful for restock pricing: if St Min sits well below your market source, your station is the cheap seller; if it's above, there's room to undercut or a restock opportunity.

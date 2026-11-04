@@ -13,14 +13,16 @@ EVE Console reads each character's colony list from ESI, and then each colony's 
 - **Extractor times are exact.** An extractor program's end is fixed when it is set.
 - **Storage and input times are estimates.** The app replays the colony from the last time it was opened in the game — what the extractors deliver, what the factories take and make, and where the routes send it. The **Data age** column says how old that starting point is.
 
-When a colony hasn't been opened in the game for too long (7 days unless you change it), its data is marked old: its estimates can't be trusted until you open it in the game again.
+Every colony's layout is read from ESI every ten minutes, not only those that look changed. ESI caches the list of colonies and each layout separately, so just after you save a colony it can still answer with the old layout. Such a layout isn't stored, and is logged and read again, so restarted extractors don't keep reading as stopped.
+
+Storage counts as full only while it is. A store that fills and is drained again by its factories stops reading full, and a store nothing is routed into is never "full", however much it holds.
 
 !!! note
     Characters need the **esi-planets.manage_planets.v1** scope. Colonies are read only for characters with the **PI** box ticked on **Settings ▸ Characters** (see [Choosing which characters do PI](#choosing-which-characters-do-pi)).
 
 ## What it shows
 
-Above the tabs is a summary line — for example *22 colonies · 3 extractors stopped · 2 need hauling · 1 input low* — with **Open colony**, **Refresh**, and when the list was last read. The list re-reads every minute while it's open; new colony layouts are read from ESI every ten minutes.
+Above the tabs is a summary line — for example *22 colonies · 3 extractors stopped · 2 need hauling · 1 input low* — with **Open colony**, **Refresh**, and when the list was updated and the colonies last read from ESI. The list re-reads every minute while it's open, and colony layouts are read from ESI every ten minutes. **Refresh** asks ESI for the colonies straight away, and what it brings shows as soon as it arrives.
 
 ### Colonies tab
 
@@ -40,11 +42,11 @@ One row per colony, the ones needing action soonest first:
 | **Storage full** | When storage or a launchpad first fills, or **Full**. Estimated. |
 | **Inputs run out** | For a factory planet, when its brought-in input runs out, or **Ran out**. Estimated. |
 | **Status** | **OK**, **Attention** or **Action**, as a word and a mark as well as a colour. Hover to see why. |
-| **Data age** | How long ago the colony was last opened in the game; **(old)** when it's past the limit. |
+| **Data age** | How long ago the colony was last opened in the game. |
 | **Efficiency** | The forecast as a share of what the colony could make (see [Potential and forecast](#potential-and-forecast)). |
 | **Profit** | Profit per day: output, less inputs and import and export charges, at market prices. |
 
-**Action** means something has already happened — extractors stopped, storage full, input run out. **Attention** means something comes due within the lead times (see [Settings](#settings)), output will be destroyed or raw material will overflow, or the data is old.
+**Action** means something has already happened — extractors stopped, storage full, input run out. **Attention** means something comes due within the lead times (see [Settings](#settings)), or output will be destroyed or raw material will overflow.
 
 **Exports** are the end of each chain, not everything the colony makes: what one factory makes for the next is left out. Raw material the factories can't keep up with is listed, because it has to be hauled too. **Waiting** counts exports only — input sitting on a launchpad, and a part-made product waiting for the next factory, aren't included. The summary line adds the total waiting across all colonies, for example *4,210 m³ of exports waiting, worth 1.20B ISK*.
 
@@ -109,9 +111,9 @@ The characters that do PI:
 
 ## Alerts, alarms and tasks
 
-- **Overview alerts** — extractors stopped or stopping, storage full or filling, factory input out or running out, a PI character with a free colony slot, and colony data too old to trust. See [Overview](overview.md).
+- **Overview alerts** — extractors stopped or stopping, storage full or filling, factory input out or running out, and a PI character with a free colony slot. See [Overview](overview.md).
 - **Alarm** — the **Planetary Industry** check in the alarm editor fires for extractors, storage or inputs, with its own lead time in hours. Each colony's event fires once; restarting the extractors or opening the colony again makes it news again. See [Alarms](alarms.md).
-- **Worklist tasks** — restart extractors, take output off, bring input, set up a colony, upgrade a command center, and open a colony whose data is old. See [Worklist](worklist.md#planetary-industry-tasks).
+- **Worklist tasks** — restart extractors, take output off, bring input, set up a colony, and upgrade a command center. See [Worklist](worklist.md#planetary-industry-tasks).
 
 ## Settings
 
@@ -122,14 +124,13 @@ The characters that do PI:
 ### Settings ▸ Industry
 
 - **Planetary Industry tax** — the **Customs office tax** and **Skyhook tax** used for a planet until its own rate has been learned (10 % each to start). Customs offices are in high-sec, low-sec, wormholes and NPC null-sec; sovereignty null-sec has skyhooks instead. Bringing goods in costs half of taking them off.
-- **Planetary Industry alerts and tasks** — how far ahead the alerts and tasks look, and when data is too old:
+- **Planetary Industry alerts and tasks** — how far ahead the alerts and tasks look, and how much input a haul brings:
 
 | Setting | Default |
 | --- | --- |
 | **Extractors stopping** | 24 hours ahead |
 | **Storage or a launchpad full** | 24 hours ahead |
 | **Factory input running out** | 48 hours ahead |
-| **Colony data too old after** | 7 days |
 | **An input haul brings** | 7 days of running |
 
 Which alerts are raised at all is on **Settings ▸ Alerts**, under **Planetary Industry**. Settings save as you change them.

@@ -43,7 +43,7 @@ A webhook is not the same as being connected:
 
 - **Posts show the webhook's name**, not yours — whatever name the workspace gave it.
 - **It can't thread.** A sale posting's later blocks arrive as separate messages instead of replies under the first.
-- **It can't carry a chart.** A scheduled task aimed at a webhook skips its chart sections, and says how many it skipped.
+- **It can't carry a picture.** A scheduled task aimed at a webhook skips its chart sections and says how many it skipped. An **Indy Park Compare** or **System Index** section posts only its tables, and the Scheduler warns you when it has pictures chosen.
 
 There's no **Test** button for a webhook: the first post shows whether it works. **Remove** takes one out of the list. It's refused while a part of the app still posts through it (see below) — pick something else there first.
 
@@ -67,7 +67,7 @@ Each list holds your channels, **Note to Self** among them, then your webhooks. 
 - **Corp Activity uses the format beside the button.** The Top 10 and the monthly summary post in the format picked in the format list next to **Post to Slack** — the same one **Export to Clipboard** uses. Pick **Slack**: headings are bold and tables sit in code blocks, so their columns line up. **Plain Text** is posted as one code block. The Top 10 is posted without ISK amounts, like **Export (No ISK)**.
 - **Sale postings are threaded.** Each post block is rendered in Slack's own formatting, whichever format the Posting tab shows. On a channel the first block is the message and the rest go in its thread. Through a webhook each block is its own message.
 - **Long posts go out in parts.** Slack cuts a long message wherever the length runs out, straight through a table. So the Top 10, the monthly summary and scheduled posts are sent as messages of up to 3,500 characters each, about a second apart, in order. A heading stays with its table, and a section that fits in one message is never split: a table longer than one message is split between rows, with its header repeated at the top of the next message.
-- **Charts are uploaded.** A scheduled task posting to a channel uploads its chart sections as images, under the message text.
+- **Charts are uploaded.** A scheduled task posting to a channel uploads its chart sections, and the pictures of its **Indy Park Compare** and **System Index** sections, as images under the message text.
 
 ## Posting twice
 

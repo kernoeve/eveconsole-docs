@@ -2,7 +2,7 @@
 
 A live monitor for the work EVE Console does on a timer — ESI polling, market pricing, contracts, killmails, LP-store catalogues, alarms and order fulfilment. It's a diagnostic view: somewhere to see what has run, what's due next, and how a long sweep is progressing.
 
-Open it from the left sidebar under **Data / Logs**, or by clicking any of the background-process labels in the **status bar** (each opens this tool at the matching tab).
+Open it from the left sidebar under **Data / Logs**, or by clicking any of the background-process labels in the **status bar** (each opens this tool at the matching tab). The [tray or menu bar icon](../background-processing.md#a-tray-or-menu-bar-icon) can open it too, without opening the app.
 
 ## What it shows
 
@@ -41,6 +41,10 @@ The **ESI limits** tab shows:
 A rate-limit group running low — under a fifth of its allowance — is paced at the rate it refills. The governor goes by what ESI says is left, not by the app's own count, so errors spent by another program on the same connection slow EVE Console down too. Each change of level is written to the [Error Log](error-log.md), with what is left, who spent it and the routes that spent the most.
 
 While the governor holds work back, **▲ ESI slowed** shows in the title bar beside the Tranquility status. Hover it for the governor's state and the error budget; click it to open this tab.
+
+### A fresh install
+
+A new install has a lot of public structures to look up, and ESI refuses a call about one your characters can't see, which spends the error budget. So that sweep waits for the first **EVE Ref** download, and asks about structures EVE Ref lists as not public and couldn't name only 25 per sweep. Those are nearly all of the refusals. The rest of the list goes ahead normally, and an unnamed structure a character later gets docking rights to is still found, in time.
 
 ## Notes
 

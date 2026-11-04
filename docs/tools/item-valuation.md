@@ -14,7 +14,7 @@ Paste into the box on the left. It understands most things you can copy in EVE:
 
 Item names are recognised in any of the game's [languages](../languages.md), so a list copied from a client running in German, Chinese or any other language values just the same.
 
-**Pasting values the list on its own** — so does pressing **Enter**, or the **Appraise** button. Once valued, the list folds away to give the results room; **Edit list** brings it back to change it. Anything that couldn't be matched to an item is listed in a warning beneath the results.
+**Pasting values the list on its own** — so does pressing **Enter**, or the **Appraise** button. Once valued, the list folds away to give the results room; **Edit list** brings it back to change it. A paste added to a list already in the box leaves the box open, since you may not have finished adding. Anything that couldn't be matched to an item is listed in a warning beneath the results.
 
 ## Options
 
@@ -39,13 +39,19 @@ Each group's **heading** carries that value's **total** across the whole list, i
 
 An item with **no orders at the chosen station** is priced from **contracts** where the app has a price, and marked so you can see it wasn't a live order.
 
+### Reprocessed output
+
+Below the list, **Reprocessed output** shows what the list comes to once reprocessed, largest value first: each material with its **Qty**, **Volume**, **Market value** and **Build value**. Totals for volume and market value, and how much of it could be priced, sit above it. Drag the bar between the two areas to give either more room.
+
+Anything that couldn't go in is marked **Left over**, with the reason: for example, less than a whole batch. This area isn't narrowed by the name filter, and it's hidden when **Value** is already set to the reprocessed output.
+
 ## Comparing stations — Market compare tab
 
 The station you chose above leads; **Add** more to price the same list at each. Every station gets its own unit / total / per-cent columns, with its total, standing, coverage and price age beneath its name and a **×** to remove it (the primary station stays). Useful for deciding where a haul is worth the most, or cheapest to buy.
 
 ## Output
 
-- **Copy** — both tables and the totals as tab-separated text, ready to paste into a spreadsheet or a chat.
+- **Copy** — the tables and the totals as tab-separated text, ready to paste into a spreadsheet or a chat. The reprocessed output is included.
 - Item names link to the [Item Browser](item-browser.md).
 
 ## Notes

@@ -49,7 +49,8 @@ default (you can rename it). It has read access to your local database and a set
 
 Once enabled, a **✦ {name}** button appears in the title bar; click it to toggle
 the (resizable) chat panel. The line above each reply shows when it was written,
-which model wrote it and which tools it used.
+which model wrote it and which tools it used. Web addresses in the chat are links
+you can click.
 
 ## Setup
 
@@ -234,8 +235,9 @@ For each voice:
       **API key** only if the server asks for one. A server counts as up only if it
       actually speaks within 30 seconds.
     - **Piper (on this PC, free)** — fast offline neural TTS; the runtime is
-      bundled, and only the chosen voice (a data file) downloads, with **Download
-      Voice Model**.
+      bundled on Windows and Linux, and only the chosen voice (a data file)
+      downloads, with **Download Voice Model**. **Not available on macOS**: the
+      settings say so there, so choose another engine.
     - **OpenAI (paid)** — OpenAI's voices, billed per character. Uses the OpenAI API
       key (the same one as the Agent tab's OpenAI models). Choose the **Model** from
       OpenAI's list (**↺** asks again) and a **Voice** from the ones OpenAI documents
@@ -249,8 +251,8 @@ For each voice:
   couldn't speak (the server's own words) in red.
 
 All voices are brought to the same loudness, so a change of voice doesn't jump in
-volume. Speech leaves out emoji and markdown — headings, rules and table lines
-aren't read out — and the next sentence is prepared while one plays. Volume and mute
+volume. Speech leaves out emoji, web addresses and markdown — headings, rules and table
+lines aren't read out — and the next sentence is prepared while one plays. Volume and mute
 are also available in the agent panel itself.
 
 **When the voice changes** — tick **Announce it, in the new voice** to have the voice
@@ -264,19 +266,25 @@ once, and a switch back waits for the end of the current answer.
 
 On the **Speech Input (STT)** tab, pick a **Provider** to talk to the agent:
 
-- **OpenAI Whisper** — cloud transcription (shares the OpenAI key); Windows and
-  Linux. Choose the **Model** from OpenAI's list of transcription models (**↺** asks
+- **OpenAI Whisper** — cloud transcription (shares the OpenAI key); Windows, Linux
+  and macOS. Choose the **Model** from OpenAI's list of transcription models (**↺** asks
   again). Settings from before this choice existed keep `whisper-1`.
-- **Local Whisper** — runs on this machine, no API key; Windows only. Pick a
+- **Local Whisper** — runs on this machine, no API key; Windows, Linux and macOS.
+  Pick a
   **Model** and click **Download Model** before first use, and set the **Language**
   you speak as a two-letter code such as `en` (or `auto` to let the model guess,
   which is often wrong on a short clip).
 
 Then choose a **Microphone Device** (click **↺** to refresh the list) — leave it on
-**System default** to follow whatever Windows/your OS is set to — and a **Global
+**System default** to follow whatever your operating system is set to — and a **Global
 Push-to-Talk Key** — hold it to record even when EVE has focus. F13–F20 are rarely
 captured by games and make good PTT keys. The mic button in the panel works
 regardless of this setting.
+
+On a Mac, macOS asks once for the microphone, and the key needs no Accessibility
+permission. **Scroll Lock** and **Pause** aren't offered there, and a MacBook's own
+keyboard has none of the keys that are. See [Running on
+macOS](running-on-macos.md#the-ai-agents-voice-and-microphone).
 
 ## Related
 

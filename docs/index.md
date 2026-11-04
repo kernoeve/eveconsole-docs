@@ -26,10 +26,12 @@ Before most tools are useful, configure a few things:
 - **[Logs & Map Data](logs-and-map-data.md)** — read EVE's game and chat logs (including intel channels) and collect the public map statistics the Universe Map's overlays use.
 - **[zKillboard](zkillboard.md)** — merge in kills from zKillboard, so kills you helped on without the final blow are counted too.
 - **[Posting to Slack](slack.md)** and **[Posting to Discord](discord.md)** — send corp summaries, Top 10s, sale postings and scheduled reports to your channels.
-- **[Themes](themes.md)** — pick from the light, dark and tinted themes; the whole interface repaints live.
+- **[Themes](themes.md)** — pick from the light, dark and tinted themes, or make your own with colour pickers and a live preview; the whole interface repaints live.
 - **[Languages](languages.md)** — use EVE Console in any of the game's eight languages, with item and system names as the game client shows them.
 
 On Linux? See **[Running on Linux](running-on-linux.md)** for downloads, the one dependency, and headless setups — a systemd service, or the background worker in Docker.
+
+On a Mac? See **[Running on macOS](running-on-macos.md)** for downloads, the first-run Open Anyway steps, and what differs on a Mac.
 
 ## Functionality
 
@@ -38,7 +40,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 ### General
 
 - **[Overview](tools/overview.md)** — the landing dashboard: at-a-glance alerts, recent notifications and killmails, and a customizable grid of summary panels.
-- **[Worklist](tools/worklist.md)** — one always-current list of what to do next across all your characters, rebuilt on each refresh from up to eleven sources (industry jobs, purchases, logistics, corp projects, skills, Planetary Industry and more).
+- **[Worklist](tools/worklist.md)** — one always-current list of what to do next across all your characters, rebuilt on each refresh from up to twelve sources (industry jobs, completed jobs, purchases, logistics, corp projects, skills, Planetary Industry and more).
 - **[Characters](tools/characters.md)** — an in-app character sheet (skills, attributes, and info) for your authorized characters, handy when you'd rather not log the character into the game.
 
 ### Assets
@@ -62,10 +64,11 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 ### Industry
 
 - **[Industry Jobs](tools/industry-jobs.md)** — monitor your active and finished industry jobs (manufacturing, research, reactions) across characters and corp.
-- **[Indy Parks](industry-parks.md)** — define the structures you build in (type, rigs, system, tax) so build-cost and production calculations use your real bonuses.
+- **[Indy Parks](industry-parks.md)** — define the structures you build in (type, rigs, system, tax) so build-cost and production calculations use your real bonuses. Compare the same jobs across parks for cost and time.
+- **[System Index](tools/system-index.md)** — industry cost indices for the systems you choose: today's figure for every activity, and each activity's history as a chart.
 - **[Production Calculator](tools/production-calculator.md)** — plan production runs: full build cost, materials needed, and a multi-level breakdown, with ME levels and an optional final blueprint-copy cost.
 - **[Planetary Industry](tools/planetary-industry.md)** — your colonies at a glance: extractor timers, storage and production forecasts, with alerts and Worklist tasks for the chores.
-- **[Industry Opportunities](tools/industry-opportunities.md)** — scan items for build-and-sell profit, ranked by margin and profit per slot-day using your build costs and market prices.
+- **[Industry Opportunities](tools/industry-opportunities.md)** — what's worth building: everything that shows a profit at your market, with what it actually sold for over the last 30 days, in summary lists by kind and a full filterable grid.
 
 ### Market / Trade
 
@@ -90,6 +93,8 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 ### Corp / Interactions
 
 - **[Corp Activity](tools/corp-activity.md)** — corp-wide activity: ratting/industry/mining tax, donations, kills, projects, and Top 10 leaderboards, over 24h or monthly.
+- **[Corp Structures](tools/corp-structures.md)** — a corporation's Upwell structures, starbases and skyhooks: state, services, fuel left and its cost, Metenox pickups, and a check against the fit you set for each type.
+- **[Mercenary Dens](tools/mercenary-dens.md)** — your characters' mercenary dens: planet, skyhook owner, state, infomorphs, development and anarchy, reinforcement and open tactical operations.
 - **[Killmails](tools/killmails.md)** — your and your corp's recent kills and losses, with values and details.
 - **[Players & NPCs](tools/entities.md)** — a searchable browser for pilots, corps and alliances, with their zKillboard kills and losses, plus NPC agents, corps and factions.
 
@@ -109,7 +114,7 @@ EVE Console is organized into tools you open from the left sidebar, grouped as b
 ### Title bar
 
 - **[Alarms](tools/alarms.md)** — opened from the alarm light beside the ⚙ gear: conditions you define that the app checks on a timer and tells you about once, when they first become true.
-- **[Scheduler](tools/scheduler.md)** — opened from the title bar: run reports on a timetable — post a corp Top 10, monthly summary, sale posting or charts to [Slack](slack.md) or [Discord](discord.md), or raise an alert — on an interval or a calendar, in EVE time.
+- **[Scheduler](tools/scheduler.md)** — opened from the title bar: run reports on a timetable — post a corp Top 10, monthly summary, sale posting, charts or industry tables to [Slack](slack.md) or [Discord](discord.md), or raise an alert — on an interval or a calendar, in EVE time.
 
 ## Help
 

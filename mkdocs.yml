@@ -72,6 +72,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Running on Linux: running-on-linux.md
+  - Running on macOS: running-on-macos.md
   - Setup:
       - Configuring Markets: configuring-markets.md
       - AI Agent (Eden): ai-agent-eden.md
@@ -105,6 +106,7 @@ nav:
       - Industry:
           - Industry Jobs: tools/industry-jobs.md
           - Indy Parks: industry-parks.md
+          - System Index: tools/system-index.md
           - Production Calculator: tools/production-calculator.md
           - Planetary Industry: tools/planetary-industry.md
           - Industry Opportunities: tools/industry-opportunities.md
@@ -130,6 +132,8 @@ nav:
           - Wallet: tools/wallet.md
       - Corp / Interactions:
           - Corp Activity: tools/corp-activity.md
+          - Corp Structures: tools/corp-structures.md
+          - Mercenary Dens: tools/mercenary-dens.md
           - Killmails: tools/killmails.md
           - Players & NPCs: tools/entities.md
       - Communication:

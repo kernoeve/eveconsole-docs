@@ -25,7 +25,7 @@ Every screen, dialog, alert and message is translated, and so are the names of i
 2. Under **Appearance**, pick a **Language**.
 3. A note says **The new language is used from the next start.** Click **Restart now** to switch straight away, or carry on and it takes effect the next time you start EVE Console.
 
-The first entry, **System default**, follows your computer's display language. It shows in brackets which language that comes to — German Windows starts EVE Console in German. A system language that isn't one of the eight falls back to English.
+The first entry, **System default**, follows your computer's display language. It shows in brackets which language that comes to — a computer set to German starts EVE Console in German. A system language that isn't one of the eight falls back to English.
 
 The list names each language in the language you're using, then as it calls itself, for example **German (Deutsch)**, so you can find your way back from a language you can't read.
 
@@ -41,7 +41,7 @@ Numbers you type are read in the interface's format first: in German `1,5` is on
 
 ### Chinese, Japanese and Korean fonts
 
-The app picks a font made for each of these languages, so characters are drawn in the right style. Windows already has them. On Linux, install your distribution's **Noto Sans CJK** fonts if Chinese, Japanese or Korean text shows as boxes (most desktops ship them).
+The app picks a font made for each of these languages, so characters are drawn in the right style. Windows and macOS already have them. On Linux, install your distribution's **Noto Sans CJK** fonts if Chinese, Japanese or Korean text shows as boxes (most desktops ship them).
 
 ## Names from the game
 

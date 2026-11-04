@@ -1,6 +1,6 @@
 # Running on Linux
 
-From 0.9.13, EVE Console runs natively on 64-bit Linux, and Linux builds ship alongside the Windows builds with every release. Everything the app needs is bundled, including the .NET runtime.
+From 0.9.13, EVE Console runs natively on 64-bit Linux, and Linux builds ship alongside the Windows and [macOS](running-on-macos.md) builds with every release. Everything the app needs is bundled, including the .NET runtime.
 
 ## Downloads
 
@@ -26,7 +26,7 @@ Both come from the [Releases page](https://github.com/kernoeve/EveConsole/releas
 
 ## The one dependency: `vlc`
 
-The only thing the build can't carry is your distribution's **`vlc`** package, which the app uses for **alarm sounds** and the **AI agent's speech** (text-to-speech). Everything else works without it. Install it from your package manager if you want audio:
+The only thing the build can't carry is your distribution's **`vlc`** package, which the app uses for **alarm sounds** and the **AI agent's speech** (text-to-speech). Everything else works without it. The AI agent's **Piper** voices need nothing more than this: Piper itself ships in both the AppImage and the tarball, and only the voice you choose is downloaded. Install `vlc` from your package manager if you want audio:
 
 ```bash
 # Debian / Ubuntu

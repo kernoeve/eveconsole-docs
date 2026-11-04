@@ -17,7 +17,7 @@ What the logs hold is browsed in the **Game Log** and **Chat Log** viewers — s
 
 ## Game Logs
 
-Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the wake-up call.
+Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the **Undocked too long** check.
 
 Logs are opened read-only. Nothing is ever written back, and nothing is sent to the game client.
 
@@ -31,7 +31,7 @@ Logs are opened read-only. Nothing is ever written back, and nothing is sent to 
 
 ### Log Folders
 
-This computer's own game log folder is **always read** when EVE Console can find it: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`. You don't need to add it.
+This computer's own game log folder is **always read** when EVE Console can find it: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`. On macOS it looks there too, then in the older Mac client's `~/Library/Application Support/EVE Online/p_drive/User/My Documents/EVE/logs/Gamelogs`; see [Running on macOS](running-on-macos.md#eves-logs). You don't need to add it.
 
 The **Log Folders** list is for folders **in addition** to that one — most often the logs of EVE clients on **other computers**. Add a network path such as `\\PC2\eve-logs`. Nothing needs to be installed on the other machines.
 
