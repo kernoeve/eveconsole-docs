@@ -93,4 +93,5 @@ Both buttons post in their own service's format, whatever the **Format** box sho
 - On a store's **Buy** listing, the posting's **Sale Price** is what the store pays, and only prices are shown — see [Buy Listings](../stores/buy-listings.md).
 - A posting's places travel with it when it is exported and imported. They name stations, owners and containers by id, so they mean the same only in a database with the same pilots.
 - To post a posting on a timetable, add a **Sale Posting** section to a [Scheduler](scheduler.md) task.
+- Right-click an item row and choose **Add to Standing Buy Orders…** to add it to your [Standing Buy Orders](standing-buy-orders.md), at the station of the last order. A dialog opens only when there is no order yet to go by, and otherwise a message says what was added.
 - To follow up on what actually sells, see [Sales Tracker](sales-tracker.md).

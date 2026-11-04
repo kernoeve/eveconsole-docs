@@ -23,7 +23,7 @@ The app can put the site on your own Cloudflare account and keep it current: it 
 On **Config ▸ Web site**, under **Automatic deployment and updates on Cloudflare**:
 
 1. **Create a Cloudflare API token.** Open [the API-tokens page](https://dash.cloudflare.com/profile/api-tokens) → **Create Token** → the **"Edit Cloudflare Workers"** template, then **add the permission `D1 → Edit`** → **Continue** and **Create**. Copy the token.
-2. **Save the token** in the app: paste it into **API token** and press **Save token**. It's checked, then kept on this machine only, encrypted for your account.
+2. **Save the token** in the app: paste it into **API token** and press **Save token**. It's checked, then kept on this machine only, encrypted for your account (in the Keychain on a Mac).
 3. **Pick the account** (the dropdown fills once the token is saved) and a **Worker name** — lower-case letters, digits and hyphens. This is also the database's name.
 4. **Choose the address:**
     - **The free `workers.dev` address** — your site is `<worker-name>.<account>.workers.dev`.

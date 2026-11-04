@@ -14,7 +14,7 @@ Three panels driven by your wallet journal over the range:
 
 - **Income** — income categories, largest first, with the total at the top (green).
 - **Expenses** — expense categories, largest first, with the total at the top (red).
-- **Daily · Income · Expense · Cashflow** — a line chart with three series: daily **Income**, daily **Expense**, and a running **Cashflow** (net) line. The panel header shows the net total (income minus expense) for the range.
+- **Daily · Income · Expense · Cashflow** — a line chart with three series: daily **Income**, daily **Expense**, and a running **Cashflow** (net) line. The panel header shows the key to the lines and the net total (income minus expense) for the range.
 
 Categories are derived from wallet-journal reference types. Every entry counts on its own side: money in is income and money out is expense. A type with money both ways — market transactions or contracts, say — shows on both sides, rather than as one net figure. The category lists are height-aware: the panels show as many rows as physically fit, and any remaining smaller categories are rolled up into a single **Other** line so the totals still add up.
 

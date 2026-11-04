@@ -43,5 +43,6 @@ The rest of the sheet is a set of tabs:
 ## Notes
 
 - Only **authorized characters** (signed in via EVE SSO) appear in the selector.
+- Hover the online characters count in the title bar for a list of who's online, each with their portrait, location, hull icon and ship.
 - Almost all data is read from the local database and is only as current as the app's last ESI sync — skills, queue, attributes, clones, medals, titles and standings are populated by background polling. Some enrichments depend on additional data having been polled: corp medal titles require corp data, and standing names may fall back to placeholder IDs if the relevant SDE or ESI names aren't available.
 - The portrait, and standings names not found in the SDE, are fetched from EVE's image and ESI name services and need a network connection; the sheet still loads without them.
