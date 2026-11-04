@@ -6,6 +6,7 @@ Locally, in a SQLite database in the app's data folder:
 
 - **Windows:** `%LOCALAPPDATA%\EVE Console Data\EveConsole.db`
 - **Linux:** `~/.local/share/EveConsole/EveConsole.db`
+- **macOS:** `~/Library/Application Support/EveConsole/EveConsole.db`
 
 The same folder holds `config.json`, backups, profiles and downloaded models. Nothing
 is uploaded; the app only talks to CCP's ESI API to refresh your data. If you moved
@@ -24,6 +25,13 @@ Windows](getting-started.md#where-your-data-lives-on-windows).
 If the old folder still holds your data, the move couldn't finish — usually because
 another copy of EVE Console was running. The [Error Log](tools/error-log.md) says why,
 and the next start tries again. Close every copy, then start EVE Console once.
+
+## macOS says EVE Console can't be opened
+
+EVE Console isn't signed by Apple yet, so macOS stops it the first time, for the
+installer and again for the app. Close the message, open **System Settings ▸ Privacy &
+Security**, scroll down and click **Open Anyway**. See [Opening it the first
+time](running-on-macos.md#opening-it-the-first-time).
 
 ## "Upgrade the database?" at start
 
@@ -64,7 +72,7 @@ never wait like this.
 Yes. Start the app with `--profile <name>` and it runs a completely separate copy —
 its own config, database and caches — under
 `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` (`~/.local/share/EveConsole/Profiles/<name>`
-on Linux). You can give a folder path instead of a name. A new profile starts empty,
+on Linux, `~/Library/Application Support/EveConsole/Profiles/<name>` on macOS). You can give a folder path instead of a name. A new profile starts empty,
 like a fresh install, and runs alongside your normal copy. The window title shows
 the profile name, and **Settings ▸ Database** says which folder is in use. It's
 handy for trying a development build without touching your real data.

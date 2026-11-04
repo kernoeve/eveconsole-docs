@@ -32,6 +32,10 @@ The worker runs with no UI when started with `--headless`. It's the same worker 
 
 Run it as a **systemd user unit** from the tarball or AppImage. The full walkthrough — the unit file, the environment file for the connection string, the `vlc` dependency and the AppImage's extract-and-run caveat — is in **[Running on Linux](running-on-linux.md)**.
 
+### macOS
+
+EVE Console doesn't install a service on a Mac: **Settings ▸ Polling** has no service section there. `--headless` still starts the worker, for example from a Terminal. See **[Running on macOS](running-on-macos.md#running-headless)**.
+
 ### Docker
 
 To self-host the worker in a container, use the Docker image and compose file in the source tree (`packaging/docker`). The compose file runs the worker beside its PostgreSQL server, and takes the connection string from the environment. Your desktop clients then connect to that server and leave the background work to the worker. See **[Running on Linux ▸ Running in Docker](running-on-linux.md#running-in-docker)**.
@@ -45,13 +49,25 @@ On Windows the worker installs as a **Windows service**, managed from **Settings
 
 A service runs as **LocalSystem** and has no user session, so it reads its database from a machine-scoped configuration rather than your per-user profile — the app handles this when you install it from Settings.
 
-### A tray icon for the service
+### A tray or menu bar icon
 
-A Windows service can't draw anything on screen. If you want a visible sign that the worker is running in your own session, start the app with `--tray` for a **notification-area icon and nothing else**. There's a checkbox for it under **Settings ▸ Polling**.
+A Windows service can't draw anything on screen, and a closed app shows nothing at all. If you want a visible sign of who is doing the background work, start the app with `--tray` for a **notification-area icon and nothing else** (on a Mac, a menu bar icon). It's useful with or without a service. It never does the background work and never sounds alarms; closing EVE Console is how you stop those.
+
+Its menu has **Background Processes**, **Open EVE Console** and **Exit**. On SQLite as well as PostgreSQL, the **Background Processes** window it opens shows what the running client is doing.
+
+To have it start by itself, use the tick box under **Settings ▸ Polling ▸ Notification Area Icon**:
+
+| Platform | Tick box | How it starts |
+| --- | --- | --- |
+| Windows | **Show a notification-area icon, starting with Windows** | the Windows `Run` key, for your account |
+| Linux | **Show a notification-area icon, starting with your desktop session** | an entry in `~/.config/autostart` |
+| macOS | **Show a menu bar icon, starting when you log in** | a launch agent, `~/Library/LaunchAgents/com.eveconsole.tray.plist` |
+
+Ticking it also starts the icon straight away. Unticking stops it starting again, and an icon already showing stays until you choose **Exit** on it. There's only ever one icon per [profile](#a-separate-profile), so ticking the box again doesn't add a second.
 
 ### A separate profile
 
-`--profile <name>` runs a completely separate copy of the app — its own config, database and caches — under `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` on Windows or `~/.local/share/EveConsole/Profiles/<name>` on Linux (or a folder path you give instead of a name). It can be combined with the other switches and runs alongside your normal copy; see the [FAQ](faq-and-troubleshooting.md#can-i-run-a-second-separate-copy).
+`--profile <name>` runs a completely separate copy of the app — its own config, database and caches — under `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` on Windows or `~/.local/share/EveConsole/Profiles/<name>` on Linux or `~/Library/Application Support/EveConsole/Profiles/<name>` on macOS (or a folder path you give instead of a name). It can be combined with the other switches and runs alongside your normal copy; see the [FAQ](faq-and-troubleshooting.md#can-i-run-a-second-separate-copy).
 
 ## Supplying the connection string to a service
 
@@ -61,7 +77,7 @@ A background service has no login session, so it can't read the connection passw
 EVECONSOLE_DB_CONNECTION=Host=…;Database=…;Username=…;Password=…
 ```
 
-On Linux this goes in the unit's environment file; on Windows it's a machine or service environment variable; in Docker the compose file sets it. See [Running on Linux](running-on-linux.md) for the Linux specifics.
+On Linux this goes in the unit's environment file; on Windows it's a machine or service environment variable; in Docker the compose file sets it. On a Mac, set it wherever you start the worker. See [Running on Linux](running-on-linux.md) for the Linux specifics.
 
 A worker in a container has no settings window either, so it can be told where EVE's game and chat logs are the same way. Each takes one or more folders, separated by `;`:
 

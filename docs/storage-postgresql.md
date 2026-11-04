@@ -21,7 +21,7 @@ EVE Console keeps everything it knows in a database. By default that's a single 
 | Data location | `EveConsole.db` on this machine | on the server |
 | Multiple clients | one at a time (the file is held exclusively) | many at once, sharing one dataset |
 | Headless [background worker](background-processing.md) | not alongside a desktop client on the same machine | yes — that's the point |
-| Backups | file copy / built-in backup | `pg_dump` (built in) |
+| Backups | file copy / built-in backup | built-in backup, using `pg_dump` from PostgreSQL's client tools |
 
 If you only ever run one client on one machine, SQLite is the simpler choice and there's no reason to change. Reach for PostgreSQL when you want more than one client on the same data, or a background process that keeps polling after the app is closed.
 
@@ -55,18 +55,24 @@ Open **Settings** (the **⚙** gear, top-right) ▸ **Database**.
 
 ### Where the password is stored
 
-The connection password is **not** written into `config.json`. It's kept in your operating system's secure store (the Windows credential store / a Linux login keyring), which is per-user and per-login-session. Settings shows a short line noting this next to the password field.
+The connection password isn't kept readable in `config.json`. Where it goes depends on your system, and a short line next to the password field in Settings says which applies:
+
+- **Windows** — encrypted by Windows for your account on this machine.
+- **Linux** — in your desktop keyring, with only a reference in `config.json`. With no keyring to use, it's stored in `config.json` as typed; install `libsecret-tools` (`secret-tool`) to have it kept in the keyring.
+- **macOS** — in your Keychain, with only a reference in `config.json`.
+
+Kept any of these ways it's per-user, so a copied `config.json` doesn't carry a usable password, and you type it once on the new machine.
 
 !!! note "Headless workers can't read the keyring"
 
-    Because the saved password lives behind a login session, a [background worker](background-processing.md) running as a service has no way to read it. For those, supply the connection string through an environment variable instead — see [Background processing](background-processing.md) and [Running on Linux](running-on-linux.md).
+    Because a saved password in a keyring or Keychain lives behind a login session, a [background worker](background-processing.md) running as a service has no way to read it. For those, supply the connection string through an environment variable instead — see [Background processing](background-processing.md) and [Running on Linux](running-on-linux.md).
 
 ## Backups
 
 Backups and restores work on both engines, from **Settings ▸ Database**:
 
 - On **SQLite**, a backup is a copy of the database file.
-- On **PostgreSQL**, backups and restores run through **`pg_dump`** / `pg_restore`, which ship with the app.
+- On **PostgreSQL**, backups and restores run through **`pg_dump`** / `pg_restore`, which come with PostgreSQL's client tools: `postgresql-client` on Debian or Ubuntu, `postgresql` on Arch, the command line tools in the Windows installer, or on a Mac [Homebrew, Postgres.app or the EDB installer](running-on-macos.md#backups-on-postgresql-pg_dump). EVE Console looks for them on the system path and in the usual install folders, and **Check for pg_dump** shows which it found. The [Docker](running-on-linux.md#running-in-docker) image carries its own.
 
 You can enable scheduled backups, choose an interval, set how many to keep, and take a manual backup on demand. The storage breakdown (what's taking up space) works the same way on both engines.
 

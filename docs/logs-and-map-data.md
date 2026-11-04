@@ -31,7 +31,7 @@ Logs are opened read-only. Nothing is ever written back, and nothing is sent to 
 
 ### Log Folders
 
-This computer's own game log folder is **always read** when EVE Console can find it: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`. You don't need to add it.
+This computer's own game log folder is **always read** when EVE Console can find it: `Documents\EVE\logs\Gamelogs`, including a Documents folder redirected to OneDrive. On Linux it looks in `~/Documents/EVE/logs/Gamelogs`. On macOS it looks there too, then in the older Mac client's `~/Library/Application Support/EVE Online/p_drive/User/My Documents/EVE/logs/Gamelogs`; see [Running on macOS](running-on-macos.md#eves-logs). You don't need to add it.
 
 The **Log Folders** list is for folders **in addition** to that one — most often the logs of EVE clients on **other computers**. Add a network path such as `\\PC2\eve-logs`. Nothing needs to be installed on the other machines.
 

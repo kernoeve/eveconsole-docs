@@ -9,10 +9,10 @@
 
 ## Requirements
 
-- **Windows** 10 or 11, **or** a modern 64-bit **Linux** desktop.
+- **Windows** 10 or 11, a modern 64-bit **Linux** desktop, **or** **macOS** 15 or later, on Apple Silicon or Intel.
 - An EVE Online account (you'll authorize characters via EVE's official Single Sign-On).
 
-Everything the app needs is bundled, including the .NET runtime. On Linux the one external dependency is your distribution's **`vlc`** package, used for alarm sounds and the AI agent's speech — see **[Running on Linux](running-on-linux.md)** for details, headless setups, and file locations.
+Everything the app needs is bundled, including the .NET runtime. On Linux the one external dependency is your distribution's **`vlc`** package, used for alarm sounds and the AI agent's speech — see **[Running on Linux](running-on-linux.md)** for details, headless setups, and file locations. On a Mac nothing else needs installing, but the app isn't signed by Apple, so macOS stops it the first time — see **[Running on macOS](running-on-macos.md)**.
 
 ## Download & install
 
@@ -32,7 +32,18 @@ Both are the same app and **both keep themselves up to date automatically** (see
 
 See **[Running on Linux](running-on-linux.md)** for the `vlc` dependency, running headless as a systemd service, and where data lives.
 
-Your data is stored locally — on **Windows** at `%LOCALAPPDATA%\EVE Console Data\EveConsole.db`, on **Linux** at `~/.local/share/EveConsole/EveConsole.db`. By default nothing leaves your machine; the app talks only to CCP's ESI API to refresh your data. If you'd rather keep the data on a shared server, you can point it at your own **[PostgreSQL](storage-postgresql.md)** instead.
+### macOS
+
+- **Apple Silicon (M1 and later):** **[Installer — `EveConsole-osx-arm64-Setup.pkg`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-arm64-Setup.pkg)** or **[Portable — `EveConsole-osx-arm64-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-arm64-Portable.zip)**.
+- **Intel:** **[Installer — `EveConsole-osx-x64-Setup.pkg`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Setup.pkg)** or **[Portable — `EveConsole-osx-x64-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Portable.zip)**.
+
+The installer puts EVE Console in your Applications folder. The Portable zip holds the app itself: move it out of Downloads, then run it. Both **keep themselves up to date automatically**.
+
+!!! warning "Not signed by Apple yet"
+
+    macOS stops EVE Console the first time, for the installer and again for the app. Open **System Settings ▸ Privacy & Security**, scroll down and click **Open Anyway**. See **[Running on macOS](running-on-macos.md)** for the steps, and for what differs on a Mac.
+
+Your data is stored locally — on **Windows** at `%LOCALAPPDATA%\EVE Console Data\EveConsole.db`, on **Linux** at `~/.local/share/EveConsole/EveConsole.db`, on **macOS** at `~/Library/Application Support/EveConsole/EveConsole.db`. By default nothing leaves your machine; the app talks only to CCP's ESI API to refresh your data. If you'd rather keep the data on a shared server, you can point it at your own **[PostgreSQL](storage-postgresql.md)** instead.
 
 ### Where your data lives on Windows
 
@@ -45,7 +56,7 @@ Older versions kept everything in the install folder. The first time an installe
 - A note, **Your EVE Console data has moved.txt**, is left in the old folder saying where the data went.
 - It's all or nothing. If a file is in use — usually because another copy of EVE Console is running — nothing moves, the app uses the old folder for that run, the reason goes in the [Error Log](tools/error-log.md), and the next start tries again.
 
-The portable ZIP and builds from source never move anything: they use whichever folder holds your data. On **Linux** nothing changes, because the data never shared a folder with the AppImage.
+The portable ZIP and builds from source never move anything: they use whichever folder holds your data. On **Linux** and **macOS** nothing changes, because the data never shared a folder with the AppImage or the app.
 
 !!! warning "Coming from an older version? Update from inside the app"
 
@@ -68,7 +79,7 @@ You can manage this under **Settings** (the **⚙** gear button, top-right) → 
 
 !!! note
 
-    Automatic updates apply to the self-managing released builds — the Windows installer and portable ZIP, and the Linux **AppImage**. The Linux **tarball** and any build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update those by downloading a newer build (or pulling and rebuilding).
+    Automatic updates apply to the self-managing released builds — the Windows installer and portable ZIP, the Linux **AppImage**, and the macOS installer and portable zip. A Mac updates from the channel for its own architecture. The Linux **tarball** and any build you run **from source** can't self-update — the Updates tab shows *"n/a — not an installed build,"* and you update those by downloading a newer build (or pulling and rebuilding).
 
 The title bar shows the version you're running, and beside it whether a newer one is out (**v… available**) or you're **up to date**. A released copy that doesn't update itself, such as the Linux tarball or the [Docker](running-on-linux.md#running-in-docker) image, says **portable**. **dev build** means a copy that wasn't built by the project's release pipeline: one you built from source, or a test build.
 
@@ -111,7 +122,8 @@ A `dotnet run` build doesn't self-update — `git pull` and rebuild to get newer
     Start the app with `--profile <name>` (for example `dotnet run -- --profile dev`)
     to run a completely separate copy — its own config, database and caches — under
     `%LOCALAPPDATA%\EVE Console Data\Profiles\<name>` (`~/.local/share/EveConsole/Profiles/<name>`
-    on Linux), or give a folder path instead of a name. It starts empty, like a fresh
+    on Linux, `~/Library/Application Support/EveConsole/Profiles/<name>` on macOS), or give a
+    folder path instead of a name. It starts empty, like a fresh
     install, and runs alongside your normal copy. The window title shows the profile
     name, and **Settings ▸ Database** says which folder is in use.
 
@@ -243,6 +255,14 @@ character automatically and says what each is used for:
   tasks, and its colonies aren't read.
 
 Changes save as you make them.
+
+## Corporations tab
+
+**Settings ▸ Corporations** lists every corporation with a token:
+
+- **Personal** — the same setting as **Personal Corporation** on **ESI Tokens**, settable in either place.
+- **Structure alerts** — raises the structure alerts set on the **Alerts** tab (fuel, attacks and fit) for this
+  corporation's structures.
 
 ## Settings save as you go
 
