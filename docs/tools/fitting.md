@@ -155,3 +155,4 @@ Fits saved in EVE Console keep everything: module states, launched drones and sq
 - **Value** uses the asset-value market and price type from **Settings ▸ Market** (see [Configuring Markets](../configuring-markets.md)). With none set, the VALUE section says so. The **Existing ships…** values are on the same basis, and an item with no market price there counts as nothing.
 - A character pilot uses the skills last synced from ESI. The tool doesn't warn about modules the pilot can't use; pick **All 0** or a character to see the numbers with their skills.
 - **Add Items From Fit** in [Inventory Levels](inventory-levels.md) reads your characters' in-game fittings, not fits saved in EVE Console.
+- A fit for an Upwell structure, saved here or in the game, can be the fit its type should carry on [Corp Structures](corp-structures.md#config-the-fit-each-type-should-carry).

@@ -24,7 +24,7 @@ Add one or more **actions** to an alarm. You can combine them:
 - **Words to say** — spoken directly by **text-to-speech**, with no agent or model involved (it just needs a voice configured under [Settings ▸ AI Agent](../ai-agent-eden.md), and works with the agent switched off). Leave it blank to speak what the check itself composed. Placeholders: `{alarm}` `{summary}` `{count}` `{time}` `{date}`.
 - **An instruction for the agent** — the [AI agent](../ai-agent-eden.md) is told what fired and phrases it in its own words (speaking aloud if you have TTS set up). If the agent isn't configured, this is recorded as an alert instead.
 
-A few conditions fire in **stages** — an escalating sequence where each stage has its own actions (see *[Undocked too long](#undocked-too-long-wake-up-call)*).
+A few conditions fire in **stages** — an escalating sequence where each stage has its own actions (see *[Undocked too long](#undocked-too-long)*).
 
 !!! note
     Sounds, dialogs and agent notifications play **on this machine only**. The recorded alert is kept either way, so a background/headless client still logs the event even with nothing to play it.
@@ -72,6 +72,8 @@ What the alarm says names the place and, around characters, the character: "2 ju
 
     The same sighting called by several people is one alert. A pilot reported again later is news again.
 
+    Each named pilot is told only where last seen. A firing can hold reports from minutes apart, most of all on undocking, when everything said while you were docked arrives at once. A pilot named in two systems is told only in the newer one, and a report left with nobody is dropped.
+
 ### Market / contract price
 
 Fires when an item is listed at or below a price you name — **on the market, in public contracts, or both**. It reads the markets configured under **Settings ▸ Market** and the public contracts the app already sweeps, so it sees what those cover and nothing more.
@@ -87,9 +89,19 @@ Runs a `SELECT` against the local EVE Console database on an interval and fires 
 
 Fires when one of your characters undocks. Narrow it with filters: only from named **stations, structures, systems or regions**; only in named **hulls or ship classes**; and only in a given **state** — fit or not fit, jump fuel below a number, ammunition below a number. Every filter narrows, so two alarms can be set to cover different undocks rather than the same one twice. The undock is seen by the location poll within about ten seconds; **what was aboard is judged from the last asset snapshot, which ESI refreshes hourly**, and each match says how old that reading was.
 
-### Undocked too long (wake-up call)
+### Undocked too long
 
-A **staged** wake-up. Fires in up to three stages when one of your characters, in a named hull or ship class, undocks and is **still sitting in the same system after a number of seconds** — a freighter or jump freighter idling on a tether while its pilot dozes off. Optionally it also covers **jump arrivals**: a jump-capable hull that has landed by jump drive or bridge and is still in space (the thirty seconds after a jump). Docking, leaving the system, or logging off ends it. Acknowledging the dialog — or replying anything at all to the agent — quiets it for a while; when that lapses and the ship is still there, the stages start over. Each stage has its own actions (a spoken line, a dialog, a sound that repeats until acknowledged); repeat and cooldown don't apply.
+A **staged** alarm. Fires in up to three stages when one of your characters, in a named hull or ship class, undocks and is **still sitting in the same system after a number of seconds** — a freighter or jump freighter idling on a tether while its pilot dozes off. Optionally it also covers **jump arrivals**: a jump-capable hull that has landed by jump drive or bridge and is still in space (the thirty seconds after a jump). Docking, leaving the system, or logging off ends it. Each stage has its own actions (a spoken line, a dialog, a sound that repeats until acknowledged); repeat and cooldown don't apply.
+
+A window with one button, **Acknowledge**, is up from the first stage to the last, whatever actions the stages have. Pressing it quiets the alarm for the time set under **Quiet after an acknowledgement**. When that lapses and the ship is still there, the stages start over.
+
+**Typing or speaking to the agent counts too.** The first key in the agent box, or the microphone opening, is enough: what you say doesn't matter, it works while the model is busy, and no reply is needed. It resets every Undocked too long alarm at once:
+
+- The alarm's sound and voice stop.
+- A stage already due goes quiet for the same time, as if you'd pressed **Acknowledge**.
+- Before any stage is due, the clock restarts: the first stage comes its usual number of seconds after your last key, not after the undock.
+
+Other alarm types aren't affected by this.
 
 **Stopping the ship ends it** — ticked by default. Pressing stop after the undock ends that undock's alarm, and a repeating sound stops with it: a stopped ship isn't drifting off the undock, and somebody pressed stop. This is read from the game log, so that client's game log folder must be read (see [Game Logs](../logs-and-map-data.md#game-logs)); without it, the stages run as before. It applies to undocks only, and is hidden when **Jump arrivals** is ticked.
 
@@ -143,7 +155,17 @@ An offer to sell to one of the store's [Buy listings](../stores/buy-listings.md)
 4. Click **Save**.
 5. **Test Sounds** plays the alarm's sounds once, so you can check they can be heard.
 
+Ctrl or Shift selects several alarms in the list. The editor edits one alarm, so it gives way to a note until you select one alone.
+
 The list shows each alarm's state — **Armed**, **Disabled** or **Error** — and how many times it has fired. **Recent firings** lists when the selected alarm fired, in EVE time.
+
+## Export and import
+
+**Export** and **Import** sit above the list, and move alarms between machines or profiles as a JSON file.
+
+- **Export** saves the selected alarms and their actions, or every alarm when none is selected. Each alarm's settings are written out as readable objects, and no firing history goes in.
+- **Import** only ever adds. Nothing already here is replaced. An alarm identical to one here (same name, check and settings) is skipped, so importing a file twice adds nothing, and so is one whose check this version doesn't have. The status line says how many of each.
+- An imported alarm keeps the on or off state it had in the file. It starts from now, as a new alarm does, so it won't fire on what already happened.
 
 ## Notes
 

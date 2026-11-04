@@ -35,3 +35,4 @@ Select any row to load its details in the pane below. Clicking a notification ca
 - Requires characters authorized with the `esi-characters.read_notifications.v1` ESI scope. Add characters and grant scopes from the [getting-started guide](../getting-started.md).
 - The grid shows what EVE Console has already synced, so freshness depends on the app's last notification sync rather than a live fetch.
 - For player-written mail rather than system notifications, see [Eve Mail](eve-mail.md).
+- Attacks on your structures and mercenary dens, and new tactical operations, also raise alerts on the [Overview](overview.md#structure-alerts). Dismissing one there doesn't touch the notification here.

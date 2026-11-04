@@ -8,7 +8,7 @@ Open it from the left sidebar under **Corp / Interactions**.
 
 A two-pane layout:
 
-- **Left pane** — a filter bar and a scrollable kill list. Each row shows the date/time and total ISK value, the victim ship render, the system with its security status (colour-coded) plus constellation and region, the victim (name / corp / alliance with logo), and the final-blow pilot (name / corp / alliance with logo). A status bar reports how many killmails are loaded, and whether more match.
+- **Left pane** — two tabs, **Personal** and **All**, over a filter bar and a scrollable kill list. Each row shows the date/time and total ISK value, the victim ship render, the system with its security status (colour-coded) plus constellation and region, the victim (name / corp / alliance with logo), and the final-blow pilot (name / corp / alliance with logo). A status bar reports how many killmails are loaded, and whether more match.
 - **Right pane** — the detail for the selected killmail:
     - **Header** — victim ship, victim name/corp/alliance, time and system/region, and an ISK summary (Destroyed, Dropped, Total).
     - **Items** — fitted and cargo items grouped by slot, each with icon, quantity destroyed, quantity dropped, and estimated value.
@@ -18,12 +18,15 @@ Losses appear alongside kills in the same list. Ship, portrait, corp, and allian
 
 ## Using it
 
-- **From / Thru** — a date range, defaulting to the last 30 days.
-- **Character**, **Corp**, **Ship**, **System/Region** — free-text filters. Character matches either the victim or the final-blow pilot, and Corp either one's corporation — any corporation, not only your own. System/Region matches either the system or the region name. All filters are applied together, across every stored kill, not just the rows already loaded.
+- **Personal** — the kills your own characters were on: as the victim, or anywhere on the attacker list, not only the final blow. Pick one character from the dropdown, or leave it on **All Characters**.
+- **All** — every stored kill, searched with the **Character** and **Corp** boxes. Character matches either the victim or the final-blow pilot, and Corp either one's corporation — any corporation, not only your own.
+- **From / Thru** — a date range, defaulting to the last 30 days. Applies to both tabs.
+- **Ship**, **System/Region** — free-text filters on both tabs. System/Region matches either the system or the region name. All filters are applied together, across every stored kill, not just the rows already loaded.
 - **Clear** — clears every filter, including the dates.
 - **Refresh** — reloads the list.
 - **Load More** — the list loads 500 killmails at a time, newest first. When more match, the status bar says so and **Load More** fetches the next 500.
 - Click a row to load its full detail on the right; the detail is fetched on demand. Click a pilot, corporation or alliance to open it in [Players & NPCs](entities.md), an item to open it in the Item Browser, or the system to open it on the [Universe Map](universe-map.md).
+- A killmail opened from another tool — a pilot, the map or [Corp Activity](corp-activity.md) — opens on the **All** tab, with the dates cleared.
 
 ## Notes
 

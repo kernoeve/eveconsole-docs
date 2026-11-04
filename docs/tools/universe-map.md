@@ -39,7 +39,7 @@ The toggles are remembered on this computer.
 
 - The details of what you clicked.
 - **Legend** — the colour key for the active overlay, and keys for the marks below.
-- **Docking** — read from the bar above each system box: *Supers & titans* (Keepstar only), *Capitals* (Fortizar or NPC station) and *Subcapitals* (any other structure).
+- **Docking** — read from the bar above each system box: *Supers & titans* (Keepstar only), *Capitals* (Fortizar, Sotiyo or NPC station) and *Subcapitals* (any other structure).
 - **Services** — read from the indicators under each box: Manufacturing, Research / Invention, Reprocessing, Reactions, Clone bay and Market.
 
 ### Live marks

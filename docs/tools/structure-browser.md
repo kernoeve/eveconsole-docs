@@ -2,7 +2,7 @@
 
 A list of player-owned structures across New Eden, built from ESI's public structure list rather than only the ones you have personally visited or docked at.
 
-Open it from the left sidebar under **Assets**.
+Open it from the left sidebar under **Structures / Navigation**.
 
 ## What it shows
 
@@ -22,3 +22,5 @@ For each structure ESI describes, the app records the details it returns (such a
 - The public structure list comes from ESI and is only as current as your last sync; it reflects what ESI chooses to publish, not the complete set of every structure in the game.
 - Structures with no public details will not describe themselves — recording a fitting by hand is how you supply that information.
 - Use with [Indy Parks](../industry-parks.md), where a park entry can be pointed at a structure from this browser.
+- A fit recorded by hand also shows, marked *entered by hand*, on [Corp Structures](corp-structures.md), filling only the slots the corporation's assets leave empty.
+- On a fresh install the public list is walked once EVE Ref's data has first downloaded. Structures EVE Ref lists as not public and couldn't name are asked about only 25 per sweep, since nearly all of them refuse, so they fill in slowly and don't use up ESI's error budget.

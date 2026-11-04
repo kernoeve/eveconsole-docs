@@ -19,7 +19,7 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 - **Activity Summary** — a two-column metric table.
     - *In Period* (bound to the Period dropdown): Market Sales (count + ISK), Market Purchases (count + ISK), Completed Jobs, Player Ship Kills, Ships Lost.
     - *Current State* (a live snapshot, not period-bound): Outstanding Sell Orders (count + value), Outstanding Buy Orders (count + value), Outstanding Contracts, Active Indy Jobs.
-- **Alerts** — actionable warnings. Skill-queue alerts (empty, paused, or ending within your configured threshold) show the character's portrait and jump to that character's Skills tab when clicked; a character whose **Skill queue** box is cleared in **Settings ▸ Characters** raises none. Asset-safety alerts are dismissible. Inactive standing-project alerts jump to the Standing Projects view. An **industry jobs ready to deliver** alert (*"You have N industry jobs ready to deliver"*) flags finished jobs whose output is still waiting and holding a slot. A running-jobs alert flags jobs at a player structure not rigged for them; jobs at NPC stations are never counted. [Planetary Industry](planetary-industry.md) alerts flag extractors stopped or stopping, storage full or filling, factory input run out or running out, a PI character with an unused colony slot, and colony data too old to trust (see below). Which alerts appear is controlled in **Settings ▸ Alerts**.
+- **Alerts** — actionable warnings. Skill-queue alerts (empty, paused, or ending within your configured threshold) show the character's portrait and jump to that character's Skills tab when clicked; a character whose **Skill queue** box is cleared in **Settings ▸ Characters** raises none. Asset-safety alerts are dismissible. Inactive standing-project alerts jump to the Standing Projects view. An **industry jobs ready to deliver** alert (*"You have N industry jobs ready to deliver"*) flags finished jobs whose output is still waiting and holding a slot. A running-jobs alert flags jobs at a player structure not rigged for them; jobs at NPC stations are never counted. Contract alerts count the active contracts assigned to you, and those from or to you in the last 15% of their life. An **unread mail** alert (*"You have N unread EVE mails"*) counts each mail once and opens the **Unread** folder of [Eve Mail](eve-mail.md). [Planetary Industry](planetary-industry.md) alerts flag extractors stopped or stopping, storage full or filling, factory input run out or running out, and a PI character with an unused colony slot (see below). [Structures](#structure-alerts) and [mercenary dens](#mercenary-den-alerts) raise their own. Which alerts appear is controlled in **Settings ▸ Alerts**.
 - **Notifications** — recent in-game notifications within the period, one card per notification: an icon, the title, its age and a dot while unread, then one to three lines of what matters for that type — a bill's amount and due date, a standings change, an attack's shield, armor and hull, fuel left, a corporation application, a moon extraction, a project, and so on.
 - **Eve Online News** — the official EVE Online news feed. Each item can be expanded in place (More/Less) and opened in your browser.
 - **Personal Killmails** — kills and losses for your authorized characters over the period, with kill/loss counts and ISK totals plus a zKillboard-style list.
@@ -37,7 +37,7 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 ## Using it
 
 - **Change the period** with the dropdown to re-scope the period-based metrics, killmails and pie charts.
-- **Act on alerts** by clicking them — skill-queue rows open the relevant character's Skills tab, the standing-projects row opens Standing Projects, Planetary Industry rows open the [Planetary Industry](planetary-industry.md) tool, and asset-safety rows can be dismissed with their dismiss control.
+- **Act on alerts** by clicking them — skill-queue rows open the relevant character's Skills tab, the standing-projects row opens Standing Projects, Planetary Industry rows open the [Planetary Industry](planetary-industry.md) tool, the unread mail row opens the **Unread** folder of [Eve Mail](eve-mail.md), structure rows open [Corp Structures](corp-structures.md) and den rows open [Mercenary Dens](mercenary-dens.md). Asset-safety rows, attacks on structures and dens, and new tactical operations can be dismissed with their dismiss control.
 - **Read a notification in full** by clicking its card: the [Notifications](notifications.md) tool opens with that notification selected and its details shown.
 - **Customize the layout** with the **⚙ Customize Layout** button:
     1. Set the grid size with the **Rows** and **Columns** steppers (1–25 each).
@@ -49,7 +49,7 @@ The Overview reads only your local database, so it refreshes quickly and re-load
 
 ## Planetary Industry alerts
 
-The Overview raises five kinds of Planetary Industry alert, each with its own box under **Planetary Industry** in **Settings ▸ Alerts**:
+The Overview raises four kinds of Planetary Industry alert, each with its own box under **Planetary Industry** in **Settings ▸ Alerts**:
 
 | Alert | Raised when |
 | --- | --- |
@@ -57,11 +57,49 @@ The Overview raises five kinds of Planetary Industry alert, each with its own bo
 | Storage | Storage or a launchpad is full, or fills within the lead time. Estimated. |
 | Input | A factory planet's input has run out, or runs out within the lead time. Estimated. |
 | Free colony slot | A PI character has a colony slot it isn't using. |
-| Old data | A colony hasn't been opened in the game for longer than the age limit, so its estimates can't be trusted. |
 
 Each kind is one row. When one colony is affected, the row names the character and planet and clicking it opens that colony in the [Planetary Industry](planetary-industry.md) tool; when several are, the row gives the count and opens the tool's colony list. Free-slot rows open the tool's **Characters** tab.
 
-The lead times and the age limit are set in **Settings ▸ Industry**, and the [Worklist](worklist.md#planetary-industry-tasks)'s PI tasks use the same numbers. Only characters whose **PI** box is ticked in **Settings ▸ Characters** raise PI alerts.
+The lead times are set in **Settings ▸ Industry**, and the [Worklist](worklist.md#planetary-industry-tasks)'s PI tasks use the same numbers. Only characters whose **PI** box is ticked in **Settings ▸ Characters** raise PI alerts.
+
+## Unread mail alert
+
+*"You have N unread EVE mails"* has its own box, **Alert when there is unread EVE mail**, under **Eve Mail** in **Settings ▸ Alerts**. It's on to start.
+
+A corp or alliance mail reaches each of your characters in that corp, and is counted once. Clicking the alert opens the [Eve Mail](eve-mail.md) tool on *All Characters* and the **Unread** folder, where all of those mails are, however old. A mail read in the game stops counting at the next mail poll.
+
+## Structure alerts
+
+The structures of your corporations raise these, each with its own box under **Structures** in **Settings ▸ Alerts**:
+
+| Alert | Raised when | To start |
+| --- | --- | --- |
+| **A structure runs out of fuel within** | An Upwell structure or online starbase runs out within this many days, or an Upwell structure with services is already out. | 3 days |
+| **A structure is attacked (dismissible)** | A structure, starbase or skyhook is attacked, from your characters' notifications of the last day. One row per structure, its newest. | On |
+| **A structure is missing a module of its fit** | A module of the fit isn't fitted, with a slot free for it. | On |
+| **A structure has another module where its fit has one** | A module of the fit isn't fitted, and something else is in its slots. | On |
+| **Ammo below** | A charge of the fit is below this share of the fit's amount. | 50% |
+| **Fighters below** | A fighter of the fit is below this share of the fit's amount. | 50% |
+
+- Only corporations with **Structure alerts** ticked on **Settings ▸ Corporations** raise them. All are ticked to start.
+- The fit is the one set for the structure's type on the [Corp Structures](corp-structures.md#config-the-fit-each-type-should-carry) **Config** tab. A type with no fit chosen isn't checked.
+- Up to three structures of a corporation are named one by one. With more, one row gives the count. Clicking a row opens Corp Structures on that corporation, and on the structure when it names one.
+- Dismissing an attack dismisses every copy your characters received. A later attack raises a new row.
+- Fuel and fit alerts are worked out again every five minutes. Attacks are read each time the Overview refreshes.
+
+## Mercenary den alerts
+
+Your characters' own dens raise these, each with its own box under **Mercenary dens** in **Settings ▸ Alerts**:
+
+| Alert | Raised when | To start |
+| --- | --- | --- |
+| **A den's anarchy at level** | A den's anarchy is at this level (0–4) or above. | Level 3 |
+| **A den attacked or reinforced** | A den is reinforced now, or a notification of the last day says it was attacked or reinforced. | On |
+| **A new mercenary tactical operation** | A notification of the last day says a den offers a new operation. | On |
+
+Rows from notifications can be dismissed. The anarchy row and a running reinforcement stay for as long as they hold. Clicking a row opens [Mercenary Dens](mercenary-dens.md) on that den.
+
+The game tells a den's anarchy only to its owner, so a den of anyone else's, even on your corporation's skyhook, raises nothing.
 
 ## Notes
 

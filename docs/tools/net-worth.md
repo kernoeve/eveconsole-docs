@@ -34,5 +34,5 @@ Hover any line to read the exact ISK value at that date. Snapshots are recorded 
 
 - Asset and industry-job valuation depend on a configured market. Set one up under [Configuring Markets](../configuring-markets.md), otherwise items priced from the market fall back to estimated build costs.
 - The **Industry Jobs** series deliberately excludes phantom output for ME/TE research jobs: material- and time-efficiency research (activities 3 and 4) produces no new item, so counting a product value would double-count the blueprint that is already valued once. Those jobs therefore add no output value.
-- The **Personal** owner aggregates your characters and any corporations marked as personal; a corporation only appears as its own owner option when it is *not* marked personal. See [Getting Started](../getting-started.md) for the personal-corp designation.
+- The **Personal** owner aggregates your characters and any corporations marked as personal; a corporation only appears as its own owner option when it is *not* marked personal. Mark one on **Settings ▸ Corporations** or **Settings ▸ ESI Tokens**; see [Getting Started](../getting-started.md) for the personal-corp designation.
 - Corporation snapshots require valid corp tokens with the relevant asset/wallet/industry/market/contract scopes.

@@ -28,14 +28,14 @@ The players-active figure in the **Activity (24H)** header is counted the same w
 
 ## Using it
 
-- **Corporation** — pick the corp to inspect; the first available corp is selected automatically. Changing corp reloads every tab.
+- **Corporation** — pick the corp to inspect. Your choice is remembered on this machine; until you make one, the first available corp is selected. Changing corp reloads every tab.
 - **Refresh** — forces a full reload. The dashboard also auto-refreshes: a light refresh every 60 seconds and a full refresh (including per-tab detail rows) every 5 minutes.
 - **Per-tab period selectors** — the tax, donation, mining, kills, income, and expense tabs each have their own period dropdown (7 days to 1 year; most default to 30 days). The daily chart on the main view defaults to 90 days.
 - **Top 10 period** — choose Month and Year; the lists reload for that window. **Export to Clipboard** and **Export (No ISK)** copy the leaderboards out.
 - **Post to Slack** and **Post to Discord** — post the Top 10 or the monthly summary to the channel set for it. Each button shows only once that service has somewhere to post this part: a Slack channel under **Settings ▸ Slack**, a webhook under **Settings ▸ Discord** (see [Posting to Discord](../discord.md)). Both show when both are set, each with its own status line. The Top 10 is posted without ISK amounts, like **Export (No ISK)**.
 - **Long posts** — a post over about 3,500 characters on Slack, or 1,900 on Discord, goes out as several messages, in order. A section (a heading and its table) is kept whole in one message; only a table longer than a whole message is split, between rows, with its header repeated at the top of the next message.
 - **Posting twice** — press a post button again within 24 hours and the app asks first. Slack and Discord keep track separately.
-- **Standing Projects** — add, clone, edit, delete, and refresh standing project definitions; rows flag near-complete or inactive projects, and a deliver-item row can be opened in the item browser.
+- **Standing Projects** — add, clone, edit, delete, and refresh standing project definitions; rows flag near-complete or inactive projects, and a deliver-item row can be opened in the item browser or, by right-clicking it, added to your [Standing Buy Orders](standing-buy-orders.md).
 - Clicking a killmail row can open it in the [Killmails](killmails.md) browser.
 
 ## Notes
