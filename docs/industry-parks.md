@@ -5,7 +5,10 @@ build-cost and production calculations reflect your real bonuses (material
 efficiency, rig bonuses, structure type, security modifiers, and facility tax)
 instead of generic values.
 
-Open **Indy Parks** from the left sidebar under the **Industry** group.
+Open **Indy Parks** from the left sidebar under the **Industry** group. It has two
+tabs: **Parks**, where you set your parks up, and **Compare**, which does the same
+jobs in several parks and sets the costs and times side by side (see
+[Comparing parks](#comparing-parks)).
 
 <details class="tip" open>
 <summary>Video walkthrough — Indy Park Setup (7 min)</summary>
@@ -52,14 +55,14 @@ and the build-cost floor in [market pricing](configuring-markets.md).
 
 ## Building a park
 
-1. In **Indy Parks**, click **+ New Park**. It appears in the list on the left;
+1. On the **Parks** tab, click **+ New Park**. It appears in the list on the left;
    select it to edit. Rename it in the **Park Name** box at the top. The first park
    you add (or import) becomes the default park automatically.
 2. Add your structures. There are two ways, and you can mix them:
     - **A whole system at once** — see [Adding every structure in a
       system](#adding-every-structure-in-a-system) below. This is the quickest way
       when your structures are ones EVE Console already knows about.
-    - **One at a time** — click **+ Add Structure** and fill in the card, as
+    - **One at a time** — click **+ Add Structure** and fill in its card, as
       described in [Adding a structure by hand](#adding-a-structure-by-hand).
 3. Under **Production Assignments**, set each category's dropdown to the structure
    that produces it. A category left on *— not assigned —* is planned at the park's
@@ -72,6 +75,10 @@ and the build-cost floor in [market pricing](configuring-markets.md).
 5. Check which structure is ticked **Default**. It's the catch-all for anything
    left unassigned.
 6. To make this the park used everywhere, click **★ Set Default**.
+
+Structure cards are laid out in as many equal columns as the window has room for,
+filling left to right and then down. Long rig names are trimmed, with the whole name in
+a tooltip.
 
 The park lists in the [Production Calculator](tools/production-calculator.md) and the
 [Worklist](tools/worklist.md) update as soon as you add, rename, delete or import a park.
@@ -250,8 +257,107 @@ The file doesn't carry each structure's tax or which one is ticked **Default**, 
 check **Tax Percentage** and **Default** after an import. A park imported into an
 empty list becomes the default park.
 
+## Comparing parks
+
+The **Compare** tab answers *where is this cheapest and quickest?* It does the same list
+of jobs in every park you tick and shows each job's cost and time side by side, along
+with what the cost would have been on each past day as system cost indices moved.
+
+1. Under **Parks**, tick the parks to compare. All are ticked to start, and a park you
+   add later starts ticked.
+2. Under **Jobs to compare**, type at least two letters of an item or blueprint and pick
+   it from the list. It becomes a card, with the name on its header strip, **▲** and **▼**
+   to move it up and down the list, and **✕** to remove it.
+3. On each card, pick the operation and fill in its numbers (see below).
+4. Click **Calculate**.
+
+The list of jobs and the parks you left unticked are remembered on this machine.
+
+### Operations
+
+An item offers **Build** and starts on it. A blueprint offers the rest as well, and starts
+on **Copy**. Changing the operation fills the boxes with its starting numbers.
+
+| Operation | Offered for | Boxes | Starts at |
+| --- | --- | --- | --- |
+| **Build** | Any item or blueprint; a blueprint builds what it makes | **Units**, and **ME**: the item's own blueprint ME, 0 to 10 | 1 unit, ME 10 |
+| **Copy** | A blueprint | **Runs** on each copy, and how many **Copies** | 10 runs, 1 copy |
+| **Invention** | A blueprint that can be invented from | **Runs wanted** of the invented blueprint, and a decryptor | 10 runs, no decryptor |
+| **ME research** | A blueprint | **To ME**, 1 to 10 | ME 10 |
+| **TE research** | A blueprint | **To TE %**, 2 to 20 | TE 20% |
+
+- **Build** plans the whole chain with the Production Calculator's own costing, in the
+  structures each park assigns. Components use the calculator's usual ME.
+- **Invention** plans enough attempts to expect the runs wanted, with skills at V, as the
+  [Worklist](tools/worklist.md) plans them, plus the copying of the source runs those
+  attempts use.
+- **Research** starts at ME 0 or TE 0 and goes to the level entered.
+- The same blueprint can be listed more than once, each line with its own operation.
+
+### Results
+
+The grid has one row for each job in each park:
+
+| Column | Meaning |
+| --- | --- |
+| **Item**, **Operation**, **Park** | The job, and where it's done. |
+| **Units** | What comes out: units built, copy runs, runs invented, or one researched blueprint. |
+| **Materials**, **Job Cost** | What goes in. |
+| **Leftovers** | Components made beyond need. They are kept rather than used up, so they come off the total, as in the Production Calculator's **Net Cost**. |
+| **Total**, **Per Unit** | Materials plus job cost, less the leftovers. A park that can't do the job reads **Not built here**. |
+| **vs Best** | How much dearer than the cheapest park for that job, or **Best**. |
+| **Time** | Every job's duration added up, as if run one after another, with skills at V. |
+| **vs Best** | How much slower than the quickest park for that job, or **Best**. |
+| **Detail** | What the job came to: attempts and chance, copies, or levels. |
+
+Costs use today's prices and indices.
+
+**Summary** is the same results pivoted, so you can read them at a glance. **Rows** chooses
+**Jobs** (a row per job, a group of columns per park) or **Parks** (the other way round),
+and your choice is remembered. Each group has **Cost**, **vs Best**, **Time** and **vs Best**
+under a heading naming the park or job. The best figure for a job is green, and one a
+quarter or more behind is red.
+
+### Charts
+
+**Charts for** picks **All items together** or one job. Both charts follow it, and a park
+keeps its colour in both.
+
+- **Cost with each day's indices** — a line per park. It takes today's plan, materials and
+  taxes and works out the cost again with each day's system cost indices, so only the index
+  moves. The note above the charts gives the dates covered. A day with no index for a system
+  uses its last known one. The figures come from the same record as the
+  [System Index](tools/system-index.md) tool; with none yet, the note says so.
+- **Job time per park** — a group of bars per job, a bar per park.
+
+Each chart draws the first eight parks; the grid lists them all.
+
+### Copy image
+
+**Copy image** on each chart and on the summary puts a picture on the clipboard, ready to
+paste into Discord, Slack or a document. The summary is drawn whole, every column, however
+far it's scrolled.
+
+To post these on a schedule, use the **Indy Park Compare** section in the
+[Scheduler](tools/scheduler.md). It keeps its own parks and job list.
+
+### How science jobs are worked out
+
+Copying, invention and research times and costs follow the game's rules, checked against
+real finished jobs:
+
+- **Lab rigs** give their time bonus only to their own kind of job: a copying rig to
+  copying, an invention rig to invention. An ME research rig helps only ME research and a TE
+  research rig only TE research, so a lab fitted with both isn't counted twice. A Laboratory
+  Optimization rig serves all of them.
+- **The SCC surcharge** is 2% on ME and TE research, and 4% on copying and invention.
+
+The rig bonuses apply wherever the app plans science jobs, so copy and invention durations
+on the [Worklist](tools/worklist.md) follow the same rules.
+
 ## Related
 
 - [Configuring Markets](configuring-markets.md)
 - [Structure Browser](tools/structure-browser.md)
+- [System Index](tools/system-index.md)
 - [Browse all tools](index.md)

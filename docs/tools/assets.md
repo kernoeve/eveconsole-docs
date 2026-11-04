@@ -20,12 +20,26 @@ One row per asset stack. Columns include:
 - **Value Per Unit**, **Value** — ISK valuation of the stack (see valuation notes below).
 - **Build Cost** — computed build cost of the type, when available.
 - **Volume**, **Total Volume**, **ISK/m³**.
-- **Location Name**, **Container**, **Flag** — where the item sits, including the nested container path (up to three levels deep) and the inventory flag.
+- **Location Name**, **Container**, **Flag** — where the item sits, including the nested container path (up to three levels deep; [grouping](#grouping) by **Location** goes further) and the inventory flag.
 - **Solar System**, **Region Name**, **Security**, **Location Type**.
 - **Is Singleton**, **Is Blueprint Copy**.
 - **Type Id**, **Item Id**, **Location Id** (identifier columns).
 
 Blueprints and products tied to active, paused, or ready industry jobs are folded into the list as extra rows, flagged with `Industry Job` in the Flag column and located at the job facility.
+
+#### Grouping
+
+**Group by**, above the grid, folds the rows under headers:
+
+| Group by | Rows fold under |
+| --- | --- |
+| **None** | Nothing: the plain grid, the default. |
+| **Owner** | Each character or corporation. |
+| **System** | Each solar system, with its region. |
+| **Station** | Each station or structure. |
+| **Location** | A full tree of where things sit: the station or structure (or the system, for things in space), then the owner, then every container down to the item. Corporation hangar divisions are shown by their names, along with deliveries, POS structures, ships, asset safety wraps and containers. It goes as deep as the items do. |
+
+A group's row shows its item count and the totals of everything in it: quantity, value and volume. **Expand all** and **Collapse all** open and close every group, and open groups stay open as you sort and filter. A grouped view reads every matching row, so there are no pages to load.
 
 ### By Location / By System / By Region
 
