@@ -41,7 +41,7 @@ One row per sale, newest first:
 - **Owner** — the character or corporation that made the sale.
 - **Location** — the station or structure the items sold at (for contracts, the items' start location).
 - **Buyer** — the client (market) or acceptor (contract).
-- **Item(s)** — the item sold; a multi-item contract shows the first item plus a `+N more items` note.
+- **Item(s)** — the item sold; a multi-item contract shows its most valuable item plus a `+N more items` note. See [how a contract is filed](#how-a-multi-item-contract-is-filed).
 - **Units** — quantity sold (`Multiple` for a multi-item contract).
 - **Total Sale** — what the sale brought in.
 - **Build Price** / **Market Price** — the item's build cost and market value at the time of the sale, from the nearest daily price snapshot (`—` when none was available).
@@ -50,6 +50,10 @@ One row per sale, newest first:
 - **Contract** — the contract behind a contract sale (blank on market rows); opens in the [Contracts](contracts.md) tool.
 
 **Owner**, **Location**, **Buyer** and **Item(s)** open the thing they name. Right-click a row (or several) to **Mark as not for profit** / **Restore to profit**, or to **Add label** / **Remove label**.
+
+### How a multi-item contract is filed
+
+A contract sold as one sale is filed under its most valuable item: that item names the row, and its type and market group are where the whole sale counts in **Profit by Market Group** and **Profit by Item**. Items are ranked by worth, using market value, else build cost, else CCP's adjusted price. So a hull sold with its rigs counts as a hull sale, not a rig sale. The Sale Listing panels on the [Overview](overview.md) name a contract the same way.
 
 ## Notes
 

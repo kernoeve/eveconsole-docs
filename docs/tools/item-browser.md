@@ -8,15 +8,19 @@ Open it from the left sidebar under **Assets**.
 
 The window is split into a left navigation pane and a right detail pane.
 
-### Left pane — tree and search
+### Left pane — Browse and Quickbar
+
+The left pane has two tabs. **Browse** holds the tree and search:
 
 - A **market-group tree** of every published type, expandable by category.
 - A **search box**: type at least two characters to switch from the tree to a live results list. Results show the item name and its group path, and are ranked so that names starting with your text come first. In a language other than English, the search finds both the name shown and the English one, so a name pasted from an English site still works.
 - **Back / Forward** buttons that walk your navigation history (up to 100 items). Clicking any linked item elsewhere in the window pushes onto this history.
 
+**Quickbar** holds the items you keep to hand — see [Quickbar](#quickbar) below.
+
 ### Right pane — item header and detail tabs
 
-The header shows the item icon, name, group path, and a stat strip with **Volume**, **Market Value** (labelled with the configured price type), **Build Cost**, and **Reproc Value** where available.
+The header shows the item icon, name, group path, and a stat strip with **Volume**, **Market Value** (labelled with the configured price type), **Build Cost**, and **Reproc Value** where available. Beside the name, a small copy button copies the name to the clipboard (right-click the name for **Copy Name**), and **☆ Add to Quickbar** puts the item on the quickbar (**★ On Quickbar** takes it off).
 
 Below the header are detail tabs:
 
@@ -38,6 +42,7 @@ Below the header are detail tabs:
 
     For a blueprint or reaction formula: an activity selector (Manufacturing, Reaction, Invention, Copying, ME Research, TE Research) showing the outcome/products, required skills, and input materials for the selected activity. All names are clickable to navigate.
 - **Assets** — every stack of the item the app knows of. See [Assets tab](#assets-tab) below.
+- **Contracts** — every item exchange with the item on either side. See [Contracts tab](#contracts-tab) below.
 - **LP Store** — only shown when a loyalty-point store offers the item. One row per offer: Corporation, Qty, LP Cost, ISK Cost, Your LP, LP Est. Value, Required Items and AK. For whole-store comparisons, use [LP Market Values](lp-market-values.md).
 - **Market Orders** — live buy and sell orders for the item from a selected market source. Sell orders show Qty, Price, Location, and Expires; buy orders additionally show Range and Min Qty. Sell orders are sorted cheapest-first, buy orders highest-first.
 - **Price History** — only shown when at least one price-history region is configured. Pick a region and a period (All Time, 30, 90, or 365 days). A **Chart** sub-tab plots average / high / low price and trade volume; a **Grid** sub-tab lists Date, Volume, Avg Price, High, Low, and Orders per day.
@@ -54,6 +59,28 @@ Columns: **Location**, **Owner**, **Qty**, **Container**, **Flag**, **Value**, *
 
 A summary line above the grid gives the total units, stacks and locations, what they're worth, and how many are still in industry jobs.
 
+### Contracts tab
+
+The **Contracts** tab lists item exchanges with this item on them, offered by the issuer or asked for in return. A contract with the item on both sides is two rows.
+
+- **Status** dropdown: **Active**, **Historical** or **All**. Past contracts are limited to the newest 1,000 for an item, and the caption says when it has cut any off.
+- **Owner** dropdown: **All**, **Public**, or **Corporation & Personal** (your own, as the [Contracts](contracts.md) tool's first tab holds them).
+
+Columns: **Contract** (a link that opens it in the Contracts tool), **Side** (**Offered** or **Wanted**), **Qty**, **Blueprint** (a copy's or original's ME, TE and runs), **Price**, **Reward**, **Per unit / run**, **Rest of contract**, **Location**, **Sec**, **Region**, **Expires** and **Status**.
+
+**Per unit / run** is shown only where the item is all there is on its side and only ISK comes the other way, since a bundle's price isn't this item's. A copy is priced per run.
+
+Public contracts come from the Contracts tool's sweep of every region.
+
+### Quickbar
+
+The **Quickbar** tab keeps the items you go back to, in nested folders. It's stored in the database, so every copy of the app on that database sees the same one.
+
+- **To add an item**, right-click it under **Browse** or in the search results and choose **Add to Quickbar** (with folders, pick one from its submenu), or use the button beside an item's name. **Remove from Quickbar** takes it off.
+- **On an item** in the quickbar, right-click for **Move to Folder** and **Remove from Quickbar**.
+- **On a folder**, right-click for **New Folder…** (inside it), **Rename Folder…**, **Move to Folder** and **Delete Folder (Its Items Move Up)**.
+- **On the empty space**, right-click for **New Folder…**.
+
 ## Using it
 
 - **Find an item** — browse the tree, or type in the search box and click a result.
@@ -61,12 +88,13 @@ A summary line above the grid gives the total units, stacks and locations, what 
 - **Read stats and requirements** — use the Description, Attributes, and Requirements tabs. For a skill, the Required For tab reverses the lookup to show what needs it.
 - **Trace production** — the Industry tab shows both directions of the blueprint graph, including reactions and reprocessing, and, for blueprints, the per-activity materials and skills.
 - **Find your stock** — the Assets tab shows where every stack of the item is and who holds it.
-- **Check the market** — on the Market Orders tab, choose a source from the **Source** dropdown to load orders. On Price History, choose region and period.
+- **Check the market** — on the Market Orders tab, choose a source from the **Source** dropdown to load orders. On Price History, choose region and period. The Contracts tab shows what it's being sold for on contract.
+- **Send it on** — right-click an item under **Browse**, in the search results or on the quickbar for **Add to Standing Buy Orders…** and **Add to Production Calc Queue**. Both leave you here, with a message saying what was added. An item nothing builds is left out of the queue, and the message says so.
 
 ## Notes
 
 - Tree, search, descriptions, attributes, blueprints, and skill data come from the bundled SDE and need no ESI authorization.
-- **Market Value** and **Build Cost** in the header, and the values on the Derived History tab, depend on your market configuration (see [Configuring Markets](../configuring-markets.md)). If no asset-value price source is set, the Market Value figure is blank.
+- **Market Value** and **Build Cost** in the header, and the values on the Derived History tab, depend on your market configuration (see [Configuring Markets](../configuring-markets.md)). If no asset-value price source is set, the Market Value figure is blank. A T2 item's **Build Cost** includes what inventing its copy costs.
 - The **Market Orders** tab requires at least one enabled ESI Region or player-structure market source; without one the tab shows a prompt to add a source in Settings → Market. Orders are read from synced data.
 - The **Price History** tab only appears when a price-history region is configured (Settings → Price History). History for a region/type is refreshed on demand when you open it.
 - Item icons load from the EVE image server, so they require an internet connection; they are optional and the rest of the page works without them.

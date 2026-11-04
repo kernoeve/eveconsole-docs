@@ -19,10 +19,19 @@ Item rows show these columns:
 - **TGT TOTAL** — the effective target, i.e. TARGET × the group's multiplier.
 - **AVAIL** — total available across all counted sources.
 - **DIFF** — AVAIL minus TGT TOTAL, coloured green when at/over target and red when short.
-- **%** — the difference as a percentage of the target.
+- **%** — the difference as a percentage of the target, over a bar filled to how much of the target is on hand. The bar's colour says how short it is.
 - **ASSETS**, **IND JOBS**, **BUY ORDERS**, **CONTRACTS BUYING**, **SELL ORDERS**, **CONTRACTS SELLING** — the availability broken down by source: assets on hand, products of active industry jobs, quantities on your market buy orders, quantities on contracts you're buying through, units still listed on your own sell orders, and items on your own outstanding contracts that hand them over. A source the group doesn't count adds nothing to **AVAIL**. **ASSETS** is kept current between asset polls — see [How on-hand stock is counted](#how-on-hand-stock-is-counted).
-- **MKT PRICE**, **BUILD PRICE** — per-unit market and build prices for the type.
-- **VOLUME (m³)** — per-unit volume.
+- **MKT PRICE (TARGET)**, **MKT PRICE (AVAIL)**, **MKT PRICE (DIFF)** — what the target, what's available and the difference are worth at market prices.
+- **BUILD PRICE (DIFF)** — what the difference comes to at build cost.
+- **VOLUME - TARGET**, **VOLUME - AVAIL**, **VOLUME - DIFF** — the same three in m³.
+
+Prices and volumes are abbreviated, and a zero in a source or total column is left blank.
+
+**Group and collection lines** add up the items under them, whether open or closed:
+
+- the totals, in each of those columns. A line's **DIFF** figures add up only what's short, so a surplus of one item doesn't hide a shortage of another;
+- the **%** cell shows the items' average cover, each item counting once, and how many are short: *6 short*. Hover it for the short items, worst first, each with its target, what's available and a bar;
+- hover a group's name for its full scope and sources, which a narrow column cuts off.
 
 The toolbar carries **+ Add Group**, **+ Collection**, **Import Collection** (reads a collection from a file — always as a new collection, never merged into an existing one), and **Refresh** buttons, plus a status line.
 
@@ -36,11 +45,11 @@ The toolbar carries **+ Add Group**, **+ Collection**, **Import Collection** (re
    - **Only count packaged items (skip assembled / fitted hulls)** — leave out assembled ships and other assembled items, so a hull you're flying doesn't count as stock. Blueprints are never filtered by this.
    - **Multiplier** — multiplies every item's target in the group (useful for "I want N sets of this").
    - Optionally assign the group to a collection.
-2. Use **+ Collection** to create a named folder, then assign groups to it. Collections can be renamed, deleted, and expanded/collapsed as a whole. A collection's **Export** saves its groups, scopes and item targets to a file, which **Import Collection** reads back.
+2. Use **+ Collection** to create a named folder, then assign groups to it. A collection's **⋯** menu, shown when you hover or select its line, has **Expand all groups**, **Collapse all groups**, **Rename**, **Export** and **Delete**. **Export** saves its groups, scopes and item targets to a file, which **Import Collection** reads back.
 
 ### Add items to a group
 
-Each group row has a **+ Item** button to add a single type. For bulk adds, right-click in the grid and use:
+A group's **⋯** menu, shown when you hover or select its line, has **Add item…** to add a single type, along with **Edit** and **Delete**. For bulk adds, right-click in the grid and use:
 
 - **Add Items From Fit** — add a ship fit's hull and modules, from your characters' saved fittings in the game (characters need the fittings read scope).
 - **Add Items From Market Group** — add every published item under a chosen market group (you are asked to confirm for very large groups).
@@ -53,7 +62,8 @@ Items already present in the group are skipped.
 - Edit a row's **TARGET** inline; changes are saved automatically. Edit a group's multiplier inline the same way.
 - Click **Refresh** to recompute availability from current data. Availability also refreshes automatically about once a minute.
 - Click a column header to sort items within their groups.
-- Right-click an item and choose **Open in Item Browser** to inspect it, or **Delete Item** to remove it. Groups and collections have their own Edit / Rename / Delete controls on their rows.
+- Right-click an item and choose **Open in Item Browser** to inspect it, or **Delete Item** to remove it.
+- To send items elsewhere, highlight them and right-click: **Add to Production Calc Queue** adds them to the [Production Calculator](production-calculator.md)'s queue, and **Add to Standing Buy Orders…** to your [standing buy orders](standing-buy-orders.md). Both act on every highlighted item and leave you here, with a message saying what was added.
 
 ## Counting stock you're selling
 
@@ -80,5 +90,5 @@ Each correction follows the group's scope and owners, and the **Only count packa
 ## Notes
 
 - Availability is only as current as your synced data. Counting assets, industry-job products, market orders, and contracts requires the relevant characters/corporations to be authorized and synced via ESI.
-- **MKT PRICE** and **BUILD PRICE** come from your market configuration (see [Configuring Markets](../configuring-markets.md)); they are blank when no price is available.
+- The **MKT PRICE** and **BUILD PRICE** columns come from your market configuration (see [Configuring Markets](../configuring-markets.md)); they are blank when no price is available.
 - Related tools: the [Item Browser](item-browser.md) (opened from the item context menu) and [Assets](assets.md).

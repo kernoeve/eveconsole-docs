@@ -17,6 +17,8 @@ The screen is split into an input panel on the left and a tabbed results area on
 - **Include BPC cost** — see [Notes](#notes).
 - **Calculate** — runs the plan.
 
+Other tools can add to the queue: [Industry Opportunities](industry-opportunities.md), [Inventory Levels](inventory-levels.md) and the [Item Browser](item-browser.md) have **Add to Production Calc Queue** on their right-click menus, and Industry Opportunities also has **New Production Calc Queue**, which starts the queue afresh. Each item comes in as one unit at the usual ME for its kind of blueprint, or adds one to its row if it's already queued.
+
 When you change the queue, the park or **Include BPC cost** after calculating, a bar above the results says *The queue has changed since these results were calculated*, with a **Recalculate** button.
 
 ### Results tabs
@@ -45,7 +47,9 @@ Click an item name (or double-click a grid row) anywhere in the results to open 
 
 ## Notes
 
-- **Include BPC cost** counts blueprint copies (at their contract price) as an input: the final product's, and those of any item in the plan that can only be built from a copy (faction and other BPC-only items). Queuing a BPC-only item ticks it for you. Untick it to see the build without any copies; the **Summary** then lists **Blueprint copy costs left out**, and the totals don't include them.
+- **Include BPC cost** counts blueprint copies as an input: the final product's, and those of any item in the plan that can only be built from a copy (faction and other BPC-only items) or from an invented copy (T2). A BPC-only copy is priced at its contract price. Queuing a BPC-only item ticks it for you. Untick it to see the build without any copies; the **Summary** then lists **Blueprint copy costs left out**, and the totals don't include them.
+- **T2 copies cost their invention.** With **Include BPC cost** ticked, a T2 job carries what inventing its copy costs: datacores, the decryptor, the T1 copy run and both job fees, over the chance and the runs a success gives. The **Jobs** tab shows the invention job and its copying beneath the T2 job, with the odds, the decryptor and the copy a success makes. A contract price override on the blueprint takes the place of that cost. Stored build costs always include it, so a T2 item's figure in other tools includes it too.
+- Blueprints are named and drawn as what they are, **(Copy)** or **(Original)**, here and throughout the app.
 - **Build or buy components** — by default the calculator builds every component it can and buys only items that can't be costed. To buy a component instead when its market value is at or below a share of its build cost, turn on **Purchase a component instead of building when its market value is ≤ N % of build value** in **Settings ▸ Industry** (see [Build costs](../configuring-markets.md#build-costs)).
 - Accurate costs require a configured market for prices ([Configuring Markets](../configuring-markets.md)) and an industry park for the build parameters ([Indy Parks](../industry-parks.md)).
 - A category the park leaves unassigned is costed at the park's [default facility](../industry-parks.md#the-default-facility), with that system's cost index, the facility's tax and its role bonus (but no rig bonus). Versions before 0.9.15 costed such jobs with no facility at all, so **Job Costs** for them may now be higher.

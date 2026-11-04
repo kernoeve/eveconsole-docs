@@ -8,7 +8,7 @@ The tool has two tabs: **Corporation & Personal** and **Public**. Selecting any 
 
 ## What it shows
 
-Each tab lists contracts in a grid with a detail panel alongside.
+Each tab lists contracts in a grid with a detail panel alongside, with a picture beside each party, location and item.
 
 **Grid columns** (Corporation & Personal): contract **#**, **Type** (Item Exchange, Auction, Courier, Loan), **Status**, **Contents**, **Issuer**, **Assignee**, **Acceptor**, **Price**, **Reward**, and **Issued** date. The **Public** grid is similar but adds a **Region** column and a **Vol m³** column and omits Assignee/Acceptor.
 
@@ -23,8 +23,9 @@ Each tab lists contracts in a grid with a detail panel alongside.
 
 Filter the stored contracts with the header combos:
 
-- **Owner** — all owners, or a specific tracked character or corporation. Characters and corporations you add or remove appear or go at once, and the owner you picked stays picked.
+- **Scope** — the contracts from, to, or accepted by the party chosen: every character and personal corporation together by default, or a specific tracked character or corporation. Characters and corporations you add or remove appear or go at once, and the one you picked stays picked.
 - **Assignee** / **Acceptor** — narrow to a specific party.
+- **Status** — *Active*, the default, is everything still to be dealt with: outstanding and not expired, or accepted and in progress until its completion deadline. It can also be *All statuses* or any one status.
 - **Refresh** — reload from your local data.
 
 When a contract's items haven't been stored, the detail panel offers **Pull items from ESI** and says what ESI answered. Couriers don't offer it: ESI never lists what is in a courier.
@@ -53,6 +54,8 @@ Public contracts are filtered, sorted and paged against the whole stored set on 
 - **Clear** — reset the item and category filters.
 - **Sort** — price (low→high / high→low), newest/oldest, reward, volume, or contents A→Z. Sorting runs across the whole filtered set, not just the visible page.
 - Paging controls (**First / Prev / Next / Last**) sit at the bottom with a page/total indicator; results are shown 200 per page.
+
+Opening a public contract from the [Item Browser](item-browser.md#contracts-tab)'s **Contracts** tab shows that contract alone on this tab. Change any filter to see the rest.
 
 ## Notes
 
