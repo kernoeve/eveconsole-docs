@@ -17,7 +17,7 @@ What the logs hold is browsed in the **Game Log** and **Chat Log** viewers — s
 
 ## Game Logs
 
-Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the wake-up call.
+Game log import is **on by default**. It reads EVE's own game logs and stores what it finds — combat, mining, bounties, jumps, undocking — so other tools can query it. [Alarms](tools/alarms.md) read it too: the **Game log event** check, and **Stopping the ship ends it** on the **Undocked too long** check.
 
 Logs are opened read-only. Nothing is ever written back, and nothing is sent to the game client.
 

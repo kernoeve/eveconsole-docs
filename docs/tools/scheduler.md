@@ -92,7 +92,7 @@ A new section posts the summary by job, the cost chart and the time chart. One t
 
 ### System Index section
 
-The System Index tool's table and charts, as a post.
+The [System Index](system-index.md) tool's table and charts, as a post.
 
 - **Section title** — blank uses *System Index*.
 - **Post** — **Today's indices (table)**, and a chart (image) for any of the six activities. A new section posts the table and the Manufacturing chart.

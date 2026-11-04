@@ -20,9 +20,9 @@ All four come from the [Releases page](https://github.com/kernoeve/EveConsole/re
 | **Intel** | [`EveConsole-osx-x64-Setup.pkg`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Setup.pkg) | [`EveConsole-osx-x64-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Portable.zip) |
 
 - **Installer** — puts **EVE Console** in `/Applications`, or `~/Applications` if you install it for yourself only, and opens it when it finishes.
-- **Portable** — open the zip and run the app inside. Move **EVE Console.app** out of Downloads first, to Applications or wherever you like. macOS runs a downloaded app from a temporary read-only copy until it has been moved, and an app there can't update itself.
+- **Portable** — open the zip and run the app inside. Move **EVE Console.app** out of Downloads first, to Applications or wherever you like, because macOS runs a downloaded app from a temporary read-only copy until it has been moved.
 
-They're the same app, and **both keep themselves up to date**, as the Windows builds do. Each architecture updates from its own channel, so a copy stays on the build for your Mac. See [Staying up to date](getting-started.md#staying-up-to-date).
+They're the same app. **The installer keeps itself up to date**, as the Windows builds do. Each architecture updates from its own channel, so it stays on the build for your Mac. Updating a Portable copy hasn't been tried yet. See [Staying up to date](getting-started.md#staying-up-to-date).
 
 ## Opening it the first time
 

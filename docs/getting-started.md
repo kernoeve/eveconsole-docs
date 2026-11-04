@@ -37,7 +37,7 @@ See **[Running on Linux](running-on-linux.md)** for the `vlc` dependency, runnin
 - **Apple Silicon (M1 and later):** **[Installer — `EveConsole-osx-arm64-Setup.pkg`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-arm64-Setup.pkg)** or **[Portable — `EveConsole-osx-arm64-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-arm64-Portable.zip)**.
 - **Intel:** **[Installer — `EveConsole-osx-x64-Setup.pkg`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Setup.pkg)** or **[Portable — `EveConsole-osx-x64-Portable.zip`](https://github.com/kernoeve/EveConsole/releases/latest/download/EveConsole-osx-x64-Portable.zip)**.
 
-The installer puts EVE Console in your Applications folder. The Portable zip holds the app itself: move it out of Downloads, then run it. Both **keep themselves up to date automatically**.
+The installer puts EVE Console in your Applications folder. The Portable zip holds the app itself: move it out of Downloads, then run it. The installer **keeps itself up to date automatically**; updating a Portable copy on a Mac hasn't been tried yet.
 
 !!! warning "Not signed by Apple yet"
 
