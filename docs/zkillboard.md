@@ -83,6 +83,8 @@ Everything that reads killmails reads the merged data:
 - [Corp Activity](tools/corp-activity.md) — the recent kills and losses, and the **Killmails** tab;
 - the **Personal Killmails** section of the [Overview](tools/overview.md);
 - the **Ship kills** and **Pod kills** overlays on the [Universe Map](tools/universe-map.md), and each system's **Kills** tab;
-- kills and losses in [Players & NPCs](tools/entities.md).
+- kills and losses in [Players & NPCs](tools/entities.md);
+- [Battle Report](tools/battle-report.md) — its battles and **Find fights**;
+- [Intel](tools/intel.md) — kills place their attackers as sightings and make up the gate camps, there, on the Universe Map's live marks and in the **Intel report** [alarm](tools/alarms.md#intel-report). The map's ◆ rat activity, NPC capital and officer marks come from kills too.
 
-With **My characters & corp only**, those only show kills involving you and your corporations. The Universe Map's kill overlays in particular are only cluster-wide with **Capture all kills**.
+With **My characters & corp only**, those only show kills involving you and your corporations. The Universe Map's kill overlays in particular are only cluster-wide with **Capture all kills**, and the Intel tool shows a warning while the full feed is off, since kills between other pilots near you never reach intel.

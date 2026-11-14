@@ -46,7 +46,10 @@ jobs in several parks and sets the costs and times side by side (see
 
 Parks feed the system-wide **build cost** EVE Console calculates and stores for
 every craftable item, which in turn feeds the [Production Calculator](tools/production-calculator.md)
-and the build-cost floor in [market pricing](configuring-markets.md).
+and the build-cost floor in [market pricing](configuring-markets.md). Stored build
+costs use the park picked under **Indy park** on **Settings ▸ Industry** (**Default**
+follows the starred park); the Worklist and the calculators each keep their own choice.
+See [Build costs](configuring-markets.md#build-costs).
 
 > Changes save automatically as you type or pick from a dropdown — there's no
 > separate Save button. Stored build costs are recalculated automatically after
@@ -339,7 +342,9 @@ paste into Discord, Slack or a document. The summary is drawn whole, every colum
 far it's scrolled.
 
 To post these on a schedule, use the **Indy Park Compare** section in the
-[Scheduler](tools/scheduler.md). It keeps its own parks and job list.
+[Scheduler](tools/scheduler.md). It keeps its own parks and job list. On Slack it can post
+a table or a box for each job instead of a picture (see
+[Indy Park Compare on Slack](tools/scheduler.md#indy-park-compare-on-slack)).
 
 ### How science jobs are worked out
 

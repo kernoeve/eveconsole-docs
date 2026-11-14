@@ -39,7 +39,11 @@ Fires at a specific date and time, and optionally repeats on a fixed interval th
 
 ### Intel report
 
-Fires when a hostile pilot is reported near what you're watching. It reads the intel channels already being parsed under **Settings ▸ Chat Logs** (see [Logs & Map Data](../logs-and-map-data.md#chat-logs)), and kills in the watched systems too.
+Fires on intel near what you're watching: hostile pilots reported or seen on a kill, kills, a gate camp or bubbles called in, gate camps worked out from kills, and pilots coming closer. It reads the same intel as the [Intel](intel.md) tool — the intel channels under **Settings ▸ Chat Logs** (see [Logs & Map Data](../logs-and-map-data.md#intel-channels)), Jabber rooms and IRC channels whose **Type** is **Intel**, kills and pasted Local — as it stands now. A pilot seen since somewhere else, a system called clear, or news past its lifetime (see [How long intel lasts](intel.md#how-long-intel-lasts)) no longer fires.
+
+The editor groups its settings under two headings: **Where to watch** and **What fires**. A new intel alarm checks every **15** seconds, and is checked again at once when new intel is written, when a character undocks or changes system, and when the Route Planner sends a route.
+
+#### Where to watch
 
 **Watch around** — what the range is drawn around:
 
@@ -49,30 +53,44 @@ Fires when a hostile pilot is reported near what you're watching. It reads the i
 
 With **Undocked characters** or **Characters**, the **Characters** list narrows it to the characters you name; leave it empty for all of them. With **Systems**, add each system to the **Systems** list.
 
-**Range:**
-
-- **Jumps** — how many gate jumps out from each character or system to watch. The default is **5**; **0** watches only the system itself. The most is 15.
+- **Jumps from** / **Thru** — the range in jumps from each character or system, through stargates and through Thera's and Turnur's open wormholes. **Thru** is the farthest: **5** by default, the most 15; **0** watches only the system itself. **Jumps from** is optional, the nearest: systems nearer than it are left out everywhere, priority systems and the route ahead too. Two alarms can split a range this way, **0** thru **2** on one and **3** thru **5** on the other, and never both fire.
 - **Light years** — optional. Also watch every system within this many light years, however many gates away — what a jump drive or a cyno puts in reach. The most is 20; empty or 0 is off.
+- **Watch the route ahead** — on by default, around characters only. Also watch the systems still ahead on the last route the [Route Planner](route-planner.md) sent to the game for a watched character, however far; what is seen there is said as so many jumps ahead on the route. Only the part not yet flown counts, and the route is dropped on arrival or six hours after it was sent. A route set only in the game can't be known.
+- **Priority systems** — optional. Systems always watched, wherever your characters are, but not nearer than **Jumps from**. What is seen there is said first.
 
-A report caught by either range fires.
+A report caught by any of them fires. The Universe Map's **Alert zones** layer outlines the systems your intel alarms watch now (see [Intel layers](universe-map.md#intel-layers)).
 
-**Filters:**
+#### What fires
 
-- **Min players** — only fire when the report is of at least this many pilots. The default is 1.
-- **Ignore no visual** — skip reports flagged NV, where someone is relaying a contact they can't actually see.
+- **Min players** — only fire when at least this many hostiles are in the system. The default is 1. Kills and flag-only reports fire whatever the number.
+- **Ignore no visual** — skip pilots and counts reported NV, where someone is relaying a contact they can't actually see.
+- **Flag-only reports** — on by default. Also fire for a report that counts nobody but says a gate camp, bubbles, a cyno, a hot drop, a spike or combat probes. Each is said once while it lasts. Other things a report can say (a wormhole, someone at the ESS or a skyhook) are said with a sighting, never alone.
+- **Gate camps** — on by default. Fire for a gate camp worked out from kills (see [Camps](intel.md#camps)), near a watched character or on a route ahead. It is said once per camp, per character and per route, so a new route through a known camp is said again. One on a route ahead within 5 jumps is urgent.
+- **Hostile** — which named pilots count, by the standings of your watched character nearest them, or of the character forced under **Settings ▸ Intel** (see [Standings](intel.md#standings)): **Neutral or worse** (the default), **Negative only** or **Red only**. Your own characters and blues never count; unnamed counts and flag-only reports always do.
+- **Use the watch list** — on by default. Follow the Intel tool's [watch list](intel.md#watch-list): anyone or anything on **Always alert** fires within the **Watch list reach**, whatever the range, the **Hostile** choice or **Min players**, and is said first. What is on **Ignore** never fires.
+- **Watch list reach** — how many jumps out the watch list's **Always alert** entries fire, when that is farther than **Thru**. The default is **10**; the most is 15.
+- **Quieter further out** — on by default. The sound plays at full volume within a jump, and more quietly further out, down to 40% at the edge of the range. Speech keeps your voice volume.
 
-**Kills count as sightings.** A kill in a watched system places its attackers there at that moment, with their exact hulls. So a kill with hostile pilots among the attackers fires the alarm too, even if nobody called it in. NPC attackers don't count, the victim isn't a sighting, and **Min players** counts the hostile attackers. A gang that is both reported and seen on a kill within the same few minutes is one alert, and the spoken line adds "Seen on a kill".
+**Kills.** A kill in a watched system with hostile pilots among the attackers always fires, said as a kill: what was lost, and to what ("Kill in *system*: Retriever lost to Sabre and Loki"). Within a jump it is urgent, and said first. NPC attackers don't count, and the kill's attackers aren't said again as a sighting.
 
-*Hostile* means the same as on the [Universe Map](universe-map.md#live-marks): not your characters, corporations or alliances, and not anyone your characters, corporations or alliances have set to positive standing. Alliance contacts count, so a pilot blue only through your alliance won't set it off. Reports of only such pilots don't fire.
+**Each thing is news once:**
 
-What the alarm says names the place and, around characters, the character: "2 jumps from *character*", "where *character* is", or the light years when only that range caught it. Anything else the report said — a gate camp, bubbles, which gate — is said before the hulls.
+- a named pilot once while they stay in a system, however many people call them; seen in another system, they are news again;
+- a count of unnamed pilots again only when it grows past 1, 4, 9 or 19;
+- a flag (a gate camp, bubbles, a cyno, a hot drop, a spike, combat probes) once while it lasts;
+- a kill once;
+- a gate camp once per camp, per character and per route.
 
-!!! note "How far back it looks"
-    Around characters, an alarm looks at the last **10 minutes** of reports, because the watched systems move with the pilot. It's checked again as soon as a character undocks or changes system. Around systems, it looks back **2 hours**.
+#### Only news fires
 
-    The same sighting called by several people is one alert. A pilot reported again later is news again.
+Only *news* fires: something seen, or come into range, in the last two minutes (**Only news newer than** under **Settings ▸ Intel**). What was already there is not said. **Every action of the alarm runs for everything it fires on** — the sound, speech, the agent, a dialog and the Alert alike. For something different nearer in, such as a louder sound within two jumps, add a second intel alarm and split the range with **Jumps from** and **Thru**.
 
-    Each named pilot is told only where last seen. A firing can hold reports from minutes apart, most of all on undocking, when everything said while you were docked arrives at once. A pilot named in two systems is told only in the newer one, and a report left with nobody is dropped.
+**Urgent news** is said before the rest of a firing: a kill within a jump, anything in a priority system, anyone on the watch list's **Always alert**, a pilot coming closer (seen closer than before, or reported heading toward your character), and a gate camp on a route ahead within 5 jumps.
+
+**What it says** names the place and how far: "2 jumps from *character*", "where *character* is", "3 jumps ahead on *character*'s route", or the light years when only that range caught it, with "through Thera or Turnur" when the shortest way goes through one. A pilot coming closer adds "Approaching: heading to *system*" or "Approaching: was 4 jumps out"; one leaving, "Heading away, to *system*". News in a priority system starts "Priority system:", and about someone on the watch list "Watch list:". A camp is said as "Gate camp in *system* on the *gate* gate", with its kills and over how many minutes. Anything else a report said — a gate camp, bubbles, which gate — is said before the hulls.
+
+!!! note "Changed in 0.9.19"
+    Intel alarms made before 0.9.19 behave as above from now on, with **Flag-only reports**, **Gate camps**, **Watch the route ahead**, **Use the watch list** and **Quieter further out** on. One left at the editor's general 60-second check now checks every 15 seconds.
 
 ### Market / contract price
 

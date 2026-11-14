@@ -1,6 +1,6 @@
 # Worklist
 
-The Worklist is a single, always-current list of **what to do next** across all of your authorized characters and personal corporations. It is rebuilt from scratch on every refresh by pulling from up to twelve independent sources — industry jobs, completed jobs, logistics, invention and copying, material purchases, refining, standing buy orders, inventory levels, corp projects, skill queues, asset safety and planetary industry — and turning each into a concrete task. For work that can't start, it says what really stops it.
+The Worklist is a single, always-current list of **what to do next** across all of your authorized characters and personal corporations. It is rebuilt from scratch on every refresh by pulling from up to fourteen independent sources — industry jobs, completed jobs, logistics, invention and copying, material purchases, refining, standing buy orders, inventory levels, corp projects, skill queues, asset safety and planetary industry — and turning each into a concrete task. For work that can't start, it says what really stops it.
 
 Open it from the left sidebar under **General**.
 
@@ -16,6 +16,7 @@ The tool has several tabs: **Worklist** (the task list), **Station Needs** (the 
 - A row of **filters**: **State**, **Type**, a **Search task** box, **Character**, **Source**, **Destination**, and a **Search note** box.
 - The **task list**, grouped by task type (Buy, Haul — in system, Haul — nearby, Haul — long distance, Manufacturing, Reactions, PI, …). Each row shows the task itself — the item and quantity, the station/structure it applies to, and the responsible character — plus a **Value** and a **Volume** column. Hover the **ⓘ** marker for the full reasoning: a line to a sentence, with a picture beside each item it names.
 - An **icon** on each row: the item's own, or for a task with no item, a picture of what it's about — the ore for a refining task, the character's portrait for a skill queue or **Set up a colony** task, the planet for a task on one colony, and the station for an asset safety task. A blueprint is named and drawn as what it is, **(Copy)** or **(Original)**, wherever it appears.
+- A **Shopping List** button on the **Buy** group's header. It copies the Buy rows the filters show to the clipboard, one item a line with its quantity after a tab, ready to paste into the game's multibuy. Item names are in English, and an item bought at several stations is added up into one line, so filter the list to one station first for that station's list. Blueprints and order upkeep tasks without a quantity are left out. With nothing to copy, the clipboard is left as it was.
 
 A row with more to say has a **+** in front of it. Click it and the row opens in place, in the grid, with its detail as rows beneath it:
 
@@ -45,11 +46,13 @@ The same outstanding work aggregated **by station/structure**, so you can see ev
 
 The outstanding work aggregated **by item** — what still has to be *made*, with the tasks waiting on each item beneath it. Where Station Needs answers "what does this place want," Item Needs answers "what do I still have to produce," so it counts production rather than just what a station holds.
 
+Items start closed. Each item's heading carries the totals of its stations, each under its own column from **Total** rightwards, and its name opens the item in the [Item Browser](item-browser.md). An item you open stays open when the list reloads or you sort it.
+
 ### Bottlenecks tab
 
 What's holding the rest of the work up. Each sub-tab answers a single question — **Slots**, **Item Contention**, **BPO / Formula**, and **Hauling** — and a **Summary** ranks the *actions* themselves by how much work each one is blocking (for example "raise level 200 to 570", or "buy 1 of 4 owned (+25% output)"). Every "how much does this hold up" figure is measured by walking the actually-blocked tasks, not the recipe tree, so it reflects work you're really doing rather than everything a recipe could theoretically need. Open a row to see the tasks behind it. Numeric columns sort as numbers.
 
-- **Summary** — its status line judges free slots pool by pool: free science slots say nothing about reactions. It points at prints only where that pool has slots to spare and jobs are stopped on them now.
+- **Summary** — its status line judges free slots pool by pool: free science slots say nothing about reactions. It points at prints only where that pool has slots to spare and jobs are stopped on them now. A line telling you to buy another print shows the blueprint or formula, and names what it's for: *(for manufacturing)* or *(for copying)*, because "buy 1 of 1 owned" counts only the originals doing that job.
 - **Hauling** — the hauls holding up the most work, by the jobs they restart, using the [haul plan](#hauling)'s own figures, so it never asks you to draw a station below its own need. Hauls already raised and ready to fly are listed too, and the card says which: *8 haul(s) holding up 222 job(s). Every one of them is on the worklist: flying them restarts the work.* A haul of a single item is titled with that item.
 - **Item Contention** — shortages of items you own that no trip can solve. A shortage is on **Hauling** when a haul brings it or the plan finds it spare elsewhere, and on **Item Contention** otherwise, so each is on exactly one.
 - **BPO / Formula** — one line per *use*, because originals at the copy lab and those elsewhere can't stand in for each other. **Use** says **Build**, **Copy**, or **Build + copy** for the only original of a type, which does both. Each line has its own contention, rank and verdict.
@@ -69,8 +72,10 @@ How the list is built, in sub-tabs:
 - **Market** — where shortfalls are bought, and which character keeps orders at each station.
 - **Inventory Rules** — when a group from [Inventory Levels](inventory-levels.md) falls below **Trigger below (%)**, what to do about it at which station, and how far to **Fill up to (%)**.
 - **Station Levels** — where each group's stock should live; this raises hauling only (see [Station levels](#station-levels)).
+- **Character Levels** — the corporation that should hold the Worklist's items, and what each character keeps of a group at a station (see [Transfers and character levels](#transfers-and-character-levels)).
 - **Hauling** — how each kind of trip is made and who flies it (see [Setting up hauling](#setting-up-hauling)).
-- **Other** — the park to plan against, the asset scope, job lengths, how long materials are held for a busy blueprint (see [What stops a job](#what-stops-a-job)) and corp project owners.
+- **Structures** — which corporations' structures raise tasks, and which tasks (see [Worklist tasks](corp-structures.md#worklist-tasks) on the Corp Structures page).
+- **Other** — the park to plan against, the asset scope, job lengths, how long materials are held for a busy blueprint (see [What stops a job](#what-stops-a-job)) and corp project owners. Stock at the stations under **Also count these stations** counts for the Worklist's builds and buys, items with an inventory rule included, even where the rule's own group scope leaves them out. The [Inventory Levels](inventory-levels.md) tool still shows each group's own scope.
 
 A fill target above 100 % is rounded down, so it never adds more than its percentage: a level of 1 at 110 % stays 1, and 10 at 110 % is 11. Below 100 % it's rounded up, so filling to 80 % of 1 still means 1.
 
@@ -90,8 +95,28 @@ Each source can be switched on or off independently on **Config ▸ Sources** (s
 - **Skill Queues** — characters whose skill queue needs attention. A character whose **Skill queue** box is cleared in **Settings ▸ Characters** is left out.
 - **Asset Safety** — asset safety wraps waiting for you to choose where they go (see [Asset safety tasks](#asset-safety-tasks)).
 - **Planetary Industry** — work on your planetary colonies (see [Planetary Industry tasks](#planetary-industry-tasks)).
+- **Transfers** — items held by the wrong owner at the right station (see [Transfers and character levels](#transfers-and-character-levels)).
+- **Corp structures** — fuel to bring, a Metenox moon bay to empty, a fit to put right and ammo or fighters to top up (see [Worklist tasks](corp-structures.md#worklist-tasks) on the Corp Structures page).
 
 The same tab also has **Customer orders**: plan the pending orders from the [Order Tracker](order-tracker.md), netted against what is already built or in production. It isn't a source of its own — it adds demand that the industry and material-purchase sources plan for.
+
+### Every rule and order gets a task
+
+Every **Build** inventory rule and every planned customer order turns into a task, even where no job can answer it:
+
+| Case | Task |
+| --- | --- |
+| A level of a T1 blueprint copy under a **Build** rule | A copy job from an original you own, at the park's copy lab. |
+| A customer order for a blueprint copy | Each copy is added at its full licensed runs to the same copy job. |
+| Either of those with no original owned, or no copy lab in the park | The print is bought. |
+| A level of a T2 copy when invention can't run | The print is bought. |
+| A **Build** rule on something nothing manufactures (a faction module, a mineral, a datacore) | It's bought, at the buy location set on **Config ▸ Market**. |
+| A customer order for something nothing manufactures | It's bought, ranked with the order. |
+| No Indy Park picked or starred, or no character enabled for industry jobs | One blocked row, **Industry planning is not set up**, says which, and how many rules and orders are waiting. |
+
+Copy jobs already running count toward a copy level, in runs, so a copy job isn't raised again while one runs. Invention doesn't spend copies that a level or an order holds.
+
+Units sellers have offered to one of your stores' [Buy listings](../stores/buy-listings.md) count as on their way from the moment the offer is taken, like a running job's output, so the Worklist doesn't build what a seller is bringing. The row says how many: *Of that, 12 is on store offers, counted as coming.*
 
 ### Planetary Industry tasks
 
@@ -145,6 +170,16 @@ Slots and scarce materials go to whatever unblocks the most finished goods, not 
 - **An order's urgency is passed down only for what the parent's stock doesn't cover.**
 - **A final's high rank applies only while a sold job is actually stopped** for the part.
 
+Items kept in stock by an inventory rule, below the finals, rank in two groups:
+
+1. **Short for jobs** — the jobs that use the item want more than there is. These always come first.
+2. **Filling a buffer** — the jobs are covered, and only the level is short.
+
+Within each group, the item with less of everything asked of it covered (what the jobs want plus its level) goes first. So a part 26% covered gets scarce materials ahead of one 85% covered, even when the fuller one is a single unit short for a job.
+
+- **An item with a level of its own is ranked on its own coverage**, not on that of an emptier item it goes into. Parts holding up a sold job keep their higher rank.
+- **A job makes no more than the jobs are short of**, while they're short of anything. The rest comes back later as buffer work and waits its turn. The job's reason says so: *Sized to what jobs are short of. The rest only fills the level, so it waits its turn.*
+
 ## Hauling
 
 The **Logistics** source turns "this job's inputs are somewhere else" into trips. Each trip is one of three kinds, and each kind is set up on its own on **Config ▸ Hauling** (see [Setting up hauling](#setting-up-hauling)):
@@ -186,7 +221,13 @@ A hull wanted at a site it can't dock at is met only from that site, and is buil
 
 ### Blueprints
 
-Originals aren't moved because the ones already at a site are busy: a busy print comes back to the same hangar when its job ends. The copy lab (the structure your park assigns to copying) keeps its own originals where they are, unless one is the only original of its type you own. Then a factory with none can take it, rather than nothing being built at all.
+A free original (no job running on it) goes where its work is:
+
+- **To the factory** while builds of it are queued, from anywhere but the copy lab: a staging station where a newly bought one landed, say, or a research lab, inside the park or out. Only originals within the asset scope on **Config ▸ Other** are moved.
+- **To the copy lab** when no builds are queued and copies are short, but only from outside the park. An original already in the park never goes to the lab, because nothing comes back out of it.
+- With no work for it, it stays where it is.
+
+The copy lab (the structure your park assigns to copying) keeps its own originals where they are, unless one is the only original of its type you own. Then a factory with none can take it, rather than nothing being built at all.
 
 ### Station levels
 
@@ -194,6 +235,8 @@ Originals aren't moved because the ones already at a site are busy: a busy print
 
 - **As a source**, a station never goes below its level. With a level of 1,000 and 2,000 in the hangar, other stations can draw 1,000. One large need can't empty every buffer.
 - **As a destination**, a level pulls stock in only when no job anywhere still wants that item, whether or not that job could start today. Jobs always fill first.
+
+A [character level](#transfers-and-character-levels) is hauled to its station the same way, added to any station level there.
 
 ### In-system loops
 
@@ -236,13 +279,13 @@ A build is measured on its own needs, not the whole station's. Cargo is judged w
 
 ### Ticking hauls off
 
-Assets are read from ESI once an hour, so without help the Worklist would keep sending you for cargo already in your hold. Tick work off as you do it:
+Assets are read from ESI about once an hour, and a haul is nothing ESI reports in between, so without help the Worklist would keep sending you for cargo already in your hold. Tick work off as you do it:
 
 - **✓ Hauled** on a loop's stop — what was picked up there counts as in your hold, and what was dropped off counts as delivered. The loop moves on, and jobs waiting on it can start.
 - **✓ Hauled** on a trip's **MANIFEST** — the whole cargo counts as at the destination at once. From a staging or drop-off station, the next leg on is planned.
 - **✓ Contracted** on a hauling service's trip, or on each of its contracts — opens the **Contracted** dialog, which starts as the plan. Change quantities, take off what you left out, or paste the contract's items copied in game and click **Replace all** (or **Add** to add them). **Record** keeps it with the courier contract: the cargo counts as on its way, so nothing is bought or hauled for it again. Once the contracts update sees the courier, the cargo is kept with it, where you can correct it in the [Contracts](contracts.md) tool. A tick that no courier from the same start to the same end turns up for within a day lapses, and the trip comes back.
 
-A tick holds until the next asset update shows the goods where they are. Nothing is added to your assets.
+A tick holds until the next asset update shows the goods where they are. Goods ticked off as delivered are written into your assets at once, at the station they were put down, and the [Assets](assets.md) tool marks them **Added (haul)** in its **Since poll** column. Goods picked up and not yet put down stay where they were, and cargo still on a courier isn't written anywhere until the courier is delivered.
 
 ### Staging and drop-off stations
 
@@ -267,19 +310,57 @@ A trip that stops short says where its cargo goes next: *Then on from there to E
 !!! tip
     For an in-system loop, untick **Auto refresh** before you undock. A rebuild replans from where every pilot is now, and with the stops ticked off as you go you can press **Refresh** whenever you want the rest of the loop.
 
+## Transfers and character levels
+
+A character can build only with what is in its own hangar or its corporation's. So the Worklist keeps its material in one corporation, where every character in it can use it. Set this up on **Config ▸ Character Levels**.
+
+### Default corporation
+
+Pick the corporation that should hold the Worklist's items: the items of your orders and inventory levels. It's **None** to start, and then nothing is handed to a corporation.
+
+An item one of your characters holds at a station where that corporation has a hangar, in the character's own hangar or a docked ship's cargo hold, gets a **Transfer** task to the corporation. For example:
+
+*Ember Cast to EC Enterprises at Jita IV - Moon 4 - Caldari Navy Assembly Plant*
+
+Open it for the list, item first, then quantity: *Tritanium × 176,793*. A character in the corporation moves the items into the corporation's hangar. A character outside it gives them with an item exchange contract.
+
+Tick **Your other corporations give theirs too** to have your other corporations hand over their Worklist items as well, each done by one of your characters in that corporation. It's off to start.
+
+Transfers never touch:
+
+- blueprints, assembled ships, or anything fitted to a ship or in one of its bays;
+- the fuels in a ship's cargo hold: Liquid Ozone, Strontium Clathrates and the four isotopes. The rest of a docked ship's cargo hold is offered, and the task says when some of it is in a hold;
+- anything outside the asset scope on **Config ▸ Other**, or in asset safety;
+- what a character level keeps with that character.
+
+A Transfer task drops off once the next asset poll shows the items moved.
+
+### Character levels
+
+A character level keeps an [Inventory Levels](inventory-levels.md) group with one character at one station, in the character's own hangar, for that character's jobs. It's how a character outside the default corporation gets material to build with.
+
+1. Pick the **Inventory group**, the **Station or structure** (type two characters to search), and the **Character**, then click **Add**.
+2. Hauling brings the group's levels to the station, added to any station level there.
+3. A Transfer task gives the character what it lacks from the default corporation's hangar there. A character outside that corporation is given it by a member, with an item exchange contract.
+
+Two bands keep the tasks from chasing every unit, 10% each to start:
+
+- **Restock when below level by (%)** — a character is left alone until it falls this far under its level, then is given enough to fill it all the way back up.
+- **Sweep surplus when above level by (%)** — what a character holds over its level stays until it is this far over, then the excess goes back to the default corporation.
+
+Untick **On** to pause a level, and **Remove** to delete it.
+
 ## How stock is counted
 
-With the default timers, assets are read from ESI once an hour, but industry jobs and contracts every five minutes. So that a task never relies on an out-of-date hangar, the Worklist corrects the last asset snapshot for what has happened since:
+The Worklist counts stock from your assets, and your assets keep up with the game between asset polls: jobs started and delivered, contracts, market orders and purchases, and hauls ticked off are written into them as they happen. See [What's written between polls](assets.md#whats-written-between-polls) on the Assets page for the full list and what still waits for the poll.
 
-- **Jobs delivered** since the snapshot — their output is counted where it was delivered.
-- **Contracts made** since the snapshot — the goods they offer are no longer on hand.
-- **Contracts deleted** since the snapshot — the goods are back.
-- **Item exchange contracts accepted** since the snapshot — the acceptor gains what was offered and loses what was asked for; the issuer gains what was asked for.
-- **Courier contracts delivered** since the snapshot — the goods are counted at the destination, as the issuer's.
-- **Hauls ticked off** on the Worklist since the snapshot — delivered goods are counted where they were put down; goods picked up and not yet put down stay counted where they were, so nothing is bought again while you carry them (see [Ticking hauls off](#ticking-hauls-off)).
-- **Courier cargo entered by hand** — while the courier is out, its cargo counts as on its way to the destination, so nothing is bought or hauled for it again; once it's delivered, it counts as there. It isn't on a shelf yet, so a job waiting on it doesn't start until it lands.
+On top of the assets, the Worklist adds only what is in no hangar yet:
 
-Each correction is measured against the asset snapshot of the character or corporation whose hangar the goods left or reached, and a count never goes below zero. The same corrections apply in [Inventory Levels](inventory-levels.md), the [Order Tracker](order-tracker.md) and sale postings. The [Assets](assets.md) tool shows the snapshot itself.
+- **Courier cargo** — while a courier is out, its cargo (entered by hand, or ticked off as contracted) counts as on its way to the destination, so nothing is bought or hauled for it again. It isn't on a shelf yet, so a job waiting on it doesn't start until it lands.
+- **Goods picked up on a haul** and not yet put down stay counted where they were, so nothing is bought again while you carry them (see [Ticking hauls off](#ticking-hauls-off)).
+- **Store offers** count as on their way (see [Every rule and order gets a task](#every-rule-and-order-gets-a-task)).
+
+A count never goes below zero. [Inventory Levels](inventory-levels.md), the [Order Tracker](order-tracker.md) and sale postings read the same assets.
 
 !!! note
     Five of the Worklist's sections are also available as panels on the [Overview](overview.md) dashboard, so the most important work shows up there without opening the tool.

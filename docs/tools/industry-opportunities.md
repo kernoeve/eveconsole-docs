@@ -90,11 +90,12 @@ A right-click on a row that isn't highlighted acts on that row alone. **Ctrl+C**
 
 ## Posting it
 
-The [Scheduler](scheduler.md) has an **Industry Opportunities** section that posts a table of these results to Discord or Slack. The section keeps its own filters and never reads the ones set here.
+The [Scheduler](scheduler.md) has an **Industry Opportunities** section that posts a table of these results to Discord or Slack. The section keeps its own filters and never reads the ones set here. On Slack it can post the list in a box with the top item featured (see [Industry Opportunities in a box](scheduler.md#industry-opportunities-in-a-box)).
 
 ## Notes
 
 - Build cost and build time are read from your cached build costs, computed for the default industry park — set one up under [Indy Parks](../industry-parks.md) and configure a market under [Configuring Markets](../configuring-markets.md) for accurate numbers. A T2 item's build cost includes what inventing its copy costs.
 - The 30-day columns and filters, and the fallback pricing for items with no sell orders, rely on market history that the app caches in the background; if it hasn't run yet, those figures may be missing, and the Summary lists stay empty.
+- Special Edition ships are never listed, in the Summary, the Detail grid or scheduled posts: they have a build cost, but their blueprints aren't sold on the market.
 - The 30-day filters need the pricing config's region to resolve — if it can't, the scan reports that instead of applying them.
 - Once you've picked a target, model it in detail with the [Production Calculator](production-calculator.md), and track the resulting builds in [Industry Jobs](industry-jobs.md).

@@ -101,7 +101,7 @@ A copy older than the database can't safely open it. That usually happens when s
 - If a release that can open the database is out, it says which version and offers **Update and restart**. The update downloads with a progress line, installs, and restarts EVE Console on the same database.
 - Otherwise it says why not — this copy wasn't set up by the installer (the tarball or a source build), the check failed, or the version the database needs hasn't been released yet (the database was opened by a development build). **Releases page** opens the download page.
 
-**Close** leaves the app without changing anything. A copy started with `--tray` shows the same dialog; a [headless worker](background-processing.md#version-safety) writes to its log whether an update exists, and stops.
+**Close** leaves the app without changing anything. A [headless worker](background-processing.md#version-safety) writes to its log whether an update exists, and stops.
 
 ## Building from source
 

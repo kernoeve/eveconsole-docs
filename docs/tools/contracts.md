@@ -40,7 +40,7 @@ ESI never lists what is in a courier contract, so for a courier made by one of y
 
 Cargo can also be ticked off a hauling trip on the [Worklist](worklist.md). Everything saves as you go. Anything the box can't recognise is named, and the rest is saved.
 
-For planning, entered cargo counts as on its way to the destination while the courier is out, and as there once it is delivered, until the next asset update shows it. It is never added to your assets, and goods still in transit are not counted as on the shelf for [Order Tracker](order-tracker.md) stock.
+Entered cargo leaves the start station in your [assets](assets.md#whats-written-between-polls) once the contract is made. While the courier is out, it's in no hangar: the Worklist and Inventory Levels count it as on its way to the destination, so nothing is bought or hauled for it again, but it isn't on the shelf for [Order Tracker](order-tracker.md) stock. Once the courier is delivered, it's written into your assets at the destination, as the issuer's, until the next asset update shows where it really is.
 
 ### Public tab
 

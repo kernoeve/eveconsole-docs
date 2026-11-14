@@ -101,13 +101,14 @@ Tabs and [Buy listings](buy-listings.md) need site version **0.2.0** or later. A
 - The **price shown at purchase is honoured** — the site prices from its stored catalogue copy, never from the browser.
 - A buyer sees their **whole order history** — web, mail and manual orders in their name — and can **cancel any of their active orders**. Corporation orders are visible to, and cancellable by, that corporation's members.
 - **Purchase limits** are enforced live: an item a buyer can no longer order is greyed out, and the units box holds what remains.
-- On a **Buy listing**, sellers see what you pay and offer items to you instead of ordering. Their offers show on **My orders** as *You sell*, with the contract to make. See [Buy Listings](buy-listings.md#on-the-web-site).
+- On a **Buy listing**, sellers see what you pay and offer items to you instead of ordering, with an optional **Expected contract date**. Their offers show on **My orders** as *You sell*, with the contract to make. See [Buy Listings](buy-listings.md#on-the-web-site). A listing that takes [only what's needed](buy-listings.md#taking-only-whats-needed) stops each offer at what still remains, and can show how much is needed.
+- **My orders** shows each pending order's expected date under its state, for orders and offers alike (site **0.3.0** or later).
 
 ## Orders, events and reviews
 
 New orders, offers and cancellations come back to the app and are booked into the [Order Tracker](../tools/order-tracker.md) like any other. On the store **Overview** tab, a **Web site events** list shows what buyers did, with the **Item** each event concerns: an order's lines (*Rhea × 1, Ark × 2*), or the item of the order a cancellation is for.
 
-- Orders that need a look (for example, an order that came in **over a purchase limit**, or priced well off the posting) are held for you with **Book it** / **Decline** buttons rather than booked on their own.
+- Orders that need a look (for example, an order that came in **over a purchase limit**, an offer over what a Buy listing still needs, or anything priced well off the posting) are held for you with **Book it** / **Decline** buttons rather than booked on their own.
 - Tick **Show visits** to include sign-ins and return visits in the list.
 - A **[Store order events](../tools/alarms.md)** alarm can notify you when orders and offers arrive.
 - The **Visits** and **Unique visitors** counts on the same tab come from these events. See [The Overview tab](index.md#the-overview-tab).

@@ -15,8 +15,20 @@ When several clients share a PostgreSQL database, exactly **one** of them takes 
 - The title bar shows **which client is doing the background work**, so you can always tell.
 - The worker pushes its **call logs, polling status and alarms** out to the other clients, and each client can **mute** those independently.
 - **Game and chat logs** are the exception: every client reads its own log folders, so each machine's EVE logs are imported by the client running on it. See [Logs & Map Data](logs-and-map-data.md).
+- **[Intel](tools/intel.md)** is parsed only by the client doing the background work, which also runs the intel alarms. **Parse Stored History** on another PC asks that client to do it, and its progress shows in Background Processes.
 
 When a worker stops, it releases its lease on the way out, so the next client picks the work up on its next tick rather than waiting for the server to notice a dropped connection.
+
+### A client that never does the work
+
+To keep one computer out of it, for example a laptop you close often, tick **Never run the background work on this client** under **Settings ▸ Polling** (the **Background work on this computer** section). That client then only shows what the others collect: if it holds the lease when you tick it, it hands the work on at once, and unticking puts it back in line. The setting is saved on that computer only, not for every client. A headless worker ignores it, and it only applies on PostgreSQL.
+
+!!! warning
+    If every running client has it ticked and no worker is running, nothing polls.
+
+### One desktop app per user
+
+Each user runs one EVE Console desktop app per profile, on SQLite and PostgreSQL alike: starting it a second time brings the open one forward instead. Ten people on ten machines can still share one PostgreSQL database, and on PostgreSQL a headless worker or the Windows service may still run beside a desktop app on the same machine. The lease decides which of them does the work.
 
 ## Watching the background work
 
@@ -51,19 +63,14 @@ A service runs as **LocalSystem** and has no user session, so it reads its datab
 
 ### A tray or menu bar icon
 
-A Windows service can't draw anything on screen, and a closed app shows nothing at all. If you want a visible sign of who is doing the background work, start the app with `--tray` for a **notification-area icon and nothing else** (on a Mac, a menu bar icon). It's useful with or without a service. It never does the background work and never sounds alarms; closing EVE Console is how you stop those.
+While the desktop app runs, it shows an icon in the notification area (on a Mac, the menu bar) that says which client is doing the background work. Its menu has **Open EVE Console**, **Background Processes** and **Exit**.
 
-Its menu has **Background Processes**, **Open EVE Console** and **Exit**. On SQLite as well as PostgreSQL, the **Background Processes** window it opens shows what the running client is doing.
+To keep the app running there after you close the main window, tick **Keep EVE Console running in the notification area when the main window is closed** (on a Mac, *in the menu bar*) under **Settings ▸ Polling ▸ Notification Area Icon**. Closing the main window then only hides it: [client panels](tools/client-layouts.md), alarms and the background work carry on. Double-click the icon, or choose **Open EVE Console**, to bring the window back, and **Exit** to end EVE Console. It's off to start.
 
-To have it start by itself, use the tick box under **Settings ▸ Polling ▸ Notification Area Icon**:
+A Windows service still can't show an icon, because it has no desktop.
 
-| Platform | Tick box | How it starts |
-| --- | --- | --- |
-| Windows | **Show a notification-area icon, starting with Windows** | the Windows `Run` key, for your account |
-| Linux | **Show a notification-area icon, starting with your desktop session** | an entry in `~/.config/autostart` |
-| macOS | **Show a menu bar icon, starting when you log in** | a launch agent, `~/Library/LaunchAgents/com.eveconsole.tray.plist` |
-
-Ticking it also starts the icon straight away. Unticking stops it starting again, and an icon already showing stays until you choose **Exit** on it. There's only ever one icon per [profile](#a-separate-profile), so ticking the box again doesn't add a second.
+!!! note "The separate icon process is gone"
+    Before 0.9.19 the icon was a small process of its own, started at logon by a tick box (or by `--tray`), that showed even while the app was closed. The desktop app now shows the icon itself. If you had that tick box on, the app removes its logon entry the next time it starts and turns on **Keep EVE Console running…** instead. A leftover `--tray` start does the same and exits.
 
 ### A separate profile
 
@@ -94,6 +101,6 @@ A worker checks its build against the database schema and **exits deliberately**
 
 A worker that is newer than the database upgrades it without asking, since a service is updated unattended and has nobody to ask, and writes that it did so to its log. A desktop client asks first; see [Upgrading the database](getting-started.md#upgrading-the-database). So update the worker only when your desktop clients are ready to follow.
 
-A desktop client, or one started with `--tray`, that finds the database ahead of it doesn't just stop: it offers to update itself there and then. See [When this copy is older than the database](getting-started.md#when-this-copy-is-older-than-the-database).
+A desktop client that finds the database ahead of it doesn't just stop: it offers to update itself there and then. See [When this copy is older than the database](getting-started.md#when-this-copy-is-older-than-the-database).
 
 The other way round — this client is newer, but another client still holds the background work on the older version — stops with **This build does not match the database**. Only the client doing the background work may upgrade the schema, so update that client, or close it and start the newer one first so it takes the work over.

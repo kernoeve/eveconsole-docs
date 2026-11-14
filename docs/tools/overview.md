@@ -12,6 +12,7 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 
 - **Period** dropdown — the time window most sections report over: *Last 24 Hours*, *Last 7 Days*, *Last 30 Days* (default) or *Last 90 Days*. Your choice is remembered between sessions.
 - A **status line** showing the current load step, the final result (owner count and period) or an error in red.
+- A **layout picker** — which of your [saved layouts](#saved-layouts) this Overview shows, to switch quickly.
 - **⚙ Customize Layout** — opens the layout editor (see [Using it](#using-it)).
 
 **Sections** (any of these can be placed on the grid)
@@ -40,10 +41,22 @@ A toolbar sits at the top, with a customizable grid of sections below it.
 - **Act on alerts** by clicking them — skill-queue rows open the relevant character's Skills tab, the standing-projects row opens Standing Projects, Planetary Industry rows open the [Planetary Industry](planetary-industry.md) tool, the unread mail row opens the **Unread** folder of [Eve Mail](eve-mail.md), structure rows open [Corp Structures](corp-structures.md) and den rows open [Mercenary Dens](mercenary-dens.md). Asset-safety rows, attacks on structures and dens, and new tactical operations can be dismissed with their dismiss control.
 - **Read a notification in full** by clicking its card: the [Notifications](notifications.md) tool opens with that notification selected and its details shown.
 - **Customize the layout** with the **⚙ Customize Layout** button:
-    1. Set the grid size with the **Rows** and **Columns** steppers (1–25 each).
-    2. Drag a section from the **Sections** palette on the left onto the grid to place it.
-    3. Move or resize placed sections on the grid; a section can span multiple cells, and the editor prevents overlaps and out-of-bounds placement.
-    4. Click **Apply**. The layout is stored per-installation and persists between sessions.
+    1. Pick the layout to edit in **Layout:**. It starts on the one this Overview shows. **Add** and **Delete** are beside it (see [Saved layouts](#saved-layouts)).
+    2. Set the grid size with the **Rows** and **Columns** steppers (1–25 each).
+    3. Drag a section from the **Sections** palette on the left onto the grid to place it.
+    4. Move or resize placed sections on the grid; a section can span multiple cells, and the editor prevents overlaps and out-of-bounds placement.
+    5. Click **Apply**. Every layout changed, added or deleted in the editor is saved in one go, and this Overview shows the one you were editing. Layouts are stored per-installation and persist between sessions.
+
+## Saved layouts
+
+The Overview can keep several named layouts, such as one for industry and one for PvP, and switch between them from the picker beside **⚙ Customize Layout**.
+
+- **Default** is the layout you always had. It can't be renamed or deleted.
+- In the editor, **Add** makes a new layout as a copy of the one you're editing, named *Layout 1*, *Layout 2* and so on. Rename it in **Name:**. **Delete** removes the one you're editing.
+- The main window's Overview remembers which layout it shows across restarts. An Overview of its own, in a [Client Layouts](client-layouts.md#tool-containers) Tool Container, opens with the layout its container sets, and the main window's is left alone.
+- An Overview showing a layout that's deleted goes back to Default.
+
+Layouts are kept on this machine. An older version of EVE Console on the same machine still shows and edits Default, and leaves the others alone.
 
 The Overview reads only your local database, so it refreshes quickly and re-loads automatically about every 60 seconds (and immediately when you change the period or layout).
 

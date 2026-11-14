@@ -1,6 +1,6 @@
 # Inventory Levels
 
-A stockpile monitor, in the style of jEveAssets' stockpiles: define target quantities for the items you want to keep on hand, and see at a glance how much you actually have versus your targets.
+A stockpile monitor: define target quantities for the items you want to keep on hand, and see at a glance how much you actually have versus your targets.
 
 Open it from the left sidebar under **Assets**.
 
@@ -76,16 +76,14 @@ Both are off by default. Tick them for a group whose stock you sell from, so lis
 
 ## How on-hand stock is counted
 
-Assets are read from ESI once an hour with the default timers, while industry jobs and contracts are read every five minutes. Between asset polls, **ASSETS** is corrected for what has already happened in the game:
+**ASSETS** reads your assets, and they keep up with the game between asset polls: jobs started and delivered, contracts made, deleted or accepted, sell orders placed or cancelled, market purchases and hauls ticked off on the [Worklist](worklist.md#ticking-hauls-off) are written into them within minutes. So a job's output, or goods put on a sell order, show here before the next asset poll. See [What's written between polls](assets.md#whats-written-between-polls) for the full list and what still waits for the poll.
 
-- output of **jobs delivered** since the poll is added at the facility the job ran in;
-- goods on a **contract made** since the poll are taken off, and put back if the contract is **deleted**;
-- an **item exchange accepted** since the poll moves goods both ways — what was offered to the acceptor, what was asked for to the issuer;
-- goods on a **courier contract delivered** since the poll are counted at the destination;
-- goods ticked off as **hauled** on the [Worklist](worklist.md#ticking-hauls-off) are counted where they were put down;
-- **courier cargo entered by hand** (in the [Contracts](contracts.md) tool, or ticked off as contracted on the Worklist) counts at the destination while the courier is out.
+Two things are added on top, because they are in no hangar yet:
 
-Each correction follows the group's scope and owners, and the **Only count packaged items** setting; a count never drops below zero. Blueprints are counted in runs: copies from delivered copy and invention jobs are added, but blueprints moved by contracts are left to the asset poll. The [Worklist](worklist.md#how-stock-is-counted), [Order Tracker](order-tracker.md) and [Sale Posting](sale-posting.md) count stock the same way.
+- **courier cargo entered by hand** (in the [Contracts](contracts.md) tool, or ticked off as contracted on the Worklist) counts at the destination while the courier is out;
+- **blueprint copies** from delivered copy and invention jobs count, in runs, before the blueprint poll sees them.
+
+Both follow the group's scope and owners, and the **Only count packaged items** setting; a count never drops below zero. The [Worklist](worklist.md#how-stock-is-counted), [Order Tracker](order-tracker.md) and [Sale Posting](sale-posting.md) read the same assets.
 
 ## Notes
 

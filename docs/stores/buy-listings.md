@@ -9,7 +9,8 @@ A store can have Sell and Buy listings side by side. Each Buy listing is a price
 1. **Build the price list.** Make a [Sale Posting](../tools/sale-posting.md) with the items you buy. Its **Sale Price** is what you pay, so pick a basis that suits a buyback, such as a **Specific Market** at 90 %. A Buy listing shows prices only: stock, builds, reservations and ready dates are never shown.
 2. **Add the listing.** On the store's **Config ▸ General**, press **Add listing**, pick the posting and set it to **Buy**. Optionally give it a **Tab title**.
 3. **Choose who receives the contracts.** **Buy contracts to** appears once the store has a Buy listing. Pick one of your characters, a corporation you poll, or the alliance of one. Sellers are told to make their contracts out to it, and each offer is matched to the contracts it receives.
-4. **Optionally, say where.** Under **Buy contracts at**, search for a station or structure and pick it. The line beneath reads *Sellers are told: create all contracts at …*. Press **Clear** to stop naming one.
+4. **Optionally, say where.** Under **Buy contracts at**, search for a station or structure and pick it. Pick again to add another place; each is listed with a **Remove** button. The line beneath names them all: *Sellers are told: create all contracts at Jita IV - Moon 4 - Caldari Navy Assembly Plant or Example Fortress.* Press **Clear** to stop naming any.
+5. **Optionally, buy only what you need.** Tick **Only what's needed** on the listing. See [Taking only what's needed](#taking-only-whats-needed).
 
 The settings save as you make them.
 
@@ -21,7 +22,21 @@ The settings save as you make them.
 
     A contract made out to a corporation or alliance is seen only through a corporation login in it. Make sure such a corporation is polled, or offers will never find their contracts.
 
-**Buy contracts at** is told, not enforced. The price list mail, the replies to offers and the web site all name the place, and an NPC station is named in the store's language. A contract made somewhere else still matches.
+**Buy contracts at** is told, not enforced. The price list mail, the replies to offers and the web site all name the places, and an NPC station is named in the store's language. A contract made somewhere else still matches. A site older than version **0.3.0** shows only the first place.
+
+## Taking only what's needed
+
+A Buy listing with **Only what's needed** ticked takes only what the [Worklist](../tools/worklist.md) still needs of each item, for example the capital parts your builds are short of. For each item:
+
+**Remaining** = what the Worklist wants in all (inventory levels, customer orders and what the builds above it use) − what you hold − what running jobs will deliver − what sellers have already offered and not yet delivered, on any of your stores.
+
+- **An item no longer needed takes no offers.** The price list mail marks it *no longer needed*.
+- **An offer for more than remains isn't taken.** A mailed offer is turned down with how many are still needed: *We need only 40 more Capital Armor Plates, so your offer of 60 was not taken. Offer that many or fewer.* On the web site, the offer box stops at what remains, and an offer that still comes in over it (two sellers taking the last units at once, say) is held for you to **Book it** or **Decline**.
+- **Offers count from the moment they're taken.** The next seller sees less remaining, and the Worklist counts the offered units as on their way, so it doesn't build them too.
+
+Whether sellers see the figures is set on the [Sale Posting](../tools/sale-posting.md) itself: **Show how many are still needed**, on by default. When it's on, the price list mail adds *40 still needed* to each item, and the web site shows **Total need**, **On hand**, **In build**, **On order** and **Remaining**. When it's off, the cap still applies; only the figures are kept to you. On the **Sale Postings** screen, such a posting has a **Remaining** column, with the whole sum in its tooltip.
+
+The need is worked out at most every two minutes; offers are counted fresh each time. Showing the need and capping offers on the web site needs site version **0.3.0** or later.
 
 ## How players offer
 
@@ -45,9 +60,9 @@ Items written to the wrong command get a hint. An item the store sells, written 
 
 A Buy listing is a tab of its own, marked *buying*, with a **We pay** column and an **Offer** button on each row. An item without a price reads *not wanted*. Above the list, the site says who the contracts go to and, when the store names one, where to make them.
 
-**Offer** opens **Confirm your offer**: the item, the units, the price each and the total, with what to do once the store confirms. **Send offer** sends it. The seller's **My orders** then shows the offer as *You sell*, with the contract to make (*Make an Item Exchange contract to … asking …*), and lets them withdraw it.
+**Offer** opens **Confirm your offer**: the item, the units, the price each and the total, with what to do once the store confirms. The seller can also give an **Expected contract date**: when they expect to make the contract. It becomes the offer's **Est. Date** in the [Order Tracker](../tools/order-tracker.md), and stays until you change it; left blank, **Est. Date** stays empty. **Send offer** sends it. The seller's **My orders** then shows the offer as *You sell*, with the contract to make (*Make an Item Exchange contract to … asking …*) and the expected date under its state, and lets them withdraw it.
 
-Tabs and Buy listings need site version **0.2.0** or later. See [Web Storefront](web-site.md#listings-on-the-site).
+Tabs and Buy listings need site version **0.2.0** or later, and the expected contract date **0.3.0** or later. See [Web Storefront](web-site.md#listings-on-the-site).
 
 ## Matching the contract
 
@@ -65,7 +80,7 @@ From there:
 - **Accepting completes it.** Once accepted contracts carry every unit, the offer is complete and the seller is paid.
 - **Declining closes it.** Declining the contract cancels the offer.
 
-Offers never take from your shelf. They reserve nothing, count toward no purchase limit, and ask the [Worklist](../tools/worklist.md) to build nothing.
+Offers never take from your shelf. They reserve nothing, count toward no purchase limit, and ask the [Worklist](../tools/worklist.md) to build nothing. The Worklist counts what an open offer still has to deliver as on its way, so it doesn't build what a seller is bringing.
 
 ## Alerts
 
@@ -80,5 +95,6 @@ The **Store order events** [alarm](../tools/alarms.md) speaks of offers as offer
 ## Notes
 
 - Sellers must be allowed to order: the store's **who may order** rule applies to offers too.
-- An offer priced well off the posting, sent from the web site, is held for you to **Book it** or **Decline**, as an order would be.
+- An offer priced well off the posting, or over what a listing with **Only what's needed** still needs, sent from the web site, is held for you to **Book it** or **Decline**, as an order would be.
+- One line of an offer or order can be up to a full stack, so ore, ice and minerals sold by the hundred thousand are taken.
 - Offers also show in the store's **Active orders**, where **Source** reads *Offer · waiting for their contract* or *Offer · their contract to accept*.

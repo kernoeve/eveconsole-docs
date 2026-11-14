@@ -130,9 +130,15 @@ EVE Console stores a build cost for every manufacturable item, worked out from y
 [industry park](industry-parks.md) and the **Manufacturing Cost** source above. Build
 costs are recalculated **automatically after every market refresh**.
 
-To force an update, for example after changing pricing or your industry park, open
-**Settings ▸ Industry** and click **Recalculate Build Costs** under **Build Costs**. The
-line beside the button reports progress.
+**Indy park**, above the button under **Build Costs** on **Settings ▸ Industry**, picks
+the park whose structures, rigs and systems the stored build costs are worked out at,
+and with them every price set from build cost, such as a sale posting's. **Default**
+(the default) follows the park marked default in Indy Parks, and a chosen park that is
+deleted goes back to it. The Worklist and the calculators keep their own park.
+
+To force an update, for example after changing pricing, your industry park or the
+**Indy park** above, open **Settings ▸ Industry** and click **Recalculate Build Costs**
+under **Build Costs**. The line beside the button reports progress.
 
 The same tab has a **Production Calculator** option: **Purchase a component instead of
 building when its market value is ≤ N % of build value** (off by default, 100 %). When

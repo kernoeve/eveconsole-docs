@@ -10,6 +10,7 @@ From 0.9.13 EVE Console's interface is themeable. The whole app is drawn from a 
 
 - **Dark** *(default)* and **Light** — the two base looks.
 - **Blue**, **Pink** and **Beige** — tinted themes, each available in a **light** and a **dark** variant.
+- **EVE Amarr**, **EVE Caldari**, **EVE Carbon**, **EVE Gallente**, **EVE Minmatar**, **EVE ORE**, **EVE Photon** and **EVE Servant Sisters** — the game's own colour themes, named as the game names them: its near-black ground, with that theme's colours for the accent. All are dark underneath.
 - **Your own** — as many as you like, made in the [theme editor](#making-your-own-theme).
 
 ## Switching theme
@@ -25,11 +26,11 @@ Your choice is saved on this machine (it's a local UI preference, not stored in 
 
 !!! note "Tints change the room, not the signals"
 
-    The tinted themes inherit Dark or Light and restate only the **neutrals and the accent**. Everything that *carries meaning* is deliberately left alone — a chart line, a status word, a coloured row, EVE's own security-status ramp read exactly the same on Blue or Beige as they do on plain Dark. A built-in theme changes the mood of the interface; it never changes what a colour is telling you.
+    The tinted and EVE themes inherit Dark or Light and restate only the **neutrals and the accent**. Everything that *carries meaning* is deliberately left alone — a chart line, a status word, a coloured row, EVE's own security-status ramp read exactly the same on Blue or Beige as they do on plain Dark. A built-in theme changes the mood of the interface; it never changes what a colour is telling you.
 
 ## Making your own theme
 
-The theme editor opens from **Edit themes…**, beside **Theme** under **Settings ▸ Other ▸ Appearance**, or from the bottom of the title bar's theme menu. Its list shows the eight built-in themes, marked **Built-in**, then your own.
+The theme editor opens from **Edit themes…**, beside **Theme** under **Settings ▸ Other ▸ Appearance**, or from the bottom of the title bar's theme menu. Its list shows the sixteen built-in themes, marked **Built-in**, then your own.
 
 **Built-in themes stay as they are.** You can look at their colours but not change them.
 
@@ -63,6 +64,6 @@ The **PREVIEW** beside the colours wears the theme you're editing while the rest
 
 Your themes are kept on this machine, like the choice of theme, and aren't shared through a PostgreSQL database.
 
-!!! note "Tick boxes and radio buttons"
+!!! note "Tick boxes, sliders and selection"
 
-    The ticks and radio buttons of the standard controls don't follow a theme's accent, on built-in tints or your own: amber on a dark ground, blue on a light one. The preview shows them the same way.
+    The standard controls follow the accent of the theme in use, built-in or your own: a ticked box, a radio button, a slider and a selected row are drawn in it.

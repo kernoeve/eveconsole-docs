@@ -18,8 +18,9 @@ The tool has two tabs, **Structures** and **Config**. Above them:
 
 | Column | What it shows |
 | --- | --- |
-| **Name**, **Type**, **System**, **Region** | Where and what it is. A starbase is named after its moon, a skyhook after its planet. |
-| **State** | Online, reinforced, anchoring and so on, in the game's own terms. |
+| **Name**, **Type**, **System**, **Region** | Where and what it is. A starbase is named after its moon, a skyhook after its planet. Click one to open what it names: the structure (for a starbase or skyhook, its system), the item, the system or the region. |
+| **State** | Online, reinforced, anchoring and so on, in the game's own terms. An Upwell structure being unanchored adds *unanchoring*. |
+| **State ends** | When the state it's in ends, and how long until then: a reinforcement, anchoring or onlining timer, or the unanchoring. |
 | **Services** | Services online out of the total, such as *3 / 4*. |
 | Info icon | A red **i** when the structure is off the fit set for its type. Hover for what is wrong. |
 | **Fuel left** | Time until it runs out. Shows as running low under 7 days and as critical under 3 days. It reads **Out of fuel**, or for a structure with no fuel at all **Low power**, or **No services** where nothing is fitted to burn any. |
@@ -28,7 +29,10 @@ The tool has two tabs, **Structures** and **Config**. Above them:
 | **ISK / day** | What the fuel costs a day. See [Fuel](#fuel). |
 | **Pickup value**, **Pickup vol (m³)** | What a Metenox has drilled and holds, ready to collect. |
 
-Structures with fuel come first, those running out soonest at the top.
+Structures out of fuel come first, then any whose fuel can't be told (see below), then the rest by the fuel left, least first. Structures with nothing to burn come last.
+
+!!! warning "A list that is no longer read"
+    The structure and starbase lists are read from ESI by a character with the corporation role for them. If a list hasn't been read for three hours, because that character lost the role or ESI stopped answering, a banner over the list says when it was last read, why, and that what it shows is as it was then. A structure whose fuel expiry has passed since then shows **—** for **Fuel left** and **Runs out** rather than **Out of fuel**, because it may have been refuelled since; hover it to see when the list was last read. The detail panel adds a **List read** line. Such a structure raises no fuel alert.
 
 ### The detail panel
 
@@ -59,7 +63,7 @@ Select a row to see it in full. Each part shows only when there is something in 
 The rounding is on the total, not on each module, because that is what the game's expiry shows. A Tatara with three reactors and a reprocessing plant burns 11.25 × 3 + 7.5 = 41.25 an hour, so 41.
 
 - A module counts as running unless all of its services read offline.
-- **With no fit known, no burn is shown.** If the corporation's assets haven't been read, the app doesn't guess at consumption from the services. The time left still shows, since it comes from the game.
+- **Without the corporation's assets, the fit set for the type stands in.** If the assets haven't been read, what is fitted isn't known, so the service modules of the fit chosen for the type on [Config](#config-the-fit-each-type-should-carry) burn as if fitted, those whose services ESI lists as running. The detail panel says the burn is *from the fit set for its type*. With no fit set for the type, no burn is shown: the app doesn't guess at consumption from the services alone. The time left still shows, since it comes from the game.
 - If the burn and the expiry disagree by more than rounding, the fuel row says so: *the fuel expiry implies N a day*.
 
 **Other fuels, such as a Metenox's gas,** burn at what the bay has actually lost since it was last topped up. That figure needs at least six hours of readings; until then the row reads *burn not measured yet*. A refill starts the measuring again. If a structure's gas runs out before its blocks, **Runs out** gives the gas's date.
@@ -110,6 +114,27 @@ Starbases and skyhooks aren't checked against a fit.
 
 These appear on the [Overview](overview.md#structure-alerts), for corporations with **Structure alerts** ticked on **Settings ▸ Corporations** (all of them to start). Each kind has its own switch under **Structures** on **Settings ▸ Alerts**. Clicking one opens this tool on that corporation and structure.
 
+## Worklist tasks
+
+The [Worklist](worklist.md) turns what this tool knows into tasks, under the **Corp structures** source, with **Structure** as their kind. Set them up on the Worklist's **Config ▸ Structures**. Changes save as you make them, and the list rebuilds a moment later.
+
+**Corporations** — whose structures raise tasks. **All corporations** (the default) includes any added later. Clear it to tick the ones you want.
+
+**Tasks** — each kind has its own switch, all on to start:
+
+| Task | Raised when | What it asks for |
+| --- | --- | --- |
+| **Structure fueling** | A structure has less fuel left than **Min fuel** (7 days to start), or is out of fuel. Titled *Fuel Example Fortress — 3d 4h left*, or *— out of fuel*. | Each fuel that burns, enough for it to last **Fill to** days (30 to start), rounded up. |
+| **Reagent pickup** | A Metenox moon bay holds as much as set in **Pick up at**: a **% full** (the default, 50), a **Volume** in m³ or a **Market value** in ISK. | What is in the bay. |
+| **Add drones/ammo** | Ammo or fighters fall below the share of the type's fit set on **Settings ▸ Alerts**. | What's missing to bring each back up to the fit. |
+| **Fix fit** | A structure lacks a module of the fit set for its type, or has another in its place. | The modules missing or wrong. |
+
+- **Fueling needs only the structure list**, so it works for any corporation whose structures are read. The burn comes from the modules fitted, or without the corporation's assets, from the [fit set for the type](#config-the-fit-each-type-should-carry). With neither, the task is still raised, but says it can't count the blocks until you set a fit for the type. Where the fuel bay isn't read, it asks for a number of fuel blocks of no kind in particular.
+- **The other three read what is in a structure**, so they are raised only where the corporation's assets are read.
+- **A list that is no longer read** (see [above](#the-list)) raises one task for the corporation instead of its fuel tasks: *EC Enterprises: structure list not read since …*, or *tower list*. It says whether the reading character has lost its role or ESI has stopped answering. Fuel tasks off an old list would send someone to fuel what may have been fuelled long since.
+- Skyhooks raise no fuel task.
+- Item names in a task's list are in English, so a copied list pastes into the game.
+
 ## What it needs
 
 Everything is read by background polling from a corporation login, so the character behind it needs the role in game as well as the scope on its token. A Director can read all of it.
@@ -129,7 +154,7 @@ How often each is read is on **Settings ▸ Timers**. To start, structures and s
 
 ## Notes
 
-- **No assets, no fit.** Without a Director's access the list and fuel expiry still work, but blocks a day, the fuel table, the fit and the moon bay stay empty, and the fit check reads *Not checked*. Modules entered by hand in the [Structure Browser](structure-browser.md) still show.
+- **No assets, no fit.** Without a Director's access the list and fuel expiry still work, but the fuel table, the fit and the moon bay stay empty, and the fit check reads *Not checked*. Blocks a day come from the fit set for the type, if there is one. Modules entered by hand in the [Structure Browser](structure-browser.md) still show.
 - **A starbase's modules** show only where the corporation has one starbase in that system. The assets give no position, so two starbases' modules can't be told apart.
 - **Attack alerts rely on your characters' notifications.** A character has to have received the notification, and one that can't be put to a structure of the corporation raises nothing.
 - The list reads the local database, not the game. **Refresh** shows what the polls have brought in so far.

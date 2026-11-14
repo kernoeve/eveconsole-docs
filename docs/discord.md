@@ -55,7 +55,8 @@ A part's **Post to Discord** button appears once a webhook is set for it and you
 - **Discord's own formatting.** The text is what the **Discord** export format gives for the same content, so tables line up in code blocks and headings are bold.
 - **Nobody is pinged.** Every post tells Discord to ignore mentions, so `@everyone`, `@here`, a role or a pilot's name in corp data never notifies anyone.
 - **Long posts go out in parts.** Discord takes up to 2,000 characters per message, so EVE Console sends anything over 1,900 as several messages, in order. A heading stays with its table, and a code block is never cut open: a table longer than one message is split between rows, with its header repeated at the top of the next message.
-- **Charts are attached.** A scheduled task aimed at a Discord webhook uploads its chart sections, and the pictures of its **Indy Park Compare** and **System Index** sections, as images, one message each, under the picture's title.
+- **Charts are attached.** A scheduled task aimed at a Discord webhook uploads its chart sections, and the pictures of its **Indy Park Compare** and **System Index** sections, as images, one message each, under the picture's title. Each section's pictures follow straight after its text, before the next section starts. No sign-in to [Online Services](online-services.md) is needed.
+- **Text, where Slack gets boxes.** A scheduled section set to post on Slack with boxes, images or a Slack table posts its text table on Discord instead, and a boxed Text section posts as written (see [Slack formats](tools/scheduler.md#slack-formats)).
 
 ## Posting twice
 
