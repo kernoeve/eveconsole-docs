@@ -82,6 +82,10 @@ nav:
       - zKillboard: zkillboard.md
       - Posting to Slack: slack.md
       - Posting to Discord: discord.md
+      - Online Services: online-services.md
+      - Jabber: jabber.md
+      - Mumble: mumble.md
+      - IRC: irc.md
       - Themes: themes.md
       - Languages: languages.md
   # Grouped and ordered as the app's sidebar is (MainWindowViewModel's NavGroups), plus the
@@ -91,6 +95,7 @@ nav:
           - Overview: tools/overview.md
           - Worklist: tools/worklist.md
           - Characters: tools/characters.md
+          - Client Layouts (Windows): tools/client-layouts.md
       - Assets:
           - Assets: tools/assets.md
           - Item Browser: tools/item-browser.md
@@ -100,6 +105,7 @@ nav:
       - Structures / Navigation:
           - Structure Browser: tools/structure-browser.md
           - Universe Map: tools/universe-map.md
+          - Intel: tools/intel.md
           - Route Planner: tools/route-planner.md
           - Jump Planner & Jump Range: tools/jump-planner.md
           - Jump Bridges: tools/jump-bridges.md
@@ -135,8 +141,10 @@ nav:
           - Corp Structures: tools/corp-structures.md
           - Mercenary Dens: tools/mercenary-dens.md
           - Killmails: tools/killmails.md
+          - Battle Report: tools/battle-report.md
           - Players & NPCs: tools/entities.md
       - Communication:
+          - Messages & Group Chat: tools/messages.md
           - Eve Mail: tools/eve-mail.md
           - Notifications: tools/notifications.md
       - Data / Logs:

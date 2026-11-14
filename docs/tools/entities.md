@@ -34,7 +34,7 @@ Selecting any entity opens a detail card with:
     - **Orders** — the NPC corporation's sell and buy orders, with low/high prices.
     - **LP Offers** — the corporation's loyalty-point store, with LP and ISK cost per item.
     - **Faction Warfare**
-    - **Intel Reports**
+    - **Intel Reports** — the intel reports naming them. For a pilot, a **Last seen** line above them says where intel last placed them, how long ago, in what hull, and how (reported, a pasted Local, on a kill, or losing a ship); click it to open that system. See [Intel](intel.md#pilots).
 
 ### zKillboard stats
 

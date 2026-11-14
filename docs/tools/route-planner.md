@@ -26,7 +26,7 @@ A summary line gives the number of jumps, how many are by jump bridge and by wor
 
 - **System**, **Region** and **Sec**. Click a system to open its page.
 - **Via** — how the system was reached: *Gate*, *Jump bridge* (with its zone and capacitor cost) or *Wormhole* (with the signatures to warp to on each side).
-- **Hostiles** — hostiles placed there now, from intel and killmails, as on the map's [live marks](universe-map.md#live-marks).
+- **Hostiles** — hostiles placed there now, from [intel](intel.md) and killmails, as on the map's [live marks](universe-map.md#live-marks), in their standing's colour. The tooltip also says when a gate camp found from kills is active in the system.
 - **Kills (1 h)** — kills there in the last hour.
 
 If some bridges on the route have no known sovereignty holder, a line says so: who may use them isn't known, and they're allowed rather than left out.

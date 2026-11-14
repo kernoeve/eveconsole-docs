@@ -30,6 +30,7 @@ Every posting and section row carries **+ Section** / **+ Item**, **Edit** and *
 - **Show quantities in posting** — whether **In Stock**, **In Build** and **Reserved** appear in the rendered text, and whether to include the earliest job completion date for an item that's out of stock but building.
 - **Only include packaged items** — skip assembled or fitted hulls when counting stock.
 - **Colour** — line colours for EVE mail; other formats ignore them.
+- **Show how many are still needed** — on by default. It matters only for a posting used as a store's **Buy** listing with **Only what's needed**: the rendered text then shows how many of each item are still wanted. See [Taking only what's needed](../stores/buy-listings.md#taking-only-whats-needed).
 - **Post blocks** — the messages the posting is rendered as, in order: **Summary**, **Detail** or **Static** (text you type), each with an optional header and footer. On a Slack channel the first block is the message and the rest go in its thread.
 
 A section's **Edit** offers the same scope, price basis and packaged-only settings, each with an **Override … for this section** box.
@@ -45,6 +46,9 @@ Columns per row:
 - **Sale Price** — your configurable asking price.
 - **Profit** and **Profit %** — relative to the reference chosen in **Profit based on**.
 - **Ready (est.)** — an estimate of when the item will be available.
+- **Remaining** — for a store Buy listing that takes only what's needed: how many are still wanted. Its tooltip shows the sum (total need, on hand, in build, on order).
+
+Deleting a posting, section or item asks first. Select several rows and the right-click menu deletes them all at once.
 
 ### Listing what places hold
 

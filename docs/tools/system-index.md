@@ -35,7 +35,7 @@ Six charts, three rows of two, one for each activity. Each has a line per system
 
 ## Posting it
 
-The [Scheduler](scheduler.md) has a **System Index** section that posts today's table and any of the six charts to Discord or Slack on a schedule. The section keeps its own list of systems, so changing the list here doesn't change the post.
+The [Scheduler](scheduler.md) has a **System Index** section that posts today's table and the charts to Discord or Slack on a schedule. All six charts can go as one picture, and on Slack the table can be a Slack table with each index's 7-day change (see [System Index on Slack](scheduler.md#system-index-on-slack)). The section keeps its own list of systems, so changing the list here doesn't change the post.
 
 ## Related
 

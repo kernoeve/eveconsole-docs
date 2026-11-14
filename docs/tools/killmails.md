@@ -10,7 +10,7 @@ A two-pane layout:
 
 - **Left pane** — two tabs, **Personal** and **All**, over a filter bar and a scrollable kill list. Each row shows the date/time and total ISK value, the victim ship render, the system with its security status (colour-coded) plus constellation and region, the victim (name / corp / alliance with logo), and the final-blow pilot (name / corp / alliance with logo). A status bar reports how many killmails are loaded, and whether more match.
 - **Right pane** — the detail for the selected killmail:
-    - **Header** — victim ship, victim name/corp/alliance, time and system/region, and an ISK summary (Destroyed, Dropped, Total).
+    - **Header** — victim ship, victim name/corp/alliance, time and system/region, and an ISK summary (Destroyed, Dropped, Total). Under the time and place, **Battle report** opens the fight around the kill in [Battle Report](battle-report.md) (its system, from 30 minutes before to 30 minutes after), and **zKillboard** opens the kill's page on zKillboard.
     - **Items** — fitted and cargo items grouped by slot, each with icon, quantity destroyed, quantity dropped, and estimated value.
     - **Attackers** — every attacker with portrait, ship and weapon icons, name/corp/alliance, and damage done. The final-blow pilot is tagged **★ FB** and the top-damage dealer **▲ TD** (a pilot can be both).
 

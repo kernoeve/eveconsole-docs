@@ -32,13 +32,23 @@ Each row is one industry job. Columns:
 
 Columns are sortable and resizable. Jobs are ordered active/paused first, then ready, then the rest by end date.
 
+**Activity**, **Product**, **Facility**, **Installer** and **Owner** have a picture before the name. Activity shows a mark for the kind of job, the same marks the [Worklist](worklist.md) puts on its jobs. Product shows a blueprint copy for copying and invention, the original for research, and the item for everything else. Facility shows the station or structure, Installer the character's portrait, and Owner the portrait or corporation logo.
+
 **Product**, **Facility**, **Installer** and **Owner** are links: click one to open its page — the item in the [Item Browser](item-browser.md), a station or character in [Players & NPCs](entities.md), a player structure in the [Structure Browser](structure-browser.md).
 
 ### Detail panel
 
-Selecting a row fills the top panel with that job's Owner Type, Owner, Installer, Start Date, End Date, Completed By, Activity, Status, Runs, Items and Success Chance, plus the facility (with location), and the blueprint (with its ME/TE) and product icons, the time left, and the job cost. The names in the panel are links too, as in the grid.
+Selecting a row fills the top panel with that job's Owner Type, Owner, Installer, Start Date, End Date, Completed By, Activity, Status, Runs and Items, plus the facility (with location), and the blueprint (with its ME/TE) and product icons, the time left, and the job cost. The names in the panel are links too, as in the grid.
 
 The blueprint's picture shows what the job was started with: a copy's picture for a job started with a blueprint copy (and every invention job), an original's otherwise. A reaction's formula is drawn on its green ground, as in the game. A finished job whose copy was used up has nothing left to say it was a copy, so it shows an original.
+
+For a science job, the output side shows what the print comes out at:
+
+- **ME and TE research** — the ME and TE the blueprint reaches when the job ends. A delivered research job shows none, because the blueprint already holds the result.
+- **Copying** — the copies' ME and TE, and how many runs each copy carries: *10 runs each*.
+- **Invention** — the invented copy's ME, TE and runs. ESI doesn't say which decryptor a job used, so it is read back from the job's success chance. A chance that fits no decryptor shows nothing. A Symmetry Decryptor changes the chance no more than using none, so it reads as none.
+
+The **Success Chance**, for a job that has one (invention), sits under the arrow between the blueprint and the output.
 
 ## Using it
 
@@ -58,5 +68,5 @@ Set your filters and click **Apply**; click **Clear** to reset them. The window 
 - **Build Cost** and **Market Value** depend on a configured market ([Configuring Markets](../configuring-markets.md)) and an industry park ([Indy Parks](../industry-parks.md)); without them those columns may be blank.
 - Facility, installer and product names that aren't in local data are resolved from ESI on first load, so a name may appear as a numeric ID momentarily.
 - A job at a player structure that lacks a rig for its work is flagged in the **Note** column and raises an [Overview](overview.md) alert. Jobs at NPC stations are never flagged: a station takes no rigs, so running a job there is simply your choice.
-- A job's output counts as stock in the [Worklist](worklist.md#how-stock-is-counted) and [Inventory Levels](inventory-levels.md#how-on-hand-stock-is-counted) as soon as the job is delivered, before the next asset poll shows it.
+- When a job starts, its blueprint and (for manufacturing and reactions) its materials leave your [assets](assets.md#whats-written-between-polls); when it's delivered, its output appears there. Both happen within minutes, before the next asset poll, so the [Worklist](worklist.md#how-stock-is-counted) and [Inventory Levels](inventory-levels.md#how-on-hand-stock-is-counted) count them at once.
 - Use the [Production Calculator](production-calculator.md) to plan new builds, and the [Industry Opportunities](industry-opportunities.md) scanner to find what to build next.

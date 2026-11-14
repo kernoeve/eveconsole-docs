@@ -39,7 +39,7 @@ One row per order line, newest first. A multi-item order appears as several rows
 
 **Price & status**
 
-- **Est. Date** — your optional estimated delivery date.
+- **Est. Date** — your optional estimated delivery date. On a Buy row booked from a [web store](../stores/web-site.md) offer, it starts as the date the seller expects to make their contract, if they gave one, and stays until you change it.
 - **Pri** — a marker for orders flagged **Priority**.
 - **Status** — *Pending*, *Completed*, or *Canceled*.
 - **Completed** — the completion date (set automatically; see below).
@@ -52,7 +52,7 @@ The status line shows how many orders are currently listed.
 
 For open orders, the tracker works out how each one is being met and keeps it current on its own (it reloads about once a minute; there's also a **Refresh** button):
 
-- **On hand / in build / short** come from your stockpile and your industry jobs.
+- **On hand / in build / short** come from your stockpile and your industry jobs. On hand reads your assets, which take in contracts, delivered jobs and sell orders as they happen, so a hull put on a contract for one order isn't called in stock for the next (see [What's written between polls](assets.md#whats-written-between-polls)).
 - **Contract** is matched automatically from your synced ESI contracts. A contract matches when the ordered item, summed over all of the contract's lines, covers what's still to come; extra items (fitted rigs and the like) and packaged versus assembled don't matter.
 - **An order can go out over several contracts**, and **one contract can carry several orders** (say, two hulls for two orders of one). Exact fits are matched first, so a contract cut for one order isn't taken by another.
 - **Completed** is set automatically: to today when you mark an order completed or cancelled, or, once accepted contracts carry every unit, to the date of the last acceptance. You can override it in the edit window if the real date differs.
@@ -88,5 +88,5 @@ Columns are sortable.
 
 - **Build Cost** and **Profit** appear only for items with build-cost data; others show `—`. Build costs derive from your configured market price sources — see [Configuring Markets](../configuring-markets.md).
 - Marking an order **Priority** pushes it — and the jobs, purchases and hauls that serve it — to the top of the [Worklist](worklist.md), regardless of estimated date.
-- Buy rows never reserve stock or ask the [Worklist](worklist.md) to build anything. They come only from a store's Buy listings; **Add Order** enters Sell orders.
+- Buy rows never reserve stock or ask the [Worklist](worklist.md) to build anything. Instead, the Worklist counts a pending Buy row's undelivered units as on their way, so it doesn't build what a seller is bringing. Buy rows come only from a store's Buy listings; **Add Order** enters Sell orders.
 - The Order Tracker is forward-looking: what you've *committed to deliver*, and what you've agreed to buy. For completed sales pulled from your wallet and contracts and the profit realised on each, use the [Sales Tracker](sales-tracker.md).

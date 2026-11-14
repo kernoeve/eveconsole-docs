@@ -277,13 +277,19 @@ On the **Speech Input (STT)** tab, pick a **Provider** to talk to the agent:
 
 Then choose a **Microphone Device** (click **↺** to refresh the list) — leave it on
 **System default** to follow whatever your operating system is set to — and a **Global
-Push-to-Talk Key** — hold it to record even when EVE has focus. F13–F20 are rarely
-captured by games and make good PTT keys. The mic button in the panel works
-regardless of this setting.
+Push-to-Talk Key** — hold it to record even when EVE has focus. To set it, click its
+button and press the key or mouse button to use (**Esc** cancels; mouse buttons on
+Windows only); **Clear** removes it. F13–F20 are rarely captured by games and make
+good PTT keys. The mic button in the panel works regardless of this setting.
+
+!!! note "Shared with Mumble's keys"
+    The push-to-talk key is checked against the [Mumble](mumble.md#keys) keys: every
+    key the app listens for from anywhere is in one list. A key already used there is
+    refused, with a red line naming its other use. A clash saved before this check
+    shows as an amber warning on both keys.
 
 On a Mac, macOS asks once for the microphone, and the key needs no Accessibility
-permission. **Scroll Lock** and **Pause** aren't offered there, and a MacBook's own
-keyboard has none of the keys that are. See [Running on
+permission. Only keys a Mac keyboard has can be chosen. See [Running on
 macOS](running-on-macos.md#the-ai-agents-voice-and-microphone).
 
 ## Related

@@ -31,6 +31,9 @@ Scroll to zoom and drag to pan. Zoomed out, the map shows region boxes; zooming 
 - **Thera / Turnur** — shows or hides wormhole connections from Thera and Turnur. Offered only while EVE-Scout reading is on (see [Map Data](../logs-and-map-data.md#map-data)).
 - **Storms** — shows or hides metaliminal storms.
 - **Sov campaigns** — shows or hides sovereignty campaigns.
+- **♦ rats** — shows or hides [♦ rat activity](#rat-activity-and-npc-capitals). On by default.
+- **NPC capitals** — shows or hides [NPC capitals](#rat-activity-and-npc-capitals). Its arrow opens **Titans**, **Supercarriers** and **Dreadnoughts** boxes to choose which. All on by default.
+- **Intel** — a drop-down of what the map draws from intel besides the marks. See [Intel layers](#intel-layers).
 - **Details** — shows or hides the details and legend panel on the right, giving the map the whole tab. Each tab remembers its own choice; a new tab starts with the last one you made.
 
 The toggles are remembered on this computer.
@@ -44,18 +47,42 @@ The toggles are remembered on this computer.
 
 ### Live marks
 
-While the Universe Map is on screen, it reads who is where every 5 seconds and marks every map tab:
+While the Universe Map is on screen, it reads who is where every 5 seconds, and at once when new intel is written on any PC, and marks every map tab. It shows the same intel as the [Intel](intel.md) tool:
 
-- **Red round mark** — hostiles placed in that system in the last 5 minutes, by an intel report or a killmail. Hover for each pilot's portrait, corporation and alliance, what they fly, how long ago, and whether intel or a killmail put them there.
+- **Round mark** — hostiles placed in that system by an intel report, a pasted Local or a killmail, in their standing's colour: red, orange or neutral grey, by the worst among them. It fades as the news ages, and goes once its time is up (see [How long intel lasts](intel.md#how-long-intel-lasts)). Hover for when the newest news came, the standing, what was said about the system, and each pilot's portrait, corporation and alliance, what they fly, how long ago, and whether intel or a killmail put them there.
+- **Hollow mark with a dashed ring** — *no visual*: reported in Local, never seen on grid.
 - **Red "!"** — intel said something about the system (a spike, bubbles, a gate camp) but counted nobody. Hover to read what was said.
+- **Green check** — the system was called clear, and nothing has been said since. It fades over the clear's lifetime.
 - **Blue square mark** — your characters online there. Hover for their ship and whether they are docked or in space.
 - **Fuchsia ★** — officer NPCs seen in that system since the last downtime (11:00 EVE time), with a count when there is more than one. An officer's own death leaves no killmail, but every pilot it kills does, with the officer among the attackers; officers despawn at downtime, so the star points to where one may still be. Whether somebody has killed it since can't be seen. Hover for each officer's portrait, its latest kill in EVE time and how long ago, the ship it killed, and how many killmails it has been on there since downtime. It reads the killmails the app has stored, so with [zKillboard](../zkillboard.md) on it sees far more than your own kills.
 
-Zoomed out, each region carries the total of its systems.
+Zoomed out, each region carries the total of its systems, in the worst standing in it and as fresh as its freshest news.
 
-A pilot is placed where their newest report or killmail puts them: an intel report naming them, or a killmail they were an attacker on, with the hull from the mail. The victim of a newer killmail is down, and leaves the map.
+A pilot is placed where their newest sighting puts them: an intel report naming them, a pasted Local, or a killmail they were an attacker on, with the hull from the mail. The victim of a killmail is no threat and isn't counted. A pilot leaves a system when seen somewhere else, when the system is called clear, or when a pasted Local of it leaves them out.
 
-*Hostile* means anyone who isn't yours. Your characters, corporations and alliances are left out, and so is anyone you, your corporations or your alliances have set to positive standing. Blues are usually set once, on the alliance, so each character's alliance contacts are read along with the character's and corporation's own — at most once per alliance every five minutes. A pilot blue only through the alliance counts as friendly.
+*Hostile* means neutral or worse. Your own characters are left out, and so is anyone in a corporation or alliance one of your characters is in. The map has no single character looking, so a pilot counts as friendly when any of your characters, their corporations or their alliances has them at positive standing, or, when **Settings ▸ Intel** forces one character's standings, when that character does (see [Standings](intel.md#standings)). Blues are usually set once, on the alliance, so each character's alliance contacts are read along with the character's and corporation's own — at most once per alliance every five minutes.
+
+### ♦ rat activity and NPC capitals
+
+Two more marks, read from the killmails the app has stored. They sit in the lower-left tag row of a system, left of the officer ★. Zoomed out, each region lists its marked systems.
+
+- **Sky-blue ◆ tag** — ♦ pirate NPCs have killed players in this system in the last 5 days. The number is the players killed in the current run: a run is one faction's ♦ kills in the system with no quiet spell over 5 days, and the mark stays until 5 days after its last kill. Runs are traced back up to 60 days, and one still going at that limit says "since before". Hover for each faction, the players killed and over how long, the first and last kill in EVE time and how long ago, and the hulls seen. The mark says what was seen, not what is behind it.
+- **Orange T, S or D tag** — NPC titans (T), supercarriers (S) or dreadnoughts (D) on a killmail here since downtime (11:00 EVE time); the letter is the biggest class seen. Hover for each hull's faction, its kills here since downtime, and its last kill in EVE time and how long ago.
+
+Only the pirate factions count — Guristas, Angel Cartel, Blood Raiders, Sansha's Nation and Serpentis. EDENCOM and CONCORD police and the empire mining guards kill players too, but aren't rats. Pods aren't counted: a pod after its ship is the same player, not a second kill. Faction warfare, mission and Homefront capitals are left out.
+
+The **♦ rats** and **NPC capitals** buttons turn them on and off, and the capitals' arrow chooses the classes. Turning a class off takes it out of the counts and the hovers too. The choices are kept on this computer. The killmails are read at most every 2 minutes, and the capitals start afresh at downtime. With [zKillboard](../zkillboard.md) on **Capture all kills** they see far more than your own kills.
+
+### Intel layers
+
+The **Intel** drop-down on the toolbar switches what the map draws from intel besides the marks. They are drawn only where systems are shown, not on the regions, and each is in the standing's colour of the pilots behind it, fading as the news ages.
+
+- **Gate camps** — a gate camp found from kills, drawn as a thick stub on the gate's line, from the camped system towards where the gate leads, with the kills counted on it. Hover for the kills, how long ago the last was, the attackers and what they brought. On by default. See [Camps](intel.md#camps).
+- **Movement arrows** — a solid arrow from where reported pilots came from into the system they were seen in. On by default.
+- **Heading arrows** — a dashed arrow from the system a pilot was seen in to where they were said to be heading. On by default.
+- **Alert zones** — a thin dashed outline round every system an enabled [Intel report](alarms.md#intel-report) alarm watches now: what would make one go off. Off by default.
+
+At most the newest 30 arrows in view are drawn.
 
 ### Other marks
 
@@ -105,7 +132,7 @@ Double-click a system — or click a system name anywhere in the app, or pick on
     - **Campaign** — a sovereignty campaign scheduled or running here.
     - **Weather** — a metaliminal storm.
     - **Ansiblex zone** — the zone, the distance from the holder's capital, and what a jump bridge jump landing here costs.
-    - **Now** — hostiles placed here in the last 5 minutes, and your characters here.
+    - **Now** — hostiles placed here by intel or killmails that are still current, and your characters here.
 - A **stats box**: Planets, Moons, Belts, Jumps 1h / 24h, Ship kills, NPC kills and Pod kills.
 
 Tabs:
@@ -124,11 +151,11 @@ Campaigns are read from ESI at most once a minute while the Universe Map is on s
 
 ## Intel from chat logs
 
-If you monitor intel channels (see [Logs & Map Data](../logs-and-map-data.md#chat-logs)), their messages are parsed into *sightings* — who was seen, where, in what hull, and anything else said about the system, such as a gate camp or bubbles. Sightings appear on the live marks, the intel overlays and each system's **Intel** tab, with pilot / corp / alliance portraits and the original chat line kept alongside.
+If you monitor intel channels (see [Logs & Map Data](../logs-and-map-data.md#chat-logs)), or have Jabber rooms or IRC channels whose **Type** is **Intel**, their messages are parsed into *sightings* — who was seen, where, in what hull, where they came from or were heading, and anything else said about the system, such as a gate camp or bubbles. Sightings appear on the live marks, the intel overlays and each system's **Intel** tab, with pilot / corp / alliance portraits and the original chat line kept alongside. The [Intel](intel.md) tool lists them all, measured from your characters.
 
 On the **Intel** tab, the note column leads with what was said about the system ("gate camp, bubbles · on the QZ-X77 gate"), then any hulls nobody was named in, then the rest of the line.
 
-Reports of only your own pilots, or of pilots at positive standing, are left out.
+Reports of only your own pilots, or of pilots at positive standing, are left out of the marks.
 
 !!! note
     Duplicate messages are recognised across characters and machines, so importing a second computer's logs doesn't double-count sightings.
@@ -145,4 +172,5 @@ Reports of only your own pilots, or of pilots at positive standing, are left out
 
 - The map and overlays reflect only data the app has synced — killmails, sovereignty, industry indices, and so on.
 - Live marks and the minute-by-minute overlay refresh run only while the Universe Map is on screen.
+- Hostiles placed by killmails, the ◆ and NPC capital marks, and gate camps read the killmails the app has stored, so with the default [zKillboard](../zkillboard.md) scope, **My characters & corp only**, they see only kills involving you and your corporations.
 - Map statistics are collected hourly and thinned to daily as they age, with history backfilled from EVE Ref's archives for spans ESI does not serve. How much is fetched and kept is set under **Settings ▸ Map Data** — see [Logs & Map Data](../logs-and-map-data.md#map-data).

@@ -43,7 +43,7 @@ A webhook is not the same as being connected:
 
 - **Posts show the webhook's name**, not yours — whatever name the workspace gave it.
 - **It can't thread.** A sale posting's later blocks arrive as separate messages instead of replies under the first.
-- **It can't carry a picture.** A scheduled task aimed at a webhook skips its chart sections and says how many it skipped. An **Indy Park Compare** or **System Index** section posts only its tables, and the Scheduler warns you when it has pictures chosen.
+- **It can't carry a file.** It can only show a picture that is already on the web. So a scheduled task's charts reach a webhook only once you've signed in to [Online Services](online-services.md) (see [Pictures in scheduled posts](#pictures-in-scheduled-posts)).
 
 There's no **Test** button for a webhook: the first post shows whether it works. **Remove** takes one out of the list. It's refused while a part of the app still posts through it (see below) — pick something else there first.
 
@@ -67,7 +67,41 @@ Each list holds your channels, **Note to Self** among them, then your webhooks. 
 - **Corp Activity uses the format beside the button.** The Top 10 and the monthly summary post in the format picked in the format list next to **Post to Slack** — the same one **Export to Clipboard** uses. Pick **Slack**: headings are bold and tables sit in code blocks, so their columns line up. **Plain Text** is posted as one code block. The Top 10 is posted without ISK amounts, like **Export (No ISK)**.
 - **Sale postings are threaded.** Each post block is rendered in Slack's own formatting, whichever format the Posting tab shows. On a channel the first block is the message and the rest go in its thread. Through a webhook each block is its own message.
 - **Long posts go out in parts.** Slack cuts a long message wherever the length runs out, straight through a table. So the Top 10, the monthly summary and scheduled posts are sent as messages of up to 3,500 characters each, about a second apart, in order. A heading stays with its table, and a section that fits in one message is never split: a table longer than one message is split between rows, with its header repeated at the top of the next message.
-- **Charts are uploaded.** A scheduled task posting to a channel uploads its chart sections, and the pictures of its **Indy Park Compare** and **System Index** sections, as images under the message text.
+- **Scheduled posts can use boxes, tables and pictures.** See below.
+
+## Scheduled posts: boxes, tables and pictures
+
+A [scheduled task](tools/scheduler.md) can post more than text to Slack. There are two separate things here, and they work differently.
+
+### Boxes and tables
+
+Several sections can post in Slack's own layout instead of a text table in a code block:
+
+- **Text** in a box, narrow, standard or wide, with an optional picture beside its title.
+- **Corp Top 10** lists as boxes two to a row, each name with its portrait or logo, and number 1 shown larger as the **Leader**.
+- **Standing Projects** as one box with a picture, a few lines of your own and the rows lined up in columns.
+- **Industry Opportunities** as a box with the **Top Item** featured and an icon on every row.
+- **System Index** as a Slack table, with each index's 7-day change.
+- **Indy Park Compare** as a Slack table, or as a box for each job.
+
+Each section has its own option for this. The [Scheduler](tools/scheduler.md#slack-formats) says what each one looks like and how to turn it on.
+
+These work on **both channels and webhooks, with no sign-in**. Their portraits, logos and item pictures come straight from EVE's image server, which Slack can reach by itself. Discord, and any post Slack refuses in this format, get the text tables instead.
+
+### Pictures in scheduled posts
+
+The corp trend charts, and the pictures an **Indy Park Compare** or **System Index** section can post, are drawn on your computer. How they reach Slack depends on where the task posts:
+
+- **A channel** (after **Connect to Slack**): EVE Console uploads each picture to Slack, under the message text.
+- **A webhook:** a webhook can't take a file. Slack has to fetch a picture from a web address. So EVE Console uploads it to [Online Services](online-services.md) on eveconsole.com, and posts the picture's address under its title. This needs a sign-in under **Settings ▸ Online Services**.
+
+Signed out, a task aimed at a webhook skips its chart sections and leaves out the other sections' pictures, posts everything else, and says in its result how many sections it skipped. The Scheduler warns you about this in the editor.
+
+!!! warning "Pictures for a webhook are public"
+
+    A picture uploaded for a webhook can be opened by anyone who has its link, and is kept for 12 months. The Scheduler shows a note under any section this applies to. See [What leaves your computer](online-services.md#what-leaves-your-computer).
+
+Pictures go out straight after the section they belong to, before the next section starts.
 
 ## Posting twice
 
@@ -96,6 +130,9 @@ The status line beside the button (or the task's last-run result in the Schedule
 - **Slack has not granted this connection permission to upload files** — a chart upload from a connection made before EVE Console asked for that. Click **Connect to Slack** again.
 - **Posted 2 of 3 messages…** — the first parts arrived and a later one was refused, even after a second try. The message says why. The parts that arrived stay in the channel; a scheduled run counts as done, so the start isn't posted again.
 - **Slack refused it: …** — a scheduled post where nothing arrived. The task tries the whole post again on its next pass.
+- **Slack would not take the format with images (…), so this went as text.** — Slack refused a section's boxes or table, so the same numbers were posted as the text table. The reason is Slack's.
+- **… chart section(s) skipped: to show images, a Slack webhook needs a sign-in under Settings, Online Services.** — a task aimed at a webhook while signed out of [Online Services](online-services.md). Everything else was posted.
+- **… chart(s) failed: …** — a picture didn't arrive. Each is named with the reason, which for a webhook can be one of the [Online Services errors](online-services.md#when-an-upload-fails).
 - **That webhook has been deleted.** — a scheduled task's webhook was removed from Settings. Removing a webhook isn't stopped by tasks that use it, so pick another destination in the task.
 
 ## Notes

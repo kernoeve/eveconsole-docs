@@ -19,7 +19,7 @@ EVE Console keeps everything it knows in a database. By default that's a single 
 |---|---|---|
 | Setup | none — a local file | you run (or rent) a server |
 | Data location | `EveConsole.db` on this machine | on the server |
-| Multiple clients | one at a time (the file is held exclusively) | many at once, sharing one dataset |
+| Multiple clients | one at a time (the file is held exclusively) | many at once, sharing one dataset (one desktop app per user on each machine) |
 | Headless [background worker](background-processing.md) | not alongside a desktop client on the same machine | yes — that's the point |
 | Backups | file copy / built-in backup | built-in backup, using `pg_dump` from PostgreSQL's client tools |
 
@@ -80,7 +80,7 @@ You can enable scheduled backups, choose an interval, set how many to keep, and 
 
 **Settings ▸ Data Retention** sets how long EVE Console keeps data it can afford to forget. Each kind of data has its own rule: tick **Purge … older than**, set the number of days, and the rule runs once a day. **Purge Now** runs it straight away, and each rule shows when it last ran.
 
-Only **Agent Activity** is on by default. Every other rule is off until you turn it on.
+**Agent Activity**, **Direct Messages** and **Group Chat** are on by default. Every other rule is off until you turn it on.
 
 | Rule | Removes | Default | Shortest |
 | --- | --- | --- | --- |
@@ -90,6 +90,9 @@ Only **Agent Activity** is on by default. Every other rule is off until you turn
 | **Price History** | daily market history, and the price snapshots built from it | 90 days | 30 days |
 | **Game Log** | parsed game-log events | 365 days | 30 days |
 | **Chat Messages** | stored chat messages (intel sightings already parsed are kept) | 90 days | 30 days |
+| **Intel history** | [intel](tools/intel.md) reports, the pilots named in them, and where each pilot was last seen | 90 days | 7 days |
+| **Direct Messages** | saved direct messages from [Jabber](jabber.md), [Mumble](mumble.md) and [IRC](irc.md); unread ones are never removed | 30 days | 1 day |
+| **Group Chat** | saved messages from Jabber rooms and IRC channels; unread ones are never removed, and Mumble channel chat is never saved | 30 days | 1 day |
 | **Agent Activity** | the record of past [AI Agent](ai-agent-eden.md) exchanges, which the usage and cost figures are built from | 90 days | 7 days |
 
 ### Kill mails

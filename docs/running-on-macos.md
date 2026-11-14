@@ -77,19 +77,18 @@ Alarm sounds need nothing installed. VLC comes inside the app, and each package 
 
 **Push-to-talk key:** this needs no Accessibility permission.
 
-- The choices are **F13** to **F20**, **Insert** (the Help key on keyboards that have one), and **Numpad 0**, **\***, **/** and **-**. **Scroll Lock** and **Pause** aren't offered, because a Mac keyboard doesn't have them.
-- A MacBook's built-in keyboard has none of these keys, so a push-to-talk key needs an external keyboard. The mic button in the agent panel works without one.
-- While it's set, the key belongs to EVE Console, and other apps don't see it.
+- You choose it by pressing it. Any key a Mac keyboard has can be used: letters, digits, **F1** to **F20**, the arrows, the numpad keys, **Insert** (the Help key on keyboards that have one) and so on. Modifier keys on their own (Shift, Control, Option, Command), **Caps Lock**, **Scroll Lock**, **Pause** and mouse buttons aren't accepted on a Mac.
+- While it's set, the key belongs to EVE Console, and other apps don't see it, so choose one you don't type with, such as **F13** on an external keyboard. The mic button in the agent panel works without a key.
+- The same key can't also be one of [Mumble's](mumble.md) keys: a key already in use elsewhere is refused.
 
 ## The menu bar icon
 
-Under **Settings ▸ Polling ▸ Notification Area Icon**, tick **Show a menu bar icon, starting when you log in**. It starts straight away too. Its menu has **Background Processes**, **Open EVE Console** and **Exit**. It's a small separate process that shows which client is doing the background work, and it never does that work or sounds alarms itself. See [A tray or menu bar icon](background-processing.md#a-tray-or-menu-bar-icon).
+While EVE Console runs, its icon sits in the menu bar and shows which client is doing the background work. Its menu has **Open EVE Console**, **Background Processes** and **Exit**.
 
-Ticking the box writes a launch agent, `~/Library/LaunchAgents/com.eveconsole.tray.plist`, which macOS starts when you log in. macOS also lists it under **System Settings ▸ General ▸ Login Items**, where you can switch it off.
+Under **Settings ▸ Polling ▸ Notification Area Icon**, **Keep EVE Console running in the menu bar when the main window is closed** makes closing the main window only hide it, so alarms and the background work carry on. See [A tray or menu bar icon](background-processing.md#a-tray-or-menu-bar-icon).
 
-- **Exit** really exits: nothing restarts it until you next log in.
-- Unticking removes the launch agent. An icon already showing stays until you choose **Exit** on it, or log out.
-- The launch agent names where the app is. If you move the app, untick the box and tick it again.
+!!! note "Upgrading from 0.9.18"
+    0.9.18's **Show a menu bar icon, starting when you log in** started a separate icon process from a launch agent. It's gone in 0.9.19: the first start of the new version removes `~/Library/LaunchAgents/com.eveconsole.tray.plist` (and its entry under **System Settings ▸ General ▸ Login Items**) and turns on **Keep EVE Console running in the menu bar…** instead.
 
 ## Backups on PostgreSQL: `pg_dump`
 

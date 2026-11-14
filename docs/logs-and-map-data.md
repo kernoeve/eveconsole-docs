@@ -83,13 +83,16 @@ Messages in channels ticked as **INTEL** are parsed into *sightings*: the system
 
 Sightings feed:
 
+- the [Intel](tools/intel.md) tool and its panel control;
 - the live marks and Intel overlays on the [Universe Map](tools/universe-map.md#intel-from-chat-logs);
 - each system's **Intel** tab;
 - the **Intel report** alarm in [Alarms](tools/alarms.md#intel-report).
 
-Reports of only your own pilots, or of pilots at positive standing, aren't counted as sightings.
+Jabber rooms and IRC channels whose **Type** is **Intel** are read the same way, and a report relayed from one place into another is counted once.
 
-**Parse Stored History** parses the messages already stored for your intel channels. Use it after ticking an intel channel, so the overlays aren't empty until someone posts fresh intel. It works on stored messages only — to load older messages from the log files, run an import first.
+Your own pilots and pilots at positive standing are left out of the map and the alarms, and the Intel tool shows them only when you switch their standings on. How long each sighting lasts is set under **Settings ▸ Intel** (see [How long intel lasts](tools/intel.md#how-long-intel-lasts)).
+
+**Parse Stored History** parses the messages already stored for your intel channels. Use it after ticking an intel channel, so the overlays aren't empty until someone posts fresh intel. It works on stored messages only — to load older messages from the log files, run an import first. With several PCs on one [PostgreSQL](storage-postgresql.md) database, intel is parsed by the PC doing the background work; pressed anywhere else, the button asks that PC to do it.
 
 #### Regions
 
@@ -103,11 +106,13 @@ The box saves as you type, and the next intel pass reads it.
 #### What the parser reads
 
 - **Systems** — full names, and shortened null-sec names narrowed down by the channel's regions. When that still leaves several, the one the channel has named far more often wins; otherwise none is taken. A zero typed for an O is read as an O, and system names in other client languages are understood. A system right after words such as "left", "from" or "not" isn't taken as where the hostiles are.
+- **Direction** — where they came from ("from QZ-X77", "left QZ-X77", or an arrow: "QZ-X77 -> XQ1-Z2") and where they are heading ("heading XQ1-Z2", "moving to", "towards"). A system they came from or are heading to is never where they are; one they went into ("entered", "into", "jumped") is. The Universe Map draws these as arrows.
+- **Follow-up lines** — a line with no system of its own ("+2", "=12", "nv", "clr", a pilot's name, "heading XQ1-Z2") adds to the same reporter's last report in the same channel, when it comes within the **Follow-up window** under **Settings ▸ Intel** (3 minutes by default).
 - **Ships** — hull names in every client language, common slang ("kiki", "vaga", "inty", "dictors"), plurals and ship classes, and "navy" for a Navy Issue hull.
 - **Counts** — numbers tied to ships or people: "3 lokis", "Sabre x2", "+5", "14 man", "=8", "4 total", "3 camping". A bare number is never a count, since pilot names often end in one.
 - **What's going on** — a spike, gate camp, bubbles, wormhole, the ESS, a cyno, a skyhook, combat probes or a hotdrop risk, and which gate ("on the QZ-X77 gate"). A report that only says one of these still counts.
 - **Pilots** — names pasted from the game. A one-word name typed differently from the character's own counts only if that character has been on a killmail in the system, so ordinary chatter isn't taken for pilots.
-- **Clears** — "clr" and its common typos.
+- **Clears** — "clr" and its common typos, when the clear is the line's whole claim. A clear takes the hostiles out of the system, so a question ("anyone know if QZ-X77 is clr", any "?"), a "not clr", a wait ("QZ-X77 will be clr soon") or a line that says something else too isn't taken as one.
 
 ### Import Past Chat
 

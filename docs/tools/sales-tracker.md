@@ -1,12 +1,12 @@
 # Sales Tracker
 
-Reviews everything you've sold — market (wallet) sell transactions and finished item-exchange contracts — with each sale's build cost, market value, and profit. A shared filter bar drives two tabs: a **Summary** of rollups and charts, and a **Detail** grid of individual sales.
+Reviews everything you've sold — market (wallet) sell transactions and finished item-exchange contracts — with each sale's build cost, market value, and profit. A shared filter bar drives three tabs: a **Summary** of rollups and charts, **By period** totals with for-profit and not-for-profit sales side by side, and a **Detail** grid of individual sales.
 
 Open it from the left sidebar under **Market / Trade**.
 
 ## Filters
 
-The filter bar sits above both tabs and governs both:
+The filter bar sits above the tabs and governs all of them:
 
 - **From** / **Thru** — date range (`yyyy-MM-dd`). Defaults to the last year; leave **Thru** blank for "up to now."
 - **Owner** — *All*, *All Characters and Personal Corps* (the default), or a specific tracked character or corporation. Characters and corporations you add or remove appear or go at once; the owner you picked stays picked unless it is the one removed.
@@ -14,7 +14,8 @@ The filter bar sits above both tabs and governs both:
 - **Profit based on** — the cost basis the profit figures measure against, everywhere on the screen:
     - **Build** — profit versus the item's build cost (the default).
     - **Market** — profit versus the item's market value.
-- **Show not for profit** — include sales you've marked *not for profit* (see [Detail](#detail)). When ticked, they count everywhere — summaries, charts and grid alike.
+- **Show not for profit** — include sales you've marked *not for profit* (see [Detail](#detail)). When ticked, they count everywhere — summaries, charts and grid alike. [By period](#by-period) always counts them, on their own side.
+- **Item groups** — narrow every tab to sales of items under chosen market groups. Click **+ Group**, pick a market group and click **Add group**; each group shows as a chip, and its **×** removes it. A sale counts when its item sits anywhere under one of the groups, so *Capital Ships* takes every capital hull. A contract counts under its most valuable item (see [how a contract is filed](#how-a-multi-item-contract-is-filed)). With no group chosen, every sale counts.
 
 ## Summary
 
@@ -30,6 +31,34 @@ The filter bar sits above both tabs and governs both:
 - **Margin** — profit margin as a percentage (kept on its own chart so ISK figures in the billions don't flatten it).
 
 A **Chart by** selector buckets the charts by **Daily**, **Weekly** or **Monthly**. A note flags any sales that couldn't be costed (no price snapshot), since those are left out of the chart maths.
+
+## By period
+
+Your sales period by period, with the for-profit and not-for-profit sides next to each other, for a monthly report or a summary to post in a chat. Not-for-profit sales always count here, whatever **Show not for profit** says: the mark only decides which side a sale is on.
+
+Above the table:
+
+- **Rows** — **Daily**, **Weekly** (from Monday) or **Monthly** (the default). This is separate from the charts' **Chart by**.
+- **Split by** — what each period is broken into, under its own line: **None**, **Tag** (the default), **Market group**, **Item**, **Buyer** or **Owner**.
+- **For-profit share by** — what the share is a share of: **Cost** (the default), **Sale ISK** or **Units**.
+- **Copy as text** copies both tables as plain text in a code block, ready to paste into a chat. **Export CSV** saves them as a CSV file, numbers unrounded.
+
+Four cards sum up the whole range: **Units** (with the ISK they sold for), **For profit** (units, with the profit and profit %), **Not for profit** (units, with the ISK they sold for) and **For-profit share**.
+
+**The period table** has a line for each period from the first sale to the last, a quiet one included, then its splits indented beneath it, and a **Total** line at the end. The current week or month reads *to date*. Its columns come in three groups:
+
+| Group | Columns |
+| --- | --- |
+| **All sales** | **Units**, **Sale ISK**, **For-profit share** (with a bar) |
+| **For profit** | **Units**, **Sale ISK**, **Cost**, **Profit**, **Profit %** |
+| **Not for profit** | **Units**, **Sale ISK** |
+
+**Cost** is the **Profit based on** basis from the filter bar, as of each sale's day, and **Profit %** is profit over that cost. Sales with no cost are left out of cost and profit.
+
+**Units sold** below it counts units period by period, one column a period plus a **Total**, by what you choose in **Count by**: **Market group** (the default), **Item**, **Tag**, **Buyer** or **Owner**. Each cell gives the units, then the for-profit and not-for-profit split in brackets: *12 (9·3)*. Only items in the chosen item groups count, so a carrier sold with its fittings is one carrier, not one carrier and forty modules.
+
+!!! note "Tags are just text"
+    A split or count by **Tag** uses a sale's **Labels**. A sale with no label is under **No tag**. A sale with two labels shows under both, but counts once in its period and in the total, so a period's splits can add up to more than the period.
 
 ## Detail
 
