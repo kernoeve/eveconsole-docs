@@ -243,7 +243,7 @@ The app only tells the taskbar which windows to stay behind; nothing is sent to 
 
 Nine templates come with the app: **Plain Vanilla**, **One Client - Standard**, **One Client - Minimal**, **Two Clients - Horizontal**, **Two Clients - Horizontal - Minimal**, **Two Clients - Vertical**, **Two Clients - Vertical - Minimal**, **Four Clients** and **Four Clients - Minimal**. They carry no Mumble server or chat room.
 
-Any layout file saved in the templates folder shows up under **New**, so export a layout there to make it a template. Templates are copied in once: one you delete or change stays that way, a file of yours is never overwritten, and templates added in later versions still arrive.
+Any layout file saved in the templates folder shows up under **New**, so export a layout there to make it a template. Templates are copied in once: one you delete or change stays that way, a file of yours is never overwritten, and templates added in later versions still arrive. A template you never touched is brought up to date when a new version of the app changes it.
 
 ## Keeping the app running in the tray
 

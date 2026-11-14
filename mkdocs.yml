@@ -86,6 +86,7 @@ nav:
       - Jabber: jabber.md
       - Mumble: mumble.md
       - IRC: irc.md
+      - Connectors (preview): connectors.md
       - Themes: themes.md
       - Languages: languages.md
   # Grouped and ordered as the app's sidebar is (MainWindowViewModel's NavGroups), plus the

@@ -83,6 +83,8 @@ One row per system with live intel, within the distance chosen. The strip above 
 
 Click a row to open it: the pilots there first, then the system's reports, follow-up lines and kills. Double-click to open the system's page. The Board lists up to 200 systems.
 
+Click a kill line anywhere but on a link to open the kill in [Killmails](killmails.md); its right-click menu has **Open the kill** too. The same goes for kill lines on the Feed and in the panel control.
+
 ### Feed
 
 Every line, newest first: reports, follow-up lines, clears, pastes, kills and gate camps, each labelled by what it is, with who reported it and where. Lines that have expired or been replaced by newer news stay, faded and marked **expired** or **superseded**.
@@ -105,7 +107,7 @@ A pilot's page in [Players & NPCs](entities.md) shows the same **Last seen** lin
 
 Gate camps near you, active and lately ended. A camp is worked out from kills on a gate: kills within 150 km of a stargate, each no more than 30 minutes after the one before and sharing an attacker, once at least 2 different pilots have been lost there. A single kill isn't a camp. An intel report calling a camp on that gate counts too.
 
-Columns: **Jumps**, **Camp** (the system and the gate, named for where it leads), **Status** (**Active** or **Ended**), **Kills**, **Last**, **Attackers**, **Flags** (smartbombs, an interdictor or heavy interdictor, bubbles) and **Sources** (**Kills**, **Reported**, or **Kills and reports**). An ended camp stays, faded, for an hour after its last kill.
+Columns: **Jumps**, **Camp** (the system and the gate, named for where it leads), **Status** (**Active** or **Ended**), **Kills**, **Last**, **Attackers**, **Flags** (smartbombs, an interdictor or heavy interdictor, bubbles) and **Sources** (**Kills**, **Reported**, or **Kills and reports**). A system called clear after a camp's last kill ends the camp at the clear; a later kill on the gate makes it active again. An ended camp stays, faded, for an hour after its last kill.
 
 Double-click a camp, or right-click it for **Open kills**, to open its kills in [Battle Report](battle-report.md).
 
@@ -138,9 +140,9 @@ To add one, choose the kind, type a name in **Name to add…**, choose the mode,
 
 ## The Intel panel control
 
-On Windows, [Client Layouts](client-layouts.md#panel-controls) can put an **Intel** control in a panel beside a game client. It follows the character in that monitor's client and shows live intel around them, one line per system with hostiles, nearest first: how far, the system and region, how many, what they fly, who, the flags, and how long ago. Click a line to open it to the pilots there and the system's reports, kills and camp lines.
+On Windows, [Client Layouts](client-layouts.md#panel-controls) can put an **Intel** control in a panel beside a game client. It follows the character in that monitor's client and shows live intel around them, one line per system with hostiles, nearest first: how far, the system and region, how many, what they fly, who, the flags, and how long ago. Click a line to open it to the pilots there and the system's reports, kills and camp lines; click a kill line to open the kill.
 
-- **Shows as** — the live list, or one line with the nearest threat and how many more, the list dropping down when clicked.
+- **Shows as** — the live list, or one line with the nearest threat and how many more, the list dropping down when clicked. The one line sits on the panel with no box of its own, outlined in red while the news is fresh; hover the system for its region.
 - **Looks out to** — 3, 5, 10, 15 or 20 jumps (10 to start), through stargates and open Thera or Turnur holes. Jump bridges aren't counted.
 
 Both are set in the layout editor. The control shows threats only: blue and light blue are left out, and at most 50 lines show. Fresh news within five jumps lights its line up; that is a look only, and the sound is the alarms' job. Its buttons paste Local or d-scan (the **Paste** tab, with this character and system chosen) and open the Intel tool. Nothing is ever sent to the game client.
@@ -160,7 +162,7 @@ The [Intel report](alarms.md#intel-report) alarm reads the same intel: sightings
 - **Gate camps from kills** — **Within this distance of a gate** (150 km; 20 to 1,000), **Longest gap between kills** (30 minutes; 5 to 120) and **Pilots lost before it is a camp** (2; 2 to 20).
 - **Standings** — **Standings from**: **(each client's own character)**, or one character whose standings colour everything.
 - **Distance** — **Use our jump bridges in travel distances**. Off to start. Threat distances never use them.
-- **Intel alarms** — **Wake only for news newer than** (120 seconds; 15 to 1,800) and **Wait between wakes** (15 seconds; 0 for no wait, up to 600). See [Alarms](alarms.md#intel-report).
+- **Intel alarms** — **Only news newer than** (120 seconds; 15 to 1,800): only news this new fires an intel alarm and lights up a panel line. See [Alarms](alarms.md#intel-report).
 - **Kill feed warning** — **Show the warning again** after it was hidden.
 
 How long intel history is kept is set under **Settings ▸ Data Retention**: **Purge intel history older than**, 90 days when ticked (at least 7). It removes intel reports, the pilots named in them and where each pilot was last seen. Chat messages and kills are kept by their own rules.

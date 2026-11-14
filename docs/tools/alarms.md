@@ -41,7 +41,7 @@ Fires at a specific date and time, and optionally repeats on a fixed interval th
 
 Fires on intel near what you're watching: hostile pilots reported or seen on a kill, kills, a gate camp or bubbles called in, gate camps worked out from kills, and pilots coming closer. It reads the same intel as the [Intel](intel.md) tool — the intel channels under **Settings ▸ Chat Logs** (see [Logs & Map Data](../logs-and-map-data.md#intel-channels)), Jabber rooms and IRC channels whose **Type** is **Intel**, kills and pasted Local — as it stands now. A pilot seen since somewhere else, a system called clear, or news past its lifetime (see [How long intel lasts](intel.md#how-long-intel-lasts)) no longer fires.
 
-The editor groups its settings under three headings: **Where to watch**, **What fires** and **What wakes you**. A new intel alarm checks every **15** seconds, and is checked again at once when new intel is written, when a character undocks or changes system, and when the Route Planner sends a route.
+The editor groups its settings under two headings: **Where to watch** and **What fires**. A new intel alarm checks every **15** seconds, and is checked again at once when new intel is written, when a character undocks or changes system, and when the Route Planner sends a route.
 
 #### Where to watch
 
@@ -53,9 +53,10 @@ The editor groups its settings under three headings: **Where to watch**, **What 
 
 With **Undocked characters** or **Characters**, the **Characters** list narrows it to the characters you name; leave it empty for all of them. With **Systems**, add each system to the **Systems** list.
 
-- **Jumps** — how many jumps out from each character or system to watch, through stargates and through Thera's and Turnur's open wormholes. The default is **5**; **0** watches only the system itself. The most is 15.
+- **Jumps from** / **Thru** — the range in jumps from each character or system, through stargates and through Thera's and Turnur's open wormholes. **Thru** is the farthest: **5** by default, the most 15; **0** watches only the system itself. **Jumps from** is optional, the nearest: systems nearer than it are left out everywhere, priority systems and the route ahead too. Two alarms can split a range this way, **0** thru **2** on one and **3** thru **5** on the other, and never both fire.
 - **Light years** — optional. Also watch every system within this many light years, however many gates away — what a jump drive or a cyno puts in reach. The most is 20; empty or 0 is off.
 - **Watch the route ahead** — on by default, around characters only. Also watch the systems still ahead on the last route the [Route Planner](route-planner.md) sent to the game for a watched character, however far; what is seen there is said as so many jumps ahead on the route. Only the part not yet flown counts, and the route is dropped on arrival or six hours after it was sent. A route set only in the game can't be known.
+- **Priority systems** — optional. Systems always watched, wherever your characters are, but not nearer than **Jumps from**. What is seen there is said first.
 
 A report caught by any of them fires. The Universe Map's **Alert zones** layer outlines the systems your intel alarms watch now (see [Intel layers](universe-map.md#intel-layers)).
 
@@ -64,10 +65,11 @@ A report caught by any of them fires. The Universe Map's **Alert zones** layer o
 - **Min players** — only fire when at least this many hostiles are in the system. The default is 1. Kills and flag-only reports fire whatever the number.
 - **Ignore no visual** — skip pilots and counts reported NV, where someone is relaying a contact they can't actually see.
 - **Flag-only reports** — on by default. Also fire for a report that counts nobody but says a gate camp, bubbles, a cyno, a hot drop, a spike or combat probes. Each is said once while it lasts. Other things a report can say (a wormhole, someone at the ESS or a skyhook) are said with a sighting, never alone.
-- **Gate camps** — on by default. Fire for a gate camp worked out from kills (see [Camps](intel.md#camps)), near a watched character or on a route ahead. It is said once per camp, per character and per route, so a new route through a known camp is said again. One on a route ahead within the wake range (5 jumps when **Wake within** isn't set) is urgent.
+- **Gate camps** — on by default. Fire for a gate camp worked out from kills (see [Camps](intel.md#camps)), near a watched character or on a route ahead. It is said once per camp, per character and per route, so a new route through a known camp is said again. One on a route ahead within 5 jumps is urgent.
 - **Hostile** — which named pilots count, by the standings of your watched character nearest them, or of the character forced under **Settings ▸ Intel** (see [Standings](intel.md#standings)): **Neutral or worse** (the default), **Negative only** or **Red only**. Your own characters and blues never count; unnamed counts and flag-only reports always do.
-- **Use the watch list** — on by default. Follow the Intel tool's [watch list](intel.md#watch-list): anyone or anything on **Always alert** fires within the **Watch list reach**, whatever the range, the **Hostile** choice or **Min players**, is said first and never held back. What is on **Ignore** never fires.
-- **Watch list reach** — how many jumps out the watch list's **Always alert** entries fire, when that is farther than **Jumps**. The default is **10**; the most is 15.
+- **Use the watch list** — on by default. Follow the Intel tool's [watch list](intel.md#watch-list): anyone or anything on **Always alert** fires within the **Watch list reach**, whatever the range, the **Hostile** choice or **Min players**, and is said first. What is on **Ignore** never fires.
+- **Watch list reach** — how many jumps out the watch list's **Always alert** entries fire, when that is farther than **Thru**. The default is **10**; the most is 15.
+- **Quieter further out** — on by default. The sound plays at full volume within a jump, and more quietly further out, down to 40% at the edge of the range. Speech keeps your voice volume.
 
 **Kills.** A kill in a watched system with hostile pilots among the attackers always fires, said as a kill: what was lost, and to what ("Kill in *system*: Retriever lost to Sabre and Loki"). Within a jump it is urgent, and said first. NPC attackers don't count, and the kill's attackers aren't said again as a sighting.
 
@@ -79,23 +81,16 @@ A report caught by any of them fires. The Universe Map's **Alert zones** layer o
 - a kill once;
 - a gate camp once per camp, per character and per route.
 
-#### What wakes you
+#### Only news fires
 
-Every match is recorded as an **Alert**. Only *news* wakes you — a sound, speech, the agent or a dialog: something seen, or come into range, in the last two minutes (**Wake only for news newer than** under **Settings ▸ Intel**). Older news is only recorded.
+Only *news* fires: something seen, or come into range, in the last two minutes (**Only news newer than** under **Settings ▸ Intel**). What was already there is not said. **Every action of the alarm runs for everything it fires on** — the sound, speech, the agent, a dialog and the Alert alike. For something different nearer in, such as a louder sound within two jumps, add a second intel alarm and split the range with **Jumps from** and **Thru**.
 
-- **Wake within** — optional. Only news this many jumps out or nearer wakes you; farther out it is only recorded. Kills and urgent news always wake. Unticked, the whole range wakes.
-- **Approaching pilots still wake** — on by default. With **Wake within** set, a pilot coming nearer (seen closer than before, or reported heading toward your character) wakes you anywhere in the range.
-- **Quieter further out** — on by default. The sound plays at full volume within a jump, and more quietly further out, down to 40% at the edge of the range. Speech keeps your voice volume.
-- **Priority systems** — optional. Systems always watched, wherever your characters are. What is seen there always wakes you, is never held back by another intel alarm, and is said first.
-
-**Urgent news** is said before the rest of a firing and is never held back: a kill within a jump, anything in a priority system, anyone on the watch list's **Always alert**, a pilot coming closer, and a gate camp on a route ahead within the wake range.
-
-**Intel alarms take turns.** After one intel alarm wakes you, the others wait for **Wait between wakes** (15 seconds by default, under **Settings ▸ Intel**) unless their news is urgent, and a sighting two of them catch is said once.
+**Urgent news** is said before the rest of a firing: a kill within a jump, anything in a priority system, anyone on the watch list's **Always alert**, a pilot coming closer (seen closer than before, or reported heading toward your character), and a gate camp on a route ahead within 5 jumps.
 
 **What it says** names the place and how far: "2 jumps from *character*", "where *character* is", "3 jumps ahead on *character*'s route", or the light years when only that range caught it, with "through Thera or Turnur" when the shortest way goes through one. A pilot coming closer adds "Approaching: heading to *system*" or "Approaching: was 4 jumps out"; one leaving, "Heading away, to *system*". News in a priority system starts "Priority system:", and about someone on the watch list "Watch list:". A camp is said as "Gate camp in *system* on the *gate* gate", with its kills and over how many minutes. Anything else a report said — a gate camp, bubbles, which gate — is said before the hulls.
 
 !!! note "Changed in 0.9.19"
-    Intel alarms made before 0.9.19 behave as above from now on, with **Flag-only reports**, **Gate camps**, **Watch the route ahead**, **Use the watch list**, **Approaching pilots still wake** and **Quieter further out** on. One left at the editor's general 60-second check now checks every 15 seconds.
+    Intel alarms made before 0.9.19 behave as above from now on, with **Flag-only reports**, **Gate camps**, **Watch the route ahead**, **Use the watch list** and **Quieter further out** on. One left at the editor's general 60-second check now checks every 15 seconds.
 
 ### Market / contract price
 

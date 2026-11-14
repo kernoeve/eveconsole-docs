@@ -28,6 +28,7 @@ Before most tools are useful, configure a few things:
 - **[Posting to Slack](slack.md)** and **[Posting to Discord](discord.md)** — send corp summaries, Top 10s, sale postings and scheduled reports to your channels, with pictures, tables and boxes on Slack.
 - **[Online Services](online-services.md)** — an optional sign-in with one EVE character that lets scheduled posts show charts through a Slack webhook; what is sent to eveconsole.com, what it keeps, and how to sign out.
 - **[Jabber](jabber.md)**, **[Mumble](mumble.md)** and **[IRC](irc.md)** — your corp and alliance chat and voice inside EVE Console: rooms, channels and direct messages, Mumble keys per server, channel targets and whispers, and rooms that feed [Intel](tools/intel.md).
+- **[Connectors](connectors.md)** (preview) — link EVE Console to services your corporation or alliance runs, such as which characters belong to one player, without it holding anyone else's EVE tokens.
 - **[Themes](themes.md)** — pick from the light, dark, tinted and EVE faction themes, or make your own with colour pickers and a live preview; the whole interface repaints live.
 - **[Languages](languages.md)** — use EVE Console in any of the game's eight languages, with item and system names as the game client shows them.
 
